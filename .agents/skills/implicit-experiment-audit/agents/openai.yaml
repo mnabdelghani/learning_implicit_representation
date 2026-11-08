@@ -1,0 +1,6 @@
+interface:
+  display_name: "Implicit learning: experiment audit"
+  short_description: "Trace learner inputs, derivatives, runs, and metrics."
+  default_prompt: "Use $implicit-experiment-audit to audit the selected experiment, its observed inputs, evaluated partials, update timing, and metrics. Preserve recorded results and report missing evidence before proposing changes."
+policy:
+  allow_implicit_invocation: true

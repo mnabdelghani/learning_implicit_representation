@@ -1,0 +1,39 @@
+{
+  "status": "template-not-an-executed-run",
+  "run_id": null,
+  "experiment": null,
+  "protocol_version": null,
+  "source_commit": null,
+  "dirty_diff_sha256": null,
+  "started_utc": null,
+  "finished_utc": null,
+  "working_directory": null,
+  "command_argv": [],
+  "python_version": null,
+  "dependency_versions": {},
+  "config_file": null,
+  "config_sha256": null,
+  "seeds_planned": [],
+  "seeds_completed": [],
+  "seeds_failed": [],
+  "simulation": {
+    "integration_step": null,
+    "observation_interval": null,
+    "duration": null,
+    "memory_time": null
+  },
+  "evaluation_windows": {},
+  "raw_records": [],
+  "metrics": {},
+  "metric_audit": null,
+  "figure_generation": [],
+  "tests": {
+    "commands": [],
+    "passed": null,
+    "failed": null,
+    "skipped": null
+  },
+  "limitations": [],
+  "approved_for_manuscript": false,
+  "published": false
+}

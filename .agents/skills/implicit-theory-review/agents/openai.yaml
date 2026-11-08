@@ -1,0 +1,6 @@
+interface:
+  display_name: "Implicit learning: theory review"
+  short_description: "Check hypotheses, proofs, gauges, and claim scope."
+  default_prompt: "Use $implicit-theory-review to audit the requested result and its downstream claims. Start read-only, report proof gaps with precise source locations, and do not commit or push."
+policy:
+  allow_implicit_invocation: true

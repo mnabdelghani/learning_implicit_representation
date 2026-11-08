@@ -1,0 +1,6 @@
+interface:
+  display_name: "Implicit learning: research handoff"
+  short_description: "Preserve decisions, evidence, and the next bounded task."
+  default_prompt: "Use $implicit-research-handoff to establish the current verified baseline and record a concise private handoff. Separate accepted decisions from proposals and do not publish manuscript material."
+policy:
+  allow_implicit_invocation: true

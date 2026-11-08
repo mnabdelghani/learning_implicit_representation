@@ -1,0 +1,6 @@
+interface:
+  display_name: "Implicit learning: figure audit"
+  short_description: "Check recorded data, plot semantics, and readability."
+  default_prompt: "Use $implicit-figure-audit to verify the selected figure against saved records, gauge and timing conventions, preprocessing, and final paper size. Do not change underlying results."
+policy:
+  allow_implicit_invocation: true

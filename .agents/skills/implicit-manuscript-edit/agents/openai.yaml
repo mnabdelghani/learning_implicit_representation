@@ -1,0 +1,6 @@
+interface:
+  display_name: "Implicit learning: manuscript edit"
+  short_description: "Make focused LaTeX changes and inspect the PDF."
+  default_prompt: "Use $implicit-manuscript-edit for this focused revision. Preserve all main-paper proofs and numerical results, compile privately, inspect the PDF, and report the page count without committing or pushing."
+policy:
+  allow_implicit_invocation: true

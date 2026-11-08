@@ -1,0 +1,6 @@
+interface:
+  display_name: "Implicit learning: synchronization"
+  short_description: "Align paper and supplement without publishing private work."
+  default_prompt: "Use $implicit-sync-review to compare the private paper and public supplement after the accepted revision. Preserve all main-paper proofs and recorded results, check publication boundaries, and do not commit or push."
+policy:
+  allow_implicit_invocation: true
