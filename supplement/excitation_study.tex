@@ -1,0 +1,60 @@
+\section{Supplementary study: task-only interaction versus bounded excitation}
+\label{sec:excitation}
+This is a newly executed supplementary experiment, separate from the 100
+main-protocol runs. It examines whether a small incompatibility and accurate
+regulation necessarily imply that all partial derivatives are learned.
+The same viscoelastic contact plant and initial parameter prior are used in
+both protocols, without the material change. During $0\le t<60$~s the
+reference is $x_d=0$, $L_d=4$~N. The task-only controller performs regulation
+without deliberately exciting the system. The probing controller adds to
+its calculated command the bounded deterministic signal
+\begin{align}
+ p_1(t)&=.08\{\sin(.7t)+.5\sin(1.9t+.3)\},\\
+ p_2(t)&=\frac{.02}{1.5}\{\sin(1.1t+.5)+.5\sin(2.7t)\}.
+\end{align}
+The resulting command is subject to the same $\pm.8$ componentwise limits.
+The same ten measurement-noise seeds (10--19) are used. At $t=60$~s,
+learning and probing stop, the estimates are frozen, and both controllers
+receive the previously defined oscillatory contact-force and motion task
+with the reference clock reset. The transfer evaluation is $[70,80)$~s.
+Thus the test distinguishes performance on the task generating training data
+from reuse on a new task; it is not an assertion of safe exploration.
+
+\begin{table}[t]
+\centering
+\caption{Paired excitation experiment, mean $\pm$ sample SD over ten seeds.
+Training is $[40,60)$~s; transfer is $[70,80)$~s.}
+\begin{tabular}{lcc}
+\toprule Quantity & Task only & Bounded probing\\
+\midrule
+Training force RMSE (N) & $0.00261\pm0.00011$ & $0.16407\pm0.00238$\\
+Training $e_F$ & $0.19252\pm0.00606$ & $0.01904\pm0.00257$\\
+Transfer force RMSE (N) & $0.98558\pm0.28077$ & $0.06501\pm0.00511$\\
+Held-out $e_F$ & $0.19596\pm0.00802$ & $0.04232\pm0.00203$\\
+\bottomrule
+\end{tabular}
+\label{tab:excitation}
+\end{table}
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.32\textwidth]{excitation_force.pdf}\hfill
+\includegraphics[width=.32\textwidth]{excitation_partial.pdf}\hfill
+\includegraphics[width=.32\textwidth]{excitation_energy.pdf}\\
+\includegraphics[width=.32\textwidth]{excitation_control.pdf}\hfill
+\includegraphics[width=.32\textwidth]{excitation_information.pdf}
+\caption{Seed-10 paired excitation: force error, relative differential error,
+pre-update incompatibility, applied command, and the clean evaluator-only
+information spectrum at the end of training. The vertical line marks
+transfer to a new task with coefficients frozen. Clean information is not
+provided to either learner.}
+\label{fig:excitation}
+\end{figure*}
+
+The task-only controller maintains near-perfect regulation with negligible
+control activity, and its incompatibility approaches the same-stream
+true-model reference. Nevertheless its differential error remains substantial,
+and its frozen model transfers poorly. The bounded probe incurs a training
+tracking cost but yields substantially improved partial estimation and
+transfer performance. These are illustrative outcomes for this specific
+prescribed feature family and excitation signal; they do not imply a general
+necessity or sufficiency theorem for task-specific learning.

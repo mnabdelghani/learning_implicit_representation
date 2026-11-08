@@ -1,0 +1,333 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,bm,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\R}{\mathbb R}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\dd}{\mathrm d}
+\title{Active Flow Control from an Implicit Differential Representation}
+\author{Mohamed Abdelghani}
+\date{Numerical prototype and experiment protocol --- 7 November 2026}
+\begin{document}
+\maketitle
+
+\paragraph{Scope.}
+This section accompanies the active-flow-control implementation in the
+simulation package. It describes a newly implemented numerical prototype;
+its records are independent of the numerical tables in the earlier paper.
+Published airfoil-control studies provide the physical motivation:
+Garcia et al.\ use surface blowing and suction for a two-dimensional
+NACA~0012 airfoil at $Re=3000$ \cite{Garcia2025Airfoil}, while
+Montal\`a et al.\ study a three-dimensional separated wing at $Re=1000$
+\cite{Montala2025Wing}. The actuator, sensing, and validation scope of the
+present computation are stated explicitly below.
+
+\section{Flow system and implicit differential}
+Let $\bm v(\bm x,t)$ be an incompressible velocity field, $p$ pressure,
+and $r$ the actuator command. A fixed, smooth body-force profile
+$\mathcal B(\bm x)$ produces $\beta\mathcal B r$. With a stationary immersed
+airfoil and an outer-domain relaxation layer, the continuum model behind
+the projected computation is
+\begin{align}
+\mathcal R_m &={\bm v}_t+
+ c_a(\bm v\cdot\nabla)\bm v+\nabla p-
+ \nu\Delta\bm v+\kappa\chi\bm v
+ +\sigma(\bm x)(\bm v-\bm v_\infty)-\beta\mathcal B r=0,
+ \label{eq:afc_ns}\\
+\mathcal R_d&=\nabla\cdot\bm v=0.
+ \label{eq:afc_div}
+\end{align}
+Here $\chi$ is the smoothed obstacle mask, $\kappa>0$ is the
+penalization strength, and $\sigma\geq0$ is the prescribed relaxation
+coefficient; the nominal plant has $c_a=1$ and $\nu=Re^{-1}$.
+Penalization is motivated by the approach of
+Angot et al.\ \cite{Angot1999Penalization}; velocity projection follows
+the incompressible-flow construction of Chorin \cite{Chorin1968Projection}.
+The airfoil geometry belongs to the NACA four-digit family
+\cite{Jacobs1933NACA}. These references motivate numerical ingredients;
+they do not validate the spatial or temporal resolution used here.
+
+With $a=\bm v_t$ and $z=\operatorname{col}(\bm v,a,p,r)$, the actual
+Fr\'echet differential of the momentum residual is
+\begin{equation}
+ D\mathcal R_m(z)\,\delta z
+ =\mathcal K(\bm v)\delta\bm v+\delta a+
+ \nabla\delta p-\beta\mathcal B\delta r,
+ \label{eq:afc_frechet}
+\end{equation}
+where
+\begin{equation}
+\mathcal K(\bm v)\delta\bm v
+ =c_a\bigl((\delta\bm v\cdot\nabla)\bm v+
+  (\bm v\cdot\nabla)\delta\bm v\bigr)
+  -\nu\Delta\delta\bm v+
+  (\kappa\chi+\sigma)\delta\bm v.
+\end{equation}
+The divergence row contributes $\nabla\cdot\delta\bm v$.
+Thus $F=D_z\operatorname{col}(\mathcal R_m,\mathcal R_d)$ is a
+state-dependent differential operator. Its evaluated entries change as
+the flow evolves even when the physical coefficients are constant.
+Within a regime of constant physical coefficients, a sufficiently smooth
+admissible trajectory satisfies
+\begin{equation}
+ F(z)\dot z=0.
+ \label{eq:afc_compatibility}
+\end{equation}
+This relation involves $\bm v_{tt}$ and $p_t$. Differentiation of sampled
+data must therefore be specified rather than treating these rates as exact
+experimental measurements.
+
+\section{Learning and a state-dependent output readout}
+The executable plant eliminates pressure using the discrete solenoidal
+Fourier projection $\PP_h$, including its declared spectral cutoff. Let
+$X$ contain both velocity components, $A=\dot X$, and define
+\begin{align}
+ N_h(X)&=\PP_h[(X\cdot\nabla_h)X],\qquad
+ L_h(X)=\Delta_hX,\qquad B_h=\PP_h\mathcal B,\\
+ K_h(X)&=\PP_h[\sigma\bm v_\infty-(\kappa\chi+\sigma)X].
+\end{align}
+The simulator evolves $\dot X=-c_aN_h(X)+\nu L_h(X)+\beta B_hr+K_h(X)$.
+The learned implicit family and its actual partials are
+\begin{align}
+ f_\theta(X,A,r)&=A+c_aN_h(X)-\nu L_h(X)-\beta B_hr-K_h(X),
+ \quad \theta=(c_a,\nu,\beta),\label{eq:afc_discrete_residual}\\
+ F_\theta&=\left[
+ c_aDN_h(X)-\nu L_h-DK_h\quad I\quad -\beta B_h
+ \right].\label{eq:afc_discrete_partials}
+\end{align}
+Within each constant-coefficient regime the physical relation is
+$f_{\theta_\star}(X,\dot X,r)=0$.
+For example,
+$DN_h(X)\delta X=\PP_h[(\delta X\cdot\nabla_h)X+(X\cdot\nabla_h)\delta X]$.
+The code evaluates the convection term in its equivalent projected rotational
+form. Only three coefficients of this specified operator family are learned;
+the geometry, differential operators, and forcing profiles are supplied.
+The identity $A$ block excludes the trivial zero representation. The
+prescribed residual family fixes its zero level; no free integration
+constant is identified by differentiating observations. Learning uses
+observed variations through the incompatibility
+$\xi_\theta=F_\theta(z)\dot z$, with the candidate parameters held fixed
+when taking the context derivative. The continuous counterpart of the
+zero-initialized exponential memory is
+\begin{equation}
+ \mathcal E_t(\theta)=\frac{1}{2\tau_m}
+  \int_{t_0}^{t}e^{-(t-s)/\tau_m}
+  \|F_\theta(z(s))\dot z(s)\|_h^2\,\dd s,
+ \label{eq:afc_energy}
+\end{equation}
+where $\|v\|_h^2$ is the mean squared value over both velocity components
+and every grid point. The memory is not divided by an accumulated
+weight normalization. The feasible
+parameter set is the declared box
+$[0.2,2]\times[0.0005,0.05]\times[0.15,2]$, which also keeps the actuator
+gain positive. The sampled update is specified below.
+
+Small training incompatibility alone is insufficient evidence of successful
+identification. We also evaluate a partial-action error, the actuator-partial
+error, and the next-interval conditional residual using the preceding
+parameter estimate and the midpoint field observed after the interval.
+This checks compatibility on new observations before updating; it does not
+forecast the next flow state or form an independent random test split.
+Simulator partials may be used by the evaluator; they are
+not identification targets. With noisy measurements or finite-difference error,
+the relevant observation is a reproducible residual floor, not a claim that
+the energy must be exactly zero.
+
+Suppose the calibrated implicit relation has the regular readout
+\begin{equation}
+ \widehat A=\widehat g(X,r),\qquad y=\ell(X).
+ \label{eq:afc_forward_readout}
+\end{equation}
+For a prescribed reference $y_d(t)$, let $e=y-y_d$ and set
+$\dot y_{\rm cmd}=\dot y_d-ke$, with $k>0$. The controller completes the
+output-rate relation using the measured flow state:
+\begin{equation}
+ r^\star\in\arg\min_{r\in\mathcal U}
+ \left\{\left|D\ell(X)\widehat g(X,r)-\dot y_{\rm cmd}\right|^2
+ +\lambda_r r^2\right\}.
+ \label{eq:afc_control}
+\end{equation}
+Here $\mathcal U=[-2,2]$ is the implemented amplitude interval; an actuator
+rate limit is not imposed. Applying $D\ell(X)$ to the implicit flow
+relation gives the output-rate constraint
+\begin{equation}
+ \dot y-\widehat d(X)-\widehat g_u(X)r=0,
+ \label{eq:afc_output_constraint}
+\end{equation}
+where $\widehat d(X)=D\ell(X)[-\widehat c_aN_h(X)
++\widehat\nu L_h(X)+K_h(X)]$ and
+$\widehat g_u(X)=D\ell(X)\widehat\beta B_h$.
+When $\lambda_r=0$, an unconstrained minimum-norm completion is
+\begin{equation}
+ r_{\rm unc}=\widehat g_u(X)^\dagger
+ \left(\dot y_d-ke-\widehat d(X)\right).
+ \label{eq:afc_pinv}
+\end{equation}
+For one input, $\widehat g_u(X)\ne0$ is required. Under an exact model,
+$\lambda_r=0$, an attainable reference, and inactive constraints,
+the ideal continuous-time relation is
+$\dot e=-ke$. Sampling, approximation error, and active constraints leave a
+completion residual. Output tracking alone does not establish stability of
+all internal flow modes.
+
+\section{Executable protocol}
+\paragraph{Geometry, resolution, and sensing.}
+The domain is a periodic $6\times3$ rectangle with a fringe relaxation
+layer; this approximates a finite uniform-flow region. A unit-chord,
+closed-trailing-edge NACA~0012 profile is centered at $(2,1.5)$ and rotated
+by $12^\circ$. The default grid has $128\times64$ points, with a strict
+two-thirds Fourier cutoff, penalty time $\kappa^{-1}=0.04$, and a mask
+smoothing width of $0.65$ grid cells. The nominal Reynolds number is 100.
+The independent flow integrator uses three-stage SSP Runge--Kutta with
+$\Delta t=0.004$; fields are observed every $h_s=0.02$.
+These are noiseless full-field simulation observations. Pressure, lift,
+and drag are not identification channels or reported aerodynamic outputs.
+Before spin-up, the field is $(1,0)$ plus a seeded solenoidal perturbation
+with grid RMS $0.002$, projected into the retained Fourier space.
+The complete fringe profile and other numerical choices are recorded in
+\path{configs/airfoil.json}.
+
+\paragraph{Actuator and desired output.}
+The primary vertical-force Gaussian is centered at $(2.9,1.6)$, with
+standard deviations $(0.30,0.22)$. An opposite lobe centered at $(2.9,0.65)$
+has the same widths and is scaled so the discrete total force is zero;
+both profiles are multiplied by $1-\chi$. This is a volume-force actuator,
+not surface blowing or suction. The output $y=CX$ is the vertical velocity
+averaged with a normalized Gaussian centered at $(3.0,1.6)$, of widths
+$(0.32,0.24)$, again masked by $1-\chi$. Its input coupling is the computed
+scalar $CB_h$, required to be nonzero. For control time $t\geq0$,
+\begin{equation}
+ y_d(t)=y_0e^{-t/1.5}+0.04\sin(2\pi t/4),
+ \qquad y_0=CX(0).
+\end{equation}
+With $\widehat d=C[-\widehat c_aN_h(X)+\widehat\nu L_h(X)+K_h(X)]$,
+$\widehat g=\widehat\beta CB_h$, $k=3$, and $\lambda_r=10^{-4}$,
+the actual applied readout is
+\begin{equation}
+ r=\operatorname{clip}_{[-2,2]}
+ \left(\frac{\widehat g\,[\dot y_d-3(y-y_d)-\widehat d]}
+ {\widehat g^2+10^{-4}}\right).
+ \label{eq:afc_applied_control}
+\end{equation}
+It is computed from the present measured field and the preceding parameter
+estimate, then held during the next observation interval.
+
+\paragraph{Causal differential learning.}
+For each completed interval, form the midpoint field
+$\overline X_n=(X_{n+1}+X_n)/2$ and sampled rate
+$A_n=(X_{n+1}-X_n)/h_s$. With $\overline z_n=(\overline X_n,A_n,r_n)$,
+the numerical incompatibility is
+\begin{equation}
+ \xi_n^\Delta(\theta)=
+ \frac{f_\theta(\overline z_n)-f_\theta(\overline z_{n-1})}{h_s}.
+ \label{eq:afc_secant}
+\end{equation}
+The same candidate $\theta$ is used at both endpoints. Complete nonlinear
+features are differenced; their products are not differentiated by holding
+one factor fixed. The update is causal because both intervals have finished
+before their information is assimilated. It approximates differential
+compatibility and includes sampling error.
+
+Starting from $E_0=0$, the sampled memory and update are
+\begin{align}
+ E_n(\theta)&=\rho E_{n-1}(\theta)
+  +\frac{1-\rho}{2}\|\xi_n^\Delta(\theta)\|_h^2,
+  \qquad \rho=e^{-h_s/0.8},\\
+ \theta_n^\star&\in\arg\min_{\theta\in\Theta}
+ \left\{E_n(\theta)+\frac{\lambda_n}{2}
+       \|D^{-1}(\theta-\theta_0)\|^2\right\},\\
+ \widehat\theta_n&=0.75\widehat\theta_{n-1}+0.25\theta_n^\star,
+ \qquad D=\operatorname{diag}(1,0.02,1).
+\end{align}
+Here $\theta_0=(0.7,0.018,0.7)$ and $\lambda_n$ is $10^{-7}$ times
+the larger of $10^{-10}$ and one-third the trace of the scaled
+correlation matrix. The implementation enumerates the 27 free/lower/upper
+active sets of this three-parameter box problem. Relaxing toward the
+feasible minimizer decreases the frozen regularized objective; this does
+not imply that the online unregularized energy decreases at every sample.
+
+\paragraph{Episodes and comparisons.}
+After three time units of unactuated spin-up, three units of identification
+use the bounded input
+\begin{equation}
+ r(t)=0.9\sum_{j=1}^3a_j\sin(2\pi f_jt+\varphi_j),
+ \quad a=(0.5,0.3,0.2),\quad f=(0.45,1.15,2.35).
+\end{equation}
+The multisine is evaluated at $t_n=nh_s$ and held during the next observation
+interval. Its phases are drawn uniformly using seed $11$ for the recorded
+seed-10 run; the initial flow perturbation uses seed~10. All control branches
+start from the same resulting field and estimate. The accumulated
+identification memory is retained, but the preceding secant pair is cleared.
+The first control interval therefore supplies an initial endpoint and
+learning resumes after the second completed interval. The branches comprise no control,
+a controller with the post-identification estimate frozen, and the same
+controller with continuing learning. Each branch runs for six time units.
+The plant actuator efficacy changes from $\beta=1$ to $0.55$ at control
+time $t=2.8$; neither controller receives this change as an identification
+label. For varying coefficients, differentiating the physical relation
+adds a parameter-change term. On smooth portions of the physical trajectory,
+$F_{\theta_{\rm true}(t)}(z)\dot z=\dot\beta B_hr$.
+At the scheduled gain jump, the executable uses finite secants; a secant
+spanning the change contains a parameter-change contribution and is not
+expected to have zero compatibility. The fixed-coefficient relation is
+recovered separately within each regime.
+
+\paragraph{Diagnostics and validation scope.}
+The saved four-panel figure reports desired and achieved output, actual
+commands, pre-update secant incompatibility, and partial errors. The latter
+include a relative error of the learned operator applied to one fixed smooth solenoidal perturbation
+with $\delta A=0$, $\delta r=1$. This is a directional diagnostic, not an
+operator-norm bound. Its denominator includes known damping. Accordingly,
+the traces also report $|\widehat\beta-\beta|/|\beta|$, and a separate plot
+shows all three coefficients. Final flow fields and vorticity plots show
+the state being controlled. The next-interval level residual checks the
+imposed calibration separately from differential compatibility.
+
+\paragraph{Recorded prototype run.}
+Table~\ref{tab:afc_recorded} reports the actual default run with seed~10;
+no multi-seed uncertainty estimate is implied. Output errors use the
+300 recorded post-step control samples over six time units. The continued
+learner ended at
+$\widehat\theta=(0.998074,0.00998102,0.555842)$, against evaluation-only
+final truth $(1,0.01,0.55)$. Its final actuator-partial relative error was
+$0.01062$. The median pre-update incompatibility over the final fifth of
+the control episode was $5.12\times10^{-7}$ for the continued learner and
+$1.62\times10^{-4}$ for the frozen estimate. The no-control branch had
+very small incompatibility despite its inaccurate actuator partial, since
+the input and its variations disappeared. This directly illustrates why
+energy alone is not a sufficient identification diagnostic.
+
+\begin{table}[ht]
+\centering
+\caption{New seed-10 numerical prototype results, in nondimensional units.
+These are not original manuscript results or validated aerodynamic data.}
+\label{tab:afc_recorded}
+\begin{tabular}{lrrr}
+\toprule
+Method & Output RMS error & Input RMS & Saturation fraction\\
+\midrule
+No control & $0.038734$ & $0$ & $0$\\
+Frozen after identification & $0.004697$ & $0.675056$ & $0$\\
+Continued learning & $0.001216$ & $0.729696$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The supplied records are a numerical implementation demonstration. The
+thin immersed profile has only a few grid points across its thickness;
+grid, time-step, mask, penalty, and domain convergence have not been
+established. The final continued-learning field has divergence RMS about
+$9.3\times10^{-15}$, but its mask-weighted speed
+$[\sum\chi|X|^2/\sum\chi]^{1/2}$ is approximately $0.189$; small discrete
+divergence therefore does not establish accurate wall enforcement.
+A surface-jet lift/drag experiment requires a resolved wall
+actuator, appropriate far-field and wall conditions, stress-based force
+evaluation, and independent flow validation. The present results do not
+establish aerodynamic improvement, sparse-sensor control, noise robustness,
+or global closed-loop stability.
+
+\bibliographystyle{unsrt}
+\bibliography{active_flow_control}
+\end{document}

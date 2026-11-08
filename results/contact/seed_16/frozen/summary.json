@@ -1,0 +1,64 @@
+{
+  "seed": 16,
+  "method": "frozen",
+  "metrics": {
+    "early": {
+      "force_rmse": 0.4387018120683408,
+      "motion_rmse": 0.0014762899272639438,
+      "F_error_mean": 0.3611519559208678,
+      "projector_error_mean": 0.3352858793807973,
+      "incompatibility_mean": 27.966800346418882,
+      "oracle_energy_mean": 0.009612513256071506,
+      "clean_energy_mean": 27.968925637395163,
+      "normalized_energy_mean": 0.04070243820810335,
+      "feature_power_mean": 2013.4730703759328,
+      "control_rms": 0.21136236729154395
+    },
+    "before_change": {
+      "force_rmse": 0.47122782539856556,
+      "motion_rmse": 0.0014468351494685016,
+      "F_error_mean": 0.36008080438420975,
+      "projector_error_mean": 0.3316745519309841,
+      "incompatibility_mean": 32.49868670003772,
+      "oracle_energy_mean": 0.010232616810086921,
+      "clean_energy_mean": 32.48403661450285,
+      "normalized_energy_mean": 0.041334038494729525,
+      "feature_power_mean": 1767.2606322384054,
+      "control_rms": 0.21725484080237256
+    },
+    "change": {
+      "force_rmse": 0.8235231662363852,
+      "motion_rmse": 0.008829465919151796,
+      "F_error_mean": 0.5866293812105076,
+      "projector_error_mean": 0.5449233401137937,
+      "incompatibility_mean": 76.96357608520094,
+      "oracle_energy_mean": 0.11222779539610281,
+      "clean_energy_mean": 76.94581605311907,
+      "normalized_energy_mean": 0.11207406780601571,
+      "feature_power_mean": 1406.9820060266861,
+      "control_rms": 0.26316417391629565
+    },
+    "recovered": {
+      "force_rmse": 0.8553468029400149,
+      "motion_rmse": 0.008320567678391204,
+      "F_error_mean": 0.5835783399005997,
+      "projector_error_mean": 0.5374058977833504,
+      "incompatibility_mean": 81.43050212520517,
+      "oracle_energy_mean": 0.00958149325064237,
+      "clean_energy_mean": 81.42587495754478,
+      "normalized_energy_mean": 0.11027682074909109,
+      "feature_power_mean": 1489.0789942274798,
+      "control_rms": 0.25179052745262115
+    },
+    "minimum_indentation": 0.011055970484873053,
+    "saturation_fraction": 0.0,
+    "final_material": [
+      8.0,
+      4.0,
+      400.0,
+      3.2,
+      1.6,
+      160.0
+    ]
+  }
+}

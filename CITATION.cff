@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the research manuscript and the exact repository commit or release used."
+title: "Learning Implicit Representation: Supplementary Theory and Reproducible Experiments"
+authors:
+  - family-names: Abdelghani
+    given-names: Mohamed N.
+type: software
+repository-code: "https://github.com/mnabdelghani/learning_implicit_representation"
+abstract: "Research implementations, supplementary proofs, experiments and recorded diagnostics for implicit differential representation learning."

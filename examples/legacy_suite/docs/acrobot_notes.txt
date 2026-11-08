@@ -1,0 +1,213 @@
+ACROBOT: NEW RECONSTRUCTION
+==========================
+
+This executable reconstructs a simulation from the available revised
+manuscript and Implicit_Representation_TNNLS_Supplement.tex. The matching
+original simulation source and its prior coefficient vector were not
+supplied. All saved numbers are newly generated. They are not a reproduction
+of the manuscript table, and the implementation is not tuned to match it.
+
+Run from the package directory:
+  python simulations/acrobot.py --output results/acrobot --seed 10
+  python simulations/acrobot.py --output results/acrobot --seeds 10 11 12 13 14 15 16 17 18 19
+  python simulations/acrobot.py --output /tmp/acrobot_smoke --seed 10 --quick
+  python -m unittest discover -s tests -p test_acrobot.py -v
+
+Dependencies: Python 3.10+, NumPy, SciPy, matplotlib, and the standard library.
+The --no-plots option saves CSV and JSON only. --config accepts an alternative
+JSON configuration. --seeds takes an explicit list; '--seeds 10' runs just
+seed 10. Default seed is 10. Quick mode deliberately shortens identification
+to 2 s, control to 1 s, and the query test to 200 samples; it is a smoke test.
+
+PUBLIC FUNCTIONS
+----------------
+run_experiment(config, seed, output, make_plots=True) runs one measurement-noise
+seed and returns its summary dictionary. It writes directly to the supplied
+output directory. The CLI nests each run under OUTPUT/seed_N and writes a
+combined aggregate_summary.json under OUTPUT.
+
+load_config(path=None) loads and validates configs/acrobot.json by default.
+identify(config, seed) returns (final_coefficients, trace_rows, diagnostics).
+evaluate_readouts(config, models) returns (metrics, query_rows).
+simulate_control(config, coefficients) returns (control_trace_rows, metrics).
+The standalone functions residual, implicit_partials, complete_features,
+mass_matrix, forward_readout, feasible_inverse, and lqr_gain support tests
+and reuse. ImplicitDifferentialLearner is independent of the true plant.
+
+IMPLICIT FAMILY AND ITS DIFFERENTIAL
+-----------------------------------
+The state is x=(q1,q2,w1,w2), the input is scalar motor torque u, and the
+context is z=(q1,q2,w1,w2,acceleration1,acceleration2,u). The five parameters
+are c=(a,b,d,p,r). The residual is
+
+  f_c(z) = M_c(q) acceleration + h_c(q,w) - B u,    B=(0,1)^T,
+
+  M11=a+2b cos(q2), M12=M21=d+b cos(q2), M22=d,
+  h1=-b sin(q2)(2w1 w2+w2^2)+p sin(q1)+r sin(q1+q2),
+  h2= b sin(q2)w1^2+r sin(q1+q2).
+
+implicit_partials implements the full Jacobian F_c=D_z f_c, including
+(partial M/partial q) acceleration and the derivatives of every product.
+The returned blocks are [f_q, f_w, M, -B]. Along a consistent trajectory,
+
+  F_c(z) zdot = f_q w + f_w acceleration + M jerk - B udot = 0.
+
+The implementation uses this differentiated implicit relation. It does not
+train on true coefficients or true partial derivatives. Candidate coefficients
+are held fixed when differentiating in the data direction: no coefficient
+adaptation derivative is inserted in F zdot.
+
+LEARNING AND OBSERVATIONS
+-------------------------
+The complete mechanical features Y give the implicit relation
+  f_c = [Y, -B u] col(c,1) = 0.
+At sample n the learner forms
+
+  DeltaY = (Y_n - Y_(n-L))/(L h),
+  Deltau = (u_n - u_(n-L))/(L h),
+  xi_n   = [DeltaY, -B Deltau] col(c,1).
+
+The fixed final coefficient retains the known actuation contribution inside
+the implicit relation; it is not an additional learned parameter.
+
+All state-dependent products are included in Y before it is differenced.
+This secant is an approximation to the instantaneous differential action;
+it is not a separately differenced approximation that omits product terms.
+It uses only the present and past measurements. With h=0.0025 s and
+L=10, the lag is 25 ms. Updates begin when that past observation exists.
+
+The learner receives exact q,w,u and acceleration corrupted by independent
+Gaussian noise with standard deviation 0.005 rad/s^2. It has no input giving
+true partials or true coefficients. The true parameters are used only in the
+simulated plant, the explicitly labeled oracle, and evaluation diagnostics.
+The known actuator location fixes the residual scale. The hanging equilibrium
+and the prescribed force family fix its zero residual level. These supplied
+physical conventions are assumptions; this does not test arbitrary Jacobian
+recovery or unknown actuator location.
+
+For c=D theta, D=diag(1,1,1,10,10), collect the observed channels as
+
+  V = [DeltaY D, -B Deltau],  vartheta(theta)=col(theta,1),
+  xi = V vartheta(theta).
+
+Each scalar equation is the implicit compatibility Q_theta v=0, with
+Q_theta=vartheta(theta)^T and v a transposed row of V. Initialize R to zero,
+set beta=exp(-h/6), and accumulate the observed-feature correlations
+
+  R <- beta R + h V^T V.
+
+Let S=col(I_5,0_(1x5)). The stored incompatibility energy and its free
+coefficient gradient are
+
+  E(theta) = .5 vartheta(theta)^T R vartheta(theta),
+  G(theta) = S^T R vartheta(theta).
+
+The coefficient update is exactly the specified backward-Euler step:
+
+  theta_new = theta_old - 10 h G(theta_new).
+
+It is solved as a five-variable linear system. For efficient storage, the
+unchanged code keeps R's free/free block in H, its free/fixed block in g,
+and half its fixed/fixed entry in constant. No projection is applied.
+The complete sufficient-statistic objective is therefore retained, so each
+before/after objective pair can be checked for decrease while its memory is
+fixed. Incoming data alter
+the objective. The instantaneous observed energy need not decrease at every
+sample and need not tend to zero with differentiation noise.
+
+Plant coefficients are (5/3, 1/2, 1/3, 14.715, 4.905). The missing original
+prior is replaced by the explicit assumption (1.5,0.3,0.4,12,3.5). This prior
+has positive mass at every configuration; it was not selected to make the
+frozen comparator fail. Consequently our frozen controller can have a
+qualitatively different result from the manuscript's unknown frozen prior.
+
+Identification lasts 8 s and starts from (0.3,-0.5,0,0), using
+u(t)=3 sin(1.1t+0.3)+2 sin(2.3t+0.8)+1.2 sin(4.7t+1.5).
+Classical RK4 evaluates this smooth multisine at all its internal stages.
+Both endpoints of the episode are observed. The previous model is used for
+all online prediction and partial-tracking measurements before the current
+observation is assimilated. Coefficient fields ending in _post document the
+updated model for subsequent observations.
+
+READOUTS AND UNDERACTUATION
+--------------------------
+Forward acceleration is solve(M, B u-h). The partial inverse prescribes
+only the actuated joint acceleration acceleration2_d. It computes
+
+  acceleration1 = -(M12 acceleration2_d+h1)/M11,
+  u = M21 acceleration1+M22 acceleration2_d+h2.
+
+The passive-joint equation is thereby enforced. Arbitrary pairs of desired
+joint accelerations cannot be imposed independently with one motor.
+The query test uses 2000 uniformly distributed q in [-pi,pi]^2, w in [-2,2]^2,
+u in [-4,4], and desired acceleration2 in [-3,3]. A fixed independent query
+seed 20261107 supplies identical queries for all methods and all identification
+seeds. Frozen, learned, and oracle models are evaluated on these same queries.
+
+Physical validity is checked using the exact worst-case mass eigenvalue:
+M depends linearly on cos(q2), so its smallest eigenvalue over all q2 occurs
+at cos(q2)=+1 or -1. Invalid intermediate estimates are counted. A final
+nonpositive model is rejected for physical readout/control evaluation rather
+than silently projected or repaired. This safeguard is reported in JSON.
+
+SEPARATE LOCAL LQR
+------------------
+After identification the learned model is frozen. Linearization of its
+actual forward state readout g(x,u)=(w,solve(M,Bu-h)) at x_star=(pi,0,0,0)
+gives
+
+  A = [[0,I],[-M^-1 f_q,-M^-1 f_w]],   G = [[0],[M^-1 B]].
+
+Continuous LQR solves A^T P+P A-P G R^-1 G^T P+Q=0 with
+Q=diag(30,30,4,4), R=0.8, and uses K=R^-1 G^T P.
+The nonlinear true plant receives u=clip(-K(x-x_star),-15,15).
+A separate 7 s run starts at (pi-0.02,0.01,0,0), with 0.001 s RK4 steps
+and one sampled command held through each step. The controller uses the
+raw local-coordinate error x-x_star; reported angle errors are wrapped.
+The frozen and oracle controllers are constructed by the same procedure,
+then run on the same true nonlinear plant from the same initial condition.
+This is a local stabilization test, not swing-up or a tracking trajectory
+produced by the feasible inverse. Inverse queries and LQR are separate tests.
+
+OUTPUTS AND METRICS
+------------------
+Each seed directory contains:
+  identification_trace.csv: observations, pre/post estimates, complete true,
+    frozen and learned evaluated F entries, incompatibility diagnostics,
+    memory-energy before/after, information eigenvalue and mass validity.
+  readout_queries.csv: identical independent test queries and all readouts.
+  control_learned.csv, control_frozen.csv, control_oracle.csv: actual nonlinear
+    closed-loop states, torque, saturation and error norms.
+  summary.json: configuration, assumptions, metric definitions and results.
+  acrobot_identification.png/.pdf: energy, coefficients and information.
+  acrobot_partials.png/.pdf: selected time-varying partials and comparisons.
+  acrobot_control.png/.pdf: separate local control and the evaluation window.
+
+Energy is one half of the squared Euclidean differential residual. Measured
+and clean diagnostics are saved separately. The oracle measured energy shows
+the effect of observation noise and differencing; clean simulator quantities
+are never used in identification. Zero energy on a sampled clean trajectory
+would not by itself prove parameter or controller accuracy elsewhere.
+
+Relative coefficient RMS is sqrt(mean(((c_hat-c)/c)^2)) over five parameters.
+Forward vector RMSE is sqrt(mean(||acceleration_hat-acceleration||_2^2)),
+with no division by two. Inverse torque RMSE uses scalar torques. Partial
+errors use Frobenius norms in the fixed physical convention with the known
+actuator column. They are diagnostics, not optimization targets.
+
+Control success means both wrapped angle-error norm <0.1 rad and speed norm
+<0.1 rad/s at every sampled point in the final 2 s. This sampled criterion
+does not establish an intersample bound. Both full-episode and final-window
+angle errors are saved, since the source does not clearly identify the window
+of its quoted angle RMS. Vector and per-angle RMS are named separately.
+The aggregate summary uses sample standard deviation for two or more seeds;
+one seed has sample_sd=null. Quick runs identify themselves in summary.json.
+
+VALIDATION
+----------
+The tests check all Jacobian columns against central differences, the full
+feature chain rule against F zdot, the true tangent relation, passive-joint
+feasibility, the mass-validity bound, causal-memory accumulation and the
+frozen-objective decrease, and linearization/LQR against the actual readout.
+Main-run outputs are empirical outcomes of this new reconstruction. There is
+no asserted equivalence to the original unavailable experiment implementation.

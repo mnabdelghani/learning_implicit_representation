@@ -1,0 +1,332 @@
+{
+  "package": "ImplicitLearning_simulations",
+  "prepared_date": "2026-11-07",
+  "included_default_seed": 10,
+  "tests_passed": 27,
+  "records_are_new_runs": true,
+  "files": [
+    {
+      "path": "README.txt",
+      "bytes": 6810,
+      "sha256": "ce00cefb335c6a1259e9b59f14ac01198946a301d58607cc0fc859d1fdafff92"
+    },
+    {
+      "path": "configs/acrobot.json",
+      "bytes": 3047,
+      "sha256": "3f7f5d6206274dcf94c0475ec9e619a9148fe22adcd826e30f827269b5d263ef"
+    },
+    {
+      "path": "configs/airfoil.json",
+      "bytes": 1341,
+      "sha256": "5de6f33f0921e451ad8198743c7ccd9f6d7638da2d8597059a094dd23dbf7b97"
+    },
+    {
+      "path": "configs/burgers.json",
+      "bytes": 1662,
+      "sha256": "6d38ed89c3bcce2c804ad22f26c796c38609126c64c8ff6d3ecafdb79a849a0e"
+    },
+    {
+      "path": "docs/acrobot_notes.txt",
+      "bytes": 11064,
+      "sha256": "7cdc4c1e644eac5591bf289bf1ed2cff792b190dfc95c0809aeb61dab689a08f"
+    },
+    {
+      "path": "docs/active_flow_reference_notes.txt",
+      "bytes": 2449,
+      "sha256": "6bc8ef67da6721c5b14eec72945ceb33cedef1db94e95dc95425c2061544ce36"
+    },
+    {
+      "path": "docs/airfoil_implementation.txt",
+      "bytes": 9060,
+      "sha256": "ef45548c09862adcc3e9ed4008680306ee20adb83c78058c80cfe98b31afcc0b"
+    },
+    {
+      "path": "docs/burgers_notes.txt",
+      "bytes": 8637,
+      "sha256": "e5c953ca06faadc34cbafc1e82cce462b9e606f7fe9c02d40ee5775970eb6599"
+    },
+    {
+      "path": "docs/verification_summary.txt",
+      "bytes": 5031,
+      "sha256": "28a11900a4222b560b1498be27005e47b18e4fa8bc183351a9a4ecfbe8302631"
+    },
+    {
+      "path": "latex/active_flow_control.bib",
+      "bytes": 2476,
+      "sha256": "90039814c46a03ac4cd758485b6dbc01048543f29bc21bdb7d7e904368e9d6a5"
+    },
+    {
+      "path": "latex/active_flow_control.tex",
+      "bytes": 16104,
+      "sha256": "bda673517397daaf31cb0ab88127383a882c9938fbcde9a2860adba03603fe8f"
+    },
+    {
+      "path": "latex/active_flow_control_insert.tex",
+      "bytes": 5521,
+      "sha256": "1e2016f0d705a73ea95fcdec106bd28bb136143d2e0c912d7ce4720b57424f2e"
+    },
+    {
+      "path": "latex/active_flow_control_references.tex",
+      "bytes": 1437,
+      "sha256": "3a99bac5899155e82fdd525864f6ffac39266b36b06b36aa872cd761656a0ae2"
+    },
+    {
+      "path": "requirements-tested.txt",
+      "bytes": 124,
+      "sha256": "765e1bae5fd2ed34a19fdb8c523e3dadd67be6d7d7181543f6d65aba356bd2ce"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 40,
+      "sha256": "25412683eb8f0b0049e66b26009838e23bc6cb4d4979f9da0f289599b0dab630"
+    },
+    {
+      "path": "results/acrobot/aggregate_summary.json",
+      "bytes": 5496,
+      "sha256": "bdf0c09c6361e3fa457910debe214ae824da788935340213979cf4eb216fad35"
+    },
+    {
+      "path": "results/acrobot/seed_10/acrobot_control.pdf",
+      "bytes": 26256,
+      "sha256": "b41b8e5af32ef03a3ab1a52c488f588ca3fa0a49087cfc0b962addbab5273ad4"
+    },
+    {
+      "path": "results/acrobot/seed_10/acrobot_control.png",
+      "bytes": 179346,
+      "sha256": "423e9f770bdaa74166d0fc41ed4675129d927bb5e2e2165c72e24e629b58dfcc"
+    },
+    {
+      "path": "results/acrobot/seed_10/acrobot_identification.pdf",
+      "bytes": 77905,
+      "sha256": "b33b54473fe8827811e6f4865d879124a6d7432b297f0f7b6effbb734aa30748"
+    },
+    {
+      "path": "results/acrobot/seed_10/acrobot_identification.png",
+      "bytes": 228465,
+      "sha256": "028114b52ae99e5c4b14fcc60fb7590d828d71c5746861c821b5afc37fe87cf9"
+    },
+    {
+      "path": "results/acrobot/seed_10/acrobot_partials.pdf",
+      "bytes": 28081,
+      "sha256": "084be6d99bea2e789621fdb1b0a7202a936e2d3dae65329bf38ffe71abd2c65f"
+    },
+    {
+      "path": "results/acrobot/seed_10/acrobot_partials.png",
+      "bytes": 417863,
+      "sha256": "c064048d5a522dfb5f4e592f644a649ac64250ff937e02d00bd85561ca72424d"
+    },
+    {
+      "path": "results/acrobot/seed_10/control_frozen.csv",
+      "bytes": 1487100,
+      "sha256": "308ab3f1a21d57c75872151b89861b28fa53529d680a4f87f46f46f79c93c9b6"
+    },
+    {
+      "path": "results/acrobot/seed_10/control_learned.csv",
+      "bytes": 1585551,
+      "sha256": "685d5ee27a954b6036b5a33803a2d7ff4e665fd3816052421d64d0f4e3e45194"
+    },
+    {
+      "path": "results/acrobot/seed_10/control_oracle.csv",
+      "bytes": 1584120,
+      "sha256": "299e1d98555456bc7aaf810989485f2bd7588294c93f0819a3ebd9d126b42470"
+    },
+    {
+      "path": "results/acrobot/seed_10/identification_trace.csv",
+      "bytes": 4209174,
+      "sha256": "ae5ba77f3509ad4b6dc0a9be12ed92779b27d82e7a91b8e8fd3c6e83ea57fbf5"
+    },
+    {
+      "path": "results/acrobot/seed_10/readout_queries.csv",
+      "bytes": 928727,
+      "sha256": "a1ec33eadb1ae79ece6504523348b770bc6ef2db5c30b85d79bac1b5da676141"
+    },
+    {
+      "path": "results/acrobot/seed_10/summary.json",
+      "bytes": 14031,
+      "sha256": "b13ffd64e8dce55e14a4205accee7fc097760d1a2728ad9594ae1be86f6c55b0"
+    },
+    {
+      "path": "results/airfoil/airfoil.pdf",
+      "bytes": 33017,
+      "sha256": "5888324ac23d8d208dfafbc1fd501d78fbdc2c4aa29c0b542b03a4b9497c5549"
+    },
+    {
+      "path": "results/airfoil/airfoil.png",
+      "bytes": 337708,
+      "sha256": "d32fa8e677eceac151f8a14cd9857938c8d43212bbb02402a30f6199fabe4f14"
+    },
+    {
+      "path": "results/airfoil/airfoil_flow.png",
+      "bytes": 73806,
+      "sha256": "54a2c5b7aa1b87eb9cfe11ae22fd4b1f4a409ec9e70d0db3bb6171e905c6fa83"
+    },
+    {
+      "path": "results/airfoil/fields.npz",
+      "bytes": 610719,
+      "sha256": "339813a1f8af74baff52413e1bbeb98fe8cc4daf33d43b5c31882e51a3f151e5"
+    },
+    {
+      "path": "results/airfoil/parameters.png",
+      "bytes": 95262,
+      "sha256": "f9df02e2c7ed26045eaabaf818c4789a13c3e590eccfa0bdf3557238301b9726"
+    },
+    {
+      "path": "results/airfoil/summary.json",
+      "bytes": 5547,
+      "sha256": "ed30ed85fe483bd1a115820c0017f9fbe57f88eeb85b28d6a4f328f96e16967a"
+    },
+    {
+      "path": "results/airfoil/trace.csv",
+      "bytes": 287685,
+      "sha256": "2977f95e19fb531d47697f6c2ac86ae16fc833a4182987fa99cca8df138522ff"
+    },
+    {
+      "path": "results/airfoil/training_trace.csv",
+      "bytes": 36087,
+      "sha256": "76ea40be6d720cf9ea6109d6843ec03f508cbd94d1d04c5fcab3b498cb4eb74c"
+    },
+    {
+      "path": "results/burgers/burgers_summary.json",
+      "bytes": 11370,
+      "sha256": "52e10e3f78c51392231a2ccf9ad3af813663572f3e0550dc98938587973a7eff"
+    },
+    {
+      "path": "results/burgers/config_used.json",
+      "bytes": 1762,
+      "sha256": "0778655f10f43f57fa172faf4f119d29e3ef83e6886762356dee49801c6a0097"
+    },
+    {
+      "path": "results/burgers/seed_10/burgers.pdf",
+      "bytes": 353982,
+      "sha256": "ff5bc7ec4e99abea68e8aa759d208ddf5c22cb102bf4d8d6c0c57665fba01f88"
+    },
+    {
+      "path": "results/burgers/seed_10/burgers.png",
+      "bytes": 361494,
+      "sha256": "4ddb378df57aecbc194e372134c16df9e65e29ae59cda83c58e6f77f45933743"
+    },
+    {
+      "path": "results/burgers/seed_10/frozen/fields.csv",
+      "bytes": 1974941,
+      "sha256": "b4681798969548716373d69538b20ed04e668239c30265e5342bf12fb8e41d5e"
+    },
+    {
+      "path": "results/burgers/seed_10/frozen/summary.json",
+      "bytes": 1017,
+      "sha256": "d2468585b4ff89556c1527f25614ee0287279f3ad9052932605662b356f6f137"
+    },
+    {
+      "path": "results/burgers/seed_10/frozen/trace.csv",
+      "bytes": 1619967,
+      "sha256": "83998cc256b29938f6bffb401a2db210e5da0088e907d1668a01a271ded48fde"
+    },
+    {
+      "path": "results/burgers/seed_10/learned/fields.csv",
+      "bytes": 1973950,
+      "sha256": "aa7739c83966fab02607ec97e4753428010f83289c7b9ecaaa71839a30202661"
+    },
+    {
+      "path": "results/burgers/seed_10/learned/summary.json",
+      "bytes": 1097,
+      "sha256": "93b70625a224767bb65ded92e778337d04a3b79fdb0aa81ee45f8493af94d1e7"
+    },
+    {
+      "path": "results/burgers/seed_10/learned/trace.csv",
+      "bytes": 2088020,
+      "sha256": "361ce6d86ab9759eb1bb95d97a84a9b39834cd13c27437a94b11216e5304e7e7"
+    },
+    {
+      "path": "results/burgers/seed_10/oracle/fields.csv",
+      "bytes": 1974095,
+      "sha256": "ee5318f0d22b5f6df1a2e6e2bafedef02388db493d1f486eb87a4a43538681f2"
+    },
+    {
+      "path": "results/burgers/seed_10/oracle/summary.json",
+      "bytes": 960,
+      "sha256": "4ae96b666fdc0d6b174b00872fb7e959d8fe9c4da9edc17d536bdd1ab9945fd1"
+    },
+    {
+      "path": "results/burgers/seed_10/oracle/trace.csv",
+      "bytes": 1486019,
+      "sha256": "7bffbff634b20e2c5933582a154fd78594fb8eb68607a5ae8b499e19d0c6485a"
+    },
+    {
+      "path": "results/fourier/fourier.pdf",
+      "bytes": 19919,
+      "sha256": "ff04d07a0c5a475a0981ff4e97d95fbbfb3877130a3b87b6c1e4d6d7aca0dbf1"
+    },
+    {
+      "path": "results/fourier/fourier.png",
+      "bytes": 122549,
+      "sha256": "e218d03318383b8d144cc42a2bf654821fd66ec3078d3f4d474e846885fbc32b"
+    },
+    {
+      "path": "results/fourier/model.npz",
+      "bytes": 524,
+      "sha256": "b7b08c169ff40c8e0df8f4071b33e7f5a87c5c84fb7231e6247a2654b3ede54e"
+    },
+    {
+      "path": "results/fourier/summary.json",
+      "bytes": 1078,
+      "sha256": "3f86f623e01fac3f96a71bfd2cfe462fe53c56f1eec85738151287ee10f8ea46"
+    },
+    {
+      "path": "results/fourier/trace.csv",
+      "bytes": 200194,
+      "sha256": "27b29a472f00713499eaa6a985e8937c4853fd0dc05f188f7d98e09697d34d84"
+    },
+    {
+      "path": "run_all.py",
+      "bytes": 2369,
+      "sha256": "07cd66ea5575a075a61d00ebe580065043f7b9573db0cec1fe7363dc407c351f"
+    },
+    {
+      "path": "simulations/__init__.py",
+      "bytes": 73,
+      "sha256": "d7af2b934be11832dddf15a19562f5e0d769ab75fc5ed19396eb7943ef70848d"
+    },
+    {
+      "path": "simulations/acrobot.py",
+      "bytes": 41379,
+      "sha256": "c519b126a29f6870e5bd1c7c27e6d28305ef8303250c3323528f43b2b8cb61dc"
+    },
+    {
+      "path": "simulations/airfoil.py",
+      "bytes": 34101,
+      "sha256": "1c241b96a3f7d001d8c7fa4817d0ea58f511c5e9057e7132ca228ffb770c1366"
+    },
+    {
+      "path": "simulations/burgers.py",
+      "bytes": 20794,
+      "sha256": "ff15f0aad7d0afaf0b6a32bf39b4335705c56d45514c43482f0b19b8eaea3f87"
+    },
+    {
+      "path": "simulations/fourier.py",
+      "bytes": 5757,
+      "sha256": "84aad7eaeaf1a5b27e59d26a7860196f459635e5d716a70587358fc95fab1054"
+    },
+    {
+      "path": "tests/test_acrobot.py",
+      "bytes": 6795,
+      "sha256": "0ef2737da01ea4a11484aeb1447388d426b392b278153e2a76707ffd7c3ed307"
+    },
+    {
+      "path": "tests/test_airfoil.py",
+      "bytes": 5631,
+      "sha256": "f551422a458361c7d561bc457fc5cfa72070173535d5945305e1eee0a4e4eb7c"
+    },
+    {
+      "path": "tests/test_burgers.py",
+      "bytes": 5414,
+      "sha256": "6360d8e730020a1b8f295584cb9d66f8ca8cd7eb94f99c954edc40b7fad8771e"
+    },
+    {
+      "path": "tests/test_fourier.py",
+      "bytes": 938,
+      "sha256": "e3ac0b2b5ac065e6949cd7ced542a048bb1d77cf1ea448dc283520f1622f07c0"
+    }
+  ],
+  "revision": "implicit-notation-cleanup",
+  "revision_scope": "Documentation and LaTeX only; numerical source, configuration, and saved results unchanged.",
+  "revision_tests_passed": 27
+}

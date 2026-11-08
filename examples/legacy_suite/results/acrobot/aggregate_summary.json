@@ -1,0 +1,181 @@
+{
+  "status": "NEW_RECONSTRUCTION",
+  "seeds": [
+    10
+  ],
+  "number_of_runs": 1,
+  "statistics": {
+    "identification.final_relative_coefficient_rms": {
+      "count": 1,
+      "mean": 0.008625104169274143,
+      "sample_sd": null,
+      "minimum": 0.008625104169274143,
+      "maximum": 0.008625104169274143
+    },
+    "identification.final_information_minimum_eigenvalue": {
+      "count": 1,
+      "mean": 23.388991674533873,
+      "sample_sd": null,
+      "minimum": 23.388991674533873,
+      "maximum": 23.388991674533873
+    },
+    "identification.final_mass_minimum_eigenvalue_all_configurations": {
+      "count": 1,
+      "mean": 0.06570651535097424,
+      "sample_sd": null,
+      "minimum": 0.06570651535097424,
+      "maximum": 0.06570651535097424
+    },
+    "identification.tail_mean_measured_incompatibility_energy_pre": {
+      "count": 1,
+      "mean": 0.1502032984819271,
+      "sample_sd": null,
+      "minimum": 0.1502032984819271,
+      "maximum": 0.1502032984819271
+    },
+    "identification.tail_mean_measured_oracle_energy": {
+      "count": 1,
+      "mean": 0.15175057071402903,
+      "sample_sd": null,
+      "minimum": 0.15175057071402903,
+      "maximum": 0.15175057071402903
+    },
+    "identification.tail_mean_clean_incompatibility_energy_pre": {
+      "count": 1,
+      "mean": 0.0009552368378118212,
+      "sample_sd": null,
+      "minimum": 0.0009552368378118212,
+      "maximum": 0.0009552368378118212
+    },
+    "readouts.learned.forward_acceleration_vector_rmse_rad_s2": {
+      "count": 1,
+      "mean": 0.14008835113794169,
+      "sample_sd": null,
+      "minimum": 0.14008835113794169,
+      "maximum": 0.14008835113794169
+    },
+    "readouts.learned.inverse_torque_rmse_Nm": {
+      "count": 1,
+      "mean": 0.024742036403996387,
+      "sample_sd": null,
+      "minimum": 0.024742036403996387,
+      "maximum": 0.024742036403996387
+    },
+    "readouts.learned.relative_partials_rms_on_query_states": {
+      "count": 1,
+      "mean": 0.008533169896218837,
+      "sample_sd": null,
+      "minimum": 0.008533169896218837,
+      "maximum": 0.008533169896218837
+    },
+    "control.learned.full_episode_angle_vector_rmse_rad": {
+      "count": 1,
+      "mean": 0.1284654020662077,
+      "sample_sd": null,
+      "minimum": 0.1284654020662077,
+      "maximum": 0.1284654020662077
+    },
+    "control.learned.final_window_angle_vector_rmse_rad": {
+      "count": 1,
+      "mean": 3.3467544131412254e-06,
+      "sample_sd": null,
+      "minimum": 3.3467544131412254e-06,
+      "maximum": 3.3467544131412254e-06
+    },
+    "control.learned.final_window_maximum_speed_norm_rad_s": {
+      "count": 1,
+      "mean": 2.909779305652656e-05,
+      "sample_sd": null,
+      "minimum": 2.909779305652656e-05,
+      "maximum": 2.909779305652656e-05
+    },
+    "readouts.frozen.forward_acceleration_vector_rmse_rad_s2": {
+      "count": 1,
+      "mean": 9.293982972098433,
+      "sample_sd": null,
+      "minimum": 9.293982972098433,
+      "maximum": 9.293982972098433
+    },
+    "readouts.frozen.inverse_torque_rmse_Nm": {
+      "count": 1,
+      "mean": 1.0177685179938774,
+      "sample_sd": null,
+      "minimum": 1.0177685179938774,
+      "maximum": 1.0177685179938774
+    },
+    "readouts.frozen.relative_partials_rms_on_query_states": {
+      "count": 1,
+      "mean": 0.2700832504298676,
+      "sample_sd": null,
+      "minimum": 0.2700832504298676,
+      "maximum": 0.2700832504298676
+    },
+    "control.frozen.full_episode_angle_vector_rmse_rad": {
+      "count": 1,
+      "mean": 0.233652663172989,
+      "sample_sd": null,
+      "minimum": 0.233652663172989,
+      "maximum": 0.233652663172989
+    },
+    "control.frozen.final_window_angle_vector_rmse_rad": {
+      "count": 1,
+      "mean": 0.15572589420860708,
+      "sample_sd": null,
+      "minimum": 0.15572589420860708,
+      "maximum": 0.15572589420860708
+    },
+    "control.frozen.final_window_maximum_speed_norm_rad_s": {
+      "count": 1,
+      "mean": 0.02189866355866637,
+      "sample_sd": null,
+      "minimum": 0.02189866355866637,
+      "maximum": 0.02189866355866637
+    },
+    "readouts.oracle.forward_acceleration_vector_rmse_rad_s2": {
+      "count": 1,
+      "mean": 0.0,
+      "sample_sd": null,
+      "minimum": 0.0,
+      "maximum": 0.0
+    },
+    "readouts.oracle.inverse_torque_rmse_Nm": {
+      "count": 1,
+      "mean": 0.0,
+      "sample_sd": null,
+      "minimum": 0.0,
+      "maximum": 0.0
+    },
+    "readouts.oracle.relative_partials_rms_on_query_states": {
+      "count": 1,
+      "mean": 0.0,
+      "sample_sd": null,
+      "minimum": 0.0,
+      "maximum": 0.0
+    },
+    "control.oracle.full_episode_angle_vector_rmse_rad": {
+      "count": 1,
+      "mean": 0.12854438885975014,
+      "sample_sd": null,
+      "minimum": 0.12854438885975014,
+      "maximum": 0.12854438885975014
+    },
+    "control.oracle.final_window_angle_vector_rmse_rad": {
+      "count": 1,
+      "mean": 4.152571636203321e-06,
+      "sample_sd": null,
+      "minimum": 4.152571636203321e-06,
+      "maximum": 4.152571636203321e-06
+    },
+    "control.oracle.final_window_maximum_speed_norm_rad_s": {
+      "count": 1,
+      "mean": 3.438021117011005e-05,
+      "sample_sd": null,
+      "minimum": 3.438021117011005e-05,
+      "maximum": 3.438021117011005e-05
+    }
+  },
+  "claim": "Statistics over new reconstructed simulations; original table values were not used as targets.",
+  "learned_control_success_count": 1,
+  "frozen_control_success_count": 0,
+  "oracle_control_success_count": 1
+}

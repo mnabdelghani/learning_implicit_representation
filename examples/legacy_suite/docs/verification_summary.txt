@@ -1,0 +1,94 @@
+EXECUTION AND VERIFICATION RECORD
+7 November 2026
+
+STATUS
+The package contains working implementations and actual generated records.
+It does not recover the missing original physical simulation records, and
+does not certify the numerical tables of an earlier manuscript.
+
+EXECUTED DEFAULT RUNS
+Fourier: full deterministic diagnostic, 4096 rate samples, 1600 updates.
+Acrobot: seed 10; 8 s identification; 2000 readout queries; separate 7 s
+         learned, frozen-prior, and oracle local stabilization episodes.
+Burgers: seed 10; 24 s episodes; learned, frozen-prior, and oracle methods;
+         errors evaluated on [18,24).
+Airfoil: seed 10; 3 units spin-up, 3 identification, 6 control;
+         no-control, frozen-after-identification, and continuing-learning
+         branches from the same flow field and learned model.
+
+No multi-seed mean or standard deviation is inferred from these one-seed
+physical runs. The scripts can execute additional seeds explicitly. Quick
+execution checks were also run separately; the final results/ folder holds
+the full default records rather than intermediate tuning trials.
+
+NUMERICAL CHECKS
+Command: python -m unittest discover -s tests -v
+Result: 27 tests passed.
+
+Acrobot (8): full Jacobian finite differences; complete-product chain rule;
+residual feature identity; passive-joint feasibility; mass positivity;
+causal energy accumulation/descent; true differential compatibility;
+linearization and LQR consistency.
+
+Burgers (8): spatial derivatives; implicit Jacobian; complete-feature secants;
+mass conservation and viscous dissipation; known Fourier diffusion decay;
+instantaneous inverse readout; fixed-history projected descent; short
+closed-loop and causal startup checks.
+
+Airfoil (9): solenoidal/idempotent projection; actual default-grid mode cutoff;
+complete Frechet derivative; known damping derivative; identity rate block;
+coupled box-quadratic minimizer; frozen estimator; force integral/output
+coupling; equality of zero-bound control and zero-input flow trajectories.
+
+Fourier (2): true partials annihilate the observed tangent rates; continuous
+nonzero field certificate is conservative and positive.
+
+The common run_all.py interface was also exercised with its Fourier quick
+mode. The experiment-specific CLI commands were used for all default runs.
+
+ACTUAL SELECTED RESULTS
+Fourier: final projector error 4.44e-16; minimum certified differential norm
+0.63059. The residual energy is at floating-point cancellation scale.
+
+Acrobot learned: acceleration-vector RMS 0.140088 rad/s^2; feasible inverse
+torque RMS 0.0247420 N m; final-two-second angle-vector RMS 3.34675e-6 rad.
+Measured incompatibility energy reaches the sensor-noise floor; it does
+not vanish. The missing prior was supplied explicitly, so frozen-prior
+numbers differ from those in the earlier manuscript.
+
+Burgers learned: tracking RMS 1.94676e-4; clean conditional rate RMS
+2.62381e-5; measured incompatibility energy about 0.001599, consistent
+with the specified rate-sensor noise floor of 0.0016. Distributed actuation
+is unconstrained; these are not localized airfoil actuators.
+
+Airfoil output RMS: no control 0.0387335; frozen model 0.00469691;
+continuing learning 0.00121586. The continuing learner's final input-partial
+relative error is 0.0106224. Frozen and adaptive branches have no actuator
+saturation in this recorded run. The target and actuator bound were chosen
+for an attainable numerical demonstration; they are fully disclosed in the
+configuration and implementation notes.
+
+PHYSICAL LIMIT OF THE AIRFOIL DEMONSTRATION
+This is a new two-dimensional incompressible, immersed-body computational
+prototype with a wake BODY FORCE and a weighted wake-velocity output. It
+does not implement surface jets or report lift/drag improvement. The nominal
+Reynolds number is 100; the coarse grid is 128 x 64 before spectral cutoff.
+Projection yields divergence RMS below 1e-14, but masked-body speed RMS is
+about 0.19. Accurate wall enforcement and spatial, temporal, domain, mask,
+and penalization convergence have not been established.
+
+The continuous fixed-parameter differential identity holds within the
+constant-gain regimes. The scheduled actuator-gain jump introduces a
+parameter-change term; zero incompatibility is not claimed across it.
+The directional partial-action metric is not an operator norm and includes
+known damping; input-block error and parameter plots provide needed context.
+Conditional residuals use newly observed midpoint fields before updating;
+they are not forecasts of a fully withheld future flow state.
+
+LATEX AND REFERENCES
+The standalone active-flow-control document compiles using pdflatex and
+BibTeX. Its citations and cross-references resolve. A compact manuscript
+insert is also supplied and checked in IEEEtran layout. The five BibTeX
+entries were verified against primary publisher, author, or NASA records.
+No standalone experiment PDF is supplied, as the request was for LaTeX and
+references; vector PDF simulation plots remain included with the results.

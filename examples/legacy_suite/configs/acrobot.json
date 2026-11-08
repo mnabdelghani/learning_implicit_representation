@@ -1,0 +1,52 @@
+{
+  "status": "NEW_RECONSTRUCTION",
+  "source": "Available revised manuscript and Implicit_Representation_TNNLS_Supplement.tex; the original matching simulation code was not supplied.",
+  "coefficient_order": ["a", "b", "d", "p", "r"],
+  "true_coefficients": [1.6666666666666667, 0.5, 0.3333333333333333, 14.715, 4.905],
+  "prior_coefficients": [1.5, 0.3, 0.4, 12.0, 3.5],
+  "coefficient_scales": [1.0, 1.0, 1.0, 10.0, 10.0],
+  "identification": {
+    "duration": 8.0,
+    "step": 0.0025,
+    "initial_state": [0.3, -0.5, 0.0, 0.0],
+    "acceleration_noise_std": 0.005,
+    "feature_difference_interval": 0.025,
+    "memory_time": 6.0,
+    "learning_gain": 10.0,
+    "excitation_amplitudes": [3.0, 2.0, 1.2],
+    "excitation_frequencies": [1.1, 2.3, 4.7],
+    "excitation_phases": [0.3, 0.8, 1.5]
+  },
+  "queries": {
+    "count": 2000,
+    "seed": 20261107,
+    "angle_bound": 3.141592653589793,
+    "speed_bound": 2.0,
+    "input_bound": 4.0,
+    "desired_acceleration_bound": 3.0
+  },
+  "control": {
+    "duration": 7.0,
+    "step": 0.001,
+    "initial_state": [3.121592653589793, 0.01, 0.0, 0.0],
+    "equilibrium": [3.141592653589793, 0.0, 0.0, 0.0],
+    "Q_diagonal": [30.0, 30.0, 4.0, 4.0],
+    "R": 0.8,
+    "torque_limit": 15.0,
+    "evaluation_window": 2.0,
+    "angle_norm_threshold": 0.1,
+    "speed_norm_threshold": 0.1
+  },
+  "reconstruction_choices": {
+    "prior": "The source omits the prior vector. The fixed, physically valid vector (1.5, 0.3, 0.4, 12, 3.5) is an explicit reconstruction assumption, not a recovered setting or a tuned baseline.",
+    "identification_integrator": "Classical RK4 with the prescribed smooth multisine evaluated at each stage; observations include both endpoints of the 8 s episode.",
+    "measurement_noise": "numpy.random.default_rng(seed), independent Gaussian acceleration noise at each observation. No state or input noise.",
+    "causality": "No update until the 25 ms past observation exists. Predictions and partial tracking at an observation use the coefficient vector from before assimilating that observation.",
+    "control_integrator": "Classical RK4 with each sampled LQR command held through one integration step.",
+    "control_error": "Feedback uses the raw local coordinate x-x_star, as in the manuscript formula. Angle error reporting is wrapped into [-pi,pi].",
+    "query_randomness": "One fixed independent query seed is shared across methods and measurement-noise seeds, so only identification noise changes across runs.",
+    "reported_windows": "Both full-episode and final-two-second control errors are provided; the source does not unambiguously identify its quoted angle-RMS window.",
+    "no_projection": "The specified learning update is unconstrained. Mass positivity is diagnosed, not enforced or repaired. A nonphysical final model is rejected for readout/control evaluation.",
+    "provenance": "All output numbers are new simulation results. They must not be substituted for, or described as reproducing, the manuscript table without a separate comparison."
+  }
+}

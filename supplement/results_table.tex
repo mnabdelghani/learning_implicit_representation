@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{New main-paper runs: ten noise seeds per method. Contact task errors are force RMSE in N over $[100,120)$ s; Fourier errors are state RMSE over $[60,80)$ s; Burgers errors are spatial--temporal RMS over $[18,24)$ s. These metrics have different units and are not compared across systems.}
+\begin{tabular}{llrr}
+\toprule Study & Method & Task RMS (mean $\pm$ SD) & Mean scaled $e_F$ ($\pm$ SD) \\
+\midrule
+Contact & learned & $0.00342486\,\pm\,0.00018$ & $0.000895904\,\pm\,0.00043$ \\
+Contact & frozen & $0.855492\,\pm\,0.00027$ & $0.583578\,\pm\,3.2e-08$ \\
+Contact & oracle & $0.0032347\,\pm\,0.00013$ & $0\,\pm\,0$ \\
+Fourier & learned & $0.00229896\,\pm\,3.1e-05$ & $0.00687125\,\pm\,0.00019$ \\
+Fourier & K0 & $0.0479282\,\pm\,1.1e-05$ & $0.184933\,\pm\,8.6e-06$ \\
+Fourier & frozen & $0.0672733\,\pm\,0$ & $0.214235\,\pm\,2.9e-17$ \\
+Fourier & oracle & $0.00122862\,\pm\,0$ & $0\,\pm\,0$ \\
+Burgers & learned & $0.000197473\,\pm\,1.9e-06$ & $0.000107351\,\pm\,1.1e-05$ \\
+Burgers & frozen & $0.0165846\,\pm\,3.7e-18$ & $0.158437\,\pm\,2.9e-17$ \\
+Burgers & oracle & $0.000197656\,\pm\,2.9e-20$ & $0\,\pm\,0$ \\
+\bottomrule
+\end{tabular}
+\end{table*}

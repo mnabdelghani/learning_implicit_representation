@@ -1,0 +1,56 @@
+\subsection{Nonlinear mechanical dynamics}
+The direct rate-product construction is especially natural for mechanical
+systems. A robot with joint positions $q$, velocities $w=\dot q$, joint
+torques $\tau_m$, and an external contact wrench $\lambda$ obeys, on a
+smooth interval without impacts, 
+\begin{equation}
+M(q)\ddot q+C(q,\dot q)\dot q+G(q) =\tau_m+J_c(q)^{\mathsf{T}}\lambda.
+\label{eq:mechanical}
+\end{equation}
+The inertia matrix $M(q)$ couples joint accelerations, the term $C(q,w)w$
+describes velocity-dependent forces, $G(q)$ accounts for gravity, and the
+contact Jacobian $J_c(q)$ maps the external wrench into generalized joint
+forces. A command $u$ produces torque $\tau_m=B(q)u$, where the actuation
+matrix $B(q)$ need not be square; for direct torque actuation $B=I$. Write $%
+h(q,w)=C(q,w)w+G(q)$. The force balance is then 
+\begin{equation}
+M(q)\dot w+h(q,w)-B(q)u-J_c(q)^{\mathsf{T}}\lambda=0.
+\label{eq:mechanical_balance}
+\end{equation}
+
+To express this balance in terms of context rates, retain $q$ and $w$ and
+add the integrated command $s_u$, integrated contact wrench $s_\lambda$, and
+clock coordinate $r_0$ defined by $\dot s_u=u$, $\dot s_\lambda=\lambda$,
+and $\dot r_0=1$. For the resulting context 
+\begin{equation}
+z=\func{col}(q,w,s_u,s_\lambda,r_0),  \label{eq:mechanical_context}
+\end{equation}
+the observed or estimated rates are 
+\begin{equation}
+\dot z=\func{col}(w,\dot w,u,\lambda,1).  \label{eq:mechanical_rates}
+\end{equation}
+We now collect the coefficients of these rates, in the same order, into the
+matrix-valued function 
+\begin{equation}
+H(z)=%
+\begin{bmatrix}
+0 & M(q) & -B(q) & -J_c(q)^{\mathsf{T}} & h(q,w)%
+\end{bmatrix}%
+.  \label{eq:mechanical_coefficients}
+\end{equation}
+The original equations of motion are therefore exactly 
+\begin{equation}
+H(z)\dot z=0.  \label{eq:mechanical_product}
+\end{equation}
+The symbol $H$ denotes the coefficient matrix assembled from the physical
+equations; it is not introduced as the derivative of an unknown function. In
+general it need not equal a Jacobian $D_zf$: such an equality would require
+the additional integrability conditions on its entries. Nevertheless, the
+rate-product equation in (\ref{eq:mechanical_product}) supplies a
+differential compatibility relation directly, without differentiating the
+force balance in (\ref{eq:mechanical_balance}). For the learning agent, the
+mechanics and their coefficient blocks may be unknown; the measured motion
+and commanded inputs provide the variations from which a compatible relation
+can be estimated. Contact forces must themselves be measured or estimated if
+they are to enter the chosen context. The additional Acrobot example below uses a prescribed mechanical family.
+

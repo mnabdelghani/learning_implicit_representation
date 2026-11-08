@@ -1,0 +1,24 @@
+{
+  "seed": 16,
+  "method": "K0",
+  "metrics": {
+    "tracking_rmse": 0.04791603820588569,
+    "control_rms": 0.5468274844575529,
+    "F_error_mean": 0.18492202076953246,
+    "projector_error_mean": 0.20514463409839812,
+    "energy_mean": 0.05421615326158392,
+    "oracle_energy_mean": 0.0005676661444088188,
+    "clean_energy_mean": 0.0538495122154721,
+    "K0_same_stream_energy_mean": 0.05421615326158392,
+    "normalized_energy_mean": 0.11754005150547403,
+    "feature_power_mean": 0.42976262722740116,
+    "final_coefficients": [
+      1.0,
+      0.0,
+      0.0,
+      1.2086872875311532,
+      0.0,
+      0.0
+    ]
+  }
+}

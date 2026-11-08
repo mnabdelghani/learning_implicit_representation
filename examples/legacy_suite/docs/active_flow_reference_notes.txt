@@ -1,0 +1,47 @@
+ACTIVE-FLOW-CONTROL REFERENCES
+Primary records checked 7 November 2026.
+
+1. Garcia et al. (2025), International Journal of Heat and Fluid Flow 116,
+   article 109913. DOI: 10.1016/j.ijheatfluidflow.2025.109913.
+   https://doi.org/10.1016/j.ijheatfluidflow.2025.109913
+   Author manuscript: https://arxiv.org/abs/2502.16993
+   Supports the physical motivation for closed-loop flow control around a
+   two-dimensional NACA 0012 airfoil using blowing/suction at the surface.
+   Their Re=3000 finite-element CFD/DRL study is a distinct experiment. Its
+   performance numbers are not reproduced or used as results in this package.
+
+2. Montala et al. (2025), arXiv:2509.10195, version 1.
+   https://arxiv.org/abs/2509.10195
+   Supports a separate three-dimensional wing-control reference at Re=1000
+   and 20-degree angle of attack. It is a preprint; no later publication is
+   assumed. A two-dimensional prototype cannot validate three-dimensional
+   separation or turbulent-flow claims.
+
+3. Angot, Bruneau, and Fabrie (1999), Numerische Mathematik 81, 497-520.
+   DOI: 10.1007/s002110050401.
+   https://doi.org/10.1007/s002110050401
+   Author PDF: https://www.math.u-bordeaux.fr/~chabrune/publi/ABF-NM.pdf
+   Supports obstacle penalization in incompressible viscous flow. The cited
+   paper's analysis does not by itself verify our grid, smoothing, splitting,
+   obstacle resolution, or force estimates.
+
+4. Chorin (1968), Mathematics of Computation 22(104), 745-762.
+   DOI: 10.1090/S0025-5718-1968-0242392-2.
+   https://doi.org/10.1090/S0025-5718-1968-0242392-2
+   Author PDF: https://math.berkeley.edu/~chorin/chorin68.pdf
+   Supports the projection approach for incompressible velocity/pressure
+   evolution. The packaged implementation is not a reproduction of Chorin's
+   original finite-difference experiments.
+
+5. Jacobs, Ward, and Pinkerton (1933), NACA Technical Report 460.
+   https://ntrs.nasa.gov/citations/19930091108
+   Supports the NACA four-digit airfoil family and its geometric background.
+   The low-resolution immersed profile in this package is a numerical
+   approximation. The report's measured aerodynamic curves are not used as
+   validation data here.
+
+The BibTeX keys are Garcia2025Airfoil, Montala2025Wing,
+Angot1999Penalization, Chorin1968Projection, and Jacobs1933NACA.
+
+These are literature references, not implemented DRL baselines. The code's
+implemented comparison methods are listed in its configuration and outputs.

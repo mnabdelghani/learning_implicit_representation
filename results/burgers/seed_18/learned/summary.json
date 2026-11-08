@@ -1,0 +1,34 @@
+{
+  "method": "learned",
+  "seed": 18,
+  "metrics": {
+    "tracking_rms": 0.00019795041450781302,
+    "rate_rmse_clean_preupdate": 2.927619854651023e-05,
+    "rate_rmse_measured_preupdate": 0.0019933447791810554,
+    "control_rms": 0.1857706472253877,
+    "control_peak": 0.5107583070812753,
+    "control_energy_full_run": 0.8557298131750435,
+    "F_relative_error_mean": 0.00011324851766524628,
+    "F_min_row_norm": 1.288875478857442,
+    "ca_relative_rms_error": 0.0003024811512092112,
+    "nu_relative_rms_error": 0.0005519383329207681,
+    "b_relative_rms_error": 0.00015339367997557228,
+    "sample_energy_noisy_mean": 0.0015921198326535868,
+    "sample_energy_clean_mean": 9.821857753654993e-10,
+    "largest_inner_energy_increase": 0.0,
+    "largest_descent_bound_violation": 0.0,
+    "maximum_absolute_field_mean": 4.618701254788249e-17
+  },
+  "final_coefficients": [
+    1.0002322023290102,
+    0.08003835495910967,
+    1.0001899465878425
+  ],
+  "evaluation_interval": [
+    18.0,
+    24.0
+  ],
+  "right_endpoint_excluded": true,
+  "time_steps": 4800,
+  "status": "NEW RECONSTRUCTION"
+}

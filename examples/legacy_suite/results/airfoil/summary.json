@@ -1,0 +1,164 @@
+{
+  "status": "new_unvalidated_numerical_prototype",
+  "description": "Projected incompressible Fourier flow with immersed NACA0012 and wake body-force actuation",
+  "not_a_surface_jet_or_lift_benchmark": true,
+  "no_grid_time_penalty_domain_convergence_validation": true,
+  "seed": 10,
+  "config": {
+    "nx": 128,
+    "ny": 64,
+    "lx": 6.0,
+    "ly": 3.0,
+    "dt": 0.004,
+    "sample_dt": 0.02,
+    "spinup_time": 3.0,
+    "training_time": 3.0,
+    "control_time": 6.0,
+    "chord": 1.0,
+    "thickness_ratio": 0.12,
+    "angle_deg": 12.0,
+    "airfoil_center_x": 2.0,
+    "airfoil_center_y": 1.5,
+    "mask_width_cells": 0.65,
+    "penalty_time": 0.04,
+    "sponge_strength": 2.0,
+    "sponge_width": 0.18,
+    "sponge_left": 0.55,
+    "sponge_right": 5.2,
+    "sponge_vertical_width": 0.3,
+    "true_advection": 1.0,
+    "true_viscosity": 0.01,
+    "true_gain_initial": 1.0,
+    "true_gain_after": 0.55,
+    "gain_change_time": 2.8,
+    "actuator_x": 2.9,
+    "actuator_y": 1.6,
+    "actuator_sigma_x": 0.3,
+    "actuator_sigma_y": 0.22,
+    "return_force_y": 0.65,
+    "readout_x": 3.0,
+    "readout_y": 1.6,
+    "readout_sigma_x": 0.32,
+    "readout_sigma_y": 0.24,
+    "exploration_amplitude": 0.9,
+    "target_amplitude": 0.04,
+    "target_period": 4.0,
+    "feedback_gain": 3.0,
+    "control_regularization": 0.0001,
+    "input_bound": 2.0,
+    "memory_time": 0.8,
+    "update_relaxation": 0.25,
+    "ridge": 1e-07,
+    "parameter_scales": [
+      1.0,
+      0.02,
+      1.0
+    ],
+    "initial_parameters": [
+      0.7,
+      0.018,
+      0.7
+    ],
+    "parameter_lower_bounds": [
+      0.2,
+      0.0005,
+      0.15
+    ],
+    "parameter_upper_bounds": [
+      2.0,
+      0.05,
+      2.0
+    ],
+    "diagnostic_every": 10,
+    "target_settling_time": 1.5
+  },
+  "nominal_reynolds_number": 100.0,
+  "learning_inputs": "Full observed velocity fields, sampled increments, applied input, known geometry/forcing operators; no true coefficient/partial targets",
+  "implicit_normalization": "The coefficient of the measured field acceleration is fixed to the identity; learned parameters obey declared bounds",
+  "loss_note": "Pre-update secant compatibility approximates F(z) zdot in constant-parameter regimes; no zero-energy claim across the unknown gain jump",
+  "update_note": "Exact three-variable box-quadratic active-set solve, followed by relaxation; only the frozen regularized objective decreases, not necessarily online pre-update compatibility",
+  "operator_error_note": "One fixed smooth divergence-free evaluation direction with delta_rate=0 and delta_input=1; includes known geometry blocks; not a complete operator norm",
+  "readout": "Normalized Gaussian-weighted vertical wake velocity",
+  "reference": "y_initial*exp(-t/target_settling_time) + target_amplitude*sin(2*pi*t/target_period)",
+  "output_input_coupling_CB": 0.12890287433981348,
+  "trained_parameters": [
+    1.0005236531582842,
+    0.01001129932863965,
+    1.00022686655507
+  ],
+  "true_parameters_during_training_evaluation_only": [
+    1.0,
+    0.01,
+    1.0
+  ],
+  "training_final_partial_action_relative_error": 0.0002930030900145893,
+  "branches": {
+    "no_control": {
+      "rmse": 0.038733510112512554,
+      "late_rmse": 0.02352742393545899,
+      "max_absolute_error": 0.0830121479153074,
+      "input_rms": 0.0,
+      "max_absolute_input": 0.0,
+      "saturation_fraction": 0.0,
+      "final_parameters": [
+        1.0005236531582842,
+        0.01001129932863965,
+        1.00022686655507
+      ],
+      "final_input_partial_relative_error": 0.8185943028273999,
+      "late_median_pre_update_energy": 2.0315652683883577e-11,
+      "final_partial_action_relative_error": 0.011308039402655474,
+      "final_divergence_rms": 9.424347115416902e-15,
+      "final_immersed_body_speed_rms": 0.18618089820466663,
+      "maximum_speed": 1.1721282161771
+    },
+    "frozen": {
+      "rmse": 0.004696907047426952,
+      "late_rmse": 0.007186193067981916,
+      "max_absolute_error": 0.011137294786725743,
+      "input_rms": 0.6750558553674718,
+      "max_absolute_input": 1.1800278469854655,
+      "saturation_fraction": 0.0,
+      "final_parameters": [
+        1.0005236531582842,
+        0.01001129932863965,
+        1.00022686655507
+      ],
+      "final_input_partial_relative_error": 0.8185943028273999,
+      "late_median_pre_update_energy": 0.00016157454237733296,
+      "final_partial_action_relative_error": 0.011300702390909254,
+      "final_divergence_rms": 8.988351644126063e-15,
+      "final_immersed_body_speed_rms": 0.18706443210832405,
+      "maximum_speed": 1.2882487951265662
+    },
+    "adaptive": {
+      "rmse": 0.0012158617054066011,
+      "late_rmse": 0.0015567350218768964,
+      "max_absolute_error": 0.0027293694665601956,
+      "input_rms": 0.7296956301859334,
+      "max_absolute_input": 1.1800737235346628,
+      "saturation_fraction": 0.0,
+      "final_parameters": [
+        0.9980741322439844,
+        0.00998102353114858,
+        0.5558422979678008
+      ],
+      "final_input_partial_relative_error": 0.010622359941455963,
+      "late_median_pre_update_energy": 5.121877726099963e-07,
+      "final_partial_action_relative_error": 0.0011475969010977542,
+      "final_divergence_rms": 9.263964601869707e-15,
+      "final_immersed_body_speed_rms": 0.18882324862940134,
+      "maximum_speed": 1.2882554879496373
+    }
+  },
+  "elapsed_seconds": 11.854400645999704,
+  "files": [
+    "trace.csv",
+    "training_trace.csv",
+    "fields.npz",
+    "airfoil.png",
+    "airfoil.pdf",
+    "airfoil_flow.png",
+    "parameters.png"
+  ]
+}

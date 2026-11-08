@@ -1,0 +1,421 @@
+{
+  "status": "NEW RECONSTRUCTION",
+  "reproduces_original_paper_numbers": false,
+  "quick_run": false,
+  "seeds": [
+    10
+  ],
+  "noise_floor_at_true_coefficients": 0.0016,
+  "config": {
+    "status": "NEW RECONSTRUCTION",
+    "source_labels": [
+      "eq:burgers",
+      "eq:burgers_experiment_partials",
+      "eq:burgers_incompatibility",
+      "eq:pdecontrol"
+    ],
+    "grid_points": 64,
+    "domain_length": 6.283185307179586,
+    "dt": 0.005,
+    "duration": 24.0,
+    "evaluation_window": 6.0,
+    "snapshot_interval": 0.1,
+    "difference_window": 0.05,
+    "memory_time": 4.0,
+    "sensor_noise_std": 0.002,
+    "true_coefficients": [
+      1.0,
+      0.08,
+      1.0
+    ],
+    "initial_coefficients": [
+      0.7,
+      0.04,
+      0.8
+    ],
+    "feedback_gain": 2.0,
+    "projected_steps": 8,
+    "curvature_trace_floor": 1e-12,
+    "coefficient_scales": [
+      1.0,
+      0.1,
+      1.0
+    ],
+    "bounds_lower": [
+      0.2,
+      0.01,
+      0.25
+    ],
+    "bounds_upper": [
+      2.0,
+      0.25,
+      2.0
+    ],
+    "newly_supplied_choices": {
+      "bounds_and_scales": "The coefficient box and optimization scales are new explicit choices; they were not recoverable from the source.",
+      "dealiasing": "No extra filter: the same pointwise collocation product w*ws is used in plant and residual.",
+      "timing": "Compute command and preupdate predictions; measure rate; assimilate causal complete-feature difference; apply already-selected command for one RK4 interval. New coefficients affect the next command.",
+      "actuation": "Unconstrained distributed input at all 64 grid points. No actuator clipping.",
+      "memory": "Zero 4x4 complete-feature-rate moment; exponential update with spatial averaging and beta=exp(-dt/memory_time).",
+      "sensor": "Only wt receives independent Gaussian noise. State and spatial derivative channels are exact; true clean rates are evaluator-only.",
+      "final_sample": "Record the terminal state but exclude its unapplied command from metrics and effort integration."
+    }
+  },
+  "aggregate": {
+    "learned": {
+      "tracking_rms": {
+        "mean": 0.00019467589274445557,
+        "std": null,
+        "count": 1
+      },
+      "rate_rmse_clean_preupdate": {
+        "mean": 2.6238059617213552e-05,
+        "std": null,
+        "count": 1
+      },
+      "rate_rmse_measured_preupdate": {
+        "mean": 0.0020057025560041666,
+        "std": null,
+        "count": 1
+      },
+      "control_rms": {
+        "mean": 0.18576907263693546,
+        "std": null,
+        "count": 1
+      },
+      "control_peak": {
+        "mean": 0.5107370889411886,
+        "std": null,
+        "count": 1
+      },
+      "control_energy_full_run": {
+        "mean": 0.8557651513211245,
+        "std": null,
+        "count": 1
+      },
+      "F_relative_error_mean": {
+        "mean": 9.913388464635767e-05,
+        "std": null,
+        "count": 1
+      },
+      "F_min_row_norm": {
+        "mean": 1.288875478857442,
+        "std": null,
+        "count": 1
+      },
+      "ca_relative_rms_error": {
+        "mean": 0.0002956892012147134,
+        "std": null,
+        "count": 1
+      },
+      "nu_relative_rms_error": {
+        "mean": 0.0004897693254027231,
+        "std": null,
+        "count": 1
+      },
+      "b_relative_rms_error": {
+        "mean": 0.00011929089973842975,
+        "std": null,
+        "count": 1
+      },
+      "sample_energy_noisy_mean": {
+        "mean": 0.0015985656437199017,
+        "std": null,
+        "count": 1
+      },
+      "sample_energy_clean_mean": {
+        "mean": 7.483208249864201e-10,
+        "std": null,
+        "count": 1
+      },
+      "largest_inner_energy_increase": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "largest_descent_bound_violation": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "maximum_absolute_field_mean": {
+        "mean": 4.380176776841438e-17,
+        "std": null,
+        "count": 1
+      }
+    },
+    "frozen": {
+      "tracking_rms": {
+        "mean": 0.01658456691321046,
+        "std": null,
+        "count": 1
+      },
+      "rate_rmse_clean_preupdate": {
+        "mean": 0.037751430579981295,
+        "std": null,
+        "count": 1
+      },
+      "rate_rmse_measured_preupdate": {
+        "mean": 0.037800572458129,
+        "std": null,
+        "count": 1
+      },
+      "control_rms": {
+        "mean": 0.18690520803055483,
+        "std": null,
+        "count": 1
+      },
+      "control_peak": {
+        "mean": 0.514291706398487,
+        "std": null,
+        "count": 1
+      },
+      "control_energy_full_run": {
+        "mean": 0.8664492421097493,
+        "std": null,
+        "count": 1
+      },
+      "F_relative_error_mean": {
+        "mean": 0.15843680531414686,
+        "std": null,
+        "count": 1
+      },
+      "F_min_row_norm": {
+        "mean": 1.2812493910231144,
+        "std": null,
+        "count": 1
+      },
+      "ca_relative_rms_error": {
+        "mean": 0.30000000000000004,
+        "std": null,
+        "count": 1
+      },
+      "nu_relative_rms_error": {
+        "mean": 0.5,
+        "std": null,
+        "count": 1
+      },
+      "b_relative_rms_error": {
+        "mean": 0.19999999999999993,
+        "std": null,
+        "count": 1
+      },
+      "sample_energy_noisy_mean": {
+        "mean": 0.002196944462833066,
+        "std": null,
+        "count": 1
+      },
+      "sample_energy_clean_mean": {
+        "mean": 0.0005967154656758781,
+        "std": null,
+        "count": 1
+      },
+      "largest_inner_energy_increase": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "largest_descent_bound_violation": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "maximum_absolute_field_mean": {
+        "mean": 3.903127820947816e-17,
+        "std": null,
+        "count": 1
+      }
+    },
+    "oracle": {
+      "tracking_rms": {
+        "mean": 0.00019765582302522946,
+        "std": null,
+        "count": 1
+      },
+      "rate_rmse_clean_preupdate": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "rate_rmse_measured_preupdate": {
+        "mean": 0.002005504122340502,
+        "std": null,
+        "count": 1
+      },
+      "control_rms": {
+        "mean": 0.18577261785227692,
+        "std": null,
+        "count": 1
+      },
+      "control_peak": {
+        "mean": 0.5107511936275211,
+        "std": null,
+        "count": 1
+      },
+      "control_energy_full_run": {
+        "mean": 0.8567760545386522,
+        "std": null,
+        "count": 1
+      },
+      "F_relative_error_mean": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "F_min_row_norm": {
+        "mean": 1.4164745038129758,
+        "std": null,
+        "count": 1
+      },
+      "ca_relative_rms_error": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "nu_relative_rms_error": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "b_relative_rms_error": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "sample_energy_noisy_mean": {
+        "mean": 0.0015984769573884118,
+        "std": null,
+        "count": 1
+      },
+      "sample_energy_clean_mean": {
+        "mean": 3.0526903117464235e-32,
+        "std": null,
+        "count": 1
+      },
+      "largest_inner_energy_increase": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "largest_descent_bound_violation": {
+        "mean": 0.0,
+        "std": null,
+        "count": 1
+      },
+      "maximum_absolute_field_mean": {
+        "mean": 3.74049749507499e-17,
+        "std": null,
+        "count": 1
+      }
+    }
+  },
+  "episodes": [
+    {
+      "method": "learned",
+      "seed": 10,
+      "metrics": {
+        "tracking_rms": 0.00019467589274445557,
+        "rate_rmse_clean_preupdate": 2.6238059617213552e-05,
+        "rate_rmse_measured_preupdate": 0.0020057025560041666,
+        "control_rms": 0.18576907263693546,
+        "control_peak": 0.5107370889411886,
+        "control_energy_full_run": 0.8557651513211245,
+        "F_relative_error_mean": 9.913388464635767e-05,
+        "F_min_row_norm": 1.288875478857442,
+        "ca_relative_rms_error": 0.0002956892012147134,
+        "nu_relative_rms_error": 0.0004897693254027231,
+        "b_relative_rms_error": 0.00011929089973842975,
+        "sample_energy_noisy_mean": 0.0015985656437199017,
+        "sample_energy_clean_mean": 7.483208249864201e-10,
+        "largest_inner_energy_increase": 0.0,
+        "largest_descent_bound_violation": 0.0,
+        "maximum_absolute_field_mean": 4.380176776841438e-17
+      },
+      "final_coefficients": [
+        1.000348294665203,
+        0.08006104675484105,
+        1.0002714162562654
+      ],
+      "evaluation_interval": [
+        18.0,
+        24.0
+      ],
+      "right_endpoint_excluded": true,
+      "time_steps": 4800,
+      "status": "NEW RECONSTRUCTION"
+    },
+    {
+      "method": "frozen",
+      "seed": 10,
+      "metrics": {
+        "tracking_rms": 0.01658456691321046,
+        "rate_rmse_clean_preupdate": 0.037751430579981295,
+        "rate_rmse_measured_preupdate": 0.037800572458129,
+        "control_rms": 0.18690520803055483,
+        "control_peak": 0.514291706398487,
+        "control_energy_full_run": 0.8664492421097493,
+        "F_relative_error_mean": 0.15843680531414686,
+        "F_min_row_norm": 1.2812493910231144,
+        "ca_relative_rms_error": 0.30000000000000004,
+        "nu_relative_rms_error": 0.5,
+        "b_relative_rms_error": 0.19999999999999993,
+        "sample_energy_noisy_mean": 0.002196944462833066,
+        "sample_energy_clean_mean": 0.0005967154656758781,
+        "largest_inner_energy_increase": 0.0,
+        "largest_descent_bound_violation": 0.0,
+        "maximum_absolute_field_mean": 3.903127820947816e-17
+      },
+      "final_coefficients": [
+        0.7,
+        0.04,
+        0.8
+      ],
+      "evaluation_interval": [
+        18.0,
+        24.0
+      ],
+      "right_endpoint_excluded": true,
+      "time_steps": 4800,
+      "status": "NEW RECONSTRUCTION"
+    },
+    {
+      "method": "oracle",
+      "seed": 10,
+      "metrics": {
+        "tracking_rms": 0.00019765582302522946,
+        "rate_rmse_clean_preupdate": 0.0,
+        "rate_rmse_measured_preupdate": 0.002005504122340502,
+        "control_rms": 0.18577261785227692,
+        "control_peak": 0.5107511936275211,
+        "control_energy_full_run": 0.8567760545386522,
+        "F_relative_error_mean": 0.0,
+        "F_min_row_norm": 1.4164745038129758,
+        "ca_relative_rms_error": 0.0,
+        "nu_relative_rms_error": 0.0,
+        "b_relative_rms_error": 0.0,
+        "sample_energy_noisy_mean": 0.0015984769573884118,
+        "sample_energy_clean_mean": 3.0526903117464235e-32,
+        "largest_inner_energy_increase": 0.0,
+        "largest_descent_bound_violation": 0.0,
+        "maximum_absolute_field_mean": 3.74049749507499e-17
+      },
+      "final_coefficients": [
+        1.0,
+        0.08,
+        1.0
+      ],
+      "evaluation_interval": [
+        18.0,
+        24.0
+      ],
+      "right_endpoint_excluded": true,
+      "time_steps": 4800,
+      "status": "NEW RECONSTRUCTION"
+    }
+  ],
+  "code_sha256": "ff15f0aad7d0afaf0b6a32bf39b4335705c56d45514c43482f0b19b8eaea3f87",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5"
+  }
+}

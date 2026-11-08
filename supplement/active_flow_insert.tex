@@ -1,0 +1,109 @@
+% Compact manuscript insert. Requires amsmath, amssymb and booktabs.
+% Merge active_flow_control.bib into the manuscript bibliography.
+% This is the newly executed numerical prototype, not validated aerodynamic data.
+\subsection{Active flow control: an immersed-airfoil numerical prototype}
+\label{sec:afc_prototype}
+
+We test differential learning and output control on a two-dimensional
+incompressible flow with an immersed NACA~0012 profile. Published surface-jet
+airfoil studies motivate this setting \cite{Garcia2025Airfoil,Montala2025Wing}.
+Our executable prototype uses a localized volume force and a wake-velocity
+output. The geometry follows the NACA family \cite{Jacobs1933NACA}; the
+numerical ingredients are obstacle penalization and incompressible projection
+\cite{Angot1999Penalization,Chorin1968Projection}.
+
+\subsubsection{Implicit system and partials}
+Let $X$ be the full discrete velocity field, $A=\dot X$, and $u$ the scalar
+command. With a solenoidal Fourier projection $P_h$, including the strict
+two-thirds cutoff, define
+\begin{align}
+ N(X)&=P_h[(X\cdot\nabla_h)X],\qquad L(X)=\Delta_hX,\nonumber\\
+ K(X)&=P_h[-\chi X/\eta+s(e_x-X)],\qquad B=P_hb.
+ \label{eq:afc_short_operators}
+\end{align}
+Here $\chi$ is the smoothed body mask, $s$ is a fringe sponge, and $b$ is
+the prescribed vertical body-force shape. The learned residual is
+\begin{equation}
+ f_\theta(X,A,u)=A+c_aN(X)-\nu L(X)-\beta Bu-K(X)=0,
+ \label{eq:afc_short_f}
+\end{equation}
+with $\theta=(c_a,\nu,\beta)$. For $z=(X,A,u)$, its actual differential is
+\begin{equation}
+ F_\theta(z)=
+ [\,c_aDN(X)-\nu L-DK\quad I\quad-\beta B\,].
+ \label{eq:afc_short_F}
+\end{equation}
+The fixed rate block excludes the zero differential. Only three coefficients
+of the supplied operator family are learned. The plant integrates its own
+flow state; true coefficients and partials are used only for evaluation.
+
+\subsubsection{Learning}
+At observation interval $h_s$, use
+$\bar X_n=(X_{n+1}+X_n)/2$ and $A_n=(X_{n+1}-X_n)/h_s$.
+For $\bar z_n=(\bar X_n,A_n,u_n)$, form the causal complete-feature secant
+\begin{equation}
+ \xi_n^\Delta(\theta)=
+ \frac{f_\theta(\bar z_n)-f_\theta(\bar z_{n-1})}{h_s},
+ \label{eq:afc_short_secant}
+\end{equation}
+using the same candidate parameters at both endpoints. This approximates
+$F_\theta(z)\dot z$ with sampling error. An exponential memory with time
+constant $0.8$ minimizes the spatial mean of
+$\|\xi_n^\Delta\|^2/2$, with a weak scaled quadratic regularizer and
+$\theta\in[0.2,2]\times[0.0005,0.05]\times[0.15,2]$.
+The three-variable box problem is solved by enumerating its active sets;
+the estimate moves one quarter of the way toward the minimizer each sample.
+Incompatibility is reported before updating. The imposed residual level is
+checked separately on the next observed interval; it is not learned from
+derivatives alone.
+
+\subsubsection{State-dependent readout control}
+Let $y=CX$ be normalized Gaussian-weighted vertical wake velocity and
+$e=y-y_d$. The measured field and learned partials give
+\begin{equation}
+ \hat d=C[-\hat c_aN(X)+\hat\nu L(X)+K(X)],
+ \qquad \hat g=\hat\beta CB.
+\end{equation}
+For the chosen force and readout, $CB\simeq0.128903$. The bounded regularized
+readout is
+\begin{align}
+ u&=\operatorname{clip}_{[-2,2]}
+ \frac{\hat g[\dot y_d-3e-\hat d]}{\hat g^2+10^{-4}},
+ \label{eq:afc_short_control}
+ \\
+ y_d&=y(0)e^{-t/1.5}+0.04\sin(2\pi t/4).\nonumber
+\end{align}
+The reference is an output target, not an identification label.
+
+\subsubsection{Protocol and recorded results}
+The periodic domain is $6\times3$ chords, with a fringe layer, $128\times64$
+grid points, nominal $Re=100$, $12^\circ$ geometric rotation, and
+$\eta=0.04$. The solver uses SSP-RK3 with step $0.004$ and observes full,
+noiseless fields every $0.02$. The force has opposite Gaussian lobes centered
+at $(2.9,1.6)$ and $(2.9,0.65)$, of widths $(0.30,0.22)$, scaled to zero
+total force. The output weight is centered at $(3.0,1.6)$ with widths
+$(0.32,0.24)$. Three time units of spin-up and three of bounded multisine
+identification precede six units of control. All branches start with the
+same field, learned estimate, and accumulated memory. The multisine is
+sampled and held at observation times; the preceding secant pair is cleared
+at the control transition. At control time $2.8$, the plant actuator
+gain changes from $1$ to $0.55$ without informing the learner. The
+constant-coefficient compatibility identity does not apply to the
+jump-crossing secant.
+
+The actual seed-10 output RMS errors were $0.038734$ without control,
+$0.004697$ with the post-identification model frozen, and $0.001216$ with
+continued learning. Corresponding input RMS values were $0$, $0.675056$,
+and $0.729696$, with no saturation. Final continued-learning coefficients
+were $(0.998074,0.00998102,0.555842)$. Its median pre-update energy over the
+final fifth of the episode was $5.12\times10^{-7}$, versus
+$1.62\times10^{-4}$ for the frozen model. Very small energy in the
+unactuated branch did not identify the input partial, illustrating the
+need for excitation and separate partial-error diagnostics.
+
+These are new numerical prototype results from one seed. The thin profile
+is coarsely resolved, and grid, time, penalty, and domain convergence remain
+unchecked. The masked-body speed is approximately $0.19$ despite divergence
+RMS below $10^{-14}$. The computation establishes an executable
+learning/readout demonstration; it does not establish accurate wall
+enforcement, surface-jet lift/drag improvement, or global flow stability.

@@ -1,0 +1,55 @@
+{
+  "status": "NEW RECONSTRUCTION",
+  "source_labels": [
+    "eq:burgers",
+    "eq:burgers_experiment_partials",
+    "eq:burgers_incompatibility",
+    "eq:pdecontrol"
+  ],
+  "grid_points": 64,
+  "domain_length": 6.283185307179586,
+  "dt": 0.005,
+  "duration": 24.0,
+  "evaluation_window": 6.0,
+  "snapshot_interval": 0.1,
+  "difference_window": 0.05,
+  "memory_time": 4.0,
+  "sensor_noise_std": 0.002,
+  "true_coefficients": [
+    1.0,
+    0.08,
+    1.0
+  ],
+  "initial_coefficients": [
+    0.7,
+    0.04,
+    0.8
+  ],
+  "feedback_gain": 2.0,
+  "projected_steps": 8,
+  "curvature_trace_floor": 1e-12,
+  "coefficient_scales": [
+    1.0,
+    0.1,
+    1.0
+  ],
+  "bounds_lower": [
+    0.2,
+    0.01,
+    0.25
+  ],
+  "bounds_upper": [
+    2.0,
+    0.25,
+    2.0
+  ],
+  "newly_supplied_choices": {
+    "bounds_and_scales": "The coefficient box and optimization scales are new explicit choices; they were not recoverable from the source.",
+    "dealiasing": "No extra filter: the same pointwise collocation product w*ws is used in plant and residual.",
+    "timing": "Compute command and preupdate predictions; measure rate; assimilate causal complete-feature difference; apply already-selected command for one RK4 interval. New coefficients affect the next command.",
+    "actuation": "Unconstrained distributed input at all 64 grid points. No actuator clipping.",
+    "memory": "Zero 4x4 complete-feature-rate moment; exponential update with spatial averaging and beta=exp(-dt/memory_time).",
+    "sensor": "Only wt receives independent Gaussian noise. State and spatial derivative channels are exact; true clean rates are evaluator-only.",
+    "final_sample": "Record the terminal state but exclude its unapplied command from metrics and effort integration."
+  }
+}

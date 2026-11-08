@@ -1,0 +1,39 @@
+{
+  "status": "regenerated_revised_manuscript_diagnostic",
+  "system": "f(x,y)=y+sin(x)=0",
+  "samples": 4096,
+  "iterations": 1600,
+  "initial_row": [
+    -0.19402850002906638,
+    0.7761140001162655,
+    0.5820855000871991,
+    0.09701425001453319,
+    0.048507125007266595,
+    -0.09701425001453319
+  ],
+  "final_row": [
+    -3.307295614824358e-30,
+    0.7071067811865476,
+    0.7071067811865476,
+    -5.959443731087918e-30,
+    -7.703719777542785e-34,
+    1.2324572641605752e-32
+  ],
+  "step": 0.39150471698584904,
+  "eigenvalues": [
+    2.0270712204666513e-16,
+    0.09787617924646239,
+    0.125,
+    0.5000000000000001,
+    1.0000000000000004,
+    1.2771238207535378
+  ],
+  "initial_energy": 0.04058823529411765,
+  "final_energy": 2.6787181689671815e-63,
+  "final_projector_error": 4.440892098500626e-16,
+  "minimum_certified_norm_bound": 0.6305902309452123,
+  "final_certified_norm_bound": 0.7027680283172523,
+  "maximum_norm_error": 2.220446049250313e-16,
+  "backtracking_steps": 0,
+  "learning_targets": "observed lifted rates only; no coefficient or partial labels"
+}

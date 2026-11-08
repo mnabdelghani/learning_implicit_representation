@@ -1,0 +1,21 @@
+{
+  "large_archive": {
+    "filename": "Implicit_Learning_All_Seed_Records.zip",
+    "bytes": 169253042,
+    "sha256": "78eba1f70011d221e16227b049387c473d4cce0540d9f56534cb03c2369caeb8",
+    "included_in_repository_zip": false
+  },
+  "selected_records": {
+    "description": "Original ten-seed JSON summaries and seed-10 diagnostic traces; new excitation-study all-seed JSON summaries and seed-10 traces"
+  },
+  "main_manuscript": {
+    "latex_included": false,
+    "pdf_included": false
+  },
+  "excitation_archive": {
+    "filename": "Implicit_Representation_Excitation_All_Seed_Records.zip",
+    "bytes": 5393043,
+    "sha256": "fb4d08bb72ac4d2562e39643543568a23b6309696a7b4beff556a16b4d4688ab",
+    "included_in_repository_zip": false
+  }
+}

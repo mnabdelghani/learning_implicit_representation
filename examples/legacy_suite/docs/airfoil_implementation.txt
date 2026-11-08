@@ -1,0 +1,146 @@
+AIRFOIL PROTOTYPE: EXACT IMPLEMENTATION CONTRACT
+Status: new numerical prototype. No validated aerodynamic conclusions.
+
+Plant and implicit residual
+---------------------------
+State v=(v_x,v_y) is a two-dimensional, divergence-free velocity field on a
+periodic Fourier grid. P is the solenoidal Fourier projector together with
+the declared two-thirds spectral cutoff. N(v)=P[(v . grad)v], evaluated in
+rotational form; L(v)=Delta v. An immersed smooth NACA0012 mask chi and a
+fringe sponge s define K(v)=P[-chi*v/eta+s*(e_x-v)]. A known, localized,
+zero-mean vertical body-force shape b defines B=P b. The independently
+integrated plant is v_t=-c_a N(v)+nu L(v)+beta B u+K(v).
+No surface jet or physical aerodynamic force measurement is implemented.
+
+The learned, physically restricted implicit residual is
+ f(v,a,u)=a+c_a N(v)-nu L(v)-beta B u-K(v)=0, a=v_t.
+Its Frechet differential is
+ F(v)[dv,da,du]=da+c_a DN(v)[dv]-nu Delta(dv)-beta B du-DK(v)[dv].
+The a block is fixed to I; the residual cannot collapse to the zero map.
+The method learns only c_a,nu,beta in this specified operator family, not
+an arbitrary PDE Jacobian. True coefficients/partials are never targets
+or inputs to the estimator/controller. They are available for separate
+evaluation only.
+
+Measurements, differential learning, calibration
+------------------------------------------------
+Observe full velocity fields at intervals h. For each interval use the
+midpoint field vbar=(v_next+v_prev)/2 and secant acceleration
+ a=(v_next-v_prev)/h, with the actual held input u. Form the complete
+implicit feature channels at every grid point and velocity component:
+ zeta=(N(vbar), -L(vbar), -B*u, a-K(vbar)),
+ vartheta=col(c_a,nu,beta,1),  f=vartheta^T zeta.
+The last coefficient is fixed at one. The successive complete-feature
+quotient Dzeta=(zeta_n-zeta_(n-1))/h gives the incompatibility
+ xi=vartheta^T Dzeta.
+Use an exponentially weighted, column-scaled, ridge-regularized energy for
+the spatial mean of ||xi||^2. The existing implementation stores blocks of
+these feature correlations and evaluates the same contraction without
+forming the full augmented array. Solve this three-parameter quadratic over the
+specified parameter box by enumerating all 27 free/lower/upper active sets,
+then relax toward the feasible minimizer with a factor in (0,1]. This
+decreases that step's frozen regularized objective. It does NOT imply a
+monotonic decrease of online, pre-update, unregularized incompatibility;
+the data window changes, and parameter changes perturb the observations. Report energy BEFORE the update. This is a finite
+secant approximation to F(z) z_dot; it has temporal/discretization error.
+The NS operator family, the known acceleration coefficient, and the
+specified zero residual level are structural assumptions. No arbitrary
+integration constant is learned. Also report the undifferenced residual
+on each held-out next interval; it checks the imposed level separately.
+
+Readout and controller
+----------------------
+Output y=Cv is a Gaussian-weighted mean of vertical wake velocity. C is
+normalized using grid weights, not identified as a lift coefficient.
+Known CB != 0 gives relative degree one for this stated body-force/readout
+pair. At the current measured field compute N,L,K, use learned parameters,
+ d_hat=C[-c_a_hat*N+nu_hat*L+K], g_hat=beta_hat*CB.
+For y_des(t), the bounded scalar command is the minimizer of
+ (g_hat*u - (y_des_dot-k*(y-y_des)-d_hat))^2 + lambda*u^2,
+ subject to |u| <= u_max; apply the actual clipped command to the PDE.
+This only targets the selected scalar output and supplies no global flow
+stability theorem. 
+
+Matched experiment
+------------------
+A common no-actuation spin-up and exploratory-input identification segment
+are followed by cloned initial flow fields for: no control; a controller
+with frozen learned parameters; and the same controller with continuing
+learning. All branches see the same commanded target and the same optional
+actuator-efficacy drop. That drop is a specified change of beta in the
+plant, not supplied to either controller. Compatibility need not vanish
+across the change. Saved diagnostics include output errors, actual inputs,
+pre-update differential energy, held-out level residual, and evaluation-
+only true partial-operator action errors. This is not grid/time-step,
+penalization, domain-size or physical-boundary validation.
+
+References for numerical ingredients
+-------------------------------------
+A. J. Chorin (1968), Mathematics of Computation 22, 745-762,
+https://doi.org/10.1090/S0025-5718-1968-0242392-2
+P. Angot, C.-H. Bruneau, P. Fabrie (1999), Numerische Mathematik 81,497-520,
+https://doi.org/10.1007/s002110050401
+These motivate projection/volume penalization; they do not validate this
+specific spectral implementation or the new experiment.
+
+Reproduction defaults and output interpretation
+-----------------------------------------------
+CLI: python simulations/airfoil.py --output results/airfoil --seed 10
+Add --quick for a shorter, coarser smoke run. --config accepts a JSON file;
+--nx, --ny, and --control-time override the corresponding options.
+Default grid: 128 x 64, domain 6 x 3 chords; nominal Re=100, geometric
+rotation 12 degrees. SSP-RK3 time step 0.004, measurements every 0.02;
+3 time units of spin-up, 3 of exploratory identification, 6 of control.
+The two-thirds cutoff reduces the resolved Fourier modes further.
+Default penalty time eta=0.04; smoothing width 0.65 grid cells. These
+choices are not a resolved boundary-layer simulation or a convergence study.
+The paired Gaussian force has equal opposite integrals; primary center
+(2.9,1.6), return center (2.9,0.65), widths (0.30,0.22). It is a volume
+force, including a distributed compensating lobe, not an airfoil-wall jet.
+The output Gaussian has center (3.0,1.6), widths (0.32,0.24).
+Reference: y_des(t)=y_initial exp(-t/1.5)+0.04 sin(2 pi t/4). The decaying
+initial offset avoids asking the actuator to maintain the exploratory
+transient indefinitely. Its derivative is included explicitly in control.
+The input bound is 2.0, feedback gain 3, input regularizer 1e-4. The unknown
+plant gain drops from 1 to 0.55 at control time 2.8. Each constant-gain
+regime has the stated residual; a secant crossing this jump includes an
+extra parameter-change term and is not expected to satisfy F(z) z_dot=0.
+All learning data are noiseless sampled simulation states, with no teacher
+labels. The learned theta bounds are [0.2,0.0005,0.15] to [2,0.05,2],
+initial theta [0.7,0.018,0.7], memory time 0.8, relaxation 0.25.
+
+The four-panel airfoil.png / airfoil.pdf shows: scalar output and target,
+applied command, pre-update secant energy, and relative Frechet-action
+error on ONE fixed smooth divergence-free perturbation, with da=0, du=1.
+This action metric contains the known damping block and is not a full
+operator norm. The same panel and trace.csv additionally report the relative input-partial
+error |beta_hat-beta|/|beta|. parameters.png shows individual coefficients.
+A very small energy under no input or sustained saturation is not evidence
+that the actuator partial was identified: input excitation can disappear.
+The undifferenced residual is evaluated on the next newly observed interval
+before its update. This is a prequential check, not a separate random split.
+Final fields and masks are stored in fields.npz; summary.json reports
+actual metrics from this executable run, including saturation and immersed
+body velocity. No noise robustness, seed averaging, grid/time convergence,
+aerodynamic force, surface-jet, or experimentally validated flow claim follows.
+
+Executed default run, seed 10 (new results, not original manuscript data)
+---------------------------------------------------------------------
+Actual wall time approximately 12 seconds on the provided CPU. RMSE:
+no control 0.03873351; frozen learning 0.00469691; online learning 0.00121586.
+All three branches have zero saturation at the chosen bound. Final online
+parameters approximately (0.998074,0.00998102,0.555842), while the final
+plant parameters are (1,0.01,0.55). Final online input-partial relative
+error is 0.0106224. Median late pre-update compatibility energy is
+5.12188e-7 online and 1.61575e-4 frozen. No-actuation energy is very small
+even with the wrong input partial, directly illustrating lack of input
+excitation. See summary.json and trace.csv for exact values and definitions.
+The reference's decaying initial offset and moderate amplitude were chosen
+to avoid sustained saturation observed during an initial trial that tried
+to maintain the post-exploration offset. These are demonstration settings,
+not a cross-validated or optimized controller comparison.
+Nine unittest checks cover real/default cutoff projection, divergence and
+idempotence, the full Frechet action, known damping Jacobian, identity
+acceleration normalization, constrained quadratic solution, frozen learner
+parameters, equal/opposite force integrals, and zero-bound controller
+consistency. None substitutes for CFD convergence or physical validation.

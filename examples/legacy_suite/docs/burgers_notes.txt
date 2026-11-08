@@ -1,0 +1,137 @@
+BURGERS: NEW RECONSTRUCTION, NOT A VERIFIED REPRODUCTION
+
+Source and scope
+The implementation follows the periodic Burgers example in the supplied revised
+manuscript (labels eq:burgers, eq:burgers_experiment_partials,
+eq:burgers_incompatibility, and eq:pdecontrol) and its supplement. The source
+implementation and original numerical traces were unavailable. Every number in
+the generated result files is calculated from the present executable run. No
+manuscript table values are copied, fitted, or used as acceptance targets.
+This is a fully actuated one-dimensional PDE example; it is not an airfoil flow
+simulation, and its controller performance does not establish airfoil results.
+
+Implicit system, partials, and readouts
+On a uniform periodic grid s in [0,2*pi), use
+  f = wt + ca*w*ws - nu*wss - b*u = 0,
+  z = (w,ws,wss,u,wt),
+  F(z) = (ca*ws, ca*w, -nu, -b, 1).
+The rate readout is wt_hat = -ca_hat*w*ws + nu_hat*wss + b_hat*u.
+For each measured state the inverse readout is
+  u = [wdt + ca_hat*w*ws - nu_hat*wss - 2*(w-wd)] / b_hat,
+where wd = .4*sin(s)*cos(.7*t) + .2*cos(2*s)*sin(1.1*t), and wdt is
+its exact time derivative. With the exact model and continuously recomputed
+input the error obeys e_t = -2e. The executable holds each command during one
+integration interval, so that identity is only an instantaneous check of the
+readout, not a zero-error claim about the sampled simulation.
+
+Causal learning residual
+At each sample store the complete feature vector
+  zeta = (measured_wt, w*ws, -wss, -u).
+The backward difference over .05 seconds, r=(zeta(t)-zeta(t-.05))/.05,
+is contracted with the CURRENT candidate p=(1,ca_hat,nu_hat,b_hat): xi=r*p.
+In the smooth continuous limit this is F(z)*dot(z). Differentiating the product
+w*ws as a complete feature includes both ws*wt and w*dot(ws). Do not keep only
+one of these terms and do not differentiate the changing parameter estimate.
+The fixed coefficient of wt is one; it rules out the collapsed zero row of F.
+At sample-hold input changes the difference is interpreted as a causal residual
+increment, not as an ordinary pointwise derivative across an input jump.
+No centered or future differences are used.
+
+Constrained incompatibility energy and update
+The 4x4 moment starts at zero and is updated once per usable sample:
+  S <- beta*S + (1-beta)*mean_space(r*r^T), beta=exp(-.005/4).
+The stored energy is E(theta)=.5*p(theta)^T*S*p(theta). Let physical coefficients
+be (ca,nu,b)=D*theta, D=diag(1,.1,1). The gradient is
+  g = D*S[free,:]*p,
+and H=D*S[free,free]*D is its free-coordinate curvature. Eight inner updates use
+  alpha=1/max(trace(H),1e-12),
+  theta <- clip(theta-alpha*g, lower/D, upper/D).
+The moment is held fixed during those eight updates. Each inner update should
+satisfy E_new <= E_old-||theta_new-theta_old||^2/(2*alpha), up to roundoff.
+The history changes at the next sample; temporal energy monotonicity is neither
+assumed nor enforced. Trace CSV records each sample's before/after history
+energy, its minimum scaled free eigenvalue, the maximum inner increase, and the
+maximum violation of this bound. History energies use the unnormalized finite
+exponential memory, which starts from zero.
+
+Explicit new assumptions and missing choices
+The following choices are supplied by this reconstruction, not recovered facts:
+- Coefficient bounds: .2<=ca<=2; .01<=nu<=.25; .25<=b<=2.
+- Optimization scales D=diag(1,.1,1); these define the projection metric.
+- No extra dealiasing filter. The same real Fourier collocation derivatives and
+  pointwise product are used in plant, residual, and control. This ensures
+  algebraic consistency on the discrete grid; it is not a grid-convergence study.
+- Input is unconstrained and independently available at all 64 nodes. No
+  saturation, localized actuator, sensing delay, or state-estimation error.
+- Only wt is noisy; state and spatial derivative channels are exact. Gaussian
+  rate-sensor noise has standard deviation .002 and a reproducible seed.
+- A command uses the coefficients available BEFORE the current sample update;
+  the new coefficients first affect the NEXT command.
+- Terminal t=24 is saved for diagnosis, but its unapplied command is excluded
+  from aggregate performance and input-energy calculations.
+These choices are all saved in config_used.json and burgers_summary.json.
+Changing them can materially change parameter learning and tracking.
+
+Plant protocol and timing
+Use 64 Fourier collocation points, true (ca,nu,b)=(1,.08,1), and initial
+w=.3*sin(s)+.1*cos(2*s). Integrate with classical RK4 at dt=.005 for24 seconds;
+u_n is the same at all four substeps. At t_n: choose u_n; compute the clean plant
+rate and the noisy sensor observation; record a preupdate prediction; compute
+the backward complete-feature difference once ten previous intervals exist;
+update the stored energy and coefficients; integrate with the already selected
+u_n. The clean rate and true F are used only by the evaluator. The learner takes
+only complete-feature differences and the declared box/scales.
+
+Comparisons and interpretation
+Run learned, frozen, and oracle controllers from the same initial state and
+reference. Each has its OWN plant trajectory. The learned controller starts at
+(.7,.04,.8) and updates; frozen always uses that prior; oracle uses (1,.08,1).
+An oracle benchmark is a model-information reference, not a practical learned
+baseline. All use the identical integration, sampling, and actuation rules.
+The online controller can make the data weakly informative. Small tracking error
+or small incompatibility does not by itself establish accurate coefficients.
+Report partial and coefficient errors alongside tracking and effort.
+Rate observation noise does not vanish on differentiation. At the true model,
+independent endpoint noise gives expected sample energy sigma^2/delta^2=.0016.
+The plotted dashed floor is this calculation, not a fitted target. Measured
+energy need not tend to zero. Clean incompatibility is an evaluator-only
+quantity and can be small even when parameter errors remain substantial.
+No claim of a convergence theorem or global control guarantee is made here.
+
+Outputs and exact metric definitions
+For each seed/method, trace.csv records all dt samples; fields.csv records all
+64 spatial nodes every .1 seconds plus the final state. summary.json contains
+actual computed metrics. seed_N/burgers.png and .pdf summarize six diagnostics.
+burgers_summary.json stores method aggregates and sample standard deviations
+across requested seeds; std is null for a single seed, not an invented interval.
+The default evaluation window is [18,24), with an unweighted spatial mean:
+- tracking_rms = sqrt(mean_time(mean_space((w-wd)^2)));
+- rate_rmse_clean_preupdate = sqrt(mean((wt_hat-wt_true)^2));
+- rate_rmse_measured_preupdate uses the noisy sensor and is separately labeled;
+- control_rms and control_peak describe all selected evaluation samples;
+- control_energy_full_run = dt*sum_t(mean_space(u^2)), over [0,24);
+- F_relative_error_mean averages ||F_hat-F_true||_F/||F_true||_F, in the
+  stated fixed coordinates and fixed wt-row normalization;
+- per-coefficient relative RMS error uses the true coefficient denominator;
+- sample_energy_*_mean averages .5*mean_space(xi^2) over evaluation samples.
+Early unavailable incompatibility values in CSV are NaN, not fabricated zeros.
+The plots clip only the displayed log-axis ordinate below 1e-20; raw CSV retains
+computed values. The final unapplied command is explicitly marked in trace.csv.
+
+Execution (from the package root)
+  python simulations/burgers.py --output results/burgers --seed 10
+  python simulations/burgers.py --output results/burgers_10seeds --seeds 10:19
+  python simulations/burgers.py --output results/burgers_smoke --seed 10 --quick
+  python -m unittest discover -s tests -p test_burgers.py -v
+The inclusive range syntax accepts comma lists or space-separated integers.
+--seeds without values runs10..19. --quick uses2 seconds and a last-.5-second
+evaluation, keeping64 nodes and dt=.005; it is a smoke run, not the full protocol.
+--no-plots skips only rendering; --config selects another explicit JSON config.
+
+Verification boundaries
+Tests cover Fourier differentiation, directional consistency of f and F, both
+terms of complete-product differencing, clean finite-difference compatibility,
+unforced mass conservation, pure diffusion decay, exact instantaneous inverse
+readout cancellation, constrained frozen-memory energy descent, and a short
+actual closed-loop episode. These are implementation checks, not proof of
+spatial/temporal accuracy for all flows or evidence of general system recovery.

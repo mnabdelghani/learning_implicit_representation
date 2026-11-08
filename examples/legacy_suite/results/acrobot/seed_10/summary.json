@@ -1,0 +1,443 @@
+{
+  "status": "NEW_RECONSTRUCTION",
+  "seed": 10,
+  "mode": "main",
+  "claim": "New executable reconstruction with explicit missing-setting assumptions; not a reproduction of the manuscript table.",
+  "config": {
+    "status": "NEW_RECONSTRUCTION",
+    "source": "Available revised manuscript and Implicit_Representation_TNNLS_Supplement.tex; the original matching simulation code was not supplied.",
+    "coefficient_order": [
+      "a",
+      "b",
+      "d",
+      "p",
+      "r"
+    ],
+    "true_coefficients": [
+      1.6666666666666667,
+      0.5,
+      0.3333333333333333,
+      14.715,
+      4.905
+    ],
+    "prior_coefficients": [
+      1.5,
+      0.3,
+      0.4,
+      12.0,
+      3.5
+    ],
+    "coefficient_scales": [
+      1.0,
+      1.0,
+      1.0,
+      10.0,
+      10.0
+    ],
+    "identification": {
+      "duration": 8.0,
+      "step": 0.0025,
+      "initial_state": [
+        0.3,
+        -0.5,
+        0.0,
+        0.0
+      ],
+      "acceleration_noise_std": 0.005,
+      "feature_difference_interval": 0.025,
+      "memory_time": 6.0,
+      "learning_gain": 10.0,
+      "excitation_amplitudes": [
+        3.0,
+        2.0,
+        1.2
+      ],
+      "excitation_frequencies": [
+        1.1,
+        2.3,
+        4.7
+      ],
+      "excitation_phases": [
+        0.3,
+        0.8,
+        1.5
+      ]
+    },
+    "queries": {
+      "count": 2000,
+      "seed": 20261107,
+      "angle_bound": 3.141592653589793,
+      "speed_bound": 2.0,
+      "input_bound": 4.0,
+      "desired_acceleration_bound": 3.0
+    },
+    "control": {
+      "duration": 7.0,
+      "step": 0.001,
+      "initial_state": [
+        3.121592653589793,
+        0.01,
+        0.0,
+        0.0
+      ],
+      "equilibrium": [
+        3.141592653589793,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Q_diagonal": [
+        30.0,
+        30.0,
+        4.0,
+        4.0
+      ],
+      "R": 0.8,
+      "torque_limit": 15.0,
+      "evaluation_window": 2.0,
+      "angle_norm_threshold": 0.1,
+      "speed_norm_threshold": 0.1
+    },
+    "reconstruction_choices": {
+      "prior": "The source omits the prior vector. The fixed, physically valid vector (1.5, 0.3, 0.4, 12, 3.5) is an explicit reconstruction assumption, not a recovered setting or a tuned baseline.",
+      "identification_integrator": "Classical RK4 with the prescribed smooth multisine evaluated at each stage; observations include both endpoints of the 8 s episode.",
+      "measurement_noise": "numpy.random.default_rng(seed), independent Gaussian acceleration noise at each observation. No state or input noise.",
+      "causality": "No update until the 25 ms past observation exists. Predictions and partial tracking at an observation use the coefficient vector from before assimilating that observation.",
+      "control_integrator": "Classical RK4 with each sampled LQR command held through one integration step.",
+      "control_error": "Feedback uses the raw local coordinate x-x_star, as in the manuscript formula. Angle error reporting is wrapped into [-pi,pi].",
+      "query_randomness": "One fixed independent query seed is shared across methods and measurement-noise seeds, so only identification noise changes across runs.",
+      "reported_windows": "Both full-episode and final-two-second control errors are provided; the source does not unambiguously identify its quoted angle-RMS window.",
+      "no_projection": "The specified learning update is unconstrained. Mass positivity is diagnosed, not enforced or repaired. A nonphysical final model is rejected for readout/control evaluation.",
+      "provenance": "All output numbers are new simulation results. They must not be substituted for, or described as reproducing, the manuscript table without a separate comparison."
+    },
+    "run_mode": "main"
+  },
+  "identification": {
+    "duration_s": 8.0,
+    "observations": 3201,
+    "learning_updates": 3191,
+    "final_coefficients": [
+      1.6522687683473287,
+      0.4956803707379892,
+      0.33045331951879886,
+      14.588967898385675,
+      4.862609291241241
+    ],
+    "final_relative_coefficient_rms": 0.008625104169274143,
+    "final_information_minimum_eigenvalue": 23.388991674533873,
+    "final_information_eigenvalues": [
+      23.388991674533873,
+      5621.142874445643,
+      57066.8528225763,
+      100027306.12607002,
+      208085413.7670573
+    ],
+    "final_mass_minimum_eigenvalue_all_configurations": 0.06570651535097424,
+    "nonpositive_mass_observations_during_learning": 0,
+    "final_memory_objective": 0.5564493102982411,
+    "frozen_memory_objective": 1667086.5217389856,
+    "oracle_memory_objective": 0.5613468228368106,
+    "fitted_noisy_memory_minimizer_coefficients": [
+      1.652259003479945,
+      0.49567744127230373,
+      0.33045136657910423,
+      14.588881788297268,
+      4.862580613513662
+    ],
+    "scaled_distance_to_noisy_memory_minimizer": 1.3788472414460706e-05,
+    "maximum_frozen_objective_increase": 3.6715164242195897e-09,
+    "tail_window_s": 2.0,
+    "tail_mean_measured_incompatibility_energy_pre": 0.1502032984819271,
+    "tail_mean_measured_oracle_energy": 0.15175057071402903,
+    "tail_mean_clean_incompatibility_energy_pre": 0.0009552368378118212,
+    "tail_max_clean_oracle_energy": 2.7428862456425646e-24,
+    "tail_mean_relative_partials_error_pre": 0.008697132282044256,
+    "online_forward_vector_rmse_pre": 2.0898795711909557,
+    "tail_online_forward_vector_rmse_pre": 0.12812138133442855
+  },
+  "readouts": {
+    "learned": {
+      "status": "OK",
+      "forward_acceleration_vector_rmse_rad_s2": 0.14008835113794169,
+      "inverse_torque_rmse_Nm": 0.024742036403996387,
+      "inverse_actual_actuated_acceleration_rmse_rad_s2": 0.11361877019933402,
+      "relative_partials_rms_on_query_states": 0.008533169896218837,
+      "maximum_fitted_inverse_residual": 3.66205343881779e-15
+    },
+    "frozen": {
+      "status": "OK",
+      "forward_acceleration_vector_rmse_rad_s2": 9.293982972098433,
+      "inverse_torque_rmse_Nm": 1.0177685179938774,
+      "inverse_actual_actuated_acceleration_rmse_rad_s2": 4.380162689977499,
+      "relative_partials_rms_on_query_states": 0.2700832504298676,
+      "maximum_fitted_inverse_residual": 3.66205343881779e-15
+    },
+    "oracle": {
+      "status": "OK",
+      "forward_acceleration_vector_rmse_rad_s2": 0.0,
+      "inverse_torque_rmse_Nm": 0.0,
+      "inverse_actual_actuated_acceleration_rmse_rad_s2": 2.937097435881642e-15,
+      "relative_partials_rms_on_query_states": 0.0,
+      "maximum_fitted_inverse_residual": 3.66205343881779e-15
+    }
+  },
+  "control": {
+    "learned": {
+      "status": "OK",
+      "duration_requested_s": 7.0,
+      "duration_completed_s": 7.0,
+      "gain": [
+        [
+          -482.59524663743696,
+          -124.28472545447121,
+          -177.4631525775979,
+          -52.403797657814785
+        ]
+      ],
+      "linearization_A": [
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          12.614767483319673,
+          -12.612816047837258,
+          0.0,
+          0.0
+        ],
+        [
+          -16.82196786396253,
+          46.24702084889083,
+          -0.0,
+          -0.0
+        ]
+      ],
+      "linearization_G": [
+        [
+          0.0
+        ],
+        [
+          0.0
+        ],
+        [
+          -4.323060353010454
+        ],
+        [
+          13.833802030774514
+        ]
+      ],
+      "fitted_closed_loop_eigenvalues_real": [
+        -33.8286028872933,
+        -3.035886082742528,
+        -2.687833799723843,
+        -2.687833799723843
+      ],
+      "fitted_closed_loop_eigenvalues_imag": [
+        0.0,
+        0.0,
+        0.02876465890138147,
+        -0.02876465890138147
+      ],
+      "riccati_residual_norm": 5.477421678658543e-07,
+      "full_episode_angle_vector_rmse_rad": 0.1284654020662077,
+      "full_episode_per_angle_rmse_rad": 0.09083875694887178,
+      "final_window_angle_vector_rmse_rad": 3.3467544131412254e-06,
+      "final_window_per_angle_rmse_rad": 2.366512740498165e-06,
+      "final_window_maximum_angle_norm_rad": 1.0926626876152577e-05,
+      "final_window_maximum_speed_norm_rad_s": 2.909779305652656e-05,
+      "final_window_s": 2.0,
+      "maximum_absolute_torque_Nm": 8.409057678204036,
+      "rms_torque_Nm": 0.6720687619182651,
+      "saturation_fraction": 0.0,
+      "stabilized_in_final_window": true
+    },
+    "frozen": {
+      "status": "OK",
+      "duration_requested_s": 7.0,
+      "duration_completed_s": 7.0,
+      "gain": [
+        [
+          -301.6729379292577,
+          -72.24773880355694,
+          -110.42464034868617,
+          -32.9362383360263
+        ]
+      ],
+      "linearization_A": [
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          10.714285714285712,
+          -2.9999999999999987,
+          0.0,
+          0.0
+        ],
+        [
+          -9.999999999999995,
+          13.999999999999996,
+          -0.0,
+          -0.0
+        ]
+      ],
+      "linearization_G": [
+        [
+          0.0
+        ],
+        [
+          0.0
+        ],
+        [
+          -1.9999999999999991
+        ],
+        [
+          5.999999999999998
+        ]
+      ],
+      "fitted_closed_loop_eigenvalues_real": [
+        -15.074186946726856,
+        -2.8680779312667184,
+        -2.6447929016104803,
+        -2.6447929016104803
+      ],
+      "fitted_closed_loop_eigenvalues_imag": [
+        0.0,
+        0.0,
+        0.09557897532032093,
+        -0.09557897532032093
+      ],
+      "riccati_residual_norm": 5.992907456419416e-08,
+      "full_episode_angle_vector_rmse_rad": 0.233652663172989,
+      "full_episode_per_angle_rmse_rad": 0.16521738257191682,
+      "final_window_angle_vector_rmse_rad": 0.15572589420860708,
+      "final_window_per_angle_rmse_rad": 0.11011483580124498,
+      "final_window_maximum_angle_norm_rad": 0.17499903635897857,
+      "final_window_maximum_speed_norm_rad_s": 0.02189866355866637,
+      "final_window_s": 2.0,
+      "maximum_absolute_torque_Nm": 5.31098137054959,
+      "rms_torque_Nm": 0.9425760634982304,
+      "saturation_fraction": 0.0,
+      "stabilized_in_final_window": false
+    },
+    "oracle": {
+      "status": "OK",
+      "duration_requested_s": 7.0,
+      "duration_completed_s": 7.0,
+      "gain": [
+        [
+          -483.7135753509208,
+          -124.55559699679267,
+          -177.87655370174028,
+          -52.52567772800955
+        ]
+      ],
+      "linearization_A": [
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          12.61285714285713,
+          -12.612857142857129,
+          0.0,
+          0.0
+        ],
+        [
+          -16.817142857142827,
+          46.24714285714282,
+          -0.0,
+          -0.0
+        ]
+      ],
+      "linearization_G": [
+        [
+          0.0
+        ],
+        [
+          0.0
+        ],
+        [
+          -4.28571428571428
+        ],
+        [
+          13.714285714285701
+        ]
+      ],
+      "fitted_closed_loop_eigenvalues_real": [
+        -33.560009310549255,
+        -3.0405859630798773,
+        -2.687670160563223,
+        -2.687670160563223
+      ],
+      "fitted_closed_loop_eigenvalues_imag": [
+        0.0,
+        0.0,
+        0.02856350737400475,
+        -0.02856350737400475
+      ],
+      "riccati_residual_norm": 5.281650873567588e-08,
+      "full_episode_angle_vector_rmse_rad": 0.12854438885975014,
+      "full_episode_per_angle_rmse_rad": 0.09089460904620983,
+      "final_window_angle_vector_rmse_rad": 4.152571636203321e-06,
+      "final_window_per_angle_rmse_rad": 2.936311563322285e-06,
+      "final_window_maximum_angle_norm_rad": 1.33348510789002e-05,
+      "final_window_maximum_speed_norm_rad_s": 3.438021117011005e-05,
+      "final_window_s": 2.0,
+      "maximum_absolute_torque_Nm": 8.428715537050499,
+      "rms_torque_Nm": 0.6720610155772153,
+      "saturation_fraction": 0.0,
+      "stabilized_in_final_window": true
+    }
+  },
+  "metric_definitions": {
+    "differential_energy": "0.5 * ||(Y_n-Y_(n-L)) c / (L h) - B (u_n-u_(n-L))/(L h)||_2^2; candidate c held fixed in the data derivative.",
+    "instantaneous_energy": "Noisy instantaneous incompatibility need not be monotone or converge to zero. Oracle measured energy estimates the differentiation/noise floor.",
+    "memory_energy": "Exponential sum of 0.5*h*||xi||^2. Before/after pairs use the same just-updated memory; each coefficient step decreases that frozen objective, up to roundoff.",
+    "clean_energy": "Evaluation-only finite differences formed from simulator acceleration, never used to update the learner.",
+    "coefficient_relative_rms": "sqrt(mean(((estimated_c-true_c)/true_c)^2)) across the five coefficients; diagnostic only.",
+    "forward_vector_rmse": "sqrt(mean(||predicted_acceleration-true_acceleration||_2^2)); no division by the two coordinates.",
+    "inverse_torque_rmse": "sqrt(mean((learned_feasible_inverse_torque-true_feasible_inverse_torque)^2)).",
+    "partials_error": "Frobenius relative error in the fixed mechanical/actuator convention, evaluated on the same clean context; true F is not a learning target.",
+    "control_angle_vector_rmse": "sqrt(mean(||wrap(q-q_star)||_2^2)); the per-angle metric additionally divides the squared norm by two.",
+    "control_success": "Both wrapped angle-error norm and angular-speed norm remain below their thresholds at every sampled point of the final evaluation window; this is local stabilization, not swing-up."
+  },
+  "artifacts": [
+    "identification_trace.csv",
+    "readout_queries.csv",
+    "control_learned.csv",
+    "control_frozen.csv",
+    "control_oracle.csv",
+    "acrobot_identification.png",
+    "acrobot_identification.pdf",
+    "acrobot_partials.png",
+    "acrobot_partials.pdf",
+    "acrobot_control.png",
+    "acrobot_control.pdf",
+    "summary.json"
+  ]
+}

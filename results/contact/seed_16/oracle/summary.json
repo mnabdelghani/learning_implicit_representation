@@ -1,0 +1,64 @@
+{
+  "seed": 16,
+  "method": "oracle",
+  "metrics": {
+    "early": {
+      "force_rmse": 0.0032144588723103194,
+      "motion_rmse": 0.00023641506299762293,
+      "F_error_mean": 0.0,
+      "projector_error_mean": 0.0,
+      "incompatibility_mean": 0.009612486816811221,
+      "oracle_energy_mean": 0.009612486816811221,
+      "clean_energy_mean": 4.406718218726668e-09,
+      "normalized_energy_mean": 4.581414077646503e-06,
+      "feature_power_mean": 1943.65272734429,
+      "control_rms": 0.2109836892691247
+    },
+    "before_change": {
+      "force_rmse": 0.0030157675224485986,
+      "motion_rmse": 0.0002362786211090577,
+      "F_error_mean": 0.0,
+      "projector_error_mean": 0.0,
+      "incompatibility_mean": 0.010232606568797327,
+      "oracle_energy_mean": 0.010232606568797327,
+      "clean_energy_mean": 3.0055653397475634e-09,
+      "normalized_energy_mean": 5.37170109277133e-06,
+      "feature_power_mean": 1674.6161623040089,
+      "control_rms": 0.217026635880914
+    },
+    "change": {
+      "force_rmse": 0.003906194879977954,
+      "motion_rmse": 0.00022862343940264866,
+      "F_error_mean": 0.0,
+      "projector_error_mean": 0.0,
+      "incompatibility_mean": 0.11431980287777353,
+      "oracle_energy_mean": 0.11431980287777353,
+      "clean_energy_mean": 0.10257633271615885,
+      "normalized_energy_mean": 8.845535907579175e-06,
+      "feature_power_mean": 1316.952875800611,
+      "control_rms": 0.26563427230310194
+    },
+    "recovered": {
+      "force_rmse": 0.003054085002561573,
+      "motion_rmse": 0.00023838641202756782,
+      "F_error_mean": 0.0,
+      "projector_error_mean": 0.0,
+      "incompatibility_mean": 0.009581487958073665,
+      "oracle_energy_mean": 0.009581487958073665,
+      "clean_energy_mean": 2.95182625906276e-09,
+      "normalized_energy_mean": 2.4610245405207536e-06,
+      "feature_power_mean": 1393.814992298449,
+      "control_rms": 0.25470827532215934
+    },
+    "minimum_indentation": 0.01181215121999025,
+    "saturation_fraction": 0.0,
+    "final_material": [
+      35.0,
+      20.0,
+      1000.0,
+      12.600000000000001,
+      7.2,
+      360.0
+    ]
+  }
+}

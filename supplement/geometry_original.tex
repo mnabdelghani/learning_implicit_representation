@@ -1,0 +1,30 @@
+\subsection{Geometric constraints}
+The preceding examples already contain rates in their governing equations. A
+geometric constraint shows why differentiation is sometimes needed to obtain
+a differential representation. A point moving on a circle of radius $R$
+obeys 
+\begin{equation}
+f(x,y)=x^2+y^2-R^2=0.  \label{eq:circular_constraint}
+\end{equation}
+This equation relates positions but contains no motion rates.
+Differentiating it along any differentiable admissible path gives 
+\begin{equation}
+2x\dot x+2y\dot y=0.  \label{eq:circular_differential}
+\end{equation}
+Thus, with $z=\func{col}(x,y)$, the coefficient field is indeed the Jacobian
+of the constraint: 
+\begin{equation}
+F(z)=D_zf(z)=%
+\begin{bmatrix}
+2x & 2y%
+\end{bmatrix}%
+,  \label{eq:circular_jacobian}
+\end{equation}
+and the differential representation is $F(z)\dot z=0$. The distinction from
+the mechanical example is now explicit: $F$ is obtained by differentiating $%
+f $, whereas $H$ was read directly from the force balance. Moreover, the
+differential field in (\ref{eq:circular_jacobian}) contains no information
+about $R$. Zero incompatibility can identify a relationship consistent with
+observed motion without identifying the particular level set; an observed
+initial position supplies the missing radius.
+

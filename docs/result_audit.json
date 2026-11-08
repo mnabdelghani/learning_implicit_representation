@@ -1,0 +1,613 @@
+{
+  "checked_runs": 100,
+  "status": "PASS",
+  "checks": [
+    "Half-open evaluation windows and task RMS recomputed from recorded traces",
+    "Incompatibility means independently recomputed",
+    "Raw saved contact/Burgers differentials reproduce trace errors",
+    "Fourier full clock column independently reconstructed from saved coefficients and physical context",
+    "All declared seeds present; no contact loss in any recorded branch"
+  ],
+  "runs": [
+    {
+      "study": "contact",
+      "seed": 10,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 10,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 10,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 11,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 11,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 11,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 12,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 12,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 12,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 13,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 13,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 13,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 14,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 14,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 14,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 15,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 15,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 15,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 16,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 16,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 16,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 17,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 17,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 17,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 18,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 18,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 18,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 19,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 19,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "contact",
+      "seed": 19,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 10,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 10,
+      "method": "K0",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 10,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 10,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 11,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 11,
+      "method": "K0",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 11,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 11,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 12,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 12,
+      "method": "K0",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 12,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 12,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 13,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 13,
+      "method": "K0",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 13,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 13,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 14,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 14,
+      "method": "K0",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 14,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 14,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 15,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 15,
+      "method": "K0",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 15,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 15,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 16,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 16,
+      "method": "K0",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 16,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 16,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 17,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 17,
+      "method": "K0",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 17,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 17,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 18,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 18,
+      "method": "K0",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 18,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 18,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 19,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 19,
+      "method": "K0",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 19,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "fourier",
+      "seed": 19,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 10,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 10,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 10,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 11,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 11,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 11,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 12,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 12,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 12,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 13,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 13,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 13,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 14,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 14,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 14,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 15,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 15,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 15,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 16,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 16,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 16,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 17,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 17,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 17,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 18,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 18,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 18,
+      "method": "oracle",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 19,
+      "method": "learned",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 19,
+      "method": "frozen",
+      "verified": true
+    },
+    {
+      "study": "burgers",
+      "seed": 19,
+      "method": "oracle",
+      "verified": true
+    }
+  ]
+}

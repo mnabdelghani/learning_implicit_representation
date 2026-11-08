@@ -1,0 +1,38 @@
+{
+  "seed": 19,
+  "protocol": "task_only",
+  "metrics": {
+    "training": {
+      "force_rmse": 0.0027451178251924903,
+      "motion_rmse": 5.344989806595077e-07,
+      "F_error_mean": 0.2008344963267894,
+      "energy_mean": 0.010415426093751998,
+      "oracle_energy_mean": 0.010426120535279552,
+      "normalized_energy_mean": 1.1008110309061216e-05,
+      "control_rms": 0.0008940983447307681,
+      "readout_sigma_min": 0.858927628784785
+    },
+    "transfer": {
+      "force_rmse": 0.5891931106356674,
+      "motion_rmse": 0.02184449232626244,
+      "F_error_mean": 0.18120171698759946,
+      "energy_mean": 68.84362307789085,
+      "oracle_energy_mean": 0.00856226125991959,
+      "normalized_energy_mean": 0.02257971076570829,
+      "control_rms": 0.2183863106767064,
+      "readout_sigma_min": 2.3530567214396294
+    },
+    "heldout_F_error": 0.19706827546711078,
+    "clean_information_eigenvalues": [
+      1.2079211835661264e-18,
+      1.3761627630688316e-10,
+      1.9995358180654462e-08,
+      6.728750103648335e-05,
+      0.0024831166711591114,
+      443.5883550795512
+    ],
+    "minimum_indentation": 0.016744518579900988,
+    "saturation_fraction": 0.0
+  },
+  "freeze_check": true
+}

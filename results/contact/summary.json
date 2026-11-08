@@ -1,0 +1,1925 @@
+{
+  "status": "NEW RECONSTRUCTION; not original results",
+  "runs": [
+    {
+      "seed": 10,
+      "method": "learned",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.04366280185582862,
+          "motion_rmse": 0.00023975349010214885,
+          "F_error_mean": 0.024317584408728776,
+          "projector_error_mean": 0.03519410320187263,
+          "incompatibility_mean": 0.06728386700229785,
+          "oracle_energy_mean": 0.0097049600099999,
+          "clean_energy_mean": 0.0575618275033643,
+          "normalized_energy_mean": 5.730558787730189e-05,
+          "feature_power_mean": 1944.3412457395702,
+          "control_rms": 0.21101836205696198
+        },
+        "before_change": {
+          "force_rmse": 0.003118879785497581,
+          "motion_rmse": 0.00023837403366095875,
+          "F_error_mean": 0.0009568031459754998,
+          "projector_error_mean": 0.001212088348901022,
+          "incompatibility_mean": 0.010093972452346152,
+          "oracle_energy_mean": 0.009970800493464967,
+          "clean_energy_mean": 1.542096732889048e-05,
+          "normalized_energy_mean": 5.06296050424773e-06,
+          "feature_power_mean": 1674.6588419505017,
+          "control_rms": 0.21702664340877886
+        },
+        "change": {
+          "force_rmse": 0.1288197696211809,
+          "motion_rmse": 0.0026391772687226218,
+          "F_error_mean": 0.35076257515451403,
+          "projector_error_mean": 0.40228301424786783,
+          "incompatibility_mean": 2.7307905900638874,
+          "oracle_energy_mean": 0.11345678251501058,
+          "clean_energy_mean": 2.717976108460463,
+          "normalized_energy_mean": 0.0011598859126503449,
+          "feature_power_mean": 1343.4873983192053,
+          "control_rms": 0.2655260189824931
+        },
+        "recovered": {
+          "force_rmse": 0.0033875483331544227,
+          "motion_rmse": 0.00023920876186676654,
+          "F_error_mean": 0.0009695383033461015,
+          "projector_error_mean": 0.0019326856965647394,
+          "incompatibility_mean": 0.010475364544113259,
+          "oracle_energy_mean": 0.01035071265628371,
+          "clean_energy_mean": 1.8502654478055867e-05,
+          "normalized_energy_mean": 2.580010303532727e-06,
+          "feature_power_mean": 1393.7633603908107,
+          "control_rms": 0.2547066090213643
+        },
+        "minimum_indentation": 0.011894932629635367,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          34.999500581061604,
+          19.998637160291942,
+          999.9203326245464,
+          12.584577983371673,
+          7.195510386556828,
+          359.65494026472993
+        ]
+      }
+    },
+    {
+      "seed": 10,
+      "method": "frozen",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.43834512542489323,
+          "motion_rmse": 0.0014763878743615428,
+          "F_error_mean": 0.36115199248049856,
+          "projector_error_mean": 0.3352859535137151,
+          "incompatibility_mean": 27.97687563081072,
+          "oracle_energy_mean": 0.009704909415536853,
+          "clean_energy_mean": 27.964826232485915,
+          "normalized_energy_mean": 0.040714725461685586,
+          "feature_power_mean": 2013.5079495299206,
+          "control_rms": 0.21136240393437267
+        },
+        "before_change": {
+          "force_rmse": 0.4709939165630033,
+          "motion_rmse": 0.0014468370096447083,
+          "F_error_mean": 0.36008079775150015,
+          "projector_error_mean": 0.3316745553837594,
+          "incompatibility_mean": 32.50199040787223,
+          "oracle_energy_mean": 0.009970817114157959,
+          "clean_energy_mean": 32.48277247763383,
+          "normalized_energy_mean": 0.041339794466899865,
+          "feature_power_mean": 1767.2674439024292,
+          "control_rms": 0.21725475419096887
+        },
+        "change": {
+          "force_rmse": 0.8235898865480364,
+          "motion_rmse": 0.008829521181831527,
+          "F_error_mean": 0.5866293143477171,
+          "projector_error_mean": 0.5449231681956642,
+          "incompatibility_mean": 76.96794956668859,
+          "oracle_energy_mean": 0.11134926783192915,
+          "clean_energy_mean": 76.94255173911192,
+          "normalized_energy_mean": 0.11208027694426678,
+          "feature_power_mean": 1406.9741564956787,
+          "control_rms": 0.26316421513665933
+        },
+        "recovered": {
+          "force_rmse": 0.8557570110340883,
+          "motion_rmse": 0.008320579407505777,
+          "F_error_mean": 0.5835782885242993,
+          "projector_error_mean": 0.5374057673281094,
+          "incompatibility_mean": 81.42836466069004,
+          "oracle_energy_mean": 0.01035070089201523,
+          "clean_energy_mean": 81.43136092480133,
+          "normalized_energy_mean": 0.11027482061298341,
+          "feature_power_mean": 1489.1011315293772,
+          "control_rms": 0.25179035864159693
+        },
+        "minimum_indentation": 0.011051367326404724,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          8.0,
+          4.0,
+          400.0,
+          3.2,
+          1.6,
+          160.0
+        ]
+      }
+    },
+    {
+      "seed": 10,
+      "method": "oracle",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.003175091673684888,
+          "motion_rmse": 0.00023641506299762293,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.00970490905020434,
+          "oracle_energy_mean": 0.00970490905020434,
+          "clean_energy_mean": 4.405306721540396e-09,
+          "normalized_energy_mean": 4.812419623205159e-06,
+          "feature_power_mean": 1943.6989384876176,
+          "control_rms": 0.2109833401119146
+        },
+        "before_change": {
+          "force_rmse": 0.002981116898981355,
+          "motion_rmse": 0.0002362786211090577,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.00997080320610035,
+          "oracle_energy_mean": 0.00997080320610035,
+          "clean_energy_mean": 3.0056776455852345e-09,
+          "normalized_energy_mean": 5.003793359182901e-06,
+          "feature_power_mean": 1674.6315499773514,
+          "control_rms": 0.21702673267674374
+        },
+        "change": {
+          "force_rmse": 0.003860570372762747,
+          "motion_rmse": 0.00022862343940264847,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.11345316138344055,
+          "oracle_energy_mean": 0.11345316138344055,
+          "clean_energy_mean": 0.10270027876687328,
+          "normalized_energy_mean": 8.862835804796401e-06,
+          "feature_power_mean": 1316.9465119994638,
+          "control_rms": 0.2656341016638916
+        },
+        "recovered": {
+          "force_rmse": 0.0031309360853153468,
+          "motion_rmse": 0.00023838641202756933,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010350715497973225,
+          "oracle_energy_mean": 0.010350715497973225,
+          "clean_energy_mean": 2.9540243080266602e-09,
+          "normalized_energy_mean": 2.551018801835323e-06,
+          "feature_power_mean": 1393.819919764226,
+          "control_rms": 0.254708201361641
+        },
+        "minimum_indentation": 0.011815896075974823,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.0,
+          20.0,
+          1000.0,
+          12.600000000000001,
+          7.2,
+          360.0
+        ]
+      }
+    },
+    {
+      "seed": 11,
+      "method": "learned",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.0435165752630763,
+          "motion_rmse": 0.0002355636837000043,
+          "F_error_mean": 0.02515062314175444,
+          "projector_error_mean": 0.03572110707082379,
+          "incompatibility_mean": 0.066509860000895,
+          "oracle_energy_mean": 0.009863491416652386,
+          "clean_energy_mean": 0.0575302075805979,
+          "normalized_energy_mean": 5.687022032983251e-05,
+          "feature_power_mean": 1944.335479439056,
+          "control_rms": 0.21101441223831618
+        },
+        "before_change": {
+          "force_rmse": 0.002985326925520914,
+          "motion_rmse": 0.00023700685324632464,
+          "F_error_mean": 0.001361673850987546,
+          "projector_error_mean": 0.0017801953506703027,
+          "incompatibility_mean": 0.009782596317691922,
+          "oracle_energy_mean": 0.009658322265232286,
+          "clean_energy_mean": 1.4245565028742453e-05,
+          "normalized_energy_mean": 4.760757769730123e-06,
+          "feature_power_mean": 1674.7046717062228,
+          "control_rms": 0.21702859676244346
+        },
+        "change": {
+          "force_rmse": 0.12937243929356557,
+          "motion_rmse": 0.0026420631852315324,
+          "F_error_mean": 0.3510456974514507,
+          "projector_error_mean": 0.40262093157057577,
+          "incompatibility_mean": 2.727550351810012,
+          "oracle_energy_mean": 0.1149548543034002,
+          "clean_energy_mean": 2.7190344068531926,
+          "normalized_energy_mean": 0.0011591323594107765,
+          "feature_power_mean": 1343.6341423399801,
+          "control_rms": 0.2655114658566881
+        },
+        "recovered": {
+          "force_rmse": 0.0032239685305925038,
+          "motion_rmse": 0.00023866425786555183,
+          "F_error_mean": 0.0009101860798294521,
+          "projector_error_mean": 0.0017231810528994917,
+          "incompatibility_mean": 0.010635976698951211,
+          "oracle_energy_mean": 0.010508950345437772,
+          "clean_energy_mean": 1.5122641937686793e-05,
+          "normalized_energy_mean": 2.7017652059345255e-06,
+          "feature_power_mean": 1393.8073752198402,
+          "control_rms": 0.2547061311399884
+        },
+        "minimum_indentation": 0.011878631197231466,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          34.99940798651929,
+          19.995669394220364,
+          999.9911089258933,
+          12.605006238746927,
+          7.197142228291061,
+          359.9581276467002
+        ]
+      }
+    },
+    {
+      "seed": 11,
+      "method": "frozen",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.4384790163177747,
+          "motion_rmse": 0.0014763383478218859,
+          "F_error_mean": 0.3611519759209785,
+          "projector_error_mean": 0.33528591861473284,
+          "incompatibility_mean": 27.976464006306873,
+          "oracle_energy_mean": 0.009863427380747513,
+          "clean_energy_mean": 27.964852966570792,
+          "normalized_energy_mean": 0.04071611856122232,
+          "feature_power_mean": 2013.4806899982996,
+          "control_rms": 0.21136233974415647
+        },
+        "before_change": {
+          "force_rmse": 0.47120808349968096,
+          "motion_rmse": 0.001446845153772063,
+          "F_error_mean": 0.3600808600156879,
+          "projector_error_mean": 0.3316747065402593,
+          "incompatibility_mean": 32.49725342010711,
+          "oracle_energy_mean": 0.009658324913837632,
+          "clean_energy_mean": 32.48437764370851,
+          "normalized_energy_mean": 0.04133742347862511,
+          "feature_power_mean": 1767.2251646174557,
+          "control_rms": 0.2172547297459192
+        },
+        "change": {
+          "force_rmse": 0.8239948054143638,
+          "motion_rmse": 0.008829415971999165,
+          "F_error_mean": 0.5866293957184241,
+          "projector_error_mean": 0.5449234019260305,
+          "incompatibility_mean": 76.96079934463464,
+          "oracle_energy_mean": 0.11288304505244925,
+          "clean_energy_mean": 76.95363281696747,
+          "normalized_energy_mean": 0.11207187090264183,
+          "feature_power_mean": 1407.1279978132613,
+          "control_rms": 0.2631641073305726
+        },
+        "recovered": {
+          "force_rmse": 0.8554565104939462,
+          "motion_rmse": 0.008320459683410206,
+          "F_error_mean": 0.5835782891957529,
+          "projector_error_mean": 0.5374057633366168,
+          "incompatibility_mean": 81.43286561979194,
+          "oracle_energy_mean": 0.010508952979019343,
+          "clean_energy_mean": 81.42802792926959,
+          "normalized_energy_mean": 0.11027794612731287,
+          "feature_power_mean": 1489.0798183407744,
+          "control_rms": 0.2517904667157063
+        },
+        "minimum_indentation": 0.011034712153672084,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          8.0,
+          4.0,
+          400.0,
+          3.2,
+          1.6,
+          160.0
+        ]
+      }
+    },
+    {
+      "seed": 11,
+      "method": "oracle",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.0033107354303356868,
+          "motion_rmse": 0.00023641506299762293,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.009863416609491676,
+          "oracle_energy_mean": 0.009863416609491676,
+          "clean_energy_mean": 4.406129274581783e-09,
+          "normalized_energy_mean": 4.872942390400341e-06,
+          "feature_power_mean": 1943.6707417711534,
+          "control_rms": 0.21098350629587434
+        },
+        "before_change": {
+          "force_rmse": 0.002996993317661833,
+          "motion_rmse": 0.0002362786211090577,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.00965832436727959,
+          "oracle_energy_mean": 0.00965832436727959,
+          "clean_energy_mean": 3.0062251323217217e-09,
+          "normalized_energy_mean": 4.7035328221441716e-06,
+          "feature_power_mean": 1674.5854602636882,
+          "control_rms": 0.21702662522086286
+        },
+        "change": {
+          "force_rmse": 0.0037993806534263362,
+          "motion_rmse": 0.00022862343940265262,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.11496104686697332,
+          "oracle_energy_mean": 0.11496104686697332,
+          "clean_energy_mean": 0.10276547912719573,
+          "normalized_energy_mean": 9.187625393462415e-06,
+          "feature_power_mean": 1317.0656958887664,
+          "control_rms": 0.2656342630559073
+        },
+        "recovered": {
+          "force_rmse": 0.0031041899289961784,
+          "motion_rmse": 0.00023838641202756833,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010508952467202924,
+          "oracle_energy_mean": 0.010508952467202924,
+          "clean_energy_mean": 2.9546229147209557e-09,
+          "normalized_energy_mean": 2.675148356768498e-06,
+          "feature_power_mean": 1393.81357136018,
+          "control_rms": 0.2547081102698581
+        },
+        "minimum_indentation": 0.011804993636786203,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.0,
+          20.0,
+          1000.0,
+          12.600000000000001,
+          7.2,
+          360.0
+        ]
+      }
+    },
+    {
+      "seed": 12,
+      "method": "learned",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.04375347523375012,
+          "motion_rmse": 0.00023807874554394255,
+          "F_error_mean": 0.023802917948227195,
+          "projector_error_mean": 0.032960293159304696,
+          "incompatibility_mean": 0.0671086853475682,
+          "oracle_energy_mean": 0.010414189609080379,
+          "clean_energy_mean": 0.057901844955174704,
+          "normalized_energy_mean": 5.7136171429424357e-05,
+          "feature_power_mean": 1944.466951349805,
+          "control_rms": 0.21101646056596904
+        },
+        "before_change": {
+          "force_rmse": 0.0033139437526134062,
+          "motion_rmse": 0.0002337763769806117,
+          "F_error_mean": 0.0012721207648490294,
+          "projector_error_mean": 0.001960137158394809,
+          "incompatibility_mean": 0.010244011393835127,
+          "oracle_energy_mean": 0.010119813112298032,
+          "clean_energy_mean": 1.6405475225020783e-05,
+          "normalized_energy_mean": 4.896971194936885e-06,
+          "feature_power_mean": 1674.5511440479327,
+          "control_rms": 0.21702482821632516
+        },
+        "change": {
+          "force_rmse": 0.12911647235649348,
+          "motion_rmse": 0.002638788696438041,
+          "F_error_mean": 0.3504025897378931,
+          "projector_error_mean": 0.4009299223939704,
+          "incompatibility_mean": 2.727464254103028,
+          "oracle_energy_mean": 0.11261803586176176,
+          "clean_energy_mean": 2.718408545628018,
+          "normalized_energy_mean": 0.001159252273266119,
+          "feature_power_mean": 1343.4706916601258,
+          "control_rms": 0.2655261712427602
+        },
+        "recovered": {
+          "force_rmse": 0.003835914492130504,
+          "motion_rmse": 0.00024087305567649579,
+          "F_error_mean": 0.0014892917451866828,
+          "projector_error_mean": 0.001953470394558042,
+          "incompatibility_mean": 0.010053899527664256,
+          "oracle_energy_mean": 0.009935659548008008,
+          "clean_energy_mean": 1.8683960920262157e-05,
+          "normalized_energy_mean": 2.4804179126619907e-06,
+          "feature_power_mean": 1393.7938840855509,
+          "control_rms": 0.2547110787083363
+        },
+        "minimum_indentation": 0.011889477121730378,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.006915976609505,
+          20.001320915825964,
+          1000.1451071005907,
+          12.642836095666755,
+          7.219340914310703,
+          361.0523323170437
+        ]
+      }
+    },
+    {
+      "seed": 12,
+      "method": "frozen",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.43827963210014903,
+          "motion_rmse": 0.0014763852453622377,
+          "F_error_mean": 0.3611519789571773,
+          "projector_error_mean": 0.33528594853371624,
+          "incompatibility_mean": 27.97879061564892,
+          "oracle_energy_mean": 0.010414247992655015,
+          "clean_energy_mean": 27.964964990591426,
+          "normalized_energy_mean": 0.040717077024627915,
+          "feature_power_mean": 2013.4863111805644,
+          "control_rms": 0.21136247659327603
+        },
+        "before_change": {
+          "force_rmse": 0.4714846735212876,
+          "motion_rmse": 0.0014468247586301687,
+          "F_error_mean": 0.3600808088511889,
+          "projector_error_mean": 0.3316746153880544,
+          "incompatibility_mean": 32.4994685576771,
+          "oracle_energy_mean": 0.010119817453908681,
+          "clean_energy_mean": 32.484151746537435,
+          "normalized_energy_mean": 0.04133960968323325,
+          "feature_power_mean": 1767.1173236748105,
+          "control_rms": 0.21725500895174543
+        },
+        "change": {
+          "force_rmse": 0.8236815000690608,
+          "motion_rmse": 0.00882953512145003,
+          "F_error_mean": 0.5866293546690667,
+          "projector_error_mean": 0.544923287090842,
+          "incompatibility_mean": 76.9569232312747,
+          "oracle_energy_mean": 0.11047305129919967,
+          "clean_energy_mean": 76.95384811833536,
+          "normalized_energy_mean": 0.11206404785782084,
+          "feature_power_mean": 1406.9870033579389,
+          "control_rms": 0.2631636690195882
+        },
+        "recovered": {
+          "force_rmse": 0.8550150596044721,
+          "motion_rmse": 0.008320450836039014,
+          "F_error_mean": 0.5835782269959721,
+          "projector_error_mean": 0.5374055384895923,
+          "incompatibility_mean": 81.44915583028533,
+          "oracle_energy_mean": 0.009935709347714344,
+          "clean_energy_mean": 81.4110907914259,
+          "normalized_energy_mean": 0.1102946730864348,
+          "feature_power_mean": 1489.1219519958095,
+          "control_rms": 0.25179073477804104
+        },
+        "minimum_indentation": 0.01105752286727911,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          8.0,
+          4.0,
+          400.0,
+          3.2,
+          1.6,
+          160.0
+        ]
+      }
+    },
+    {
+      "seed": 12,
+      "method": "oracle",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.003385673894116684,
+          "motion_rmse": 0.00023641506299762293,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010414217888136325,
+          "oracle_energy_mean": 0.010414217888136325,
+          "clean_energy_mean": 4.40783568496816e-09,
+          "normalized_energy_mean": 5.225778746325244e-06,
+          "feature_power_mean": 1943.6795090938601,
+          "control_rms": 0.21098381107126898
+        },
+        "before_change": {
+          "force_rmse": 0.0030600941735741773,
+          "motion_rmse": 0.0002362786211090577,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.01011981513538489,
+          "oracle_energy_mean": 0.01011981513538489,
+          "clean_energy_mean": 3.0065907299458224e-09,
+          "normalized_energy_mean": 4.844089099352526e-06,
+          "feature_power_mean": 1674.475810374374,
+          "control_rms": 0.2170267575059867
+        },
+        "change": {
+          "force_rmse": 0.0038857382301435216,
+          "motion_rmse": 0.00022862343940265064,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.11261200387765637,
+          "oracle_energy_mean": 0.11261200387765637,
+          "clean_energy_mean": 0.10268708750505091,
+          "normalized_energy_mean": 8.877359973946718e-06,
+          "feature_power_mean": 1316.952865530484,
+          "control_rms": 0.2656342969750168
+        },
+        "recovered": {
+          "force_rmse": 0.0034862834067294077,
+          "motion_rmse": 0.0002383864120275671,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.009935661449897562,
+          "oracle_energy_mean": 0.009935661449897562,
+          "clean_energy_mean": 2.9525532187603404e-09,
+          "normalized_energy_mean": 2.4568657423770997e-06,
+          "feature_power_mean": 1393.8662339862044,
+          "control_rms": 0.25470837646915795
+        },
+        "minimum_indentation": 0.011798632080467823,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.0,
+          20.0,
+          1000.0,
+          12.600000000000001,
+          7.2,
+          360.0
+        ]
+      }
+    },
+    {
+      "seed": 13,
+      "method": "learned",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.04352464357719479,
+          "motion_rmse": 0.00023621195172957585,
+          "F_error_mean": 0.02604827009873935,
+          "projector_error_mean": 0.034174851939252376,
+          "incompatibility_mean": 0.07036107558887354,
+          "oracle_energy_mean": 0.010702054900775042,
+          "clean_energy_mean": 0.057656960717621414,
+          "normalized_energy_mean": 5.909169221934786e-05,
+          "feature_power_mean": 1944.3943322235605,
+          "control_rms": 0.21101749087562885
+        },
+        "before_change": {
+          "force_rmse": 0.003042927959638184,
+          "motion_rmse": 0.00023556219593332675,
+          "F_error_mean": 0.0007841043106598092,
+          "projector_error_mean": 0.0015645398921619181,
+          "incompatibility_mean": 0.0099341972232368,
+          "oracle_energy_mean": 0.009812317999907876,
+          "clean_energy_mean": 1.0782105010327256e-05,
+          "normalized_energy_mean": 4.895707429812641e-06,
+          "feature_power_mean": 1674.5973599382503,
+          "control_rms": 0.21702630687945432
+        },
+        "change": {
+          "force_rmse": 0.12903461023881319,
+          "motion_rmse": 0.0026518373479671375,
+          "F_error_mean": 0.35092363246235175,
+          "projector_error_mean": 0.402683962415472,
+          "incompatibility_mean": 2.7297755326008857,
+          "oracle_energy_mean": 0.11152101518228354,
+          "clean_energy_mean": 2.7193071686928665,
+          "normalized_energy_mean": 0.0011596792880520827,
+          "feature_power_mean": 1343.5826341431703,
+          "control_rms": 0.26551175422380874
+        },
+        "recovered": {
+          "force_rmse": 0.0036265500075183246,
+          "motion_rmse": 0.00023984654169141036,
+          "F_error_mean": 0.001761731157734691,
+          "projector_error_mean": 0.0015167102820950352,
+          "incompatibility_mean": 0.009774916154942553,
+          "oracle_energy_mean": 0.009660805850351097,
+          "clean_energy_mean": 1.964472232395875e-05,
+          "normalized_energy_mean": 2.4711053730236067e-06,
+          "feature_power_mean": 1393.922087566312,
+          "control_rms": 0.2547078723997125
+        },
+        "minimum_indentation": 0.01188600674629316,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          34.993145585413174,
+          19.999602000035235,
+          999.8809276916743,
+          12.567878809993669,
+          7.185314855798498,
+          359.1960542531521
+        ]
+      }
+    },
+    {
+      "seed": 13,
+      "method": "frozen",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.4384317202138223,
+          "motion_rmse": 0.0014762945722290365,
+          "F_error_mean": 0.3611519635346675,
+          "projector_error_mean": 0.3352858840286111,
+          "incompatibility_mean": 27.97541220187732,
+          "oracle_energy_mean": 0.010702033473424138,
+          "clean_energy_mean": 27.9664887218713,
+          "normalized_energy_mean": 0.04071086493830347,
+          "feature_power_mean": 2013.4758457799767,
+          "control_rms": 0.2113626297185113
+        },
+        "before_change": {
+          "force_rmse": 0.47137242469972834,
+          "motion_rmse": 0.0014467706538658395,
+          "F_error_mean": 0.3600808305983577,
+          "projector_error_mean": 0.3316746398718923,
+          "incompatibility_mean": 32.49024105585676,
+          "oracle_energy_mean": 0.009812316391760426,
+          "clean_energy_mean": 32.487081694250335,
+          "normalized_energy_mean": 0.04132449744135894,
+          "feature_power_mean": 1767.2092866244457,
+          "control_rms": 0.2172545487209756
+        },
+        "change": {
+          "force_rmse": 0.8235427226461495,
+          "motion_rmse": 0.008829461664026504,
+          "F_error_mean": 0.5866293224090808,
+          "projector_error_mean": 0.5449231618562935,
+          "incompatibility_mean": 76.96228338820126,
+          "oracle_energy_mean": 0.10927590359804251,
+          "clean_energy_mean": 76.9494854985064,
+          "normalized_energy_mean": 0.11207032698096824,
+          "feature_power_mean": 1407.0479742718417,
+          "control_rms": 0.26316409504641036
+        },
+        "recovered": {
+          "force_rmse": 0.8555158567270957,
+          "motion_rmse": 0.008320543857917731,
+          "F_error_mean": 0.5835782603680308,
+          "projector_error_mean": 0.5374056772911311,
+          "incompatibility_mean": 81.437786486322,
+          "oracle_energy_mean": 0.009660817599633963,
+          "clean_energy_mean": 81.42320057067388,
+          "normalized_energy_mean": 0.11028860351315002,
+          "feature_power_mean": 1489.1634209087242,
+          "control_rms": 0.2517902124737332
+        },
+        "minimum_indentation": 0.011059478255018417,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          8.0,
+          4.0,
+          400.0,
+          3.2,
+          1.6,
+          160.0
+        ]
+      }
+    },
+    {
+      "seed": 13,
+      "method": "oracle",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.0033948791343281896,
+          "motion_rmse": 0.00023641506299762217,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.01070213235465177,
+          "oracle_energy_mean": 0.01070213235465177,
+          "clean_energy_mean": 4.407662539837322e-09,
+          "normalized_energy_mean": 5.230092996828991e-06,
+          "feature_power_mean": 1943.6664695360425,
+          "control_rms": 0.21098354873733213
+        },
+        "before_change": {
+          "force_rmse": 0.0028704617278606497,
+          "motion_rmse": 0.0002362786211090575,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.009812319330732223,
+          "oracle_energy_mean": 0.009812319330732223,
+          "clean_energy_mean": 3.0053671001364644e-09,
+          "normalized_energy_mean": 4.8408248845302735e-06,
+          "feature_power_mean": 1674.559538686572,
+          "control_rms": 0.2170264440808171
+        },
+        "change": {
+          "force_rmse": 0.003830393656616162,
+          "motion_rmse": 0.00022862343940265053,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.11148832553827255,
+          "oracle_energy_mean": 0.11148832553827255,
+          "clean_energy_mean": 0.10271968580803546,
+          "normalized_energy_mean": 8.81029825179333e-06,
+          "feature_power_mean": 1317.0139858794216,
+          "control_rms": 0.265634242181254
+        },
+        "recovered": {
+          "force_rmse": 0.0033397521464667143,
+          "motion_rmse": 0.00023838641202756616,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.009660807417999916,
+          "oracle_energy_mean": 0.009660807417999916,
+          "clean_energy_mean": 2.953218273212058e-09,
+          "normalized_energy_mean": 2.4409612777989224e-06,
+          "feature_power_mean": 1393.8838418415778,
+          "control_rms": 0.2547084412425414
+        },
+        "minimum_indentation": 0.011800111506972553,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.0,
+          20.0,
+          1000.0,
+          12.600000000000001,
+          7.2,
+          360.0
+        ]
+      }
+    },
+    {
+      "seed": 14,
+      "method": "learned",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.04316563852918908,
+          "motion_rmse": 0.00024033081733116656,
+          "F_error_mean": 0.024189479386290503,
+          "projector_error_mean": 0.032076499299842076,
+          "incompatibility_mean": 0.06925879837015989,
+          "oracle_energy_mean": 0.009586988459893277,
+          "clean_energy_mean": 0.05750178942101948,
+          "normalized_energy_mean": 5.878317224348859e-05,
+          "feature_power_mean": 1944.326030896254,
+          "control_rms": 0.21101896315127208
+        },
+        "before_change": {
+          "force_rmse": 0.0031916261569566824,
+          "motion_rmse": 0.0002335725917294883,
+          "F_error_mean": 0.0007038527812707278,
+          "projector_error_mean": 0.001359203237613082,
+          "incompatibility_mean": 0.009994836242072832,
+          "oracle_energy_mean": 0.009876841698835659,
+          "clean_energy_mean": 1.6450758277917456e-05,
+          "normalized_energy_mean": 4.970167921258367e-06,
+          "feature_power_mean": 1674.3941762506352,
+          "control_rms": 0.21702403339733525
+        },
+        "change": {
+          "force_rmse": 0.1292109752030645,
+          "motion_rmse": 0.0026416122301653323,
+          "F_error_mean": 0.3512230856400548,
+          "projector_error_mean": 0.40307167141821215,
+          "incompatibility_mean": 2.7272769240751047,
+          "oracle_energy_mean": 0.11334082392026025,
+          "clean_energy_mean": 2.718227327502205,
+          "normalized_energy_mean": 0.0011601056572982835,
+          "feature_power_mean": 1343.532853181369,
+          "control_rms": 0.26551766397448556
+        },
+        "recovered": {
+          "force_rmse": 0.003471442510299491,
+          "motion_rmse": 0.0002356264809568515,
+          "F_error_mean": 0.00039969715176288,
+          "projector_error_mean": 0.0012805963455722806,
+          "incompatibility_mean": 0.010251745281701979,
+          "oracle_energy_mean": 0.010127152897583458,
+          "clean_energy_mean": 1.958920241531301e-05,
+          "normalized_energy_mean": 2.5332501530432244e-06,
+          "feature_power_mean": 1393.8127899921815,
+          "control_rms": 0.25471065829290357
+        },
+        "minimum_indentation": 0.011885832796583076,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          34.99445819156434,
+          19.993732072850058,
+          999.8525196972029,
+          12.600206769215836,
+          7.1978016839015275,
+          359.84302895028924
+        ]
+      }
+    },
+    {
+      "seed": 14,
+      "method": "frozen",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.43861682043211514,
+          "motion_rmse": 0.0014762946440632057,
+          "F_error_mean": 0.36115191974906985,
+          "projector_error_mean": 0.3352857708300467,
+          "incompatibility_mean": 27.968462278273662,
+          "oracle_energy_mean": 0.009587080604999897,
+          "clean_energy_mean": 27.967806832841845,
+          "normalized_energy_mean": 0.0407058965737099,
+          "feature_power_mean": 2013.5101878472076,
+          "control_rms": 0.21136208992019695
+        },
+        "before_change": {
+          "force_rmse": 0.47188565010983646,
+          "motion_rmse": 0.0014466870598247709,
+          "F_error_mean": 0.3600807892870322,
+          "projector_error_mean": 0.3316746024089158,
+          "incompatibility_mean": 32.48721371983637,
+          "oracle_energy_mean": 0.009876848924826731,
+          "clean_energy_mean": 32.4889651554315,
+          "normalized_energy_mean": 0.04131426845335906,
+          "feature_power_mean": 1767.1193112115036,
+          "control_rms": 0.21725463837360864
+        },
+        "change": {
+          "force_rmse": 0.8238306150229364,
+          "motion_rmse": 0.008829581350542594,
+          "F_error_mean": 0.5866293191287956,
+          "projector_error_mean": 0.5449231821134541,
+          "incompatibility_mean": 76.9556823460339,
+          "oracle_energy_mean": 0.11121256599021878,
+          "clean_energy_mean": 76.956152138607,
+          "normalized_energy_mean": 0.11206656765048013,
+          "feature_power_mean": 1407.0192245096687,
+          "control_rms": 0.2631641233892047
+        },
+        "recovered": {
+          "force_rmse": 0.8559426635804942,
+          "motion_rmse": 0.008320579355132916,
+          "F_error_mean": 0.5835782392759452,
+          "projector_error_mean": 0.537405555040413,
+          "incompatibility_mean": 81.42545380808099,
+          "oracle_energy_mean": 0.01012715283562267,
+          "clean_energy_mean": 81.43464846750747,
+          "normalized_energy_mean": 0.11027087973744579,
+          "feature_power_mean": 1489.0974588097092,
+          "control_rms": 0.25179066811921813
+        },
+        "minimum_indentation": 0.011041580520968094,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          8.0,
+          4.0,
+          400.0,
+          3.2,
+          1.6,
+          160.0
+        ]
+      }
+    },
+    {
+      "seed": 14,
+      "method": "oracle",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.003371238943676029,
+          "motion_rmse": 0.00023641506299762293,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.009587108909802237,
+          "oracle_energy_mean": 0.009587108909802237,
+          "clean_energy_mean": 4.4083195899560295e-09,
+          "normalized_energy_mean": 4.81093288706742e-06,
+          "feature_power_mean": 1943.690466473899,
+          "control_rms": 0.21098347504804402
+        },
+        "before_change": {
+          "force_rmse": 0.002928017643917517,
+          "motion_rmse": 0.00023627862110905774,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.009876844623987552,
+          "oracle_energy_mean": 0.009876844623987552,
+          "clean_energy_mean": 3.005043251093869e-09,
+          "normalized_energy_mean": 4.912495626582192e-06,
+          "feature_power_mean": 1674.4573431780948,
+          "control_rms": 0.21702646028899422
+        },
+        "change": {
+          "force_rmse": 0.0037694285050992394,
+          "motion_rmse": 0.00022862343940265067,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.11334367174490227,
+          "oracle_energy_mean": 0.11334367174490227,
+          "clean_energy_mean": 0.10284661741691468,
+          "normalized_energy_mean": 8.813141671417519e-06,
+          "feature_power_mean": 1316.9761111022192,
+          "control_rms": 0.26563420421155703
+        },
+        "recovered": {
+          "force_rmse": 0.003319001164006406,
+          "motion_rmse": 0.00023838641202756844,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010127154869106533,
+          "oracle_energy_mean": 0.010127154869106533,
+          "clean_energy_mean": 2.9537489458291007e-09,
+          "normalized_energy_mean": 2.5044287371829757e-06,
+          "feature_power_mean": 1393.8093854600118,
+          "control_rms": 0.2547081487927939
+        },
+        "minimum_indentation": 0.011802301691126074,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.0,
+          20.0,
+          1000.0,
+          12.600000000000001,
+          7.2,
+          360.0
+        ]
+      }
+    },
+    {
+      "seed": 15,
+      "method": "learned",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.04356104247550427,
+          "motion_rmse": 0.0002348874833303515,
+          "F_error_mean": 0.0234747065728082,
+          "projector_error_mean": 0.0331683182192305,
+          "incompatibility_mean": 0.06801065842332792,
+          "oracle_energy_mean": 0.010635602403689721,
+          "clean_energy_mean": 0.05754216699278477,
+          "normalized_energy_mean": 5.780581857740877e-05,
+          "feature_power_mean": 1944.4498620803602,
+          "control_rms": 0.21101359492203942
+        },
+        "before_change": {
+          "force_rmse": 0.003179726822807818,
+          "motion_rmse": 0.00023263916618117842,
+          "F_error_mean": 0.0010736030403828267,
+          "projector_error_mean": 0.0013613331954722319,
+          "incompatibility_mean": 0.010840962345668973,
+          "oracle_energy_mean": 0.010706564447027564,
+          "clean_energy_mean": 1.4193968881068106e-05,
+          "normalized_energy_mean": 5.345449146930369e-06,
+          "feature_power_mean": 1674.6104264508012,
+          "control_rms": 0.21702226995622007
+        },
+        "change": {
+          "force_rmse": 0.12907218819682656,
+          "motion_rmse": 0.0026485602944161884,
+          "F_error_mean": 0.3507879750905393,
+          "projector_error_mean": 0.40211660354779366,
+          "incompatibility_mean": 2.7305920673164157,
+          "oracle_energy_mean": 0.11206303898308244,
+          "clean_energy_mean": 2.7197403243699805,
+          "normalized_energy_mean": 0.0011605760561107553,
+          "feature_power_mean": 1343.5378585161777,
+          "control_rms": 0.2655192939762124
+        },
+        "recovered": {
+          "force_rmse": 0.0033070239390812707,
+          "motion_rmse": 0.00023985389760166422,
+          "F_error_mean": 0.0006175868237993786,
+          "projector_error_mean": 0.0011062895153469805,
+          "incompatibility_mean": 0.009907141079666658,
+          "oracle_energy_mean": 0.009787962268529668,
+          "clean_energy_mean": 1.538810953285656e-05,
+          "normalized_energy_mean": 2.481039964351241e-06,
+          "feature_power_mean": 1393.840852133404,
+          "control_rms": 0.2547096133464073
+        },
+        "minimum_indentation": 0.011877049320268904,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          34.99820363642105,
+          19.994552293394634,
+          999.8816292461192,
+          12.591753885553526,
+          7.197481345274166,
+          359.70707958613707
+        ]
+      }
+    },
+    {
+      "seed": 15,
+      "method": "frozen",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.43825407936520083,
+          "motion_rmse": 0.0014763349180542242,
+          "F_error_mean": 0.3611519634359896,
+          "projector_error_mean": 0.3352859084983946,
+          "incompatibility_mean": 27.97977554310541,
+          "oracle_energy_mean": 0.010635623504562345,
+          "clean_energy_mean": 27.963921236238946,
+          "normalized_energy_mean": 0.040724262808837286,
+          "feature_power_mean": 2013.470839352458,
+          "control_rms": 0.21136185776710487
+        },
+        "before_change": {
+          "force_rmse": 0.47160180182490313,
+          "motion_rmse": 0.0014468001169568652,
+          "F_error_mean": 0.3600808455564256,
+          "projector_error_mean": 0.3316746962429271,
+          "incompatibility_mean": 32.48982694887276,
+          "oracle_energy_mean": 0.01070657193865882,
+          "clean_energy_mean": 32.48771130580097,
+          "normalized_energy_mean": 0.04132107082884731,
+          "feature_power_mean": 1767.2503145150044,
+          "control_rms": 0.217255034316094
+        },
+        "change": {
+          "force_rmse": 0.8237941258208835,
+          "motion_rmse": 0.00882946697313454,
+          "F_error_mean": 0.5866293023442242,
+          "projector_error_mean": 0.5449230846603639,
+          "incompatibility_mean": 76.96283569758975,
+          "oracle_energy_mean": 0.10994869058598286,
+          "clean_energy_mean": 76.94902105815625,
+          "normalized_energy_mean": 0.11207563720529486,
+          "feature_power_mean": 1407.0195886507825,
+          "control_rms": 0.2631647570464212
+        },
+        "recovered": {
+          "force_rmse": 0.8557812153921912,
+          "motion_rmse": 0.008320593739435635,
+          "F_error_mean": 0.583578275382523,
+          "projector_error_mean": 0.5374057414814555,
+          "incompatibility_mean": 81.42883342270922,
+          "oracle_energy_mean": 0.00978797181917469,
+          "clean_energy_mean": 81.42985987617855,
+          "normalized_energy_mean": 0.11027648760349447,
+          "feature_power_mean": 1489.1119508464485,
+          "control_rms": 0.2517909912306791
+        },
+        "minimum_indentation": 0.01104882855742385,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          8.0,
+          4.0,
+          400.0,
+          3.2,
+          1.6,
+          160.0
+        ]
+      }
+    },
+    {
+      "seed": 15,
+      "method": "oracle",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.0032600046230108395,
+          "motion_rmse": 0.00023641506299762293,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010635569303729862,
+          "oracle_energy_mean": 0.010635569303729862,
+          "clean_energy_mean": 4.4056481085673216e-09,
+          "normalized_energy_mean": 5.324929619950689e-06,
+          "feature_power_mean": 1943.6701393479966,
+          "control_rms": 0.21098324737498939
+        },
+        "before_change": {
+          "force_rmse": 0.0030548549189979533,
+          "motion_rmse": 0.0002362786211090577,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010706566652820538,
+          "oracle_energy_mean": 0.010706566652820538,
+          "clean_energy_mean": 3.007044046170367e-09,
+          "normalized_energy_mean": 5.282856640452172e-06,
+          "feature_power_mean": 1674.5872959616606,
+          "control_rms": 0.21702678937807396
+        },
+        "change": {
+          "force_rmse": 0.004020842229943875,
+          "motion_rmse": 0.0002286234394026476,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.11205569394165513,
+          "oracle_energy_mean": 0.11205569394165513,
+          "clean_energy_mean": 0.10248581098319856,
+          "normalized_energy_mean": 8.80157334814411e-06,
+          "feature_power_mean": 1316.9810123492996,
+          "control_rms": 0.26563440619845446
+        },
+        "recovered": {
+          "force_rmse": 0.003261945394172106,
+          "motion_rmse": 0.00023838641202756882,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.009787963788171898,
+          "oracle_energy_mean": 0.009787963788171898,
+          "clean_energy_mean": 2.9555931619092095e-09,
+          "normalized_energy_mean": 2.4550538832349213e-06,
+          "feature_power_mean": 1393.8308240371396,
+          "control_rms": 0.25470839865752354
+        },
+        "minimum_indentation": 0.011808533449435967,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.0,
+          20.0,
+          1000.0,
+          12.600000000000001,
+          7.2,
+          360.0
+        ]
+      }
+    },
+    {
+      "seed": 16,
+      "method": "learned",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.0434022431492312,
+          "motion_rmse": 0.000239926710273041,
+          "F_error_mean": 0.02390736895947102,
+          "projector_error_mean": 0.03365890891225657,
+          "incompatibility_mean": 0.0669244620038461,
+          "oracle_energy_mean": 0.009612515244336603,
+          "clean_energy_mean": 0.05749835587268043,
+          "normalized_energy_mean": 5.709804857583111e-05,
+          "feature_power_mean": 1944.296590632017,
+          "control_rms": 0.21101861822402013
+        },
+        "before_change": {
+          "force_rmse": 0.0032461576296075297,
+          "motion_rmse": 0.000233887384010492,
+          "F_error_mean": 0.0009947442611976628,
+          "projector_error_mean": 0.0017841089356402163,
+          "incompatibility_mean": 0.01035718782910956,
+          "oracle_energy_mean": 0.010232604179107695,
+          "clean_energy_mean": 1.3668852631693837e-05,
+          "normalized_energy_mean": 5.435029047128538e-06,
+          "feature_power_mean": 1674.5456435951537,
+          "control_rms": 0.21702600141113262
+        },
+        "change": {
+          "force_rmse": 0.12898940823577434,
+          "motion_rmse": 0.0026348715543924,
+          "F_error_mean": 0.35106027307357557,
+          "projector_error_mean": 0.40269290032389193,
+          "incompatibility_mean": 2.72768231867255,
+          "oracle_energy_mean": 0.11428428216851193,
+          "clean_energy_mean": 2.718064945507326,
+          "normalized_energy_mean": 0.0011591841757712642,
+          "feature_power_mean": 1343.4827980635703,
+          "control_rms": 0.26551581005812586
+        },
+        "recovered": {
+          "force_rmse": 0.003341353965986966,
+          "motion_rmse": 0.0002382830988209456,
+          "F_error_mean": 0.0009120876988300041,
+          "projector_error_mean": 0.0020415961565358703,
+          "incompatibility_mean": 0.009693281222693657,
+          "oracle_energy_mean": 0.009581486299649621,
+          "clean_energy_mean": 1.371472696417896e-05,
+          "normalized_energy_mean": 2.488600971036037e-06,
+          "feature_power_mean": 1393.799199380795,
+          "control_rms": 0.2547073599244212
+        },
+        "minimum_indentation": 0.011900880947127747,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.00118250956027,
+          20.005190698862968,
+          1000.0504379507496,
+          12.593605972191853,
+          7.198909877982244,
+          359.8720490836971
+        ]
+      }
+    },
+    {
+      "seed": 16,
+      "method": "frozen",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.4387018120683408,
+          "motion_rmse": 0.0014762899272639438,
+          "F_error_mean": 0.3611519559208678,
+          "projector_error_mean": 0.3352858793807973,
+          "incompatibility_mean": 27.966800346418882,
+          "oracle_energy_mean": 0.009612513256071506,
+          "clean_energy_mean": 27.968925637395163,
+          "normalized_energy_mean": 0.04070243820810335,
+          "feature_power_mean": 2013.4730703759328,
+          "control_rms": 0.21136236729154395
+        },
+        "before_change": {
+          "force_rmse": 0.47122782539856556,
+          "motion_rmse": 0.0014468351494685016,
+          "F_error_mean": 0.36008080438420975,
+          "projector_error_mean": 0.3316745519309841,
+          "incompatibility_mean": 32.49868670003772,
+          "oracle_energy_mean": 0.010232616810086921,
+          "clean_energy_mean": 32.48403661450285,
+          "normalized_energy_mean": 0.041334038494729525,
+          "feature_power_mean": 1767.2606322384054,
+          "control_rms": 0.21725484080237256
+        },
+        "change": {
+          "force_rmse": 0.8235231662363852,
+          "motion_rmse": 0.008829465919151796,
+          "F_error_mean": 0.5866293812105076,
+          "projector_error_mean": 0.5449233401137937,
+          "incompatibility_mean": 76.96357608520094,
+          "oracle_energy_mean": 0.11222779539610281,
+          "clean_energy_mean": 76.94581605311907,
+          "normalized_energy_mean": 0.11207406780601571,
+          "feature_power_mean": 1406.9820060266861,
+          "control_rms": 0.26316417391629565
+        },
+        "recovered": {
+          "force_rmse": 0.8553468029400149,
+          "motion_rmse": 0.008320567678391204,
+          "F_error_mean": 0.5835783399005997,
+          "projector_error_mean": 0.5374058977833504,
+          "incompatibility_mean": 81.43050212520517,
+          "oracle_energy_mean": 0.00958149325064237,
+          "clean_energy_mean": 81.42587495754478,
+          "normalized_energy_mean": 0.11027682074909109,
+          "feature_power_mean": 1489.0789942274798,
+          "control_rms": 0.25179052745262115
+        },
+        "minimum_indentation": 0.011055970484873053,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          8.0,
+          4.0,
+          400.0,
+          3.2,
+          1.6,
+          160.0
+        ]
+      }
+    },
+    {
+      "seed": 16,
+      "method": "oracle",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.0032144588723103194,
+          "motion_rmse": 0.00023641506299762293,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.009612486816811221,
+          "oracle_energy_mean": 0.009612486816811221,
+          "clean_energy_mean": 4.406718218726668e-09,
+          "normalized_energy_mean": 4.581414077646503e-06,
+          "feature_power_mean": 1943.65272734429,
+          "control_rms": 0.2109836892691247
+        },
+        "before_change": {
+          "force_rmse": 0.0030157675224485986,
+          "motion_rmse": 0.0002362786211090577,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010232606568797327,
+          "oracle_energy_mean": 0.010232606568797327,
+          "clean_energy_mean": 3.0055653397475634e-09,
+          "normalized_energy_mean": 5.37170109277133e-06,
+          "feature_power_mean": 1674.6161623040089,
+          "control_rms": 0.217026635880914
+        },
+        "change": {
+          "force_rmse": 0.003906194879977954,
+          "motion_rmse": 0.00022862343940264866,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.11431980287777353,
+          "oracle_energy_mean": 0.11431980287777353,
+          "clean_energy_mean": 0.10257633271615885,
+          "normalized_energy_mean": 8.845535907579175e-06,
+          "feature_power_mean": 1316.952875800611,
+          "control_rms": 0.26563427230310194
+        },
+        "recovered": {
+          "force_rmse": 0.003054085002561573,
+          "motion_rmse": 0.00023838641202756782,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.009581487958073665,
+          "oracle_energy_mean": 0.009581487958073665,
+          "clean_energy_mean": 2.95182625906276e-09,
+          "normalized_energy_mean": 2.4610245405207536e-06,
+          "feature_power_mean": 1393.814992298449,
+          "control_rms": 0.25470827532215934
+        },
+        "minimum_indentation": 0.01181215121999025,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.0,
+          20.0,
+          1000.0,
+          12.600000000000001,
+          7.2,
+          360.0
+        ]
+      }
+    },
+    {
+      "seed": 17,
+      "method": "learned",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.04365435618907743,
+          "motion_rmse": 0.00023932720165245126,
+          "F_error_mean": 0.025090587153280584,
+          "projector_error_mean": 0.03577233279782207,
+          "incompatibility_mean": 0.06579646849587117,
+          "oracle_energy_mean": 0.010034708769058136,
+          "clean_energy_mean": 0.05750174345228206,
+          "normalized_energy_mean": 5.671706494863061e-05,
+          "feature_power_mean": 1944.201796633371,
+          "control_rms": 0.21101325281982478
+        },
+        "before_change": {
+          "force_rmse": 0.002960111947976452,
+          "motion_rmse": 0.0002370377879775402,
+          "F_error_mean": 0.0014281545524767192,
+          "projector_error_mean": 0.0018535727857370617,
+          "incompatibility_mean": 0.01076229058355415,
+          "oracle_energy_mean": 0.010642450274460178,
+          "clean_energy_mean": 1.3069237563566353e-05,
+          "normalized_energy_mean": 5.450597880216579e-06,
+          "feature_power_mean": 1674.4997831458802,
+          "control_rms": 0.21702532125931187
+        },
+        "change": {
+          "force_rmse": 0.12879754081735414,
+          "motion_rmse": 0.002649402870352919,
+          "F_error_mean": 0.35126146752356574,
+          "projector_error_mean": 0.4033391012317124,
+          "incompatibility_mean": 2.730310863826171,
+          "oracle_energy_mean": 0.11092460863360827,
+          "clean_energy_mean": 2.7176427806181,
+          "normalized_energy_mean": 0.001160250678923963,
+          "feature_power_mean": 1343.5074260636968,
+          "control_rms": 0.26551306674275676
+        },
+        "recovered": {
+          "force_rmse": 0.003390307834671833,
+          "motion_rmse": 0.0002392850600836431,
+          "F_error_mean": 0.0004789310893630502,
+          "projector_error_mean": 0.0017565167859023934,
+          "incompatibility_mean": 0.010471270226548679,
+          "oracle_energy_mean": 0.010347175049872469,
+          "clean_energy_mean": 1.0738674330722422e-05,
+          "normalized_energy_mean": 2.5534414590460736e-06,
+          "feature_power_mean": 1393.8267474934082,
+          "control_rms": 0.25470917732679266
+        },
+        "minimum_indentation": 0.011905588893078061,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.00258407230466,
+          20.00957392917234,
+          1000.1747747392695,
+          12.596265244000955,
+          7.2011026425167115,
+          360.08118623879545
+        ]
+      }
+    },
+    {
+      "seed": 17,
+      "method": "frozen",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.43823986958660355,
+          "motion_rmse": 0.0014762760148010682,
+          "F_error_mean": 0.36115196624999807,
+          "projector_error_mean": 0.33528583971809267,
+          "incompatibility_mean": 27.977424365100486,
+          "oracle_energy_mean": 0.010034709432367162,
+          "clean_energy_mean": 27.964646226643424,
+          "normalized_energy_mean": 0.040716863038232735,
+          "feature_power_mean": 2013.3467081386445,
+          "control_rms": 0.2113615127481728
+        },
+        "before_change": {
+          "force_rmse": 0.47118625457544294,
+          "motion_rmse": 0.0014467848378516119,
+          "F_error_mean": 0.3600808177095602,
+          "projector_error_mean": 0.33167466473864715,
+          "incompatibility_mean": 32.49328107374531,
+          "oracle_energy_mean": 0.010642462522170349,
+          "clean_energy_mean": 32.486155166115324,
+          "normalized_energy_mean": 0.04132483489579155,
+          "feature_power_mean": 1767.200810279241,
+          "control_rms": 0.21725458105231046
+        },
+        "change": {
+          "force_rmse": 0.8235947290607172,
+          "motion_rmse": 0.008829471456203726,
+          "F_error_mean": 0.5866292964720266,
+          "projector_error_mean": 0.5449231227494286,
+          "incompatibility_mean": 76.96831995084263,
+          "oracle_energy_mean": 0.10864496940552525,
+          "clean_energy_mean": 76.94273679100652,
+          "normalized_energy_mean": 0.11207919002992647,
+          "feature_power_mean": 1407.003900273519,
+          "control_rms": 0.2631644535222461
+        },
+        "recovered": {
+          "force_rmse": 0.8552504636074051,
+          "motion_rmse": 0.008320523542298654,
+          "F_error_mean": 0.5835782709861492,
+          "projector_error_mean": 0.5374056940951931,
+          "incompatibility_mean": 81.44330548109743,
+          "oracle_energy_mean": 0.010347190776717021,
+          "clean_energy_mean": 81.41650479723891,
+          "normalized_energy_mean": 0.11029148403045372,
+          "feature_power_mean": 1489.086974039753,
+          "control_rms": 0.2517900266964193
+        },
+        "minimum_indentation": 0.011056930729457168,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          8.0,
+          4.0,
+          400.0,
+          3.2,
+          1.6,
+          160.0
+        ]
+      }
+    },
+    {
+      "seed": 17,
+      "method": "oracle",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.003240367550132508,
+          "motion_rmse": 0.00023641506299762293,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.01003458961960636,
+          "oracle_energy_mean": 0.01003458961960636,
+          "clean_energy_mean": 4.406953774913362e-09,
+          "normalized_energy_mean": 5.128708460797857e-06,
+          "feature_power_mean": 1943.556852138811,
+          "control_rms": 0.21098308572596397
+        },
+        "before_change": {
+          "force_rmse": 0.0027724162643933074,
+          "motion_rmse": 0.00023627862110905845,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010642452466078206,
+          "oracle_energy_mean": 0.010642452466078206,
+          "clean_energy_mean": 3.0047642679046527e-09,
+          "normalized_energy_mean": 5.401390517128359e-06,
+          "feature_power_mean": 1674.5590044453586,
+          "control_rms": 0.21702654576331473
+        },
+        "change": {
+          "force_rmse": 0.004092368947874095,
+          "motion_rmse": 0.00022862343940264864,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.1109267317856967,
+          "oracle_energy_mean": 0.1109267317856967,
+          "clean_energy_mean": 0.10184048476756913,
+          "normalized_energy_mean": 8.852748862943984e-06,
+          "feature_power_mean": 1316.9803750510152,
+          "control_rms": 0.26563447212994135
+        },
+        "recovered": {
+          "force_rmse": 0.0033093295546074352,
+          "motion_rmse": 0.0002383864120275686,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010347176719277715,
+          "oracle_energy_mean": 0.010347176719277715,
+          "clean_energy_mean": 2.951044149559379e-09,
+          "normalized_energy_mean": 2.5249327663139695e-06,
+          "feature_power_mean": 1393.8293264866886,
+          "control_rms": 0.2547085447212383
+        },
+        "minimum_indentation": 0.011813832462158058,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.0,
+          20.0,
+          1000.0,
+          12.600000000000001,
+          7.2,
+          360.0
+        ]
+      }
+    },
+    {
+      "seed": 18,
+      "method": "learned",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.04346211755137756,
+          "motion_rmse": 0.0002356092116777832,
+          "F_error_mean": 0.022645099477060962,
+          "projector_error_mean": 0.031519439083100564,
+          "incompatibility_mean": 0.06925085420739852,
+          "oracle_energy_mean": 0.010496098462714617,
+          "clean_energy_mean": 0.05752682676716015,
+          "normalized_energy_mean": 5.839866015549374e-05,
+          "feature_power_mean": 1944.4382380802085,
+          "control_rms": 0.21101514294670456
+        },
+        "before_change": {
+          "force_rmse": 0.0031506491427302475,
+          "motion_rmse": 0.00023676925246396627,
+          "F_error_mean": 0.001086441613447414,
+          "projector_error_mean": 0.0015333751854934498,
+          "incompatibility_mean": 0.00978588428996044,
+          "oracle_energy_mean": 0.009667231169366042,
+          "clean_energy_mean": 1.1600647402287535e-05,
+          "normalized_energy_mean": 4.956752388529242e-06,
+          "feature_power_mean": 1674.4333992092022,
+          "control_rms": 0.21702828398208965
+        },
+        "change": {
+          "force_rmse": 0.12911605763561107,
+          "motion_rmse": 0.0026410741556604253,
+          "F_error_mean": 0.35110915382821506,
+          "projector_error_mean": 0.4031052118194237,
+          "incompatibility_mean": 2.7268979005806977,
+          "oracle_energy_mean": 0.1137917015908712,
+          "clean_energy_mean": 2.717947291183001,
+          "normalized_energy_mean": 0.0011591334688308618,
+          "feature_power_mean": 1343.5347853091585,
+          "control_rms": 0.2655145203626753
+        },
+        "recovered": {
+          "force_rmse": 0.003311015297073445,
+          "motion_rmse": 0.0002385246898400436,
+          "F_error_mean": 0.0007896798561927145,
+          "projector_error_mean": 0.0010683266991055285,
+          "incompatibility_mean": 0.009658889642003347,
+          "oracle_energy_mean": 0.009540466025631378,
+          "clean_energy_mean": 1.0956730814053618e-05,
+          "normalized_energy_mean": 2.368959776723376e-06,
+          "feature_power_mean": 1393.836893177351,
+          "control_rms": 0.254709170788533
+        },
+        "minimum_indentation": 0.011894962212175262,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.00265877154123,
+          19.995437219040607,
+          1000.0472079904092,
+          12.62374392633009,
+          7.210092354735864,
+          360.60300106523863
+        ]
+      }
+    },
+    {
+      "seed": 18,
+      "method": "frozen",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.4382847963419651,
+          "motion_rmse": 0.0014763381497787421,
+          "F_error_mean": 0.36115196960711754,
+          "projector_error_mean": 0.33528589560639777,
+          "incompatibility_mean": 27.977420678715767,
+          "oracle_energy_mean": 0.010496185306399567,
+          "clean_energy_mean": 27.964264006630476,
+          "normalized_energy_mean": 0.04072282977232426,
+          "feature_power_mean": 2013.5429066585843,
+          "control_rms": 0.2113623202358229
+        },
+        "before_change": {
+          "force_rmse": 0.4713813543725558,
+          "motion_rmse": 0.0014467525887444477,
+          "F_error_mean": 0.3600808126950091,
+          "projector_error_mean": 0.3316746521457893,
+          "incompatibility_mean": 32.49297169895373,
+          "oracle_energy_mean": 0.009667231695745302,
+          "clean_energy_mean": 32.48619049360356,
+          "normalized_energy_mean": 0.04132711489715363,
+          "feature_power_mean": 1767.1184108980353,
+          "control_rms": 0.21725466355855913
+        },
+        "change": {
+          "force_rmse": 0.8239743607307844,
+          "motion_rmse": 0.008829576536113493,
+          "F_error_mean": 0.5866293240543475,
+          "projector_error_mean": 0.5449231189211463,
+          "incompatibility_mean": 76.95512382049226,
+          "oracle_energy_mean": 0.11162249356765844,
+          "clean_energy_mean": 76.95789324533409,
+          "normalized_energy_mean": 0.11206265018099368,
+          "feature_power_mean": 1407.0475177219123,
+          "control_rms": 0.2631635107784702
+        },
+        "recovered": {
+          "force_rmse": 0.8553775415887824,
+          "motion_rmse": 0.008320504633451086,
+          "F_error_mean": 0.583578285053037,
+          "projector_error_mean": 0.5374057200172567,
+          "incompatibility_mean": 81.43780658781458,
+          "oracle_energy_mean": 0.009540460358405755,
+          "clean_energy_mean": 81.4218274277904,
+          "normalized_energy_mean": 0.11028958287014075,
+          "feature_power_mean": 1489.115294073875,
+          "control_rms": 0.2517899456034437
+        },
+        "minimum_indentation": 0.011045366014462536,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          8.0,
+          4.0,
+          400.0,
+          3.2,
+          1.6,
+          160.0
+        ]
+      }
+    },
+    {
+      "seed": 18,
+      "method": "oracle",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.003168899606206161,
+          "motion_rmse": 0.00023641506299762293,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010496193182658523,
+          "oracle_energy_mean": 0.010496193182658523,
+          "clean_energy_mean": 4.4081946489086225e-09,
+          "normalized_energy_mean": 5.003274172830826e-06,
+          "feature_power_mean": 1943.7388036151658,
+          "control_rms": 0.2109835494648828
+        },
+        "before_change": {
+          "force_rmse": 0.0030829462903533265,
+          "motion_rmse": 0.0002362786211090577,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.00966723328291565,
+          "oracle_energy_mean": 0.00966723328291565,
+          "clean_energy_mean": 3.0067813100428786e-09,
+          "normalized_energy_mean": 4.8998584392299745e-06,
+          "feature_power_mean": 1674.4759056210569,
+          "control_rms": 0.2170266715348736
+        },
+        "change": {
+          "force_rmse": 0.003949370192373038,
+          "motion_rmse": 0.0002286234394026491,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.1137754091708253,
+          "oracle_energy_mean": 0.1137754091708253,
+          "clean_energy_mean": 0.10280128208979807,
+          "normalized_energy_mean": 8.87678316625554e-06,
+          "feature_power_mean": 1316.9996129522492,
+          "control_rms": 0.26563421127758347
+        },
+        "recovered": {
+          "force_rmse": 0.0031415552857454645,
+          "motion_rmse": 0.0002383864120275684,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.009540467621030679,
+          "oracle_energy_mean": 0.009540467621030679,
+          "clean_energy_mean": 2.952931270621481e-09,
+          "normalized_energy_mean": 2.342547934236697e-06,
+          "feature_power_mean": 1393.8466166789556,
+          "control_rms": 0.2547082094129081
+        },
+        "minimum_indentation": 0.011806207429105327,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.0,
+          20.0,
+          1000.0,
+          12.600000000000001,
+          7.2,
+          360.0
+        ]
+      }
+    },
+    {
+      "seed": 19,
+      "method": "learned",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.04348816055533224,
+          "motion_rmse": 0.0002351867436465872,
+          "F_error_mean": 0.024446728028233475,
+          "projector_error_mean": 0.03359800006190012,
+          "incompatibility_mean": 0.06804394871090742,
+          "oracle_energy_mean": 0.010097077889334763,
+          "clean_energy_mean": 0.057948217461704504,
+          "normalized_energy_mean": 5.806941480291406e-05,
+          "feature_power_mean": 1944.3738025060102,
+          "control_rms": 0.21101620361888837
+        },
+        "before_change": {
+          "force_rmse": 0.003065037141892596,
+          "motion_rmse": 0.00023565061796590881,
+          "F_error_mean": 0.0008641768639556329,
+          "projector_error_mean": 0.0014108336163310092,
+          "incompatibility_mean": 0.010556737695177128,
+          "oracle_energy_mean": 0.010426144741416963,
+          "clean_energy_mean": 1.261071890343383e-05,
+          "normalized_energy_mean": 5.33663575494978e-06,
+          "feature_power_mean": 1674.5922750806812,
+          "control_rms": 0.21702660110946587
+        },
+        "change": {
+          "force_rmse": 0.1290285013547698,
+          "motion_rmse": 0.0026392454583386922,
+          "F_error_mean": 0.35034430122328886,
+          "projector_error_mean": 0.401380160037988,
+          "incompatibility_mean": 2.7304709690662565,
+          "oracle_energy_mean": 0.11496394180546515,
+          "clean_energy_mean": 2.7192836943313368,
+          "normalized_energy_mean": 0.001159934823119607,
+          "feature_power_mean": 1343.471186282659,
+          "control_rms": 0.26551935916924935
+        },
+        "recovered": {
+          "force_rmse": 0.0033535068731420504,
+          "motion_rmse": 0.00023933510050372248,
+          "F_error_mean": 0.0006303056581948841,
+          "projector_error_mean": 0.0010576649742690156,
+          "incompatibility_mean": 0.01036023968744478,
+          "oracle_energy_mean": 0.010236279026454749,
+          "clean_energy_mean": 1.1992337919101654e-05,
+          "normalized_energy_mean": 2.5901658911837895e-06,
+          "feature_power_mean": 1393.896105212456,
+          "control_rms": 0.2547058048644932
+        },
+        "minimum_indentation": 0.011895618685355148,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          34.997488772485745,
+          20.000776688577982,
+          999.9512824408474,
+          12.588583651163919,
+          7.193712495806276,
+          359.6428300031112
+        ]
+      }
+    },
+    {
+      "seed": 19,
+      "method": "frozen",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.4383621711378186,
+          "motion_rmse": 0.0014763464730552513,
+          "F_error_mean": 0.36115200423894944,
+          "projector_error_mean": 0.3352859952226375,
+          "incompatibility_mean": 27.978976472303444,
+          "oracle_energy_mean": 0.010097050400915613,
+          "clean_energy_mean": 27.965232117011094,
+          "normalized_energy_mean": 0.04071739347877471,
+          "feature_power_mean": 2013.4502877041791,
+          "control_rms": 0.21136245436048343
+        },
+        "before_change": {
+          "force_rmse": 0.47130252508973713,
+          "motion_rmse": 0.001446807391866038,
+          "F_error_mean": 0.36008083465556534,
+          "projector_error_mean": 0.3316746652775593,
+          "incompatibility_mean": 32.49569324212616,
+          "oracle_energy_mean": 0.010426155781283652,
+          "clean_energy_mean": 32.48532318574556,
+          "normalized_energy_mean": 0.04133298394447469,
+          "feature_power_mean": 1767.2195095291468,
+          "control_rms": 0.21725479651887725
+        },
+        "change": {
+          "force_rmse": 0.8238648402521876,
+          "motion_rmse": 0.008829563877125874,
+          "F_error_mean": 0.5866293115134503,
+          "projector_error_mean": 0.5449231476951174,
+          "incompatibility_mean": 76.95889963626212,
+          "oracle_energy_mean": 0.11287541067325321,
+          "clean_energy_mean": 76.95427847718706,
+          "normalized_energy_mean": 0.11206771440641144,
+          "feature_power_mean": 1406.933980787931,
+          "control_rms": 0.26316397973390465
+        },
+        "recovered": {
+          "force_rmse": 0.8554750857523303,
+          "motion_rmse": 0.00832055482462149,
+          "F_error_mean": 0.5835783034012813,
+          "projector_error_mean": 0.5374058141014202,
+          "incompatibility_mean": 81.43464692151875,
+          "oracle_energy_mean": 0.0102362858752051,
+          "clean_energy_mean": 81.42732695388858,
+          "normalized_energy_mean": 0.11028226526069099,
+          "feature_power_mean": 1489.1501795533736,
+          "control_rms": 0.2517907384074844
+        },
+        "minimum_indentation": 0.011033557849903737,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          8.0,
+          4.0,
+          400.0,
+          3.2,
+          1.6,
+          160.0
+        ]
+      }
+    },
+    {
+      "seed": 19,
+      "method": "oracle",
+      "metrics": {
+        "early": {
+          "force_rmse": 0.0032447846271250794,
+          "motion_rmse": 0.00023641506299762293,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010097084612819081,
+          "oracle_energy_mean": 0.010097084612819081,
+          "clean_energy_mean": 4.406387879334344e-09,
+          "normalized_energy_mean": 5.274850552261004e-06,
+          "feature_power_mean": 1943.6436128657713,
+          "control_rms": 0.21098361241980318
+        },
+        "before_change": {
+          "force_rmse": 0.0029504847867261054,
+          "motion_rmse": 0.0002362786211090577,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010426146742648872,
+          "oracle_energy_mean": 0.010426146742648872,
+          "clean_energy_mean": 3.0060366342087005e-09,
+          "normalized_energy_mean": 5.273129951735553e-06,
+          "feature_power_mean": 1674.5776928649839,
+          "control_rms": 0.21702669683888953
+        },
+        "change": {
+          "force_rmse": 0.0035801198568049517,
+          "motion_rmse": 0.0002286234394026494,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.11497916390073486,
+          "oracle_energy_mean": 0.11497916390073486,
+          "clean_energy_mean": 0.1024363063695902,
+          "normalized_energy_mean": 9.094635280197779e-06,
+          "feature_power_mean": 1316.89755074347,
+          "control_rms": 0.26563388506631697
+        },
+        "recovered": {
+          "force_rmse": 0.003199914710988246,
+          "motion_rmse": 0.00023838641202756698,
+          "F_error_mean": 0.0,
+          "projector_error_mean": 0.0,
+          "incompatibility_mean": 0.010236280595060553,
+          "oracle_energy_mean": 0.010236280595060553,
+          "clean_energy_mean": 2.954441263332515e-09,
+          "normalized_energy_mean": 2.56125676288526e-06,
+          "feature_power_mean": 1393.873286229775,
+          "control_rms": 0.25470853321607895
+        },
+        "minimum_indentation": 0.011808694095682507,
+        "saturation_fraction": 0.0,
+        "final_material": [
+          35.0,
+          20.0,
+          1000.0,
+          12.600000000000001,
+          7.2,
+          360.0
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,965 @@
+{
+  "status": "NEW online-control protocol",
+  "runs": [
+    {
+      "seed": 10,
+      "method": "learned",
+      "metrics": {
+        "tracking_rmse": 0.0023319496589659324,
+        "control_rms": 0.6447672298334547,
+        "F_error_mean": 0.00706019243322714,
+        "projector_error_mean": 0.007286951148657389,
+        "energy_mean": 0.0005894003194229074,
+        "oracle_energy_mean": 0.0005907093509019722,
+        "clean_energy_mean": 6.311150029700732e-06,
+        "K0_same_stream_energy_mean": 0.08785025638770354,
+        "normalized_energy_mean": 0.0004737121056566839,
+        "feature_power_mean": 1.0935667347062386,
+        "final_coefficients": [
+          1.1864813054680203,
+          0.2696096578098927,
+          -0.17962553757523117,
+          1.499157403840051,
+          0.3397843485021104,
+          0.2400204165409391
+        ]
+      }
+    },
+    {
+      "seed": 10,
+      "method": "K0",
+      "metrics": {
+        "tracking_rmse": 0.04794202835610601,
+        "control_rms": 0.5467618732861599,
+        "F_error_mean": 0.1849416229090653,
+        "projector_error_mean": 0.20515895843809287,
+        "energy_mean": 0.05425384506608182,
+        "oracle_energy_mean": 0.000590709350901973,
+        "clean_energy_mean": 0.053840981334239986,
+        "K0_same_stream_energy_mean": 0.05425384506608182,
+        "normalized_energy_mean": 0.11742561450435056,
+        "feature_power_mean": 0.4297656267135976,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.2083232861241868,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 10,
+      "method": "frozen",
+      "metrics": {
+        "tracking_rmse": 0.06727334401907978,
+        "control_rms": 0.5080596175829286,
+        "F_error_mean": 0.21423521506432042,
+        "projector_error_mean": 0.24063713414121365,
+        "energy_mean": 0.04834491600165186,
+        "oracle_energy_mean": 0.0005907093509019741,
+        "clean_energy_mean": 0.0479380599235689,
+        "K0_same_stream_energy_mean": 0.04702712921264639,
+        "normalized_energy_mean": 0.05057732780192812,
+        "feature_power_mean": 0.7144750907375239,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 10,
+      "method": "oracle",
+      "metrics": {
+        "tracking_rmse": 0.0012286171886802338,
+        "control_rms": 0.6459176152010014,
+        "F_error_mean": 0.0,
+        "projector_error_mean": 8.407141049481885e-09,
+        "energy_mean": 0.0005907093509019723,
+        "oracle_energy_mean": 0.0005907093509019723,
+        "clean_energy_mean": 1.1774953940131935e-30,
+        "K0_same_stream_energy_mean": 0.08820296132984405,
+        "normalized_energy_mean": 0.00047393786270819233,
+        "feature_power_mean": 1.097844446633198,
+        "final_coefficients": [
+          1.2,
+          0.27,
+          -0.18,
+          1.5,
+          0.34,
+          0.24
+        ]
+      }
+    },
+    {
+      "seed": 11,
+      "method": "learned",
+      "metrics": {
+        "tracking_rmse": 0.002340856109545626,
+        "control_rms": 0.6447742693209408,
+        "F_error_mean": 0.007087882146942416,
+        "projector_error_mean": 0.007317164897690825,
+        "energy_mean": 0.0006134063880542375,
+        "oracle_energy_mean": 0.0006146314169531668,
+        "clean_energy_mean": 6.2525096912119644e-06,
+        "K0_same_stream_energy_mean": 0.08788016983015638,
+        "normalized_energy_mean": 0.0004562174679760308,
+        "feature_power_mean": 1.0935075426939422,
+        "final_coefficients": [
+          1.1859100675426435,
+          0.26975820620001245,
+          -0.17961906479066242,
+          1.4988201907651852,
+          0.3397685477177458,
+          0.24015401520943316
+        ]
+      }
+    },
+    {
+      "seed": 11,
+      "method": "K0",
+      "metrics": {
+        "tracking_rmse": 0.04794195799638531,
+        "control_rms": 0.5467614583744631,
+        "F_error_mean": 0.18494502166218385,
+        "projector_error_mean": 0.20516368490730225,
+        "energy_mean": 0.05427541974288012,
+        "oracle_energy_mean": 0.0006146314169531682,
+        "clean_energy_mean": 0.053839391943102485,
+        "K0_same_stream_energy_mean": 0.05427541974288012,
+        "normalized_energy_mean": 0.11770485863138183,
+        "feature_power_mean": 0.42975511573157904,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.2079336791940962,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 11,
+      "method": "frozen",
+      "metrics": {
+        "tracking_rmse": 0.06727334401907978,
+        "control_rms": 0.5080596175829286,
+        "F_error_mean": 0.21423521506432042,
+        "projector_error_mean": 0.24063713414121365,
+        "energy_mean": 0.048368983387397535,
+        "oracle_energy_mean": 0.0006146314169531679,
+        "clean_energy_mean": 0.0479380599235689,
+        "K0_same_stream_energy_mean": 0.047055142608818004,
+        "normalized_energy_mean": 0.05062835929847691,
+        "feature_power_mean": 0.714467565979783,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 11,
+      "method": "oracle",
+      "metrics": {
+        "tracking_rmse": 0.0012286171886802338,
+        "control_rms": 0.6459176152010014,
+        "F_error_mean": 0.0,
+        "projector_error_mean": 8.407141049481885e-09,
+        "energy_mean": 0.0006146314169531677,
+        "oracle_energy_mean": 0.0006146314169531677,
+        "clean_energy_mean": 1.1774953940131935e-30,
+        "K0_same_stream_energy_mean": 0.08822605566964546,
+        "normalized_energy_mean": 0.0004567119920883341,
+        "feature_power_mean": 1.097844035379817,
+        "final_coefficients": [
+          1.2,
+          0.27,
+          -0.18,
+          1.5,
+          0.34,
+          0.24
+        ]
+      }
+    },
+    {
+      "seed": 12,
+      "method": "learned",
+      "metrics": {
+        "tracking_rmse": 0.0022863370615141426,
+        "control_rms": 0.6448493915395241,
+        "F_error_mean": 0.006804450248879668,
+        "projector_error_mean": 0.007041616053904189,
+        "energy_mean": 0.0006150698759419675,
+        "oracle_energy_mean": 0.0006161919291031024,
+        "clean_energy_mean": 5.744363701032322e-06,
+        "K0_same_stream_energy_mean": 0.08784086228614828,
+        "normalized_energy_mean": 0.0004695165927968654,
+        "feature_power_mean": 1.0937388279795124,
+        "final_coefficients": [
+          1.185724151947517,
+          0.2695693445362193,
+          -0.1799195666529757,
+          1.4988670525089256,
+          0.33956342415864255,
+          0.23988125567612395
+        ]
+      }
+    },
+    {
+      "seed": 12,
+      "method": "K0",
+      "metrics": {
+        "tracking_rmse": 0.047917177842081535,
+        "control_rms": 0.5468219766448188,
+        "F_error_mean": 0.1849278602089279,
+        "projector_error_mean": 0.2051479172984237,
+        "energy_mean": 0.05423245533916405,
+        "oracle_energy_mean": 0.0006161919291031009,
+        "clean_energy_mean": 0.05384844591310394,
+        "K0_same_stream_energy_mean": 0.05423245533916405,
+        "normalized_energy_mean": 0.11794800556135723,
+        "feature_power_mean": 0.4298227722616394,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.208231948098563,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 12,
+      "method": "frozen",
+      "metrics": {
+        "tracking_rmse": 0.06727334401907978,
+        "control_rms": 0.5080596175829286,
+        "F_error_mean": 0.21423521506432042,
+        "projector_error_mean": 0.24063713414121365,
+        "energy_mean": 0.04831768135626087,
+        "oracle_energy_mean": 0.0006161919291031037,
+        "clean_energy_mean": 0.0479380599235689,
+        "K0_same_stream_energy_mean": 0.046998975757272146,
+        "normalized_energy_mean": 0.050506169872240166,
+        "feature_power_mean": 0.7144398334414294,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 12,
+      "method": "oracle",
+      "metrics": {
+        "tracking_rmse": 0.0012286171886802338,
+        "control_rms": 0.6459176152010014,
+        "F_error_mean": 0.0,
+        "projector_error_mean": 8.407141049481885e-09,
+        "energy_mean": 0.0006161919291031024,
+        "oracle_energy_mean": 0.0006161919291031024,
+        "clean_energy_mean": 1.1774953940131935e-30,
+        "K0_same_stream_energy_mean": 0.08816185118761598,
+        "normalized_energy_mean": 0.0004695291269337485,
+        "feature_power_mean": 1.0978585595710042,
+        "final_coefficients": [
+          1.2,
+          0.27,
+          -0.18,
+          1.5,
+          0.34,
+          0.24
+        ]
+      }
+    },
+    {
+      "seed": 13,
+      "method": "learned",
+      "metrics": {
+        "tracking_rmse": 0.002280357158532353,
+        "control_rms": 0.6448335951231573,
+        "F_error_mean": 0.006844635095413704,
+        "projector_error_mean": 0.007071451743367251,
+        "energy_mean": 0.0005945448223349307,
+        "oracle_energy_mean": 0.0005957527558597838,
+        "clean_energy_mean": 5.8055233871939375e-06,
+        "K0_same_stream_energy_mean": 0.08785812159094576,
+        "normalized_energy_mean": 0.0005290431486352947,
+        "feature_power_mean": 1.0937476663124075,
+        "final_coefficients": [
+          1.1862954012972047,
+          0.2696411046556008,
+          -0.1800197104540863,
+          1.4989947616584087,
+          0.3397486136039696,
+          0.23985855522315777
+        ]
+      }
+    },
+    {
+      "seed": 13,
+      "method": "K0",
+      "metrics": {
+        "tracking_rmse": 0.047930075492590096,
+        "control_rms": 0.5467925190054053,
+        "F_error_mean": 0.18493465240160412,
+        "projector_error_mean": 0.20515632043781573,
+        "energy_mean": 0.05424392665469256,
+        "oracle_energy_mean": 0.0005957527558597843,
+        "clean_energy_mean": 0.0538422702638897,
+        "K0_same_stream_energy_mean": 0.05424392665469256,
+        "normalized_energy_mean": 0.11715902181142832,
+        "feature_power_mean": 0.42980825263043376,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.2084265328407418,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 13,
+      "method": "frozen",
+      "metrics": {
+        "tracking_rmse": 0.06727334401907978,
+        "control_rms": 0.5080596175829286,
+        "F_error_mean": 0.21423521506432042,
+        "projector_error_mean": 0.24063713414121365,
+        "energy_mean": 0.04833708482260974,
+        "oracle_energy_mean": 0.0005957527558597855,
+        "clean_energy_mean": 0.0479380599235689,
+        "K0_same_stream_energy_mean": 0.04701835255149426,
+        "normalized_energy_mean": 0.05051522617443878,
+        "feature_power_mean": 0.7144854871827689,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 13,
+      "method": "oracle",
+      "metrics": {
+        "tracking_rmse": 0.0012286171886802338,
+        "control_rms": 0.6459176152010014,
+        "F_error_mean": 0.0,
+        "projector_error_mean": 8.407141049481885e-09,
+        "energy_mean": 0.0005957527558597828,
+        "oracle_energy_mean": 0.0005957527558597828,
+        "clean_energy_mean": 1.1774953940131935e-30,
+        "K0_same_stream_energy_mean": 0.08819202512065785,
+        "normalized_energy_mean": 0.0005297556169041076,
+        "feature_power_mean": 1.0978217108279418,
+        "final_coefficients": [
+          1.2,
+          0.27,
+          -0.18,
+          1.5,
+          0.34,
+          0.24
+        ]
+      }
+    },
+    {
+      "seed": 14,
+      "method": "learned",
+      "metrics": {
+        "tracking_rmse": 0.0022831966711708996,
+        "control_rms": 0.6448255182715456,
+        "F_error_mean": 0.006858741343466083,
+        "projector_error_mean": 0.007095772902476819,
+        "energy_mean": 0.0006080069211513296,
+        "oracle_energy_mean": 0.0006091337036740347,
+        "clean_energy_mean": 5.840716217945281e-06,
+        "K0_same_stream_energy_mean": 0.08789277487570997,
+        "normalized_energy_mean": 0.0004794957610433278,
+        "feature_power_mean": 1.0936815643624882,
+        "final_coefficients": [
+          1.18602380039904,
+          0.2698795960009662,
+          -0.1798895658506398,
+          1.4991432507865972,
+          0.3398352928355737,
+          0.2399619771588422
+        ]
+      }
+    },
+    {
+      "seed": 14,
+      "method": "K0",
+      "metrics": {
+        "tracking_rmse": 0.04792309037442041,
+        "control_rms": 0.5468091817756501,
+        "F_error_mean": 0.18492915444376623,
+        "projector_error_mean": 0.2051504758746688,
+        "energy_mean": 0.05428307572197506,
+        "oracle_energy_mean": 0.0006091337036740356,
+        "clean_energy_mean": 0.053844435634172017,
+        "K0_same_stream_energy_mean": 0.05428307572197506,
+        "normalized_energy_mean": 0.11762153190470809,
+        "feature_power_mean": 0.4298516221372845,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.208410653033848,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 14,
+      "method": "frozen",
+      "metrics": {
+        "tracking_rmse": 0.06727334401907978,
+        "control_rms": 0.5080596175829286,
+        "F_error_mean": 0.21423521506432042,
+        "projector_error_mean": 0.24063713414121365,
+        "energy_mean": 0.048369943608971476,
+        "oracle_energy_mean": 0.0006091337036740368,
+        "clean_energy_mean": 0.0479380599235689,
+        "K0_same_stream_energy_mean": 0.04705117790884382,
+        "normalized_energy_mean": 0.050596040019028836,
+        "feature_power_mean": 0.7145454137097275,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 14,
+      "method": "oracle",
+      "metrics": {
+        "tracking_rmse": 0.0012286171886802338,
+        "control_rms": 0.6459176152010014,
+        "F_error_mean": 0.0,
+        "projector_error_mean": 8.407141049481885e-09,
+        "energy_mean": 0.0006091337036740351,
+        "oracle_energy_mean": 0.0006091337036740351,
+        "clean_energy_mean": 1.1774953940131935e-30,
+        "K0_same_stream_energy_mean": 0.08822985808350087,
+        "normalized_energy_mean": 0.0004799839986994163,
+        "feature_power_mean": 1.097817527416833,
+        "final_coefficients": [
+          1.2,
+          0.27,
+          -0.18,
+          1.5,
+          0.34,
+          0.24
+        ]
+      }
+    },
+    {
+      "seed": 15,
+      "method": "learned",
+      "metrics": {
+        "tracking_rmse": 0.002337766584700153,
+        "control_rms": 0.6448035606374717,
+        "F_error_mean": 0.007099909418130251,
+        "projector_error_mean": 0.007342542421086513,
+        "energy_mean": 0.0006354063188338975,
+        "oracle_energy_mean": 0.0006368303092772307,
+        "clean_energy_mean": 6.372076667227227e-06,
+        "K0_same_stream_energy_mean": 0.08791394392713567,
+        "normalized_energy_mean": 0.00043992653796324236,
+        "feature_power_mean": 1.0937032224265248,
+        "final_coefficients": [
+          1.1851622642323543,
+          0.2699969892563493,
+          -0.17958691078388436,
+          1.4989573321080443,
+          0.3398757737281845,
+          0.23993128157405655
+        ]
+      }
+    },
+    {
+      "seed": 15,
+      "method": "K0",
+      "metrics": {
+        "tracking_rmse": 0.04793219024198896,
+        "control_rms": 0.5467854102578025,
+        "F_error_mean": 0.18493380105624363,
+        "projector_error_mean": 0.2051530357089382,
+        "energy_mean": 0.05429287130948465,
+        "oracle_energy_mean": 0.0006368303092772302,
+        "clean_energy_mean": 0.053843355092171225,
+        "K0_same_stream_energy_mean": 0.05429287130948465,
+        "normalized_energy_mean": 0.11783665811353927,
+        "feature_power_mean": 0.42985627845298346,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.2082577268853552,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 15,
+      "method": "frozen",
+      "metrics": {
+        "tracking_rmse": 0.06727334401907978,
+        "control_rms": 0.5080596175829286,
+        "F_error_mean": 0.21423521506432042,
+        "projector_error_mean": 0.24063713414121365,
+        "energy_mean": 0.048386580258078724,
+        "oracle_energy_mean": 0.0006368303092772329,
+        "clean_energy_mean": 0.0479380599235689,
+        "K0_same_stream_energy_mean": 0.04706773612134752,
+        "normalized_energy_mean": 0.05059179144246672,
+        "feature_power_mean": 0.7145876210105286,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 15,
+      "method": "oracle",
+      "metrics": {
+        "tracking_rmse": 0.0012286171886802338,
+        "control_rms": 0.6459176152010014,
+        "F_error_mean": 0.0,
+        "projector_error_mean": 8.407141049481885e-09,
+        "energy_mean": 0.0006368303092772307,
+        "oracle_energy_mean": 0.0006368303092772307,
+        "clean_energy_mean": 1.1774953940131935e-30,
+        "K0_same_stream_energy_mean": 0.08825331504225338,
+        "normalized_energy_mean": 0.0004402219287153816,
+        "feature_power_mean": 1.097907203955979,
+        "final_coefficients": [
+          1.2,
+          0.27,
+          -0.18,
+          1.5,
+          0.34,
+          0.24
+        ]
+      }
+    },
+    {
+      "seed": 16,
+      "method": "learned",
+      "metrics": {
+        "tracking_rmse": 0.00224313508401588,
+        "control_rms": 0.6449122250292557,
+        "F_error_mean": 0.006484556296105436,
+        "projector_error_mean": 0.006732264574403145,
+        "energy_mean": 0.0005673540486604456,
+        "oracle_energy_mean": 0.0005676661444088168,
+        "clean_energy_mean": 5.3501543070233506e-06,
+        "K0_same_stream_energy_mean": 0.08782707786550795,
+        "normalized_energy_mean": 0.0003676610752833461,
+        "feature_power_mean": 1.0938876640001378,
+        "final_coefficients": [
+          1.1873708963869203,
+          0.2697275510873197,
+          -0.1800371952056453,
+          1.4992439446690409,
+          0.3398913753559143,
+          0.23963444634303588
+        ]
+      }
+    },
+    {
+      "seed": 16,
+      "method": "K0",
+      "metrics": {
+        "tracking_rmse": 0.04791603820588569,
+        "control_rms": 0.5468274844575529,
+        "F_error_mean": 0.18492202076953246,
+        "projector_error_mean": 0.20514463409839812,
+        "energy_mean": 0.05421615326158392,
+        "oracle_energy_mean": 0.0005676661444088188,
+        "clean_energy_mean": 0.0538495122154721,
+        "K0_same_stream_energy_mean": 0.05421615326158392,
+        "normalized_energy_mean": 0.11754005150547403,
+        "feature_power_mean": 0.42976262722740116,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.2086872875311532,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 16,
+      "method": "frozen",
+      "metrics": {
+        "tracking_rmse": 0.06727334401907978,
+        "control_rms": 0.5080596175829286,
+        "F_error_mean": 0.21423521506432042,
+        "projector_error_mean": 0.24063713414121365,
+        "energy_mean": 0.0483151538697527,
+        "oracle_energy_mean": 0.0005676661444088182,
+        "clean_energy_mean": 0.0479380599235689,
+        "K0_same_stream_energy_mean": 0.04698822571218689,
+        "normalized_energy_mean": 0.05050122381667029,
+        "feature_power_mean": 0.7143906758056175,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 16,
+      "method": "oracle",
+      "metrics": {
+        "tracking_rmse": 0.0012286171886802338,
+        "control_rms": 0.6459176152010014,
+        "F_error_mean": 0.0,
+        "projector_error_mean": 8.407141049481885e-09,
+        "energy_mean": 0.0005676661444088165,
+        "oracle_energy_mean": 0.0005676661444088165,
+        "clean_energy_mean": 1.1774953940131935e-30,
+        "K0_same_stream_energy_mean": 0.08813370018657607,
+        "normalized_energy_mean": 0.0003678645449426992,
+        "feature_power_mean": 1.0977328155709927,
+        "final_coefficients": [
+          1.2,
+          0.27,
+          -0.18,
+          1.5,
+          0.34,
+          0.24
+        ]
+      }
+    },
+    {
+      "seed": 17,
+      "method": "learned",
+      "metrics": {
+        "tracking_rmse": 0.002277087946264575,
+        "control_rms": 0.6448943699142998,
+        "F_error_mean": 0.006701257271384552,
+        "projector_error_mean": 0.006968514482716509,
+        "energy_mean": 0.0005658802154075424,
+        "oracle_energy_mean": 0.000566490954031732,
+        "clean_energy_mean": 5.749113578823321e-06,
+        "K0_same_stream_energy_mean": 0.08781859960973967,
+        "normalized_energy_mean": 0.00045379940161880447,
+        "feature_power_mean": 1.0938765091606026,
+        "final_coefficients": [
+          1.1868189618734284,
+          0.2694168082274566,
+          -0.1798794640209385,
+          1.4992906296954225,
+          0.3399467323461072,
+          0.2397924373816605
+        ]
+      }
+    },
+    {
+      "seed": 17,
+      "method": "K0",
+      "metrics": {
+        "tracking_rmse": 0.04790935414940902,
+        "control_rms": 0.5468425878811126,
+        "F_error_mean": 0.18491856846934543,
+        "projector_error_mean": 0.2051387641522361,
+        "energy_mean": 0.05420934642178986,
+        "oracle_energy_mean": 0.0005664909540317325,
+        "clean_energy_mean": 0.053854605582168175,
+        "K0_same_stream_energy_mean": 0.05420934642178986,
+        "normalized_energy_mean": 0.11721713338908228,
+        "feature_power_mean": 0.42980424950686286,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.2086416098878783,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 17,
+      "method": "frozen",
+      "metrics": {
+        "tracking_rmse": 0.06727334401907978,
+        "control_rms": 0.5080596175829286,
+        "F_error_mean": 0.21423521506432042,
+        "projector_error_mean": 0.24063713414121365,
+        "energy_mean": 0.04830146530609512,
+        "oracle_energy_mean": 0.000566490954031732,
+        "clean_energy_mean": 0.0479380599235689,
+        "K0_same_stream_energy_mean": 0.0469752817920285,
+        "normalized_energy_mean": 0.050529506214127495,
+        "feature_power_mean": 0.7144041864187973,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 17,
+      "method": "oracle",
+      "metrics": {
+        "tracking_rmse": 0.0012286171886802338,
+        "control_rms": 0.6459176152010014,
+        "F_error_mean": 0.0,
+        "projector_error_mean": 8.407141049481885e-09,
+        "energy_mean": 0.0005664909540317322,
+        "oracle_energy_mean": 0.0005664909540317322,
+        "clean_energy_mean": 1.1774953940131935e-30,
+        "K0_same_stream_energy_mean": 0.08812725623173014,
+        "normalized_energy_mean": 0.00045411267501259037,
+        "feature_power_mean": 1.0978143892390084,
+        "final_coefficients": [
+          1.2,
+          0.27,
+          -0.18,
+          1.5,
+          0.34,
+          0.24
+        ]
+      }
+    },
+    {
+      "seed": 18,
+      "method": "learned",
+      "metrics": {
+        "tracking_rmse": 0.0023065563782900655,
+        "control_rms": 0.6448297195890569,
+        "F_error_mean": 0.006891743687808928,
+        "projector_error_mean": 0.007130258039000436,
+        "energy_mean": 0.0005918561640789451,
+        "oracle_energy_mean": 0.0005931993181861947,
+        "clean_energy_mean": 6.0339479480386245e-06,
+        "K0_same_stream_energy_mean": 0.0879202573680822,
+        "normalized_energy_mean": 0.0004306106842885342,
+        "feature_power_mean": 1.0938190580063405,
+        "final_coefficients": [
+          1.1859038248950537,
+          0.2697860425387984,
+          -0.17970987352864168,
+          1.4989477235234654,
+          0.3398487172026607,
+          0.24016715568971772
+        ]
+      }
+    },
+    {
+      "seed": 18,
+      "method": "K0",
+      "metrics": {
+        "tracking_rmse": 0.04793341348755332,
+        "control_rms": 0.5467827696575847,
+        "F_error_mean": 0.1849392623131227,
+        "projector_error_mean": 0.20516143324682024,
+        "energy_mean": 0.05430338577443198,
+        "oracle_energy_mean": 0.0005931993181861928,
+        "clean_energy_mean": 0.053841260865441665,
+        "K0_same_stream_energy_mean": 0.05430338577443198,
+        "normalized_energy_mean": 0.11785122612915834,
+        "feature_power_mean": 0.4298647464134649,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.2080777617240694,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 18,
+      "method": "frozen",
+      "metrics": {
+        "tracking_rmse": 0.06727334401907978,
+        "control_rms": 0.5080596175829286,
+        "F_error_mean": 0.21423521506432042,
+        "projector_error_mean": 0.24063713414121365,
+        "energy_mean": 0.04839179352327012,
+        "oracle_energy_mean": 0.0005931993181861925,
+        "clean_energy_mean": 0.0479380599235689,
+        "K0_same_stream_energy_mean": 0.0470783659424589,
+        "normalized_energy_mean": 0.05068353955169866,
+        "feature_power_mean": 0.714610812520469,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 18,
+      "method": "oracle",
+      "metrics": {
+        "tracking_rmse": 0.0012286171886802338,
+        "control_rms": 0.6459176152010014,
+        "F_error_mean": 0.0,
+        "projector_error_mean": 8.407141049481885e-09,
+        "energy_mean": 0.0005931993181861951,
+        "oracle_energy_mean": 0.0005931993181861951,
+        "clean_energy_mean": 1.1774953940131935e-30,
+        "K0_same_stream_energy_mean": 0.08825783693776433,
+        "normalized_energy_mean": 0.000431133354888328,
+        "feature_power_mean": 1.0978704296930477,
+        "final_coefficients": [
+          1.2,
+          0.27,
+          -0.18,
+          1.5,
+          0.34,
+          0.24
+        ]
+      }
+    },
+    {
+      "seed": 19,
+      "method": "learned",
+      "metrics": {
+        "tracking_rmse": 0.00230233969334908,
+        "control_rms": 0.6448266915368006,
+        "F_error_mean": 0.0068791747340891125,
+        "projector_error_mean": 0.007110785212649748,
+        "energy_mean": 0.0005793882578053504,
+        "oracle_energy_mean": 0.0005806322622849462,
+        "clean_energy_mean": 6.073530294713964e-06,
+        "K0_same_stream_energy_mean": 0.08793794213225221,
+        "normalized_energy_mean": 0.00045920080755048264,
+        "feature_power_mean": 1.0938685683745368,
+        "final_coefficients": [
+          1.1860500768291007,
+          0.2697069354421596,
+          -0.17978329134793894,
+          1.4990998348404903,
+          0.3400648314585676,
+          0.24022230675807338
+        ]
+      }
+    },
+    {
+      "seed": 19,
+      "method": "K0",
+      "metrics": {
+        "tracking_rmse": 0.04793619524871997,
+        "control_rms": 0.5467778405220779,
+        "F_error_mean": 0.1849390217862376,
+        "projector_error_mean": 0.20515918137813208,
+        "energy_mean": 0.05430823994821862,
+        "oracle_energy_mean": 0.0005806322622849473,
+        "clean_energy_mean": 0.05384121012864076,
+        "K0_same_stream_energy_mean": 0.05430823994821862,
+        "normalized_energy_mean": 0.11826094808874636,
+        "feature_power_mean": 0.4299113581777195,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.2081938643461907,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 19,
+      "method": "frozen",
+      "metrics": {
+        "tracking_rmse": 0.06727334401907978,
+        "control_rms": 0.5080596175829286,
+        "F_error_mean": 0.21423521506432042,
+        "projector_error_mean": 0.24063713414121365,
+        "energy_mean": 0.04839278310624092,
+        "oracle_energy_mean": 0.0005806322622849461,
+        "clean_energy_mean": 0.0479380599235689,
+        "K0_same_stream_energy_mean": 0.04707729215377785,
+        "normalized_energy_mean": 0.0506760983992,
+        "feature_power_mean": 0.7146807291283647,
+        "final_coefficients": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "seed": 19,
+      "method": "oracle",
+      "metrics": {
+        "tracking_rmse": 0.0012286171886802338,
+        "control_rms": 0.6459176152010014,
+        "F_error_mean": 0.0,
+        "projector_error_mean": 8.407141049481885e-09,
+        "energy_mean": 0.000580632262284946,
+        "oracle_energy_mean": 0.000580632262284946,
+        "clean_energy_mean": 1.1774953940131935e-30,
+        "K0_same_stream_energy_mean": 0.08827436580598673,
+        "normalized_energy_mean": 0.00045990001584838956,
+        "feature_power_mean": 1.0979128517234098,
+        "final_coefficients": [
+          1.2,
+          0.27,
+          -0.18,
+          1.5,
+          0.34,
+          0.24
+        ]
+      }
+    }
+  ]
+}
