@@ -4,7 +4,9 @@ This is a newly executed supplementary experiment, separate from the 100
 main-protocol runs. It examines whether a small incompatibility and accurate
 regulation necessarily imply that all partial derivatives are learned.
 The same viscoelastic contact plant and initial parameter prior are used in
-both protocols, without the material change. During $0\le t<60$~s the
+both protocols, without the material or actuation change. All remaining plant, noise,
+memory, bounds, and sampling settings are those in
+Section~\ref{sec:contact_protocol}. During $0\le t<60$~s the
 reference is $x_d=0$, $L_d=4$~N. The task-only controller performs regulation
 without deliberately exciting the system. The probing controller adds to
 its calculated command the bounded deterministic signal
@@ -20,10 +22,21 @@ with the reference clock reset. The transfer evaluation is $[70,80)$~s.
 Thus the test distinguishes performance on the task generating training data
 from reuse on a new task; it is not an assertion of safe exploration.
 
+The held-out diagnostic uses the frozen estimate at $t=60$~s on 1000
+common evaluator-only contexts: $x$ and $v_x$ are independently uniform on
+$[-.5,.5]$, generated with random seed 2026; the other context entries are
+zero. It reports the square root of the summed squared scaled differential
+errors divided by the summed squared scaled true differentials, using the
+same $D_z,D_r$ as the contact protocol. These queries are algebraic contexts,
+not additional plant trajectories, and never train either learner.
+Table~\ref{tab:excitation} and Figure~\ref{fig:excitation} report this
+separate study.
+
 \begin{table}[t]
 \centering
 \caption{Paired excitation experiment, mean $\pm$ sample SD over ten seeds.
 Training is $[40,60)$~s; transfer is $[70,80)$~s.}
+\setlength{\tabcolsep}{5pt}
 \begin{tabular}{lcc}
 \toprule Quantity & Task only & Bounded probing\\
 \midrule
@@ -42,8 +55,9 @@ Held-out $e_F$ & $0.19596\pm0.00802$ & $0.04232\pm0.00203$\\
 \includegraphics[width=.32\textwidth]{excitation_energy.pdf}\\
 \includegraphics[width=.32\textwidth]{excitation_control.pdf}\hfill
 \includegraphics[width=.32\textwidth]{excitation_information.pdf}
-\caption{Seed-10 paired excitation: force error, relative differential error,
-pre-update incompatibility, applied command, and the clean evaluator-only
+\caption{Seed-10 paired excitation. Top row, left to right: force error,
+relative differential error, and pre-update incompatibility. Bottom row:
+applied command and the clean evaluator-only
 information spectrum at the end of training. The vertical line marks
 transfer to a new task with coefficients frozen. Clean information is not
 provided to either learner.}

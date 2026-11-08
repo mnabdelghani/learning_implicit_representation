@@ -1,8 +1,6 @@
 \documentclass[journal]{IEEEtran}
 \usepackage{amsmath,amssymb,amsfonts,graphicx,booktabs,array,cite,url}
 \usepackage[hidelinks]{hyperref}
-\newtheorem{proposition}{Proposition}
-\newtheorem{theorem}{Theorem}
 \newcommand{\func}[1]{\operatorname{#1}}
 \newcommand{\col}{\operatorname{col}}
 \newcommand{\tr}{\operatorname{tr}}
@@ -13,8 +11,6 @@
 \renewcommand{\theequation}{S\arabic{equation}}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
-\renewcommand{\thetheorem}{S\arabic{theorem}}
-\renewcommand{\theproposition}{S\arabic{proposition}}
 \begin{document}
 \title{Supplementary Material for\\``Implicit Representation Estimation, Prediction, and Control''}
 \author{Mohamed Abdelghani}
@@ -22,7 +18,8 @@
 \begin{abstract}
 This companion accompanies the ten-page manuscript and the executable
 repository. It retains full experimental specifications, diagnostic
-conventions, supporting proofs, and additional examples. The three main
+conventions, explanatory counterexamples, and additional examples. All formal
+results and their proofs are in the main paper, which is authoritative. The three main
 studies contain newly executed ten-seed results. The contact implementation
 is a disclosed reconstruction; the Fourier experiment changes the earlier
 protocol to simultaneous learning and control; Burgers extends the supplied
@@ -32,7 +29,7 @@ ellipse implementation is recorded explicitly rather than concealed.
 \end{abstract}
 
 \section{Scope, provenance, and reproducibility}
-The main paper uses contact, Fourier Memory, and Burgers. Each learner begins
+The main paper uses contact, Fourier Memory, and Burgers. Each adaptive branch begins
 with imperfect coefficients and no accumulated memory; control is active
 from the first sample. There are 30 contact runs (three methods, ten seeds),
 40 Fourier runs (four methods, ten seeds), and 30 Burgers runs. Every seed
@@ -47,6 +44,9 @@ and memory settings were reconstructed, with previously unspecified choices
 listed below and in the configuration. Fourier retains the supplied periodic
 plant but replaces offline identification by a closed-loop protocol. Burgers
 calls the supplied reconstruction unchanged and adds diagnostic outputs.
+The paired excitation study in Section~\ref{sec:excitation} is separate
+from these 100 runs. Acrobot and active-flow results are retained from the
+previously supplied reconstruction; the ellipse is archival only.
 The repository preserves the prior package separately under
 \texttt{examples/legacy\_suite}.
 
@@ -69,8 +69,12 @@ terms are retained in a feature channel with fixed coefficient one:
  q_\theta=\col(\theta,1),\qquad \xi_{n,\ell}=q_\theta^{\mathsf T}v_{n,\ell}.
  \label{eq:sampled_implicit_relation}
 \end{equation}
-The fixed channel excludes the zero coefficient row. This coefficient row
-in feature coordinates is not the raw-context Jacobian $F=D_zf$. The
+The fixed channel excludes the zero coefficient row. Here $v_{n,\ell}$ is a scaled observed feature row written as a column,
+with $\ell$ indexing simultaneous equations or spatial samples; it need not
+be the raw context rate $v=\dot z$ of the main paper. The column $q_\theta$
+is the transpose of the experimental coefficient row $Q_\theta$ used there.
+This coefficient row in feature coordinates is not the raw-context Jacobian
+$F=D_zf$. The
 experimental families also specify the zero residual level; differentiation
 alone would not determine that level.
 
@@ -93,7 +97,7 @@ The implementation takes $M$ steps
 \end{equation}
 For the declared box $\mathcal W$, this is a feasible descent step for the
 \emph{fixed} memory problem because $\alpha\lambda_{\max}(H)\le1$.
-In particular,
+Main-paper Proposition~6 (Descent of a sampled coefficient update) gives
 \begin{equation}
  \mathcal J_n(\theta^{j+1})\le\mathcal J_n(\theta^j)
  -\|\theta^{j+1}-\theta^j\|^2/(2\alpha).
@@ -102,13 +106,24 @@ In particular,
 New observations change the objective; monotonically decreasing sample
 energy along a noisy closed-loop trajectory is not promised.
 
-At each time, the pre-update model first selects the command, the sensor
-sample is formed, partial and incompatibility diagnostics are recorded, and
-only then is the memory updated. The already selected command is held while
-the physical state advances by RK4. The final state is recorded, but its
-unapplied command is excluded from task and effort statistics. The code never
+At each decision time, available measurements and the pre-update model
+select the next command. In contact, the current noisy force measurement
+enters this readout before the commanded velocity is sampled; Fourier and
+Burgers sample the noisy state rate after command selection. Partial and
+incompatibility diagnostics use the pre-update coefficients, and only then
+are the memory and coefficients updated. The already selected command is
+held while the physical state advances by RK4. The final state is recorded,
+but its unapplied command is excluded from task and effort statistics. The code never
 feeds evaluator-only partials, clean rates, or true coefficients to an
 adaptive update. Oracle branches deliberately use the true coefficients.
+
+As in the main paper, supplied and computed channels are roles in a current
+query, not permanently measured and unmeasured variables. Observed history
+trains the relation; a readout holds that estimate fixed and computes the
+next command or a predicted rate from available data. The calibrated residual
+families below allow direct commands. A rate readout instead requires
+integration from known initial values. Instantaneous readout bounds do not
+establish closed-loop stability or supply missing residual levels.
 
 \subsection{Differential, gauge, and activity diagnostics}
 For declared coordinate scales $D_z$ and row scales $D_r$, direct error is
@@ -142,6 +157,7 @@ certificate of physical persistent excitation. True-model energy on the same
 noisy observations is a reference, not an estimator-independent lower bound.
 
 \section{Complete contact protocol}
+\label{sec:contact_protocol}
 \subsection{Plant, parameters, and observations}
 The velocity-actuated contact plant is
 \begin{align}
@@ -181,7 +197,7 @@ $(-100,-100,200,-50,-50,60)$ and upper bounds are
 $(100,100,1600,50,50,700)$.
 The diagonal entries of $\widehat B$ lie in $[.5,1.4]$ and off-diagonal
 entries in $[-.3,.3]$. Consequently
-$\det\widehat B\ge .5^2-.3^2=.16$ throughout adaptation. Both blocks use 48
+$\det\widehat B\ge .5^2-.3^2=.16$ throughout adaptation. Both blocks use a 4-s memory and 48
 projected steps per sample, unlike the earlier text's post-step clipping for
 actuation. This implementation choice is disclosed rather than claimed to
 reproduce an unavailable original script.
@@ -256,6 +272,7 @@ The oracle uses the true coefficients but the same noisy force sensor.
 The frozen controller uses the same initial model and outer gains.
 
 \section{Complete Fourier Memory protocol}
+\label{sec:fourier_protocol}
 The periodic implicit plant is
 \begin{align}
  f&=\rho(\phi)\dot x+\kappa(\phi)x-u=0,\quad \phi=4t,\\
@@ -273,7 +290,9 @@ $(1,.3,.3,1,.4,.4)$. The resulting positive rate block is certified for all
 phases. The $K=0$ model uses the constant entries with the same associated
 bounds and scales, setting all harmonic entries to zero.
 
-For $\zeta=(\varphi\dot x,\varphi x,-u)$, causal feature secants are
+With $\varphi=\col(1,\cos\phi,\sin\phi)$ and primes denoting
+phase derivatives, define $\zeta=\col(\varphi\dot x,\varphi x,-u)$.
+Causal feature secants are
 $[\zeta(t)-\zeta(t-.05)]/.05$; the current candidate is used for both
 endpoints. In particular,
 $d(\dot x\cos\phi)/dt=\ddot x\cos\phi-\dot x\dot\phi\sin\phi$.
@@ -283,7 +302,15 @@ omitting this chain-rule term.
 The initial state is $x(0)=.2$. The input computed from the pre-update model
 is held during each $.01$-s RK4 step, while $\phi=4t$ advances at the RK4
 stage times. The supplied state, input, and phase are exact; only the observed
-state rate receives independent noise. All methods use the same reference,
+state rate receives independent Gaussian noise of standard deviation $.001$.
+The run lasts 80 s, with an 8-s memory and eight projected steps per sample.
+The control readout is
+\begin{equation}
+ u=\widehat\rho[\dot x_d-2(x-x_d)]+\widehat\kappa x,
+ \quad x_d=.45\sin(.7t)+.2\sin(1.3t).
+ \label{eq:fourier_control}
+\end{equation}
+Input amplitude is unrestricted. All methods use the same reference,
 feedback gain, state initialization, and sample rate. Noise has no effect on
 the frozen/oracle control command because those branches do not adapt and
 their state measurement is exact; their tracking dispersion is therefore zero.
@@ -304,6 +331,7 @@ an energy minimizer; this is not evidence that the fitted model is more
 physically correct than the true model.
 
 \section{Complete Burgers protocol}
+\label{sec:burgers_protocol}
 The supplied reconstruction is reused without changing its plant, learner,
 or controller. On the periodic domain $s\in[0,2\pi)$ its residual is
 \begin{equation}
@@ -341,6 +369,10 @@ learning occurs every $.005$ s. The terminal unapplied command is excluded
 from the $[18,24)$-s evaluation interval.
 
 \section{Extended diagnostic figures}
+\label{sec:diagnostics}
+Figures~\ref{fig:contact_fourier_diagnostics} and~\ref{fig:burgers_diagnostics}
+extend the main-paper figures; Table~\ref{tab:main_results} reports the
+same main-protocol runs. Panels are described in reading order.
 \begin{figure*}[t]
 \centering
 \includegraphics[width=.325\textwidth]{contact_motion.pdf}\hfill
@@ -349,97 +381,71 @@ from the $[18,24)$-s evaluation interval.
 \includegraphics[width=.325\textwidth]{fourier_full_partial.pdf}\hfill
 \includegraphics[width=.325\textwidth]{fourier_activity.pdf}\hfill
 \includegraphics[width=.325\textwidth]{fourier_information.pdf}
-\caption{Additional contact and Fourier diagnostics, seed 10. Motion remains
+\caption{Additional contact and Fourier diagnostics, seed 10. Top row,
+left to right: contact motion, feature activity, and memory spectrum. Bottom
+row: Fourier rate partial, feature activity, and memory spectrum. Motion remains
 active while compatibility improves; a small residual is not explained solely
 by stopping the system. The information spectra are empirical diagnostics
 of noisy feature memory, not certificates of noise-free persistent excitation.
 The Fourier rate partial is shown over the complete run.}
+\label{fig:contact_fourier_diagnostics}
 \end{figure*}
 \begin{figure*}[t]
 \centering
 \includegraphics[width=.325\textwidth]{burgers_F_error.pdf}\hfill
 \includegraphics[width=.325\textwidth]{burgers_task.pdf}\hfill
 \includegraphics[width=.325\textwidth]{burgers_control.pdf}
-\caption{Burgers diagnostics omitted from the compact main figure: full
+\caption{Burgers diagnostics, seed 10, complementing the main-paper figure.
+Left to right: full
 spatial differential error, actual versus desired field at $s=\pi/2$, and
-applied distributed control effort. The extended manuscript retains all six
-Burgers panels in one figure.}
+applied distributed control effort.}
+\label{fig:burgers_diagnostics}
 \end{figure*}
 \input{results_table}
 
-\section{Mathematical notes and corrected hypotheses}
-These notes retain the secondary proofs moved from the compact manuscript.
-The corrections address actual stationary exceptions and a local tracking
-requirement; they are not experimental assumptions inferred from good plots.
+\section{Interpretation of the main-paper results}
+\label{sec:interpretation}
+All formal results and proofs are in the main paper. The references below
+use its theorem and proposition numbers; equations numbered with an S
+belong to this supplement. These notes explain the limits of applying the
+results to the protocols, without repeating their proofs.
 
-\subsection{Projection, feasibility, and descent}
-For $QQ^{\mathsf T}=I_m$, the tangent space consists of $\Delta$ with
-$\Delta Q^{\mathsf T}+Q\Delta^{\mathsf T}=0$. Under the Frobenius metric,
-$\Pi_T(G)=G-\operatorname{sym}(GQ^{\mathsf T})Q$ \cite{Edelman1998}.
-Substituting $G=Qvv^{\mathsf T}$ and $\xi=Qv$ yields
-$\Pi_T(G)=\xi v^{\mathsf T}-\xi\xi^{\mathsf T}Q$.
-The negative projected gradient is tangent, so it preserves the row metric.
-For fixed $v$, $\dot\ell=-\eta\|\Pi_T(G)\|_F^2\le0$.
-For fixed $R\succeq0$, the same argument applies with $G=QR$.
+\subsection{Feasible descent and stationary exceptions}
+Main-paper Propositions~1--2 (Row-Stiefel projected gradient flow and
+Single-sample convergence) give feasibility, fixed-sample descent, and the
+required initialization condition. If the observed rate lies in the current
+row space, the sample update can be stationary with nonzero incompatibility.
+Main-paper Proposition~6 justifies the fixed-memory coefficient step in
+(\ref{eq:PG})--(\ref{eq:discrete_descent}). Changing observations need not
+produce monotonically decreasing measured energy. The experiments use fixed
+physical channels and coefficient boxes, not unrestricted row-Stiefel flows.
 
-If $v$ is in the current row space, this sample update vanishes even when
-$Qv\ne0$. More explicitly, $r=\|Qv\|^2$ obeys
-$\dot r=-2\eta r(\|v\|^2-r)$. The original unrestricted single-sample
-convergence assertion therefore needs $r(0)<\|v\|^2$.
+\subsection{Identification and local tracking}
+Main-paper Propositions~3--4 distinguish a covariance minimizer from the
+physical row space: exact identification requires one shared differential
+compatible with the retained history and excitation on its kernel.
+Theorems~1--2 require the stated nonzero or invertible projection of the
+initial estimate onto the target space. Nonglobal invariant eigenspaces
+can otherwise be stationary despite descent.
 
-\subsection{Multi-row convergence}
-Let $U,V$ be orthonormal bases for the kernel and its complement, and write
-$R=V\Lambda V^{\mathsf T}$ with $\Lambda\succeq\mu I$. The subspace generated
-by the projected flow is
-\begin{equation}
- \operatorname{col}(e^{-\eta Rt}Q(0)^{\mathsf T}).
-\end{equation}
-If $A_0=U^{\mathsf T}Q(0)^{\mathsf T}$ is invertible, multiplying on the right
-by $A_0^{-1}$ expresses that subspace as a graph over $U$:
-\begin{equation}
- U+VZ(t),\qquad Z(t)=e^{-\eta\Lambda t}
- V^{\mathsf T}Q(0)^{\mathsf T}A_0^{-1}.
-\end{equation}
-For the graph's principal angles $\theta_i$, the singular values of $Z$ are
-$\tan\theta_i$. Thus
-\begin{equation}
- \|P(t)-UU^{\mathsf T}\|_F=\sqrt{2\sum_i\sin^2\theta_i}
- \le\sqrt2\|Z(t)\|_F,
-\end{equation}
-which gives the main theorem's exponential bound. Without the invertible
-kernel projection, an eigen-subspace containing positive-eigenvalue
-directions can be stationary. Compactness and descent only establish
-criticality of accumulation points; they do not eliminate such exceptions.
+Theorem~3 is local: it requires a separating gap
+$\lambda_{m+1}(R)-\lambda_m(R)\ge\mu>0$, slow covariance drift, and
+initialization inside its invariant attraction neighborhood. Positivity of
+$\lambda_{m+1}$ alone is insufficient when $\lambda_m>0$.
+Proposition~5 separates tracking of the covariance eigenspace from bias
+relative to the physical differential. Neither noisy memory eigenvalues
+nor good task performance establish these hypotheses.
 
-\subsection{Local tracking calculation}
-Let $P=Q^{\mathsf T}Q$ and $P_\star$ be the bottom-$m$ spectral projector.
-The flow satisfies
-\begin{equation}
- \dot P=-\eta\{(I-P)RP+PR(I-P)\}.
-\end{equation}
-In an instantaneous eigenbasis of $R$, write $P$ in upper/lower blocks,
-where $P_{12}$ connects the target and complementary subspaces. A genuine
-gap $\lambda_{m+1}-\lambda_m\ge\mu$ gives, for fixed target,
-\begin{equation}
- \frac{d}{dt}\|P-P_\star\|_F^2\le-4\eta\mu\|P_{12}\|_F^2.
-\end{equation}
-Now $\|P_{12}\|_F^2=\sum_i\sin^2\theta_i\cos^2\theta_i$ and
-$E^2=2\sum_i\sin^2\theta_i$, so for $E<\sqrt2$,
-\begin{equation}
- \|P_{12}\|_F^2\ge(1-E^2/2)E^2/2.
-\end{equation}
-Differentiating the spectral projector shows that its off-diagonal entries
-are the corresponding entries of $\dot R$ divided by cross-gap eigenvalue
-differences. Hence $\|\dot P_\star\|_F\le\|\dot R\|_F/\mu\le\gamma/\mu$.
-The moving-target contribution to $dE^2/dt$ is at most
-$2E\|\dot P_\star\|_F$. Therefore
-\begin{equation}
- D^+E\le-\eta\mu(1-E^2/2)E+\gamma/\mu.
-\end{equation}
-For $E\le r<\sqrt2$, replace the factor by $1-r^2/2$.
-The strict inward boundary condition in the main theorem makes that
-neighborhood invariant and yields the stated comparison bound. A lower
-bound on $\lambda_{m+1}$ alone is not a separating gap when $\lambda_m>0$.
+\subsection{Readouts and Fourier Memory}
+Main-paper Theorem~4 and Proposition~7 bound instantaneous errors of regular
+readouts, in a common row convention or through normalized-row projectors,
+respectively. They do not imply closed-loop stability. Proposition~8 concerns
+the unguarded lifted covariance problem; phase coverage and coefficient
+normalization alone do not ensure coefficient identification or phasewise
+nondegeneracy. The main paper supplies the phase guard and the Fourier
+normal-equation mismatch bound. Section~\ref{sec:unanchored} retains the
+separate anchor-free example, while Section~\ref{sec:fourier_protocol}
+uses complete harmonic--state feature derivatives, including the clock term.
 
 \subsection{Compatibility without complete identification}
 Nonvanishing activity does not ensure that every partial is identified.
@@ -454,16 +460,22 @@ establish a general nonlinear closed-loop theorem.
 
 \input{excitation_study}
 
-\section{Relocated worked constructions}
-The following two constructions are retained from the full manuscript rather
-than discarded to meet the page target.
+\section{Additional worked constructions}
+\label{sec:constructions}
+These mechanical and geometric examples expand the main paper's distinction
+between direct rate-product relations and Jacobian-derived differentials.
 \input{mechanical_original}
 \input{geometry_original}
 
 \section{Anchor-free Fourier diagnostic}
+\label{sec:unanchored}
 \input{unanchored_example}
 
 \section{Additional examples retained with the code}
+\label{sec:additional_examples}
+The Acrobot and flow figures retain their original archival titles. In those
+titles, ``new reconstruction and ``new flow prototype refer to the
+previously supplied studies, not to the main-paper runs.
 \subsection{Acrobot: offline initialization and later control}
 The supplied reconstruction uses the mechanical family
 \begin{equation}
@@ -492,6 +504,7 @@ Those saved results are not part of the 100 new main-paper runs.
 \caption{Previously supplied Acrobot reconstruction: identification and a
 separate local control episode. The source and seed-10 records are retained;
 these are not newly generated ten-seed results in this revision.}
+\label{fig:acrobot_archived}
 \end{figure*}
 
 \subsection{Ellipse completion: archived material only}
@@ -507,6 +520,7 @@ Its archived values are not used in the revised main paper.
 \centering\includegraphics[width=.99\columnwidth]{ellipse_archived.pdf}
 \caption{Supplied historical ellipse figure; source data and implementation
 were absent. Included for archival context, not as a newly verified result.}
+\label{fig:ellipse_archived}
 \end{figure}
 
 \input{active_flow_insert}
@@ -515,7 +529,8 @@ were absent. Included for archival context, not as a newly verified result.}
 \caption{Previously supplied single-seed active-flow prototype results,
 retained with the source and recorded data. Learning continues through an
 unannounced actuator-gain change. See the explicit numerical-validation
-limitations in the accompanying text.}
+limitations in Section~\ref{sec:afc_prototype}.}
+\label{fig:flow_results}
 \end{figure*}
 \begin{figure*}[t]
 \centering
@@ -523,7 +538,9 @@ limitations in the accompanying text.}
 \includegraphics[width=.65\textwidth]{active_flow_vorticity.png}
 \caption{Retained flow-prototype coefficient trajectories and final vorticity
 visualization. This is a body-force/wake-output demonstration, not a validated
-surface-jet or aerodynamic-force benchmark.}
+surface-jet or aerodynamic-force benchmark. Top: coefficient trajectories;
+bottom: final vorticity.}
+\label{fig:flow_fields}
 \end{figure*}
 
 \section{Verification and interpretation limits}
@@ -540,8 +557,10 @@ Fourier, and .25 s in Burgers. Other curves are unsmoothed (some are displayed
 at a fixed decimation for legibility). All unaveraged values remain in the
 traces. Logarithmic display floors affect rendering only, never reported
 metrics. The fixed physical families determine gauge and level; they do not
-establish unrestricted differential discovery. The separate anchor-free
-experiment addresses normalization without a privileged derivative block.
+establish unrestricted differential discovery. The separate retained anchor-free
+example addresses normalization without a privileged derivative block; its
+missing standalone script limits reproducibility as stated in
+Section~\ref{sec:unanchored}.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}

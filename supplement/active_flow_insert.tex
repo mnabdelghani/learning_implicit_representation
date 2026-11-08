@@ -1,10 +1,8 @@
-% Compact manuscript insert. Requires amsmath, amssymb and booktabs.
-% Merge active_flow_control.bib into the manuscript bibliography.
-% This is the newly executed numerical prototype, not validated aerodynamic data.
 \subsection{Active flow control: an immersed-airfoil numerical prototype}
 \label{sec:afc_prototype}
 
-We test differential learning and output control on a two-dimensional
+The previously supplied reconstruction tests differential learning and
+output control on a two-dimensional
 incompressible flow with an immersed NACA~0012 profile. Published surface-jet
 airfoil studies motivate this setting \cite{Garcia2025Airfoil,Montala2025Wing}.
 Our executable prototype uses a localized volume force and a wake-velocity
@@ -101,7 +99,8 @@ $1.62\times10^{-4}$ for the frozen model. Very small energy in the
 unactuated branch did not identify the input partial, illustrating the
 need for excitation and separate partial-error diagnostics.
 
-These are new numerical prototype results from one seed. The thin profile
+These are retained numerical prototype results from one seed, separate
+from the 100 main-protocol runs and the paired excitation study. The thin profile
 is coarsely resolved, and grid, time, penalty, and domain convergence remain
 unchecked. The masked-body speed is approximately $0.19$ despite divergence
 RMS below $10^{-14}$. The computation establishes an executable

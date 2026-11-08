@@ -6,7 +6,7 @@
 
 ## Included material
 
-- `supplement/supplement.tex` and `supplement/supplement.pdf`: standalone supplementary theory, complete experimental protocols, additional results and examples, including a new paired contact-excitation study.
+- `supplement/supplement.tex` and `supplement/supplement.pdf`: standalone experimental protocols, extended diagnostics, explanatory counterexamples, and additional examples, including the paired contact-excitation study. All formal proofs remain in the private main paper.
 - `experiments/`: nonlinear contact, online Fourier Memory, nonlinear Burgers, result auditing, plots, and the supplementary excitation study.
 - `examples/legacy_suite/`: original accompanying Acrobot, immersed-airfoil prototype, Burgers and Fourier implementations and existing records. The ellipse example is archival only; its executable source was not supplied.
 - `tests/`: differential, gauge, learning, and numerical tests.
@@ -35,7 +35,7 @@ To reproduce the ten-seed results and regenerate plots, see [`docs/REPRODUCE.md`
 
 The three retained studies are nonlinear contact control, Fourier Memory with simultaneous learning/control, and distributed Burgers learning/control. All report pre-update incompatibility and evaluated differential diagnostics. Contact was reconstructed because the original code was unavailable; Fourier uses a newly designed closed-loop protocol; Burgers uses the previously supplied reconstruction with additional diagnostics. None of these simulations establishes identification without excitation, global stability, or safety certification.
 
-The additional **paired contact-excitation experiment** compares regulation without probing to regulation with bounded deterministic probing. Both learn during an initial stationary-reference task, then freeze their estimates and perform a different task. It examines the difference between low training incompatibility and transferable differential information. The experiment is independent of the original 100-run protocol; see `docs/EXCITATION_STUDY.md` and Supplement S6.
+The additional **paired contact-excitation experiment** compares regulation without probing to regulation with bounded deterministic probing. Both learn during an initial stationary-reference task, then freeze their estimates and perform a different task. It examines the difference between low training incompatibility and transferable differential information. The experiment is independent of the original 100-run protocol; see `docs/EXCITATION_STUDY.md` and Supplement S8.
 
 ## Data, provenance and citation
 
