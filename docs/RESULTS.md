@@ -2,7 +2,7 @@
 
 ## Current direct-field main evidence
 
-The current studies learn all field entries directly and reuse the same learned field for readout. All specified seeds are included; numerical results are scoped to the declared sensors, inputs, and protocols. Supplementary S20 and `experiments/direct_submission/` retain raw-record mappings and audits. No public raw-data download is implied by this local package.
+The current studies learn all field entries directly and reuse the same learned field for readout. All specified seeds are included; numerical results are scoped to the declared sensors, inputs, and protocols. [Focused Supplement S2](../supplement/supplement.pdf) and `experiments/direct_submission/` retain raw-record mappings and audits. No public raw-data download is implied by this local package.
 
 | Study | Cohort and evaluation | Direct-field result | Limitation |
 |---|---|---|---|
@@ -15,6 +15,8 @@ Fourier’s same-stream K=0 rate RMSE is `.0354751 ± .0001978`; the frozen rand
 Contact uses all 24 entries and maintains adaptation through the change. Burgers learns all five entries at each spatial site and continues learning during control; ideal observations are distinguished from the failed causal/noisy cases. These results do not establish general noise robustness, identification without excitation, or stability.
 
 ## Retained coefficient-family results
+
+These studies are retained in the [technical archive](../supplement/technical_archive.pdf), whose preceding S1–S20 numbering is preserved.
 
 The preceding revision's main Fourier experiment uses a coupled normalized
 learner within a prescribed residual family; it does not meet the author's

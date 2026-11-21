@@ -4,7 +4,9 @@
 
 **Publication boundary:** The definitive manuscript source and PDF are deliberately excluded. This repository contains supporting protocols, code, figures, and reproducibility documentation. The supplement is not a replacement for the manuscript. A local accompanying package does not imply a published release or a public raw-data download.
 
-The current main evidence directly learns every field entry from observed context-rate incompatibility and uses that same learned field for prediction or control. The portable implementations are in [`experiments/direct_submission/`](experiments/direct_submission/), and complete protocols and limitations are in Supplementary Section S20. The earlier physical-coefficient studies remain separately identified historical evidence; their algorithms and records have not been relabeled as direct partial learning.
+The current main evidence directly learns every field entry from observed context-rate incompatibility and uses that same learned field for prediction or control. The portable implementations are in [`experiments/direct_submission/`](experiments/direct_submission/), and complete protocols and limitations are in Section S2 of the [focused supplement](supplement/supplement.pdf). The earlier physical-coefficient studies remain separately identified historical evidence; their algorithms and records have not been relabeled as direct partial learning.
+
+The focused supplement contains a guide in S1, the three current direct-study protocols in S2, and the time-derivative/whole-trajectory-variation discussion in S3. The separate [technical archive](supplement/technical_archive.pdf) preserves the preceding S1–S20 numbering, supporting constructions, historical comparisons, and provenance. Its original flow Figures S8 and S9 remain there.
 
 ## Current direct-field studies
 
@@ -16,7 +18,8 @@ These are scoped simulation demonstrations. Low incompatibility, field recovery,
 
 ## Included material
 
-- `supplement/`: standalone protocols, original supporting studies, the implementation audit, direct main-study records and limitations in S20, and supporting figures. Formal results used in the main paper retain their complete proofs there.
+- [`supplement/supplement.pdf`](supplement/supplement.pdf): focused current-study protocols, limitations, and trajectory-variation discussion. All formal results used in the main paper retain their complete proofs in the main paper.
+- [`supplement/technical_archive.pdf`](supplement/technical_archive.pdf): retained supporting constructions, Acrobot/flow examples, historical studies, and the implementation audit, with the preceding section/figure numbering preserved. Both documents use assets under `supplement/`.
 - `experiments/direct_submission/{fourier,contact,burgers}/`: portable current implementations, protocols, audits, reproduction instructions, and compact evidence where provided. Full raw archives are separate accompanying artifacts.
 - Other `experiments/` scripts: retained contact, bounded/normalized periodic Fourier, Burgers, excitation, and estimator-comparison protocols. `direct_field.py` is the generic all-entry matrix learner; a focused unit test is not an application-validation result.
 - `examples/legacy_suite/`: retained Acrobot, immersed-airfoil prototype, Burgers, Fourier, and historical records. The active flow is an unvalidated numerical prototype. The ellipse discussion is analytic; its untraceable empirical figure is excluded.
@@ -33,11 +36,11 @@ python -m unittest discover -s tests -v
 (cd examples/legacy_suite && python -m unittest discover -s tests -v)
 ```
 
-The portable Burgers package also has a focused compiled-kernel/replay check; the Fourier package independently audits complete covariance records and readouts. Follow their included instructions. To compile the standalone supplement, run `bash scripts/build_supplement.sh` with TeX Live, IEEEtran, and BibTeX installed.
+The portable Burgers package also has a focused compiled-kernel/replay check; the Fourier package independently audits complete covariance records and readouts. Follow their included instructions. With TeX Live and IEEEtran installed, `bash scripts/build_supplement.sh` builds the focused supplement by default; `bash scripts/build_supplement.sh technical_archive` builds the separate archive. Each command updates the corresponding local PDF and auxiliary files under `supplement/`. Bibliography processing runs only when the document declares bibliography data; the archive requires BibTeX, while the focused supplement has no bibliography.
 
 ## Retained historical evidence
 
-The old normalized Fourier experiment learns seven coefficients of a prescribed physical residual with the coupled normalized law. Its same-inverse-command current-rate completion is a consistency diagnostic, not independent prediction. Old contact and Burgers studies fit physical coefficients and evaluate induced partials. Their additional excitation, matched-estimator, and learned-entry diagnostics retain that mechanism.
+The [technical archive](supplement/technical_archive.pdf) retains these studies. The old normalized Fourier experiment learns seven coefficients of a prescribed physical residual with the coupled normalized law. Its same-inverse-command current-rate completion is a consistency diagnostic, not independent prediction. Old contact and Burgers studies fit physical coefficients and evaluate induced partials. Their additional excitation, matched-estimator, and learned-entry diagnostics retain that mechanism.
 
 The earlier six-entry lifted field and four-coefficient exact-Jacobian companion are separate known-basis diagnostics. The exact-Jacobian family still imposes a physical/algebraic restriction; it is not interchangeable with independently learned field entries. The current main studies have new records or separately audited direct records and different scopes.
 

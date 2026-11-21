@@ -1,6 +1,6 @@
 # Figure and code provenance
 
-The current main figures use direct all-entry field learning and same-field readout. The preceding coefficient-family figures remain retained historical studies. Stable LaTeX labels identify current main assignments; old filenames and record identities retain their original meanings. Supplementary S20 provides the current protocols and all failed conditions.
+The current main figures use direct all-entry field learning and same-field readout. The preceding coefficient-family figures remain retained historical studies. Stable LaTeX labels identify current main assignments; old filenames and record identities retain their original meanings. [Focused Supplement S2](../supplement/supplement.pdf) provides the current protocols and all failed conditions. The [technical archive](../supplement/technical_archive.pdf) preserves the preceding S1–S20 section numbering and original figure numbers, including flow Figures S8/S9.
 
 Paths are repository-relative unless prefixed by **NF** or **ST**. NF denotes
 the extracted normalized records described in
@@ -11,12 +11,21 @@ These archives exist locally; these metadata files do not assert a public
 download. The original 100-run reproduction is a separate historical protocol
 set, described in [`REPRODUCTION_20261118.json`](REPRODUCTION_20261118.json).
 
+## Current main and focused-supplement figures
+
 | Figure / stable label | Records and actual learning mechanism | Generator and included assets |
 |---|---|---|
 | Current direct Fourier, `fig:fourier_online`; supplementary `fig:direct_fourier_new` | `direct_fourier_monotone_20261120_v1`, seeds 10–19, preselected seed 10; all six direct harmonic weights adapt, with same-stream K=0 and a separate frozen-model new-input prediction | `experiments/direct_submission/fourier/run.py`, `summarize_plot.py`; `direct_fourier_summary.pdf` |
-| Current direct contact, `fig:contact_online` | Five seeds 101–105, preselected seed 101; all 24 matrix entries adapt from ideal measured rates, then supply the rate-level force/motion readout | `experiments/direct_submission/contact/`; `direct_contact_summary.pdf` |
+| Current direct contact, `fig:contact_online`; focused-supplement diagnostics `fig:direct_contact_all24`, `fig:direct_contact_canonical` | Five seeds 101–105, preselected seed 101; all 24 matrix entries adapt from ideal measured rates, then supply the rate-level force/motion readout | `experiments/direct_submission/contact/`; `direct_contact_summary.pdf`, `direct_contact_all24.pdf`, `direct_contact_canonical_gauge_limitation.pdf` |
+| Current direct Burgers, `fig:burgers_online`; focused-supplement `fig:direct_burgers_protocol` | Ideal-rate cohort seeds 732–736; preselected seed 732, site 0; five independent entries per spatial site, causal secants and own-trajectory adaptive/frozen control | `experiments/direct_submission/burgers/burgers_direct.py`, `plot_main.py`; `direct_burgers_partials.pdf`, `direct_burgers_energy.pdf`, `direct_burgers_tracking.pdf` |
+
+## Retained technical-archive figures and historical assets
+
+The following studies and supporting constructions are retained in the technical archive. Its section and figure numbers keep their preceding meanings; they are not the numbering of the focused supplement.
+
+| Figure / stable label | Records and actual learning mechanism | Generator and included assets |
+|---|---|---|
 | Retained coefficient-based contact (former main assignment) | `results/contact/seed_10/learned/`; integral material and velocity-level actuation fits, 48 projected-gradient steps | `experiments/contact.py`, `experiments/make_figures.py`; historical contact panels |
-| Current direct Burgers, `fig:burgers_online` | Ideal-rate cohort seeds 732–736; preselected seed 732, site 0; five independent entries per spatial site, causal secants and own-trajectory adaptive/frozen control | `experiments/direct_submission/burgers/burgers_direct.py`, `plot_main.py`; `direct_burgers_partials.pdf`, `direct_burgers_energy.pdf`, `direct_burgers_tracking.pdf` |
 | Retained coefficient-based Burgers (former main assignment) | `results/burgers/seed_10/`; three bounded coefficients, supplied time-derivative coefficient, eight projected-gradient steps | `experiments/burgers_online.py`, `examples/legacy_suite/simulations/burgers.py`, `experiments/make_figures.py`; historical Burgers panels |
 | Original bounded Fourier, `fig:fourier_bounded` | `results/fourier/seed_10/`: bounded harmonic coefficients and same-stream K=0 shadow; eight projected-gradient steps | `experiments/fourier_online.py`; `experiments/make_figures.py`; six original `fourier_*.pdf` panels |
 | Contact/Fourier diagnostics, `fig:contact_fourier_diagnostics` | Same original contact and bounded Fourier records | `experiments/make_figures.py`; contact motion/activity/information and Fourier full-partial/activity/information panels |
@@ -24,23 +33,23 @@ set, described in [`REPRODUCTION_20261118.json`](REPRODUCTION_20261118.json).
 | Excitation and frozen-model transfer, `fig:excitation` | `results/contact_excitation/`: seed-10 trajectories; information spectrum averages seeds 10–19 | `experiments/contact_excitation.py`, `experiments/plot_excitation.py`; five `excitation_*.pdf` panels |
 | Reconstructed unanchored Fourier, `fig:unanchored_fourier` | `examples/legacy_suite/results/fourier/`; fixed-batch covariance and retracted row update; the direct field need not be a Jacobian | `examples/legacy_suite/simulations/fourier.py`; `unanchored_fourier_reconstructed.pdf`, a byte-identical copy of the checked legacy `fourier.pdf` |
 | Acrobot, `fig:acrobot_archived` | `examples/legacy_suite/results/acrobot/seed_10/`; proximal coefficient updates during identification, then frozen-model local LQR | `examples/legacy_suite/simulations/acrobot.py`; that directory's identification/control PDFs |
-| Active flow, `fig:flow_results`, `fig:flow_fields`, `fig:flow_streamlines` | `examples/legacy_suite/results/airfoil/`; ridge-regularized box solve with 25% relaxation. Field views use the saved seed-10 `fields.npz:final_adaptive` at control time 6; no new simulation | `examples/legacy_suite/simulations/airfoil.py` for retained results/parameters; `experiments/plot_active_flow_fields.py` for enlarged full-range `active_flow_vorticity.pdf` and instantaneous `active_flow_streamlines.pdf` (PNG previews also included). Input/output hashes and transformations: `supplement/figures/active_flow_fields_provenance.json`. Legacy numerical prototype, not direct-partial or validated aerodynamic evidence |
+| Active flow, archive Figures S7–S9: `fig:flow_results`, `fig:flow_fields`, `fig:flow_streamlines` | `examples/legacy_suite/results/airfoil/`; ridge-regularized box solve with 25% relaxation. Field views use the saved seed-10 `fields.npz:final_adaptive` at control time 6; no new simulation | `examples/legacy_suite/simulations/airfoil.py` for retained results/parameters; `experiments/plot_active_flow_fields.py` for enlarged full-range `active_flow_vorticity.pdf` and instantaneous `active_flow_streamlines.pdf` (PNG previews also included). Input/output hashes and transformations: `supplement/figures/active_flow_fields_provenance.json`. Legacy numerical prototype, not direct-partial or validated aerodynamic evidence |
 | Direct field, `fig:direct_lift_diagnostics` | ST direct-lift records; six-entry field, frozen-memory normalized substeps | `experiments/direct_lift_audit.py`, `experiments/plot_direct_lift_audit.py`; `direct_lift_diagnostics.pdf` |
 | Estimator comparisons, `fig:estimator_common_stream`, `fig:estimator_partial_tracking` | ST comparison records; common streams, seeds 10–19; bounded PG, EWLS and projected NLMS | `experiments/estimator_comparison.py`, `experiments/plot_estimator_comparison.py`; two estimator PDFs |
 | Learned-only partial errors, `fig:unknown_partial_tracking` | Postprocessing of the original 100-run protocol set; supplied entries excluded from the error mask; no new learning rule | `experiments/derivative_tracking_audit.py`; `unknown_partial_tracking.pdf` |
 | Extended normalized Fourier, `fig:normalized_fourier_partials`, `fig:normalized_fourier_summary` | NF replay and own-trajectory streams, all seeds 10–19, eigenvector/frozen shadows; partial figure explicitly combines replay partials with own-trajectory task/control | `experiments/normalized_fourier.py`, `experiments/report_normalized_fourier.py`; two `normalized_fourier_*.pdf` overview figures |
 
-Current direct assets and retained supplementary assets live under `supplement/figures/`, except the Acrobot source PDFs. The direct Burgers generator names its outputs `burgers_main_{partials,energy,tracking}.pdf`; the included copies use the `direct_burgers_` prefix without changing their bytes. Raw direct-study archives accompany the package separately; compact plotting arrays and raw subsets are not described as complete archives.
+Current direct assets and retained technical-archive assets live under `supplement/figures/`, except the Acrobot source PDFs. The direct Burgers generator names its outputs `burgers_main_{partials,energy,tracking}.pdf`; the included copies use the `direct_burgers_` prefix without changing their bytes. Raw direct-study archives accompany the package separately; compact plotting arrays and raw subsets are not described as complete archives.
 `experiments/repair_supplement_layout.py` repairs labels/layout in three older
 supplementary panels and checks their plotted data. The four-coefficient
 exact-Jacobian companion to the direct-field study has table-only results;
 its runner and independent checker are `experiments/direct_jacobian_audit.py`
 and `experiments/audit_direct_jacobian.py`.
 
-The circle, mechanical and ellipse constructions are analytic examples. The
+The circle, mechanical and ellipse constructions are analytic examples retained in the technical archive. The
 ellipse empirical figure was removed because its generator/records could not
 be established. The old ellipse and unanchored figure files remain archival
-assets on disk but are not included in the current paper or supplement. The
+assets on disk but are not included in the main paper, focused supplement, or technical archive. The
 checked unanchored reconstruction is not claimed to recover the historical
 figure's exact provenance.
 
@@ -59,4 +68,4 @@ rate algebraically. Its error against the realized plant checks relation/readout
 accuracy; it is not independent predictive validation. The frozen comparator
 is queried on the same observations, not run as a separate controller.
 
-Supplementary S18 inventories the retained historical implementations; S20 specifies the current direct examples. The current Fourier prediction uses a new input with no later output assimilation, rather than the historical inverse-command consistency check above. Contact uses a frozen initial row only as a same-stream diagnostic; Burgers runs separate adaptive/frozen control trajectories. Small incompatibility alone does not establish physical identification, and retained historical implementations do not all execute the central normalized law.
+Technical Archive S18 inventories the retained historical implementations; focused Supplement S2 specifies the current direct examples. The archive retains the preceding copy of those protocols as S20. The current Fourier prediction uses a new input with no later output assimilation, rather than the historical inverse-command consistency check above. Contact uses a frozen initial row only as a same-stream diagnostic; Burgers runs separate adaptive/frozen control trajectories. Small incompatibility alone does not establish physical identification, and retained historical implementations do not all execute the central normalized law.
