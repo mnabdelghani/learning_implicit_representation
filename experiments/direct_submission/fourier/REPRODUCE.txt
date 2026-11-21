@@ -1,0 +1,50 @@
+Portable reproduction (existing NumPy, SciPy, Matplotlib environment)
+
+Copy run.py, protocol.json, audit.py, and summarize_plot.py into a NEW working
+folder. These files do not import project modules or private manuscript files.
+Run from that folder, using the same interpreter for every command:
+
+  python run.py --seed 9001 --output pilot_9001
+  python run.py --seed 10 --output seed_10
+  python run.py --seed 11 --output seed_11
+  python run.py --seed 12 --output seed_12
+  python run.py --seed 13 --output seed_13
+  python run.py --seed 14 --output seed_14
+  python run.py --seed 15 --output seed_15
+  python run.py --seed 16 --output seed_16
+  python run.py --seed 17 --output seed_17
+  python run.py --seed 18 --output seed_18
+  python run.py --seed 19 --output seed_19
+  python run.py --seed 10 --output refine_clean_dt02 --dt .02 --noise 0
+  python run.py --seed 10 --output refine_clean_dt01 --dt .01 --noise 0
+  python audit.py
+  python summarize_plot.py
+
+Every run refuses an existing output directory. The plotting script expects
+a new figures/ folder. Audit and aggregate files are postprocessing outputs.
+The sealed protocol's source and all recorded random streams are preserved.
+Seeds 10--19 are the confirmatory cohort; pilot 9001 and the two clean numerical
+refinements must not be mixed into that aggregate. No run may be removed for a
+guard failure. Original frozen priors fail guards in 7/10 confirmatory seeds;
+full-episode errors are null for invalid predictions, never silently finite.
+
+Raw .npz arrays carry all pre-update C/R states, observed velocities, known
+phase, heldout predictions and explicitly named evaluator-only channels.
+The .json manifest in each run binds its exact source, configuration and data.
+The learner never reads a data archive or external coefficient target.
+
+The original execution used the environment versions recorded separately in
+every run/environment.json. The runner source is self-contained. Neither
+NumPy/SciPy solver equivalence across arbitrary future versions nor physical
+experiment reproducibility is claimed by exact archive hashes.
+
+Fourier guard qualification
+Training normalizes the coefficient matrix only. No all-phase row-norm guard
+was enforced, and no readout task was performed during training. The final
+frozen fields used for heldout readout have a certified all-phase output-entry
+lower bound H_y > 0.619 for every confirmatory seed (minimum lower bound
+0.6195546476735543). This final readout certificate does not certify training
+row norms across all phases. row_norm_guard_diagnostic.json records a post-hoc
+analysis of archived data; its training-phase numerical searches provide
+feasible-phase upper bounds, not certified continuum minima. It changes neither
+the executed source nor the predeclared protocol.

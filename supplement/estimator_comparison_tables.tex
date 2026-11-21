@@ -1,0 +1,30 @@
+\begin{table*}[t]
+\centering
+\caption{Same-stream Fourier estimator comparison, mean $\pm$ sample SD over ten seeds on $[60,80)$~s. All three estimators observe the original memory-PG controller trajectory. Differential errors include the phase column; the learned-column error excludes the supplied exact input partial.}
+\begin{tabular}{lcccc}
+\toprule
+Estimator & Full $e_F$ (\%) & Learned columns (\%) & Phase RMSE ($10^{-3}$) & Energy ($10^{-4}$)\\
+\midrule
+Memory PG & $0.68713\pm0.01883$ & $0.85515\pm0.02348$ & $0.12175\pm0.01134$ & $5.96031\pm0.22187$\\
+Memory EWLS & $0.68735\pm0.01884$ & $0.85542\pm0.02349$ & $0.12645\pm0.01095$ & $5.96037\pm0.22205$\\
+Instantaneous NLMS & $9.96974\pm0.20244$ & $12.39894\pm0.25955$ & $16.02182\pm0.82651$ & $10.56759\pm0.51017$\\
+\bottomrule
+\end{tabular}
+\label{tab:estimator_same_stream}
+\end{table*}
+
+\begin{table}[t]
+\centering
+\caption{Separate closed-loop Fourier trajectories, mean $\pm$ sample SD over ten seeds on $[60,80)$~s. The memory-PG branch is the primary generating trajectory; EWLS and NLMS each control their own trajectory.}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcc}
+\toprule
+Controller & Tracking RMSE ($10^{-3}$) & Input RMS\\
+\midrule
+Memory PG & $2.29896\pm0.03121$ & $0.644832\pm0.000046$\\
+Memory EWLS & $2.29931\pm0.03131$ & $0.644831\pm0.000046$\\
+Instantaneous NLMS & $33.09200\pm2.75300$ & $0.607014\pm0.003725$\\
+\bottomrule
+\end{tabular}
+\label{tab:estimator_closed_loop}
+\end{table}

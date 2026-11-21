@@ -1,0 +1,378 @@
+{
+  "identity": "burgers_direct_field_long_training_multiseed_causal_sensing_20261120_v1",
+  "declared_utc": "2026-11-20T02:41:44.800969+00:00",
+  "authorization": "User replied ok go ahead to establishing convergence across prespecified initializations, then tracking and noisy rate sensing. This is a private bounded new numerical study.",
+  "rationale": "Fixed80s training replaces20s because prior observed-covariance gaps and generic initial overlap showed delayed convergence at some sites. No outcome-dependent training extension or seed selection. Prior successful and failed records remain unchanged.",
+  "prior_evidence": {
+    "paired_report_sha256": "6adb7a93f0c6e577293c924941f458ae1d2587bc4d3ee623bc0c70ebdc0ada09",
+    "paired_final_manifest_sha256": "026cf398aae7846052b4d5de910c637976433d199d7da9164991f61883303a4a",
+    "native_cpp_sha256": "9c7a726bf581a55def5d06a74d8ba61f3dad8d16bd7b6e5f9e0dddab8ca093b7",
+    "native_wrapper_sha256": "d116a466c8151bc1ab81fccbb1e75b69de7b780a4be11891912244e785a31e02",
+    "native_binary_sha256": "b37fb65951e09a9eb8af51feec2423dffc2aefcc5492536124f81b0efbc5f540",
+    "native_validation_sha256": "cffc2f57534498d7bb3cfdc9e115c7e045a18a1b91e2b148222035db85709e67"
+  },
+  "common_configuration": {
+    "grid_points": 32,
+    "domain_length": 6.283185307179586,
+    "duration": 100.0,
+    "training_time": 80.0,
+    "window": 0.05,
+    "rate_fit_window": 0.1,
+    "memory": 4.0,
+    "gain": 10000.0,
+    "plant_coefficients": [
+      1.0,
+      0.08,
+      1.0
+    ],
+    "coordinate_scales": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "probe_amplitude": 0.02,
+    "excitation_frequencies": [
+      3.0,
+      5.0,
+      7.0,
+      11.0
+    ],
+    "kp": 4.0,
+    "kd": 4.0,
+    "input_guard": 0.1,
+    "input_rate_limit": 5.0,
+    "field_stop": 5.0,
+    "phase_wall_limit_seconds": 180.0,
+    "per_phase_subdivision_cap": 10000000,
+    "per_update_subdivision_cap": 10000,
+    "context_order": [
+      "w",
+      "w_s",
+      "w_ss",
+      "u",
+      "w_t"
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "ideal_s732_dt0p005",
+      "condition": "ideal",
+      "initial_seed": 732,
+      "sensor_seed": 100732,
+      "dt": 0.005,
+      "position_noise_std": 0.0,
+      "sensing_mode": "ideal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "ideal_s733_dt0p005",
+      "condition": "ideal",
+      "initial_seed": 733,
+      "sensor_seed": 100733,
+      "dt": 0.005,
+      "position_noise_std": 0.0,
+      "sensing_mode": "ideal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "ideal_s734_dt0p005",
+      "condition": "ideal",
+      "initial_seed": 734,
+      "sensor_seed": 100734,
+      "dt": 0.005,
+      "position_noise_std": 0.0,
+      "sensing_mode": "ideal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "ideal_s735_dt0p005",
+      "condition": "ideal",
+      "initial_seed": 735,
+      "sensor_seed": 100735,
+      "dt": 0.005,
+      "position_noise_std": 0.0,
+      "sensing_mode": "ideal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "ideal_s736_dt0p005",
+      "condition": "ideal",
+      "initial_seed": 736,
+      "sensor_seed": 100736,
+      "dt": 0.005,
+      "position_noise_std": 0.0,
+      "sensing_mode": "ideal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "causal_clean_s732_dt0p005",
+      "condition": "causal_clean",
+      "initial_seed": 732,
+      "sensor_seed": 100732,
+      "dt": 0.005,
+      "position_noise_std": 0.0,
+      "sensing_mode": "causal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "causal_clean_s733_dt0p005",
+      "condition": "causal_clean",
+      "initial_seed": 733,
+      "sensor_seed": 100733,
+      "dt": 0.005,
+      "position_noise_std": 0.0,
+      "sensing_mode": "causal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "causal_clean_s734_dt0p005",
+      "condition": "causal_clean",
+      "initial_seed": 734,
+      "sensor_seed": 100734,
+      "dt": 0.005,
+      "position_noise_std": 0.0,
+      "sensing_mode": "causal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "causal_clean_s735_dt0p005",
+      "condition": "causal_clean",
+      "initial_seed": 735,
+      "sensor_seed": 100735,
+      "dt": 0.005,
+      "position_noise_std": 0.0,
+      "sensing_mode": "causal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "causal_clean_s736_dt0p005",
+      "condition": "causal_clean",
+      "initial_seed": 736,
+      "sensor_seed": 100736,
+      "dt": 0.005,
+      "position_noise_std": 0.0,
+      "sensing_mode": "causal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "causal_noisy_s732_dt0p005",
+      "condition": "causal_noisy",
+      "initial_seed": 732,
+      "sensor_seed": 100732,
+      "dt": 0.005,
+      "position_noise_std": 1e-05,
+      "sensing_mode": "causal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "causal_noisy_s733_dt0p005",
+      "condition": "causal_noisy",
+      "initial_seed": 733,
+      "sensor_seed": 100733,
+      "dt": 0.005,
+      "position_noise_std": 1e-05,
+      "sensing_mode": "causal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "causal_noisy_s734_dt0p005",
+      "condition": "causal_noisy",
+      "initial_seed": 734,
+      "sensor_seed": 100734,
+      "dt": 0.005,
+      "position_noise_std": 1e-05,
+      "sensing_mode": "causal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "causal_noisy_s735_dt0p005",
+      "condition": "causal_noisy",
+      "initial_seed": 735,
+      "sensor_seed": 100735,
+      "dt": 0.005,
+      "position_noise_std": 1e-05,
+      "sensing_mode": "causal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "causal_noisy_s736_dt0p005",
+      "condition": "causal_noisy",
+      "initial_seed": 736,
+      "sensor_seed": 100736,
+      "dt": 0.005,
+      "position_noise_std": 1e-05,
+      "sensing_mode": "causal",
+      "role": "main_five_seed_study"
+    },
+    {
+      "case_id": "ideal_s732_dt0p0025",
+      "condition": "ideal",
+      "initial_seed": 732,
+      "sensor_seed": 100732,
+      "dt": 0.0025,
+      "position_noise_std": 0.0,
+      "sensing_mode": "ideal",
+      "role": "prespecified_seed732_numerical_refinement"
+    },
+    {
+      "case_id": "ideal_s732_dt0p00125",
+      "condition": "ideal",
+      "initial_seed": 732,
+      "sensor_seed": 100732,
+      "dt": 0.00125,
+      "position_noise_std": 0.0,
+      "sensing_mode": "ideal",
+      "role": "prespecified_seed732_numerical_refinement"
+    },
+    {
+      "case_id": "causal_clean_s732_dt0p0025",
+      "condition": "causal_clean",
+      "initial_seed": 732,
+      "sensor_seed": 100732,
+      "dt": 0.0025,
+      "position_noise_std": 0.0,
+      "sensing_mode": "causal",
+      "role": "prespecified_seed732_numerical_refinement"
+    },
+    {
+      "case_id": "causal_clean_s732_dt0p00125",
+      "condition": "causal_clean",
+      "initial_seed": 732,
+      "sensor_seed": 100732,
+      "dt": 0.00125,
+      "position_noise_std": 0.0,
+      "sensing_mode": "causal",
+      "role": "prespecified_seed732_numerical_refinement"
+    }
+  ],
+  "physical_protocol": {
+    "initial_field": ".2+.015*sin(s)",
+    "initial_input": 0.0,
+    "reference": ".2+.015*sin(s)*cos(.3*t)+.01*cos(2*s)*sin(.5*t)",
+    "reference_rate": "-.0045*sin(s)*sin(.3*t)+.005*cos(2*s)*cos(.5*t)",
+    "reference_acceleration": "-.00135*sin(s)*cos(.3*t)-.0025*cos(2*s)*sin(.5*t)",
+    "training_input_rate": ".02/2 * sum(omega_k*sin((k+1)*s+.37*k)*cos(omega_k*t)), omega=(3,5,7,11)",
+    "plant": "Same periodic32-point spectral Burgers plant and RK4 with continuous piecewise-linear u, fixed physical coefficients throughout. No new exogenous coefficient drift or unmodeled clock dependence.",
+    "control": "Same pre-update learned-row completion, measured-state feedback, input guard and clip as prior paired study. Both arms act on own physical trajectories."
+  },
+  "sensing": {
+    "ideal": "Exact observed w and ideal simulated w_t; spatial channels from observed w. The ideal rate remains an explicit sensor assumption.",
+    "causal": "Measured w only (plus known applied u); quadratic least squares with uniform weights on r_j=(t_j-t_current)/.10 over all samples fromt_current-.10 tot_current; derivative is fitted r coefficient/.10. No future/centered samples or true-rate fallback.",
+    "samples_by_dt": {
+      "0.005": 21,
+      "0.0025": 41,
+      "0.00125": 81
+    },
+    "startup": "At0.10s causal rate/context first valid; after another.05s valid context history, first causal secant/learning at0.15s. Known training probe drives plant from0 independently. Ideal first learning at0.05s. Startup raw observations retained and invalid rates/context explicitly marked.",
+    "consistency": "Use raw observed w for context and feedback; its spectral derivatives for observed w_s/w_ss; use SAME estimated w_t and its spectral spatial derivatives in supplied controller channels. Same sensor rule in training and control.",
+    "noise": "causal_noisy adds independent zero-mean Gaussian position-measurement noise with SD1e-5 per site per.005s sample. This is 0.067% of nominal.015 reference amplitude, a declared challenge rather than generic sensor specification.",
+    "random_streams": "Row Gaussian initialization seed732\u2013736 and separate sensor seeds100000+row_seed; draw/store innovations at every sample, includingzero-noiseconditions. Branches clone the RNG at80s, giving common innovations on overlapping time indices but own plant observations. Noisy five-seed variation combines row and noise variation; it is not a crossed factorial test.",
+    "truth": "Actual w,w_t,clean spatial channels and F may be saved for evaluator only. No evaluator clean filter/rate or physical F may feed the learner/controller."
+  },
+  "learning": {
+    "law": "Rdot=vv^T-R/4; qdot=-10000*(qR-(qRq^T)q), all5unitrowentriesfree at eachsite; Gaussian initialization only",
+    "observation": "v=(z_observed(t)-z_observed(t-.05))/.05 over valid causal contexts",
+    "implementation": "Previously independently validated compiled kernel, same exact held-v R(t), RK4 q, endpoint unit normalization, >=4subdivisions with eta*ds*max_endpoint_trace<=.25; cap10000 per update. No coefficient residual fitting, derivative ties, oracle targets, Fourier, eigenvector initialization, or parameter sweeps.",
+    "evaluation_boundary": "Physical field F is evaluated at CLEAN actual context for recovery; physical row on noisy secants is a reference, not a guaranteed lower bound."
+  },
+  "branching": {
+    "time": 80.0,
+    "state": [
+      "w",
+      "u",
+      "q",
+      "R",
+      "initial_q",
+      "raw observed-w fit history",
+      "valid-context secant history",
+      "RNG",
+      "sample index"
+    ],
+    "timing": "Clone before sensing/assimilating t80. Both first commands use identical trained pre-update q. Adaptive continues learning; frozen q bitwise fixed, diagnosticR may evolve. Each arm independent budgets and observations.",
+    "final": "Recordt100 without a further learner/plant update; stopped attempted sample retained. Exclude all unapplied commands from task/control metrics."
+  },
+  "windows": {
+    "training_evaluation": [
+      76.0,
+      80.0
+    ],
+    "control": [
+      80.0,
+      100.0
+    ],
+    "late": [
+      96.0,
+      100.0
+    ],
+    "right_endpoint_excluded": true
+  },
+  "assessment": {
+    "inherited_training_comparison": "Report previous criterion meanphysicalprojectorerror<=.10 and <=.25timesinitialshadowmean.",
+    "near_identified_training_for_tracking_interpretation": {
+      "field_mean_max": 0.05,
+      "field_p95_max": 0.1,
+      "field_max_max": 0.25,
+      "worst_site_mean_max": 0.1,
+      "initial_shadow_ratio_max": 0.25
+    },
+    "training_rule": "All above near-identification conditions must hold for an individual run to be described as tracking after near-identification. These are offline evaluator labels only, never stopping/gating/selection; every branch runs even if they fail. Finite error thresholds are not a convergence theorem.",
+    "adaptive_late": {
+      "field_mean_max": 0.1,
+      "field_p95_max": 0.25,
+      "task_global_rms_max": 0.001,
+      "guard_fraction_strict_max": 0.01,
+      "clip_fraction_strict_max": 0.01,
+      "completion_time": 100.0
+    },
+    "comparison": "Use own-trajectory adaptive/frozen metrics over identical observed horizons; never compare unequal-duration RMS as if matched. If both full/late intervals exist comparethose; otherwise recordfailure/censoredinterval. Equal success can support readout; tracking advantage requires lower physical and task error after qualifiedtraining. Report every seed and condition; no favorable subset replacesall-seed summaries."
+  },
+  "audit": {
+    "field": "Physical row-projector error at actualcleancontext, mean/median/p95/p99/max/worstsite, initial-row shadow at samecontexts. Unit/sign alignment evaluator only.",
+    "covariance": "Independently reconstruct observed secants andR; compare q with observed empiricalbottom, observedbottom with physicalF, evaluatorcleancontextbottom with physicalF, spectra/gaps/activity. CleanR uses the same valid-context update mask, not extra unavailablestartupdata. Gaps alone prove no physical identification.",
+    "sensor": "Independently replay same polynomial filter on truew evaluatoronly. Rateerror=cleanfitbias+noisecontribution; retain squared terms/crossmoment instead of addingRMS. Record actual totalbias/variance and theoretical weight-norm noise variance.",
+    "readout": "Compare learned rawcompletion with physicalF completion using identical observed suppliedrates (fielderror), and separately compare physicalF completion on observed versus cleanrates/cleanfeedback (sensingerror). Report applied vsraw/clipped, guarddenominators andinputeffort.",
+    "task": "Globaltime-space RMS of TRUEw minusreference; observed trackingerror separate. Finalendpoint/failedunusedcommands excluded.",
+    "independent_numerics": "Check representative literal jointq/R ODE intervals including any stiffcase, parentnativehashes, stageorder, full branchstate, frozen constancy, plant andinputtransitions. No runner imports in independent scientific audit."
+  },
+  "refinement": {
+    "scope": "Fixed seed732, ideal andcausal_clean at.005,.0025,.00125. Halvingwholeloopdt changes sampling/control and causal-fit weights as well asintegration; not pureODE solver-order test. No noisy refinement, becausefixed-per-sample noise at differing sample rates changesinformationrate.",
+    "metrics": "Common-grid state/input/field comparisons, samephysicalwindows, branchranking, allthresholds andcoverage.",
+    "flags": "Retain relativechange>10% whenmetricmagnitude>1e-6; absolutechange>1e-5 in meanfield or>1e-4 in taskRMS. Reportbothsuccessivehalvings andtrend, no automaticextra refinement or tolerance relaxation."
+  },
+  "execution": {
+    "case_count": 19,
+    "order": [
+      "ideal_s732_dt0p005",
+      "ideal_s733_dt0p005",
+      "ideal_s734_dt0p005",
+      "ideal_s735_dt0p005",
+      "ideal_s736_dt0p005",
+      "causal_clean_s732_dt0p005",
+      "causal_clean_s733_dt0p005",
+      "causal_clean_s734_dt0p005",
+      "causal_clean_s735_dt0p005",
+      "causal_clean_s736_dt0p005",
+      "causal_noisy_s732_dt0p005",
+      "causal_noisy_s733_dt0p005",
+      "causal_noisy_s734_dt0p005",
+      "causal_noisy_s735_dt0p005",
+      "causal_noisy_s736_dt0p005",
+      "ideal_s732_dt0p0025",
+      "ideal_s732_dt0p00125",
+      "causal_clean_s732_dt0p0025",
+      "causal_clean_s732_dt0p00125"
+    ],
+    "threads_per_process": 1,
+    "concurrent_physical_processes": 1,
+    "study_physical_runtime_limit_seconds": 1800,
+    "phase_wall_limit_seconds": 180,
+    "per_phase_subdivision_cap": 10000000,
+    "per_update_subdivision_cap": 10000,
+    "no_overwrite": true,
+    "failure": "Incremental1srawchunks, periodic5sstatecheckpoints, complete preattempt+failedobservation+postfailurestate. Failed/truncated/unattemptedcases explicitly retained; no restarts or settingchanges afteroutcomes except separatelydeclared implementation repairs justified by evidence."
+  },
+  "preservation": "Rawclean/observedcontexts andsensornoise, validity, qpre/post,secants,suppliedrates/targets,commands/guard/clip, R snapshots, histories/RNG, sources/config/compilerbinary/environment/commitdirtybaseline andhashes. New identities do not recover missing historical records.",
+  "publication": "Private validation only. No automatic manuscript/supplement replacement, commit, push or external upload."
+}

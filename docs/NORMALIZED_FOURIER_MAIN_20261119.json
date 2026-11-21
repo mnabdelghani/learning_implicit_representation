@@ -1,0 +1,455 @@
+{
+  "identity": "normalized_fourier_main_postprocessing_20261119",
+  "created_date": "2026-11-19",
+  "status": "Executed local postprocessing of existing audited raw records; no simulation rerun, external publication or permanent download asserted",
+  "source_protocol": "normalized_fourier_coupled_20261118_v1",
+  "source_archive": {
+    "metadata": "NORMALIZED_FOURIER_20261118.json",
+    "filename": "Implicit_Normalized_Fourier_20261118.zip",
+    "bytes": 266372793,
+    "sha256": "404a2ae9553a2ee9d8e728084470312da5ab51df3a6cc301c229ffeaea47f0d8",
+    "members": 225,
+    "crc_and_all_member_hashes_verified": true,
+    "included_in_repository": false
+  },
+  "source_archive_scope": "Existing raw normalized records. The new postprocessing outputs are separate local files, not claimed to be members of that archive.",
+  "generator": {
+    "path": "experiments/plot_normalized_fourier_main.py",
+    "sha256": "972f053ccdad0e0dc78543d1edbde8154a6f0cf7a8e31a50e6e9a45bf6c537f4"
+  },
+  "reproduce": "python experiments/plot_normalized_fourier_main.py --records /path/to/extracted/normalized_fourier_v1 --output /path/to/new/main_analysis --figures /path/to/new/figures",
+  "seeds": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "illustrative_seed": 10,
+  "mode": "own_trajectory",
+  "evaluation_interval": "60 <= t < 80 s",
+  "learned_quantities": "All seven homogeneous coefficients, including the input coefficient; evaluated context partials depend on these coefficients and known harmonic features.",
+  "supplied_quantities": "Harmonic family, phase/frequency, state/input channels, feature scales, and zero residual-level calibration; noisy rate is an observation for learning.",
+  "aggregate_late_metrics": {
+    "derivative_projector_error_mean": {
+      "mean": 0.006216291510709423,
+      "sample_sd": 0.00016542347719452312,
+      "minimum": 0.005861647599241924,
+      "maximum": 0.006407730077009144,
+      "seeds": 10
+    },
+    "coefficient_projector_error_mean": {
+      "mean": 0.005687874598326968,
+      "sample_sd": 0.0001508079643426259,
+      "minimum": 0.005387040166265625,
+      "maximum": 0.005861129559657229,
+      "seeds": 10
+    },
+    "aligned_F_error_mean": {
+      "mean": 0.0054508142521372035,
+      "sample_sd": 0.0001589119805596624,
+      "minimum": 0.0051137312547796165,
+      "maximum": 0.005643233774933259,
+      "seeds": 10
+    },
+    "preupdate_energy_mean": {
+      "mean": 8.563795766836527e-05,
+      "sample_sd": 3.1918353987249115e-06,
+      "minimum": 8.129776012316392e-05,
+      "maximum": 9.126590548008478e-05,
+      "seeds": 10
+    },
+    "clean_energy_mean": {
+      "mean": 8.283919019841956e-07,
+      "sample_sd": 4.538302598943207e-08,
+      "minimum": 7.373487394642556e-07,
+      "maximum": 8.866159577495653e-07,
+      "seeds": 10
+    },
+    "true_row_energy_mean": {
+      "mean": 8.600991205878269e-05,
+      "sample_sd": 3.230657939580204e-06,
+      "minimum": 8.159754469308347e-05,
+      "maximum": 9.172924872556437e-05,
+      "seeds": 10
+    },
+    "phase_partial_rmse": {
+      "mean": 0.000351191145741447,
+      "sample_sd": 1.9406985281840596e-05,
+      "minimum": 0.00031565040144844773,
+      "maximum": 0.0003719733869528137,
+      "seeds": 10
+    },
+    "frozen_aligned_F_error_mean": {
+      "mean": 0.2189255253953965,
+      "sample_sd": 1.1628942204429636e-06,
+      "minimum": 0.2189236341171062,
+      "maximum": 0.21892750249613285,
+      "seeds": 10
+    },
+    "tracking_rmse": {
+      "mean": 0.0023111676337060753,
+      "sample_sd": 2.8630297111519942e-05,
+      "minimum": 0.0022528413706291613,
+      "maximum": 0.0023481153131515546,
+      "seeds": 10
+    },
+    "control_rms": {
+      "mean": 0.6460370040134868,
+      "sample_sd": 2.2393956506112776e-05,
+      "minimum": 0.6459949596391122,
+      "maximum": 0.6460701049175916,
+      "seeds": 10
+    },
+    "controller_guard_count": {
+      "mean": 0.0,
+      "sample_sd": 0.0,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "seeds": 10
+    }
+  },
+  "current_rate_completion": {
+    "normalized_flow": {
+      "late_rmse": {
+        "mean": 0.0026706285248859858,
+        "sample_sd": 7.084091379799923e-05,
+        "minimum": 0.0025229716978015845,
+        "maximum": 0.0027568368060859666,
+        "seeds": 10
+      },
+      "late_samples": {
+        "mean": 2000.0,
+        "sample_sd": 0.0,
+        "minimum": 2000.0,
+        "maximum": 2000.0,
+        "seeds": 10
+      },
+      "late_valid_samples": {
+        "mean": 2000.0,
+        "sample_sd": 0.0,
+        "minimum": 2000.0,
+        "maximum": 2000.0,
+        "seeds": 10
+      },
+      "late_invalid_samples": {
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "seeds": 10
+      },
+      "complete_run_rmse": {
+        "mean": 0.04531107097269792,
+        "sample_sd": 5.460597035690744e-05,
+        "minimum": 0.04522738285857918,
+        "maximum": 0.045407145552817295,
+        "seeds": 10
+      },
+      "complete_run_samples": {
+        "mean": 8001.0,
+        "sample_sd": 0.0,
+        "minimum": 8001.0,
+        "maximum": 8001.0,
+        "seeds": 10
+      },
+      "complete_run_valid_samples": {
+        "mean": 8001.0,
+        "sample_sd": 0.0,
+        "minimum": 8001.0,
+        "maximum": 8001.0,
+        "seeds": 10
+      },
+      "complete_run_invalid_samples": {
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "seeds": 10
+      },
+      "minimum_normalized_rate_denominator": {
+        "mean": 0.32774429687508944,
+        "sample_sd": 9.934840285281504e-05,
+        "minimum": 0.32763821973745844,
+        "maximum": 0.32793255720119946,
+        "seeds": 10
+      },
+      "input_guard_count": {
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "seeds": 10
+      }
+    },
+    "frozen_prior": {
+      "late_rmse": {
+        "mean": 0.22160848296510732,
+        "sample_sd": 7.947084061671688e-06,
+        "minimum": 0.2215943360494949,
+        "maximum": 0.2216164320058526,
+        "seeds": 10
+      },
+      "late_samples": {
+        "mean": 2000.0,
+        "sample_sd": 0.0,
+        "minimum": 2000.0,
+        "maximum": 2000.0,
+        "seeds": 10
+      },
+      "late_valid_samples": {
+        "mean": 2000.0,
+        "sample_sd": 0.0,
+        "minimum": 2000.0,
+        "maximum": 2000.0,
+        "seeds": 10
+      },
+      "late_invalid_samples": {
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "seeds": 10
+      },
+      "complete_run_rmse": {
+        "mean": 0.2153102481675082,
+        "sample_sd": 1.0339362082356592e-05,
+        "minimum": 0.21529786071470988,
+        "maximum": 0.21532871433893247,
+        "seeds": 10
+      },
+      "complete_run_samples": {
+        "mean": 8001.0,
+        "sample_sd": 0.0,
+        "minimum": 8001.0,
+        "maximum": 8001.0,
+        "seeds": 10
+      },
+      "complete_run_valid_samples": {
+        "mean": 8001.0,
+        "sample_sd": 0.0,
+        "minimum": 8001.0,
+        "maximum": 8001.0,
+        "seeds": 10
+      },
+      "complete_run_invalid_samples": {
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "seeds": 10
+      },
+      "minimum_normalized_rate_denominator": {
+        "mean": 0.577350269189626,
+        "sample_sd": 1.1702778228589004e-16,
+        "minimum": 0.5773502691896258,
+        "maximum": 0.5773502691896258,
+        "seeds": 10
+      },
+      "input_guard_count": {
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "seeds": 10
+      }
+    }
+  },
+  "rate_completion_scope": "Postprocessing of pre-update q on each recorded normalized-flow-controlled stream. Current state/input/phase and calibrated zero level determine the rate query. No measured/true rate is supplied to the readout. Actual rate is evaluator-only. Frozen prior is queried on the SAME stream; it is not a separate controller. On unguarded samples the learned forward query necessarily returns the rate requested by the same relation's inverse controller; its agreement with actual rate measures realized relation/readout error. This is not a future prediction, an independent prediction task, or an independent held-out test.",
+  "rate_guard": {
+    "condition": "abs((q*S)[:3] @ h)/norm(q) >= threshold",
+    "threshold": 0.05,
+    "purpose": "postprocessing query validity; does not alter any recorded update/controller"
+  },
+  "figure_transformations": {
+    "rate": {
+      "columns": [
+        "F_true_1",
+        "F_aligned_1"
+      ],
+      "interval": "0 <= t <= 16 s",
+      "stride": 1,
+      "smoothing": "none",
+      "gauge": "estimate divided by learned input coefficient a_u"
+    },
+    "phase": {
+      "columns": [
+        "F_true_3",
+        "F_aligned_3"
+      ],
+      "interval": "0 <= t <= 16 s",
+      "stride": 1,
+      "smoothing": "none",
+      "gauge": "estimate divided by learned input coefficient a_u"
+    },
+    "error": {
+      "columns": [
+        "derivative_projector_error",
+        "aligned_F_error"
+      ],
+      "stride": 3,
+      "smoothing": "none",
+      "log_floor": 1e-18,
+      "context_scales": [
+        0.5,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "energy": {
+      "columns": [
+        "preupdate_energy",
+        "true_row_energy",
+        "clean_energy"
+      ],
+      "stride": 3,
+      "smoothing": "causal trailing mean of at most 100 samples (1 s); finite values only; startup truncated",
+      "missing_startup_samples": 5,
+      "log_floor": 1e-18
+    },
+    "task": {
+      "columns": [
+        "desired",
+        "state"
+      ],
+      "stride": 3,
+      "smoothing": "none"
+    },
+    "control": {
+      "columns": [
+        "control"
+      ],
+      "stride": 3,
+      "smoothing": "none"
+    }
+  },
+  "audit": {
+    "status": "passed",
+    "checks_max_abs_difference": {
+      "normalized_flow_time": 0.0,
+      "normalized_flow_state": 0.0,
+      "normalized_flow_desired": 0.0,
+      "normalized_flow_control": 0.0,
+      "normalized_flow_preupdate_q": 0.0,
+      "normalized_flow_all_partials": 2.220446049250313e-16,
+      "normalized_flow_input_aligned_partials": 6.661338147750939e-16,
+      "inverse_forward_identity": 4.996003610813204e-16,
+      "normalized_flow_rate_solve": 1.1102230246251565e-16,
+      "frozen_prior_time": 0.0,
+      "frozen_prior_state": 0.0,
+      "frozen_prior_desired": 0.0,
+      "frozen_prior_control": 0.0,
+      "frozen_prior_preupdate_q": 0.0,
+      "frozen_prior_all_partials": 0.0,
+      "frozen_prior_input_aligned_partials": 0.0,
+      "frozen_prior_query": 2.220446049250313e-16,
+      "frozen_prior_rate_solve": 1.1102230246251565e-16,
+      "preupdate_energy": 5.551115123125783e-17,
+      "clean_energy": 5.551115123125783e-17,
+      "true_row_energy": 6.830473686658678e-18
+    },
+    "total_rate_queries_per_method": 80010,
+    "scope": "Postprocessing checks reconstruct pre-update q, partials, energies and rate queries from retained raw records. Original learner/plant transition audits are described in source-archive metadata. These are numerical checks, not formal verification."
+  },
+  "input_sha256_relative_to_extracted_records": {
+    "config.json": "d948dbf9e95f5b479e6730209aa2480de3451c1812d3520fd146dbcb86e56474",
+    "source_snapshot/common.py": "5f2c62cf49a4dca279ceeba07c4212281730d0b0e90cd9fcca98253296766cf6",
+    "source_snapshot/fourier_online.py": "0037242f925018d08ec709610ecfb1883518500578143f028811a39cb1989b17",
+    "source_snapshot/normalized_fourier.py": "e6e1f814ffdec1f34e336232e877e546907c21ba40dd50fab1ddc158d599c5a7",
+    "source_snapshot/normalized_fourier_20261118.json": "4b21301e660a0a3da0771303dc216d06ffcfc2b1c25c320eccf17f992540ada4",
+    "own_trajectory/seed_10/observations.csv": "3ad24944d1dd08e9e577db51b51f5fa95403bddc1aaf5d15a54eb3b9a1303d03",
+    "own_trajectory/seed_10/state.npz": "2aa70af7a0cda5176fbe373f48c16f97fa4728df861f351fc868e5c043b84819",
+    "own_trajectory/seed_10/normalized_flow/trace.csv": "3d5bdde888155a317f84041661fff397f04dbfbb66f0799f26e5f258a2671b4a",
+    "own_trajectory/seed_10/frozen_prior/trace.csv": "22c86f340edc22a5c2e9c8b71691c3765f82d2a1e542612369b40d9e4b0e2bad",
+    "own_trajectory/seed_11/observations.csv": "39907f8c26992d44ef6d5e1474ac62d38f8ce2b56761fd0e9f71b600a3f6175b",
+    "own_trajectory/seed_11/state.npz": "35af9707167b24411141eb6251404bec2a002d29866d17c55816e065a98d318c",
+    "own_trajectory/seed_11/normalized_flow/trace.csv": "b38969040a8057d6697d95c0bb37130f4254957f717c70e1d0313f2d8fee3dca",
+    "own_trajectory/seed_11/frozen_prior/trace.csv": "b34ac2b0aaf9b1afb026c513fe612feb6390a696707c2b81852e39ddbe2e6e2f",
+    "own_trajectory/seed_12/observations.csv": "d21c7329ba4d6fd91c2f279c376045b8eb788b90cec9c618919ce23623c586cd",
+    "own_trajectory/seed_12/state.npz": "8e0c771cd1339545d02582ae8e8f5e3660aa88ac8f4e1f5645f6384652c38654",
+    "own_trajectory/seed_12/normalized_flow/trace.csv": "34774d497cccddc8da96fc3f89c402872fb05c2e1ca068056c9950b22f023632",
+    "own_trajectory/seed_12/frozen_prior/trace.csv": "f305de77e72d68454c2f1e6e1f6a277f456af0eba6714da3c174df8741f99dcb",
+    "own_trajectory/seed_13/observations.csv": "aecd217bb604ef31f828312d92aabd11492c15489350ff86239151732ffb2f22",
+    "own_trajectory/seed_13/state.npz": "e0e9d7d7599703ae9171f39248069305855b157fe21abf907192f904eb42757e",
+    "own_trajectory/seed_13/normalized_flow/trace.csv": "e307dc77660bf54ccce5e25806061f16ce8ffd239f18c9b7d0a751564e718a0f",
+    "own_trajectory/seed_13/frozen_prior/trace.csv": "14cd6d75e22aab51254e04417aec7c78acd973ab147c872e801c1b32eeba4136",
+    "own_trajectory/seed_14/observations.csv": "1a87df560cf47a297b9c323b595ed33b60672870b926f321b1ef302da3b65d56",
+    "own_trajectory/seed_14/state.npz": "fa41b9dcf39409c50b87e4624f58fd1dcb9eb93ab45e23aa3ece4bd1536a5093",
+    "own_trajectory/seed_14/normalized_flow/trace.csv": "d80b3423bb4a916103ab22a9dd2c81eb3e6a013ea52b930edeb9ff4d7ee629bc",
+    "own_trajectory/seed_14/frozen_prior/trace.csv": "4b0feaff7866bcd12c44f5fbff624fd2ecec055983a050bf85843bf01a5d844a",
+    "own_trajectory/seed_15/observations.csv": "9cab9c9ea16ce4d2eb1de66bf8afe117c83975ddf6fe4dc14fe761ea6a8b7488",
+    "own_trajectory/seed_15/state.npz": "1ccd0e8a88044adc726e74223abd53c28070806da9688a01829d1f3b15b3132f",
+    "own_trajectory/seed_15/normalized_flow/trace.csv": "7e528befc18b4cb9e688f561b6275f80c9e0f9f144709d56b2dad859eb6c299e",
+    "own_trajectory/seed_15/frozen_prior/trace.csv": "4f2895e3797d45e37452089169c6cb2b65b99c352b430672b37ab56804122da8",
+    "own_trajectory/seed_16/observations.csv": "95040546f547780d59e7b39e507eb1727811014deb7bb2d83702812947044acd",
+    "own_trajectory/seed_16/state.npz": "ac5c1f067a6d187a969d5ea5746005130a35d88d4fcfe5e266f309aa9522e679",
+    "own_trajectory/seed_16/normalized_flow/trace.csv": "d4204cd6e821c16890a89c0e71f6ea65cceae619677caee498bb0702f30ce142",
+    "own_trajectory/seed_16/frozen_prior/trace.csv": "b17dd25932b3fc5cd38d233f53671d9741f4936fc05296d77aa36a41f71cc46e",
+    "own_trajectory/seed_17/observations.csv": "f631512e6813b282ca98a94f4d44286441059ecddee712f165d611f0c6a26298",
+    "own_trajectory/seed_17/state.npz": "e9db24a74edfcf79c85f6e2879fcb63bffc8a09ba7fb145e7cabd9e67defeaf5",
+    "own_trajectory/seed_17/normalized_flow/trace.csv": "530db10762386f79cf20332621e0de60f7fe7278148c4752d555d69f438d05ea",
+    "own_trajectory/seed_17/frozen_prior/trace.csv": "5412cbaae3799bd2709b3152d567b38cb414cd669b4f292513d7329aa23be992",
+    "own_trajectory/seed_18/observations.csv": "9c0fb648e0726677fcc01cac6efd8f6bf26382ff231dd1db0e1c648113c95b88",
+    "own_trajectory/seed_18/state.npz": "cc722e1016f8909206f4694e8a2a2a6181ef2c6da98045e8ea15dc5e218582ed",
+    "own_trajectory/seed_18/normalized_flow/trace.csv": "da6e4c067b25972fc855921784f01576bfe3cccf83e5ea7912973925c3f4a5b7",
+    "own_trajectory/seed_18/frozen_prior/trace.csv": "0778c526c8814486d2a728488123d9e568a753089f087b50c74e620fa58ba920",
+    "own_trajectory/seed_19/observations.csv": "d05de8363fe6cb33b33497996137d0a51b1ff442a48c3eb26e3e059e11236d06",
+    "own_trajectory/seed_19/state.npz": "8ab33c4ae5d567603d1a73a5d787f2de58757c3630ee6f9ff264829e2fa49ff6",
+    "own_trajectory/seed_19/normalized_flow/trace.csv": "b05fc6552561c9c8e7332db7d7a423eecdaad69dd594916428b7ef82d28f2ec6",
+    "own_trajectory/seed_19/frozen_prior/trace.csv": "15d1819d48e89cf350c3e6e2609f57aea94b18f50b2f713ec1c8666e59c6c2df"
+  },
+  "public_figure_sha256": {
+    "supplement/figures/normalized_fourier_main_control.pdf": "cb8aee11d3e5a44d7f21a0f7eca9c529701125a0dd981d79587a8ab4a30c29ba",
+    "supplement/figures/normalized_fourier_main_control.png": "93c94dbd0987fd76f04afd4020f4ec880f6ef88a0a78e5974c2fbe8bfdb2bca7",
+    "supplement/figures/normalized_fourier_main_energy.pdf": "7a5dc6d0e5bf1a3bc5ebe86cc534961b8195ec99e533811d3aa9493e845b0048",
+    "supplement/figures/normalized_fourier_main_energy.png": "e0dcbdead415f9595290d20933c51dbaf202a12af251de79ecf7d0c5157f598b",
+    "supplement/figures/normalized_fourier_main_error.pdf": "ec40406195f04d5c882e06d917d014945dbfa81370809e411daa30c9fe3a383d",
+    "supplement/figures/normalized_fourier_main_error.png": "d33982276f0f4ee48cc867a0787cb7edcf85718e351f87d64226a8dd571158b2",
+    "supplement/figures/normalized_fourier_main_phase.pdf": "aa2c957b8f0e9c99ad30b52a9a684100390f32dec668248b49ad56a52a3c1649",
+    "supplement/figures/normalized_fourier_main_phase.png": "3b0e3e473021a495164c564082430ad9caa4fc3dd162e533399c551d92ec5f3d",
+    "supplement/figures/normalized_fourier_main_rate.pdf": "14f22bdc9c37929b5cd67f1e2a7ef160777f55ee7b22448691a734ee86608619",
+    "supplement/figures/normalized_fourier_main_rate.png": "1bf5ce57470816aa3f5034873720cf52331d1ca5be512a0caaae2657ede1b79e",
+    "supplement/figures/normalized_fourier_main_task.pdf": "6054370700d1b3644f90824ab63f46cca780544fa7157dde0ad392ae6dfa633b",
+    "supplement/figures/normalized_fourier_main_task.png": "0d07bb31d29fde63b077d4b64c8844dd689f46a096c9b9e7e6372eb2c80527b9"
+  },
+  "local_analysis_output_sha256": {
+    "figures/normalized_fourier_main_control.pdf": "cb8aee11d3e5a44d7f21a0f7eca9c529701125a0dd981d79587a8ab4a30c29ba",
+    "figures/normalized_fourier_main_control.png": "93c94dbd0987fd76f04afd4020f4ec880f6ef88a0a78e5974c2fbe8bfdb2bca7",
+    "figures/normalized_fourier_main_energy.pdf": "7a5dc6d0e5bf1a3bc5ebe86cc534961b8195ec99e533811d3aa9493e845b0048",
+    "figures/normalized_fourier_main_energy.png": "e0dcbdead415f9595290d20933c51dbaf202a12af251de79ecf7d0c5157f598b",
+    "figures/normalized_fourier_main_error.pdf": "ec40406195f04d5c882e06d917d014945dbfa81370809e411daa30c9fe3a383d",
+    "figures/normalized_fourier_main_error.png": "d33982276f0f4ee48cc867a0787cb7edcf85718e351f87d64226a8dd571158b2",
+    "figures/normalized_fourier_main_phase.pdf": "aa2c957b8f0e9c99ad30b52a9a684100390f32dec668248b49ad56a52a3c1649",
+    "figures/normalized_fourier_main_phase.png": "3b0e3e473021a495164c564082430ad9caa4fc3dd162e533399c551d92ec5f3d",
+    "figures/normalized_fourier_main_rate.pdf": "14f22bdc9c37929b5cd67f1e2a7ef160777f55ee7b22448691a734ee86608619",
+    "figures/normalized_fourier_main_rate.png": "1bf5ce57470816aa3f5034873720cf52331d1ca5be512a0caaae2657ede1b79e",
+    "figures/normalized_fourier_main_task.pdf": "6054370700d1b3644f90824ab63f46cca780544fa7157dde0ad392ae6dfa633b",
+    "figures/normalized_fourier_main_task.png": "0d07bb31d29fde63b077d4b64c8844dd689f46a096c9b9e7e6372eb2c80527b9",
+    "normalized_results_macros.tex": "f0f2c3d408ab68fa27b4695f28156edbe5f6a9b6d36766b877745cbfec72540e",
+    "plot_normalized_fourier_main.py": "972f053ccdad0e0dc78543d1edbde8154a6f0cf7a8e31a50e6e9a45bf6c537f4",
+    "seed_10_current_rate.csv": "8ac10194245f7c4336bef3de1e7e586d7f8a1be8411f3cf329376d6f3c0fd2c5",
+    "seed_11_current_rate.csv": "e720e2ac2d66594686165061f1d3af84ee14f17476786810ece31a220410c5ed",
+    "seed_12_current_rate.csv": "57c2b43a93bb24032fe97ea194283729cbbd733672dfddb15c6038224e4c95c0",
+    "seed_13_current_rate.csv": "1f8b924168f9ca53951e05c97dacca8252148b6fe1c90d7267bcb41cbbacb450",
+    "seed_14_current_rate.csv": "4975f2249b776b7ccb7146003c810c59e20de3c8d2f2ccaf07b8cd6413a03367",
+    "seed_15_current_rate.csv": "569ff4c8658b6176989cfcad525ddd189c8cf707a7590581d4bfab28af63368b",
+    "seed_16_current_rate.csv": "9e8507be048b5c046c04dde183ef1931625d1c4f4e7a02b60da468311176705a",
+    "seed_17_current_rate.csv": "2c7889b3dd5a2c009375dd30137f13a8c63fae036b8e4bffbfb55b0712d5b5ec",
+    "seed_18_current_rate.csv": "035bb58254fae5b27a031ad7bdf31673f1f9e771002c03efb9ca849fce80c700",
+    "seed_19_current_rate.csv": "6d6849f3939d0ebbc8f040a5b4c07528f796c86e2c0c10933c15ef82445a379a",
+    "summary.json": "ad85dd91b3a61a888aa0172c76459c1210e3f229d091756a5acfcf2045be9f97"
+  },
+  "local_analysis_output_scope": "Retained separately; reproducible using the generator and source archive. Not asserted to be deposited or included in Git. PDF byte identity can depend on rendering metadata/runtime.",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.8"
+  },
+  "source_record_policy": "Inputs unchanged; no simulation or learner rerun; output directory created fresh"
+}

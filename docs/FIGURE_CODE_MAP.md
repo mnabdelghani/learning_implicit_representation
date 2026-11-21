@@ -1,13 +1,62 @@
 # Figure and code provenance
 
-| Figure family | Source data | Generator | Scope |
-|---|---|---|---|
-| Contact partials, energy, task, command | `results/contact/seed_10/learned/trace.csv` and `partials.npz` | `experiments/make_figures.py` | New ten-seed contact reconstruction |
-| Fourier rate/clock partials, energy, task | `results/fourier/seed_10/learned/trace.csv` | `experiments/make_figures.py` | New simultaneous learning/control protocol |
-| Burgers partials, energy, field tracking | `results/burgers/seed_10/learned/` | `experiments/make_figures.py` | Supplied reconstruction with added diagnostics |
-| Task-only versus probing | `results/contact_excitation/seed_10/` and `aggregate.json` | `experiments/plot_excitation.py` | New supplementary study |
-| Acrobot identification and local LQR | `examples/legacy_suite/results/acrobot/seed_10/` | Original legacy implementation | Archived reconstruction |
-| Immersed-airfoil control and vorticity | `examples/legacy_suite/results/airfoil/` | Original legacy implementation | Prototype only, not validated aerodynamic data |
-| Ellipse archived figure | `supplement/figures/ellipse_archived.pdf` | Not supplied | Archival, no original implementation |
+The current main figures use direct all-entry field learning and same-field readout. The preceding coefficient-family figures remain retained historical studies. Stable LaTeX labels identify current main assignments; old filenames and record identities retain their original meanings. Supplementary S20 provides the current protocols and all failed conditions.
 
-All main study summary values are aggregated from noise seeds 10–19; plotted seed 10 was preselected. True partials are evaluator-only. The displayed incompatibility is computed before assimilation of the current sample. Noise and discretization prevent interpreting a small energy as a guarantee of complete identification.
+Paths are repository-relative unless prefixed by **NF** or **ST**. NF denotes
+the extracted normalized records described in
+[`NORMALIZED_FOURIER_20261118.json`](NORMALIZED_FOURIER_20261118.json). ST denotes
+the separate supplementary-study records described in
+[`SUPPLEMENTARY_STUDIES_20261118.json`](SUPPLEMENTARY_STUDIES_20261118.json).
+These archives exist locally; these metadata files do not assert a public
+download. The original 100-run reproduction is a separate historical protocol
+set, described in [`REPRODUCTION_20261118.json`](REPRODUCTION_20261118.json).
+
+| Figure / stable label | Records and actual learning mechanism | Generator and included assets |
+|---|---|---|
+| Current direct Fourier, `fig:fourier_online`; supplementary `fig:direct_fourier_new` | `direct_fourier_monotone_20261120_v1`, seeds 10–19, preselected seed 10; all six direct harmonic weights adapt, with same-stream K=0 and a separate frozen-model new-input prediction | `experiments/direct_submission/fourier/run.py`, `summarize_plot.py`; `direct_fourier_summary.pdf` |
+| Current direct contact, `fig:contact_online` | Five seeds 101–105, preselected seed 101; all 24 matrix entries adapt from ideal measured rates, then supply the rate-level force/motion readout | `experiments/direct_submission/contact/`; `direct_contact_summary.pdf` |
+| Retained coefficient-based contact (former main assignment) | `results/contact/seed_10/learned/`; integral material and velocity-level actuation fits, 48 projected-gradient steps | `experiments/contact.py`, `experiments/make_figures.py`; historical contact panels |
+| Current direct Burgers, `fig:burgers_online` | Ideal-rate cohort seeds 732–736; preselected seed 732, site 0; five independent entries per spatial site, causal secants and own-trajectory adaptive/frozen control | `experiments/direct_submission/burgers/burgers_direct.py`, `plot_main.py`; `direct_burgers_partials.pdf`, `direct_burgers_energy.pdf`, `direct_burgers_tracking.pdf` |
+| Retained coefficient-based Burgers (former main assignment) | `results/burgers/seed_10/`; three bounded coefficients, supplied time-derivative coefficient, eight projected-gradient steps | `experiments/burgers_online.py`, `examples/legacy_suite/simulations/burgers.py`, `experiments/make_figures.py`; historical Burgers panels |
+| Original bounded Fourier, `fig:fourier_bounded` | `results/fourier/seed_10/`: bounded harmonic coefficients and same-stream K=0 shadow; eight projected-gradient steps | `experiments/fourier_online.py`; `experiments/make_figures.py`; six original `fourier_*.pdf` panels |
+| Contact/Fourier diagnostics, `fig:contact_fourier_diagnostics` | Same original contact and bounded Fourier records | `experiments/make_figures.py`; contact motion/activity/information and Fourier full-partial/activity/information panels |
+| Burgers diagnostics, `fig:burgers_diagnostics` | Same original Burgers records | `experiments/make_figures.py`; `burgers_F_error.pdf`, `burgers_task.pdf`, `burgers_control.pdf` |
+| Excitation and frozen-model transfer, `fig:excitation` | `results/contact_excitation/`: seed-10 trajectories; information spectrum averages seeds 10–19 | `experiments/contact_excitation.py`, `experiments/plot_excitation.py`; five `excitation_*.pdf` panels |
+| Reconstructed unanchored Fourier, `fig:unanchored_fourier` | `examples/legacy_suite/results/fourier/`; fixed-batch covariance and retracted row update; the direct field need not be a Jacobian | `examples/legacy_suite/simulations/fourier.py`; `unanchored_fourier_reconstructed.pdf`, a byte-identical copy of the checked legacy `fourier.pdf` |
+| Acrobot, `fig:acrobot_archived` | `examples/legacy_suite/results/acrobot/seed_10/`; proximal coefficient updates during identification, then frozen-model local LQR | `examples/legacy_suite/simulations/acrobot.py`; that directory's identification/control PDFs |
+| Active flow, `fig:flow_results`, `fig:flow_fields`, `fig:flow_streamlines` | `examples/legacy_suite/results/airfoil/`; ridge-regularized box solve with 25% relaxation. Field views use the saved seed-10 `fields.npz:final_adaptive` at control time 6; no new simulation | `examples/legacy_suite/simulations/airfoil.py` for retained results/parameters; `experiments/plot_active_flow_fields.py` for enlarged full-range `active_flow_vorticity.pdf` and instantaneous `active_flow_streamlines.pdf` (PNG previews also included). Input/output hashes and transformations: `supplement/figures/active_flow_fields_provenance.json`. Legacy numerical prototype, not direct-partial or validated aerodynamic evidence |
+| Direct field, `fig:direct_lift_diagnostics` | ST direct-lift records; six-entry field, frozen-memory normalized substeps | `experiments/direct_lift_audit.py`, `experiments/plot_direct_lift_audit.py`; `direct_lift_diagnostics.pdf` |
+| Estimator comparisons, `fig:estimator_common_stream`, `fig:estimator_partial_tracking` | ST comparison records; common streams, seeds 10–19; bounded PG, EWLS and projected NLMS | `experiments/estimator_comparison.py`, `experiments/plot_estimator_comparison.py`; two estimator PDFs |
+| Learned-only partial errors, `fig:unknown_partial_tracking` | Postprocessing of the original 100-run protocol set; supplied entries excluded from the error mask; no new learning rule | `experiments/derivative_tracking_audit.py`; `unknown_partial_tracking.pdf` |
+| Extended normalized Fourier, `fig:normalized_fourier_partials`, `fig:normalized_fourier_summary` | NF replay and own-trajectory streams, all seeds 10–19, eigenvector/frozen shadows; partial figure explicitly combines replay partials with own-trajectory task/control | `experiments/normalized_fourier.py`, `experiments/report_normalized_fourier.py`; two `normalized_fourier_*.pdf` overview figures |
+
+Current direct assets and retained supplementary assets live under `supplement/figures/`, except the Acrobot source PDFs. The direct Burgers generator names its outputs `burgers_main_{partials,energy,tracking}.pdf`; the included copies use the `direct_burgers_` prefix without changing their bytes. Raw direct-study archives accompany the package separately; compact plotting arrays and raw subsets are not described as complete archives.
+`experiments/repair_supplement_layout.py` repairs labels/layout in three older
+supplementary panels and checks their plotted data. The four-coefficient
+exact-Jacobian companion to the direct-field study has table-only results;
+its runner and independent checker are `experiments/direct_jacobian_audit.py`
+and `experiments/audit_direct_jacobian.py`.
+
+The circle, mechanical and ellipse constructions are analytic examples. The
+ellipse empirical figure was removed because its generator/records could not
+be established. The old ellipse and unanchored figure files remain archival
+assets on disk but are not included in the current paper or supplement. The
+checked unanchored reconstruction is not claimed to recover the historical
+figure's exact provenance.
+
+The six historical periodic-plant Fourier panels use the same normalized-controller seed-10
+trajectory. Rate/clock partials show the first 16 seconds without smoothing;
+the energy panel uses a causal one-second mean. Aligned partials divide by the
+learned input coefficient, which is adaptive. Reported late statistics use all
+ten seeds and `60 <= t < 80 s`. Exact input hashes, plot transformations, code
+hash and output hashes are recorded in
+[`NORMALIZED_FOURIER_MAIN_20261119.json`](NORMALIZED_FOURIER_MAIN_20261119.json).
+
+The added current-rate query uses the same learned coefficients and recorded
+state/input/phase; actual rate is evaluator-only. Because the input was obtained
+by the same relation's inverse controller, this query returns the requested
+rate algebraically. Its error against the realized plant checks relation/readout
+accuracy; it is not independent predictive validation. The frozen comparator
+is queried on the same observations, not run as a separate controller.
+
+Supplementary S18 inventories the retained historical implementations; S20 specifies the current direct examples. The current Fourier prediction uses a new input with no later output assimilation, rather than the historical inverse-command consistency check above. Contact uses a frozen initial row only as a same-stream diagnostic; Burgers runs separate adaptive/frozen control trajectories. Small incompatibility alone does not establish physical identification, and retained historical implementations do not all execute the central normalized law.

@@ -1,0 +1,135 @@
+{
+  "revision": "direct_main_20261120_final",
+  "availability": "Local accompanying package prepared; no remote release or permanent archive asserted.",
+  "implementation_path": "experiments/direct_submission/",
+  "code_archive": {
+    "filename": "direct_reproducibility_code.zip",
+    "bytes": 22465910,
+    "sha256": "7dcc29750ece800e5fda29d5d45c884ddd6b47d10699008d9e8c38e386bdbe7f"
+  },
+  "raw_archives": {
+    "fourier_raw.tar.gz": {
+      "sha256": "9f207f702eda25fda45e064dd1ffb520f088d1594a1be949e7fb22eadf42b059",
+      "bytes": 48980637,
+      "cases": [
+        "pilot_9001",
+        "refine_clean_dt01",
+        "refine_clean_dt02",
+        "seed_10",
+        "seed_11",
+        "seed_12",
+        "seed_13",
+        "seed_14",
+        "seed_15",
+        "seed_16",
+        "seed_17",
+        "seed_18",
+        "seed_19"
+      ],
+      "file_count": 129,
+      "top_level": "fourier"
+    },
+    "contact_raw.tar.gz": {
+      "sha256": "4f1764f54ea465d19c9482843c3727bcaebdd35cc32b35fe4f809d61a383e219",
+      "bytes": 101839481,
+      "cases": [
+        "confirm_seed101",
+        "confirm_seed102",
+        "confirm_seed103",
+        "confirm_seed104",
+        "confirm_seed105",
+        "pilot_ideal_seed0",
+        "pilot_local_change_seed0",
+        "pilot_local_seed0",
+        "refine_seed101"
+      ],
+      "file_count": 87,
+      "top_level": "contact"
+    },
+    "burgers_raw.tar": {
+      "sha256": "6013313ce8b70c893ac765e831cbe1f3c90b07c93f5ff12b0ad10d4a12d9f3b6",
+      "bytes": 6635110400,
+      "cases": [
+        "causal_clean_s732_dt0p00125",
+        "causal_clean_s732_dt0p0025",
+        "causal_clean_s732_dt0p005",
+        "causal_clean_s733_dt0p005",
+        "causal_clean_s734_dt0p005",
+        "causal_clean_s735_dt0p005",
+        "causal_clean_s736_dt0p005",
+        "causal_noisy_s732_dt0p005",
+        "causal_noisy_s733_dt0p005",
+        "causal_noisy_s734_dt0p005",
+        "causal_noisy_s735_dt0p005",
+        "causal_noisy_s736_dt0p005",
+        "ideal_s732_dt0p00125",
+        "ideal_s732_dt0p0025",
+        "ideal_s732_dt0p005",
+        "ideal_s733_dt0p005",
+        "ideal_s734_dt0p005",
+        "ideal_s735_dt0p005",
+        "ideal_s736_dt0p005"
+      ],
+      "file_count": 3637,
+      "top_level": "burgers"
+    }
+  },
+  "raw_member_index": {
+    "filename": "raw_data_manifest.json",
+    "sha256": "2498c0f824ea60da39a5db1682ce7f2e2d93a0ff0218c91dc09a760a745b4c68",
+    "member_count": 3853
+  },
+  "studies": {
+    "fourier": {
+      "protocol": "direct_fourier_monotone_20261120_v1",
+      "confirmation_seeds": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "all_cases": 13,
+      "free_entries": "Six independent harmonic weights, both evaluated partials free",
+      "readout": "Independent 30-s integrated prediction from final frozen field",
+      "scope": "Known phase/order; exact x and xdot, noisy ydot. Training enforces coefficient normalization only; final frozen denominator has all-phase bound >0.619. No intermediate phase-wide rank guarantee."
+    },
+    "contact": {
+      "confirmation_seeds": [
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "all_cases": 9,
+      "free_entries": 24,
+      "readout": "Same pre-update 3x8 field controls force/motion through a parameter change",
+      "scope": "Ideal context-rate sensing, maintained contact, approximate rowspace recovery, no precise canonical physical magnitudes. Timestep sensitivity retained."
+    },
+    "burgers": {
+      "ideal_seeds": [
+        732,
+        733,
+        734,
+        735,
+        736
+      ],
+      "all_cases": 19,
+      "new_scientific_runs_in_final_pass": 0,
+      "free_entries": "Five per site, 32 sites",
+      "readout": "Same pre-update rows, own-trajectory adaptive/frozen control",
+      "scope": "Ideal w and wt sensing, causal 0.05-s context secants. Five late adaptive successes; only two strict training qualifications. All causal/noisy failures and refinements retained."
+    }
+  },
+  "tests": {
+    "public_regression_passed": 52,
+    "legacy_regression_passed": 27
+  },
+  "historical_records": "Separate unchanged archives in REPRODUCTION_20261118.json, SUPPLEMENTARY_STUDIES_20261118.json, NORMALIZED_FOURIER_20261118.json. Original missing historical ZIPs are not recovered."
+}

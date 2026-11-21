@@ -1,0 +1,117 @@
+\section{Direct-partial learning, representation, and readout}
+\label{sec:direct_main}
+This section supports the current main figures. It replaces their evidence
+basis, not the identity of earlier records. Every displayed adaptive entry
+is learned directly from observed incompatibility; none is produced by
+fitting a physical residual coefficient and differentiating it. The current
+code is in \path{experiments/direct_submission/}. Complete source snapshots,
+configurations, observations, pre-update representations, and checksums
+identify the executed versions.
+
+\subsection{Common learning law and information boundary}
+With fixed diagonal context units $D$, a local field is
+$\widehat F=QD^{-1}$ and the observation is $v=D^{-1}\dot z_m$, or the
+explicitly stated causal secant. At every sample, all entries of $Q$ are
+free, with $QQ^{\mathsf T}=I$ and initially zero memory:
+\begin{equation}
+ \dot R=vv^{\mathsf T}-\lambda R,\qquad
+ \dot Q=-\eta\{QR-(QRQ^{\mathsf T})Q\}.
+ \label{eq:direct_common_law}
+\end{equation}
+For Fourier, substitute the lifted measured rate and its independent harmonic
+field weights. This is the main paper's normalized law, not the sampled
+physical-coefficient update in Section~\ref{sec:numerics}. The learner API
+has observations, current representation/memory, units, and numerical settings;
+it has no physical residual, true partial, simulator parameter, or oracle
+coefficient initialization. No eigenvector replaces the adaptive update.
+
+All observations over one numerical update are held. For forgetting time
+$\tau=1/\lambda$, the memory used at each integration stage is
+\begin{equation}
+ R(s)=e^{-s/\tau}R_n+\tau(1-e^{-s/\tau})v_nv_n^{\mathsf T},
+ \qquad 0\le s\le h_s.
+ \label{eq:direct_stage_memory}
+\end{equation}
+Contact integrates the nonlinear normalized equation with DOP853 and a tiny
+endpoint polar correction. The scalar Fourier row can equivalently normalize
+the solution of $\dot a=-\eta R(s)a$: differentiating $a/\|a\|$ gives
+(\ref{eq:direct_common_law}). This equivalence holds for evolving $R$.
+Burgers uses subdivided RK4 with this same stage memory and unit retractions.
+Independent joint-ODE comparisons test the actual numerical transitions.
+Neither a frozen-memory exponential nor a batch eigensolver is mislabeled
+as the evolving-memory law.
+
+For a query, supply $v_S$ and compute
+\begin{equation}
+ \widehat v_C=-Q_C^\dagger Q_Sv_S.
+ \label{eq:direct_common_readout}
+\end{equation}
+Units are restored before applying physical commands. When a command derivative
+is returned, the command is integrated from its currently known value.
+The main experiments do not reconstruct the physical simulator residual
+for this operation. Conditioning guards and actuator restrictions remain
+explicit. A guarded fallback, where present in the retained Burgers
+challenge, is counted as a failure of learned completion, not a success.
+
+\begin{table*}[t]
+\centering
+\caption{Information supplied to the current main learners and readouts.
+Physical parameters and Jacobians are simulator/evaluator only in every row.}
+\begin{tabular}{p{.12\textwidth}p{.31\textwidth}p{.25\textwidth}p{.225\textwidth}}
+\toprule Study & Observations and supplied choices & Free learned entries & Readout and scope \\
+\midrule
+Fourier & Exact $x,\dot x$, noisy $\dot y$; known phase $20x$, order $K=1$, one constraint, units & Six independent harmonic weights; both evaluated entries free & Frozen learned field predicts a separate 30-s episode; one initial output calibration. \\
+Contact & Ideal eight-channel context and its time rates; three constraints and declared units & All 24 entries of a local $3\times8$ row-orthonormal field & Same pre-update field completes acceleration/input rates for force and motion control; approximate subspace recovery. \\
+Burgers & Ideal $w,w_t$, spatial derivatives of observed $w$, known $u$; causal $.05$-s context secants & Five independent entries at each of 32 sites; no supplied $w_t$ or input coefficient & Same pre-update rows return input rates; full sensing/actuation; separate causal/noisy challenges fail. \\
+\bottomrule
+\end{tabular}
+\label{tab:direct_information}
+\end{table*}
+
+\subsection{Distinct interpretation of the diagnostics}
+Pre-update energy measures compatibility with the actual measured/estimated
+rate. Physical recovery uses $\|P_Q-P_{FD}\|_F$ in fixed units; a display gauge
+is an evaluator operation and never changes the learner or command.
+Readout error compares a learned completion with the physical completion of
+the same supplied query, while task error compares the executed trajectory
+with its reference. These are different quantities. A small task error need
+not identify every direction, and a positive noisy covariance gap need not
+identify the physical field. Physical-row energy on noisy or finite-secant
+observations is a reference, not a universal minimum.
+
+The learned local rows describe the visited trajectory. No globally
+integrable residual or off-trajectory identification is inferred from the
+plots. Main theorem statements and complete proofs remain in the main paper;
+these numerical tests do not certify all their hypotheses. In particular,
+contact's residual subspace error and small canonical material entry limit
+physical coefficient interpretation, and Burgers' ideal sensing cannot be
+replaced by an inaccurate derivative estimator without changing the outcome.
+
+\input{direct_fourier_protocol}
+\input{direct_contact_protocol}
+\input{direct_burgers_protocol}
+
+\subsection{Records, reproduction, and release identity}
+The direct-study package contains independent executable subdirectories for
+\path{fourier/}, \path{contact/}, and \path{burgers/}, their declared
+protocols, and commands to reproduce into new output directories. The final
+package manifest binds source hashes, figure inputs, compact replay data,
+and complete raw-data archives. Original run records are immutable; display
+or packaging corrections create separate analysis artifacts. The Burgers
+portable wrapper changes import/command-line/provenance plumbing only;
+its scientific functions and native numerical kernel are checked against
+the executed sources.
+
+Every seed and failed query is retained. Fourier and contact pilot records
+are identified as exploratory and excluded from confirmation statistics.
+Contact's first pilot fails its query guard; the later reference protocol
+was fixed before the five new initializations. The Burgers ideal cohort is
+not a newly rerun favorable subset: all 19 declared cases, including failed
+sensing challenges and numerical refinements, remain reported together.
+These disclosures preserve the distinction between a successful scoped
+simulation, exploratory design, and broad robustness evidence.
+
+The local package accompanies the revised documents. No claim that its
+current revision is already a public GitHub release or permanent external
+archive is made. Full raw data have separate checksums from compact
+reproduction/figure records and from every earlier structured-study archive.

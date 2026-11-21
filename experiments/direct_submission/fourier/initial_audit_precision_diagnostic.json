@@ -1,0 +1,80 @@
+[
+  {
+    "run": "pilot_9001",
+    "stable_projector_mean": 4.007746115706781e-05,
+    "saved_projector_mean": 4.007746655956393e-05,
+    "difference": 5.40249611811084e-12
+  },
+  {
+    "run": "seed_10",
+    "stable_projector_mean": 5.968306337424887e-05,
+    "saved_projector_mean": 5.9683071334932554e-05,
+    "difference": 7.960683680178007e-12
+  },
+  {
+    "run": "seed_11",
+    "stable_projector_mean": 4.7770280495933445e-05,
+    "saved_projector_mean": 4.777028166516037e-05,
+    "difference": 1.1692269263788128e-12
+  },
+  {
+    "run": "seed_12",
+    "stable_projector_mean": 7.732943273638049e-05,
+    "saved_projector_mean": 7.732943657125928e-05,
+    "difference": 3.834878784967841e-12
+  },
+  {
+    "run": "seed_13",
+    "stable_projector_mean": 7.066352323063452e-05,
+    "saved_projector_mean": 7.066352457172586e-05,
+    "difference": 1.3410913411683253e-12
+  },
+  {
+    "run": "seed_14",
+    "stable_projector_mean": 5.3648310381000664e-05,
+    "saved_projector_mean": 5.364830936642731e-05,
+    "difference": 1.0145733537157697e-12
+  },
+  {
+    "run": "seed_15",
+    "stable_projector_mean": 6.878014236617347e-05,
+    "saved_projector_mean": 6.878014531946594e-05,
+    "difference": 2.953292463554226e-12
+  },
+  {
+    "run": "seed_16",
+    "stable_projector_mean": 5.4824170649200726e-05,
+    "saved_projector_mean": 5.482417545652918e-05,
+    "difference": 4.807328451603924e-12
+  },
+  {
+    "run": "seed_17",
+    "stable_projector_mean": 7.665821692567488e-05,
+    "saved_projector_mean": 7.665821887479223e-05,
+    "difference": 1.949117354061586e-12
+  },
+  {
+    "run": "seed_18",
+    "stable_projector_mean": 8.396613868400943e-05,
+    "saved_projector_mean": 8.396613345885627e-05,
+    "difference": 5.225153155204859e-12
+  },
+  {
+    "run": "seed_19",
+    "stable_projector_mean": 4.5798414733273146e-05,
+    "saved_projector_mean": 4.579841332988134e-05,
+    "difference": 1.4033918070612689e-12
+  },
+  {
+    "run": "refine_clean_dt02",
+    "stable_projector_mean": 9.149945130633193e-15,
+    "saved_projector_mean": 4.2166964027794234e-09,
+    "difference": 4.216687252834293e-09
+  },
+  {
+    "run": "refine_clean_dt01",
+    "stable_projector_mean": 6.3814096158590196e-15,
+    "saved_projector_mean": 4.528209136097473e-09,
+    "difference": 4.528202754687857e-09
+  }
+]

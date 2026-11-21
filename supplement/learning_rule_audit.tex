@@ -1,0 +1,413 @@
+% Supporting analysis of the public implementations. No main-paper proof is
+% moved here, and this file has no dependency on the private manuscript.
+\newtheorem{auditproposition}{Proposition}
+\renewcommand{\theauditproposition}{S.A\arabic{auditproposition}}
+
+\section{Learning-rule audit and additional supporting proofs}
+\label{sec:learning_rule_audit}
+
+This section audits the retained coefficient-based contact, Burgers, and
+bounded Fourier studies; the current direct-field main experiments are
+documented separately in Section~\ref{sec:direct_main}.
+They estimate coefficients of prescribed implicit relations
+and obtain their evaluated context partials by differentiation. Their adaptive
+updates receive observed features, not target Jacobian entries. This is
+coefficient estimation with a structured differential evaluation. It is
+not the direct all-entry learning mechanism specified in
+Section~\ref{sec:scope}: physical
+coefficients, feature families, residual levels, and selected sensing channels
+are supplied. These studies implement constrained sampled
+coefficient updates; they do not numerically integrate the unrestricted
+row-Stiefel learning flow. The distinctions below specify what the numerical
+evidence can support. The retained normalized Fourier experiment is audited
+separately in Section~\ref{sec:normalized_fourier_results}; it adapts all
+seven coefficients and numerically integrates the coupled normalized law,
+but still derives its partials from a supplied residual family.
+
+\subsection{Exact update, scaling, and current-candidate memory}
+Write the physical free coefficients as $c=D_s\theta$, where $D_s$ is the
+positive diagonal matrix of optimization scales. For observed free features
+$a_{n,\ell}$ and a supplied contribution $b_{n,\ell}$, the implemented
+implicit feature row is
+\begin{equation}
+ v_{n,\ell}=\col(D_sa_{n,\ell},b_{n,\ell}),\qquad
+ q_\theta=\col(\theta,1).
+ \label{eq:audit_channels}
+\end{equation}
+Thus $q_\theta^{\mathsf T}v_{n,\ell}=c^{\mathsf T}a_{n,\ell}+b_{n,\ell}$;
+scaling changes optimization coordinates, not the physical residual.
+Let $N_n$ be the number of simultaneous spatial samples and let
+$\beta=\exp(-h/\tau_m)$. After scoring the new sample with $\theta_{n-1}$,
+the code sets
+\begin{align}
+ R_n&=\beta R_{n-1}+\frac{1-\beta}{N_n}
+       \sum_{\ell=1}^{N_n}v_{n,\ell}v_{n,\ell}^{\mathsf T},\\
+ H_n&=(R_n)_{1:p,1:p},\qquad g_n=(R_n)_{1:p,p+1}.
+\end{align}
+Starting from $R_0=0$ and $\theta_n^{(0)}=\theta_{n-1}$, it sets
+\begin{align}
+ \alpha_n&=\frac{1}{\max(\tr H_n,10^{-12})},\\
+ \theta_n^{(j+1)}&=\Pi_{\mathcal W}
+ \bigl(\theta_n^{(j)}-\alpha_n(H_n\theta_n^{(j)}+g_n)\bigr).
+ \label{eq:audit_exact_update}
+\end{align}
+The output is $\theta_n=\theta_n^{(M)}$ and $\mathcal W$ is the scaled
+coefficient box. Contact uses $M=48$;
+Bounded Fourier and Burgers use $M=8$. Burgers stores its unscaled moment with
+the fixed channel first; permuting that channel and applying $D_s$ gives
+exactly the same recurrence. Material and secant observations begin only
+when the specified observation window is full. Contact's kinematic rows
+start accumulating at the first sample. At the terminal sample the memory
+may still be updated, but the coefficients and physical state are not.
+
+\begin{auditproposition}[One candidate over the entire stored history]
+\label{prop:audit_memory}
+For any sequence of observed feature rows and any candidate $\vartheta$,
+including a candidate never used when the data were collected,
+\begin{equation}
+ \frac12q_\vartheta^{\mathsf T}R_nq_\vartheta
+ =\frac{1-\beta}{2}\sum_{i=1}^{n}\frac{\beta^{n-i}}{N_i}
+   \sum_{\ell=1}^{N_i}(q_\vartheta^{\mathsf T}v_{i,\ell})^2.
+ \label{eq:audit_memory_identity}
+\end{equation}
+Its free gradient is $H_n\vartheta+g_n$. Each inner step in
+(\ref{eq:audit_exact_update}) decreases this fixed objective by at least
+$\|\theta_n^{(j+1)}-\theta_n^{(j)}\|^2/(2\alpha_n)$.
+\end{auditproposition}
+\begin{IEEEproof}
+Unrolling the linear recursion gives
+$R_n=(1-\beta)\sum_{i=1}^n\beta^{n-i}N_i^{-1}
+\sum_\ell v_{i,\ell}v_{i,\ell}^{\mathsf T}$.
+Multiplication by the same $q_\vartheta$ on both sides proves
+(\ref{eq:audit_memory_identity}); differentiation gives the stated
+gradient. Let $d=\theta^+-\theta$ for one projected step. Projection onto
+the convex box gives $(H_n\theta+g_n)^{\mathsf T}d\le-\|d\|^2/\alpha_n$.
+The exact quadratic expansion then gives
+\begin{align*}
+ \mathcal J_n(\theta+d)-\mathcal J_n(\theta)
+ &\le-\|d\|^2/\alpha_n+d^{\mathsf T}H_nd/2\\
+ &\le-\|d\|^2/(2\alpha_n),
+\end{align*}
+because $H_n\succeq0$ and
+$\alpha_n\lambda_{\max}(H_n)\le\alpha_n\tr H_n\le1$.
+\end{IEEEproof}
+The identity holds for dependent, overlapping, closed-loop observations;
+independence is unnecessary for this algebra. It proves that old residuals
+are reevaluated at the current candidate through sufficient statistics.
+It does not prove statistical consistency, physical excitation, or monotone
+energy when a new observation changes $R_n$.
+
+\subsection{What is observed and what is learned}
+\subsubsection{Contact}
+The material relation is
+\begin{equation}
+ f_c=\dot\lambda-s^{\mathsf T}\beta(x)+ay+\rho\lambda
+       -r^{\mathsf T}\beta'(x)v_x+bv_y=0,
+ \label{eq:audit_contact_relation}
+\end{equation}
+with learned $c=\col(s,a,r,b)$. Its partials, in the declared context
+$(x,y,\lambda,v_x,v_y,\dot\lambda,u_1,u_2)$, are
+\begin{equation}
+ F_c=\bigl[-s^{\mathsf T}\beta'(x)-r^{\mathsf T}\beta''(x)v_x,
+ a,\rho,-r^{\mathsf T}\beta'(x),b,1,0,0\bigr].
+ \label{eq:audit_contact_partials}
+\end{equation}
+The two additional rows come from $v-Bu=0$; their velocity identity block
+is supplied and their input block $-B$ is learned. Both material vectors
+$s,r$, both material scalars $a,b$, and all four entries of $B$ adapt.
+The constant $\rho=4$, the unit coefficient of $\dot\lambda$, the unit
+velocity block, and the functional form of $\beta$ are supplied.
+
+Let $\Delta$ be the material observation window and let $\delta$ denote
+its endpoint difference. Integrating (\ref{eq:audit_contact_relation})
+with one fixed candidate gives the observed material incompatibility
+\begin{equation}
+ \begin{split}
+ \xi_c=\Delta^{-1}\biggl[&\delta\lambda-s^{\mathsf T}\!\int\beta(x)\dd t
+ +a\!\int y\dd t\\
+ &+\rho\!\int\lambda\dd t-r^{\mathsf T}\delta\beta(x)+b\delta y\biggr].
+ \end{split}
+ \label{eq:audit_contact_integral}
+\end{equation}
+The implementation uses trapezoidal quadrature and measured force for
+$\lambda$; it does not train on clean $\dot\lambda$ or on a target $F_c$.
+The kinematic learner uses the instantaneous measured residual $v_m-Bu$.
+Consequently these two contact updates use calibrated integral-level and
+velocity-level relations, respectively. They are not measurements of the
+raw-context differential incompatibility $F\dot z$. At the material
+change, a window can contain two different physical coefficient sets;
+such windows are retained and marked, rather than assumed exactly
+compatible with either fixed coefficient vector.
+
+The controller estimates the surface slope from the noisy two-component
+force measurement:
+\begin{equation*}
+ \widehat h'_m=-f_{m,x}/\max(f_{m,y},0.2).
+\end{equation*}
+The simulator generates
+that force through the true surface, as a physical sensor would respond to
+the environment. The controller does not receive the true geometric
+coefficient vector. Its curvature estimate uses the learned ratio $s/a$.
+Thus geometry is partly observed through force direction and partly
+inferred through the learned relation. The true surface also fixes the
+initial physical contact and the evaluator's indentation diagnostic.
+These are separate from the adaptive update.
+
+\subsubsection{Bounded Fourier comparison}
+For $h(\phi)=(1,\cos\phi,\sin\phi)^{\mathsf T}$,
+the learned six coefficients define
+\begin{align}
+ \rho_c(\phi)&=c_\rho^{\mathsf T}h(\phi),&
+ \kappa_c(\phi)&=c_\kappa^{\mathsf T}h(\phi),\\
+ f_c(x,v,u,\phi)&=\rho_c(\phi)v+\kappa_c(\phi)x-u.
+\end{align}
+The evaluated derivative is
+\begin{equation}
+ F_c=\bigl[\kappa_c,\rho_c,-1,
+ c_\rho^{\mathsf T}h'(\phi)v+c_\kappa^{\mathsf T}h'(\phi)x\bigr].
+ \label{eq:audit_fourier_partials}
+\end{equation}
+The state, rate, and phase columns therefore depend on learned coefficients;
+only the input partial $-1$ is fixed. The rate measurement is noisy; the
+state and phase are exact in this model. The phase law $\phi=4t$ and the
+harmonic basis are supplied, so the experiment does not learn a frequency
+or discover the basis. The displayed phase partial is with respect to
+$\phi$, not $t$; the clock contribution along the trajectory is multiplied
+by $\dot\phi=4$.
+
+The learner differences the complete observed feature vector
+$(h(\phi)v_m,h(\phi)x,-u)$ over the declared window, with the same current
+coefficient vector at both endpoints. Thus the phase-state and phase-rate
+product terms are retained. A $K=0$ shadow receives the identical stream
+but is restricted to two constant coefficients; it has the same memory
+mechanism. It is a basis ablation, not an independent estimator of matched
+capacity. The separate $K=0$ controller generates its own trajectory.
+
+\subsubsection{Burgers}
+At each grid point, with context $(w,w_s,w_{ss},u,w_t)$,
+\begin{align}
+ f_c&=w_t+c_a w w_s-\nu w_{ss}-bu,\\
+ F_c&=(c_a w_s,c_a w,-\nu,-b,1).
+ \label{eq:audit_burgers_partials}
+\end{align}
+The three coefficients $c_a,\nu,b$ adapt. Four of the five evaluated
+partials depend on those coefficients; the $w_t$ partial is supplied.
+The learner differences complete features $(w_{t,m},ww_s,-w_{ss},-u)$,
+including the nonlinear product as a whole. State values and their
+spectral spatial derivatives are exact sensing channels; only $w_t$ is
+noisy. The plant and learner use the same collocation product and spatial
+operators, with full-field sensing and actuation. This is a matched
+semidiscrete-model experiment, not independent continuous-PDE validation
+or evidence for sparse sensors, unknown spatial operators, or model mismatch.
+
+\subsection{Complete-feature secants and the derivative being estimated}
+\begin{auditproposition}[Fixed-candidate secant identity]
+\label{prop:audit_secant}
+Let $f_\theta(z)=Q_\theta\zeta(z)$ be continuously differentiable on the
+line segment between $z_-$ and $z_+$ and fix $\theta$. For $\Delta>0$,
+\begin{align}
+ Q_\theta\frac{\zeta(z_+)-\zeta(z_-)}{\Delta}
+ &=\frac{f_\theta(z_+)-f_\theta(z_-)}{\Delta}\\
+ &=\frac{1}{\Delta}\int_0^1 F_\theta(z_-+s\delta z)\delta z\dd s,
+ \label{eq:audit_secant_identity}
+\end{align}
+where $\delta z=z_+-z_-$. If $F_\theta$ is $K$-Lipschitz on that segment,
+the difference between this secant and
+$F_\theta(z_-)\delta z/\Delta$ is at most
+$K\|\delta z\|^2/(2\Delta)$.
+\end{auditproposition}
+\begin{IEEEproof}
+Linearity gives the first equality. Apply the fundamental theorem of
+calculus to $s\mapsto f_\theta(z_-+s\delta z)$ for the second. Subtract
+$F_\theta(z_-)\delta z/\Delta$ inside the integral and use
+$\|F_\theta(z_-+s\delta z)-F_\theta(z_-)\|\le Ks\|\delta z\|$;
+integration of $s$ over $[0,1]$ gives the bound.
+\end{IEEEproof}
+This result includes every complete-product and clock term without
+assuming that held commands are temporally smooth. The segment is an
+algebraic interpolation of context endpoints, not a claim that the plant
+followed that segment. With noisy endpoints or command changes, the
+observed secant is not an exact instantaneous sample of $F\dot z$.
+
+In all three models $F_\theta=D_zf_\theta$ holds with the candidate fixed.
+If both the state and coefficients vary, the different identity
+\begin{equation}
+ \frac{\dd}{\dd t}f_{\theta(t)}(z(t))
+ =F_{\theta(t)}(z(t))\dot z(t)
+   +\partial_\theta f_{\theta(t)}(z(t))\dot\theta(t)
+ \label{eq:audit_adapting_residual}
+\end{equation}
+contains the parameter term. The code does not difference residual values
+evaluated with old coefficients at one endpoint and new coefficients at
+the other, so it does not inadvertently insert or omit this adaptation
+term in a fixed-candidate derivative. Compatibility alone also cannot
+identify an additive residual level: $f$ and $f+C$ have the same
+differential and complete-feature differences. The direct readouts use
+the explicitly supplied zero level.
+
+\subsection{A conditional tracking bound for the actual sampled update}
+The following result applies to the implemented box-constrained quadratic
+update. It makes no identification claim when excitation is absent and
+does not import a Stiefel-flow convergence rate.
+
+\begin{auditproposition}[Optimization tracking and physical bias]
+\label{prop:audit_tracking}
+At each observation $n$, suppose $\mathcal W$ is a fixed nonempty closed
+convex set, $\mu_n I\preceq H_n\preceq L_nI$ with $\mu_n>0$, and
+$0<\alpha_n\le1/L_n$. Let $\theta_n^\circ$ be the unique minimizer
+of $\mathcal J_n$ over $\mathcal W$, and let $M_n\ge1$ projected steps begin
+at $\theta_{n-1}$. Define
+\begin{equation}
+ r_n=(1-\alpha_n\mu_n)^{M_n},\quad
+ d_n=\|\theta_n^\circ-\theta_{n-1}^\circ\|,\quad
+ e_n=\|\theta_n-\theta_n^\circ\|.
+\end{equation}
+Then $e_n\le r_n(e_{n-1}+d_n)$. If $r_n\le\bar r<1$ and
+$d_n\le\bar d$ on an interval of $n$ observations,
+\begin{equation}
+ e_n\le\bar r^{\,n}e_0+
+       \frac{\bar r(1-\bar r^{\,n})}{1-\bar r}\bar d.
+ \label{eq:audit_optimizer_tracking}
+\end{equation}
+For any feasible physical coefficient target $\theta_n^*$,
+\begin{equation}
+ \|\theta_n^\circ-\theta_n^*\|
+ \le\frac{\|\nabla\mathcal J_n(\theta_n^*)\|}{\mu_n}.
+ \label{eq:audit_physical_bias}
+\end{equation}
+The indices can be restarted after a warm-up interval on which positive
+curvature was not available.
+\end{auditproposition}
+\begin{IEEEproof}
+The minimizer satisfies the projection fixed-point identity
+$\theta_n^\circ=\Pi_{\mathcal W}(\theta_n^\circ-
+\alpha_n\nabla\mathcal J_n(\theta_n^\circ))$.
+Projection is nonexpansive, while the difference of the two unprojected
+updates is $(I-\alpha_nH_n)(\theta-\theta_n^\circ)$.
+The eigenvalues of this symmetric matrix lie in
+$[0,1-\alpha_n\mu_n]$, proving contraction by that factor. Iterating
+$M_n$ times and applying the triangle inequality to the previous target
+gives $e_n\le r_n(e_{n-1}+d_n)$. Unrolling this scalar recurrence
+gives (\ref{eq:audit_optimizer_tracking}).
+
+For the bias claim set $d=\theta_n^\circ-\theta_n^*$.
+The variational inequality at the constrained minimizer gives
+$d^{\mathsf T}\nabla\mathcal J_n(\theta_n^\circ)\le0$.
+Since the gradient difference is $H_nd$,
+\begin{equation*}
+ \mu_n\|d\|^2\le d^{\mathsf T}H_nd
+ \le-d^{\mathsf T}\nabla\mathcal J_n(\theta_n^*)
+ \le\|d\|\,\|\nabla\mathcal J_n(\theta_n^*)\|.
+\end{equation*}
+Divide by $\|d\|$ when nonzero; the zero case is immediate.
+\end{IEEEproof}
+Here $\nabla\mathcal J_n(\theta_n^*)$ measures retained-data
+incompatibility in free-coefficient directions. It can be nonzero because
+of sensing noise, quadrature, model mismatch, or a physical change within
+retained history. A positive empirical curvature caused partly by noise
+does not imply a small bias term. At a material jump the target drift can
+be large; neither the bound nor the experiment implies instantaneous
+tracking. When $H_n$ is singular, the descent result remains valid but
+strict contraction and unique identification do not follow.
+
+\subsection{From coefficient error to evaluated derivative error}
+For any of these prescribed families, stack its evaluated partials into
+one vector and write
+\begin{equation}
+ \operatorname{vec}F_\theta(z)=a(z)+B(z)\theta.
+ \label{eq:audit_partial_map}
+\end{equation}
+The fixed terms are in $a$; optimization scales are included in $B$.
+Equations (\ref{eq:audit_contact_partials}),
+(\ref{eq:audit_fourier_partials}), and
+(\ref{eq:audit_burgers_partials}) specify this map directly.
+
+\begin{auditproposition}[Evaluated derivative tracking]
+\label{prop:audit_partial_error}
+Let $W$ be any fixed diagonal weighting of vectorized partial entries and
+let $P_U$ be the diagonal coordinate mask, of the same dimension,
+that retains only entries depending on unknown coefficients.
+At a common context $z$, the same-family coefficient target obeys
+\begin{align}
+ \|WP_U\operatorname{vec}(F_\theta-F_{\theta^*})\|
+ &\le\|WP_UB(z)\|\,\|\theta-\theta^*\|.\label{eq:audit_partial_error}
+\end{align}
+Under Proposition~\ref{prop:audit_tracking}, this error for $\theta_n$
+is bounded by
+\begin{equation}
+ \|WP_UB(z)\|
+ \left(e_n+\frac{\|\nabla\mathcal J_n(\theta_n^*)\|}{\mu_n}\right).
+ \label{eq:audit_partial_tracking}
+\end{equation}
+If the physical differential is not in the family, its discrepancy from
+$F_{\theta_n^*}$ must be added to the right-hand side.
+\end{auditproposition}
+\begin{IEEEproof}
+Subtract (\ref{eq:audit_partial_map}) at $\theta$ and $\theta^*$.
+The fixed part cancels and the operator-norm inequality gives
+(\ref{eq:audit_partial_error}). Use the triangle inequality
+$\|\theta_n-\theta_n^*\|\le e_n+
+\|\theta_n^\circ-\theta_n^*\|$ and
+(\ref{eq:audit_physical_bias}) for the second conclusion. A second
+triangle inequality adds any outside-family discrepancy.
+\end{IEEEproof}
+This calculation explains both the capability and its limitation:
+constant learned coefficients can represent rapidly changing evaluated
+partials, but successful optimization does not ensure accurate physical
+partials without small bias and a suitable family. The norm of $B(z)$
+can amplify coefficient error, especially in the Fourier phase column
+or contact curvature term. This is why evaluated partials, rather than
+coefficient error alone, are reported.
+The reported pre-update partials use $\theta_{n-1}$ at the current context.
+For those scores, the same bound holds with $e_n$ replaced by
+$e_{n-1}+d_n$; this follows before applying the current optimization
+steps. Post-update improvement is not substituted for pre-update accuracy.
+For contact, the optimizer bound is applied separately to the material
+fit and each kinematic row, using their own curvature and step sizes;
+the three coefficient-error bounds combine by the Euclidean norm before
+applying the full derivative map. A common step size across these fits
+is not assumed.
+
+The unknown-only diagnostic excludes the supplied $\rho$, unit blocks,
+and fixed zero entries in contact; the $-1$ input partial in Fourier;
+and the unit $w_t$ partial in Burgers. With the same physical scaling,
+define
+\begin{equation}
+ e_{F,U}=\frac{\|WP_U\operatorname{vec}(\widehat F-F)\|}
+ {\|WP_U\operatorname{vec}F\|}.
+ \label{eq:audit_unknown_only}
+\end{equation}
+This ratio requires a nonzero denominator; zero-denominator cases must
+be reported separately. Correct supplied blocks contribute nothing to
+the error numerator but increase the full-matrix denominator, so full
+relative errors can understate error in learned entries. Both conventions
+should be distinguished. Neither pointwise derivative accuracy nor a
+small compatibility energy alone establishes closed-loop stability.
+
+\subsection{Information-flow checks and remaining limitations}
+The public test file \path{tests/test_information_boundaries.py}
+deliberately replaces the clean diagnostic histories and the evaluated
+Jacobian functions with corrupted values while preserving the plant,
+sensors, references, and random stream. For the three structured learned branches,
+the physical trajectories, controls, and learned coefficient sequences
+remain identical; the diagnostic outputs change. A positive-control test
+changes Fourier's measured rate noise and observes changed learning,
+while preserving the first premeasurement command. Another test forbids
+access to the true-coefficient configuration when constructing and
+updating the Burgers learner. These tests complement source tracing and
+the existing finite-difference and current-candidate memory tests. They
+do not constitute a proof that every possible future code change or
+unexamined branch is free from information leakage.
+
+The present audit found no evaluator-to-learner or evaluator-to-controller
+path in the adaptive branches examined. True coefficients generate the
+physical plant and simulated measurements, and are used by explicitly
+named oracle baselines and evaluators. This is different from supplying
+them as learning targets. Nevertheless, the examples assume correct
+functional families, physically informed coefficient boxes, selected
+known coefficients, and calibrated levels. Fourier additionally supplies
+phase and frequency; Burgers supplies exact state/spatial channels and
+matched discretization; contact measures force direction. These declared
+advantages prevent interpreting the experiments as unrestricted equation
+discovery or as validation of every convergence hypothesis of the
+continuous-time theory.

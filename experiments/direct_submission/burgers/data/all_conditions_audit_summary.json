@@ -1,0 +1,944 @@
+{
+  "protocol_sha256": "22e225ae5ad2c275dd199bad2e93ea1f0221e51bba851c1e278fb7b4328f7980",
+  "aggregates": {
+    "ideal": {
+      "planned_count": 5,
+      "audited_count": 5,
+      "started_count": 5,
+      "training_complete_count": 5,
+      "adaptive_complete_count": 5,
+      "frozen_complete_count": 5,
+      "near_identified_training_count": 2,
+      "adaptive_late_pass_count": 5,
+      "training_per_criterion_pass_counts": {
+        "field_mean": 5,
+        "field_p95": 4,
+        "field_max": 4,
+        "worst_site_mean": 2,
+        "initial_shadow_ratio": 5
+      },
+      "windows": {
+        "training_training_evaluation": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 0.013702129062156555,
+              "standard_deviation": 0.0100539817157621,
+              "minimum": 0.006120812180054087,
+              "maximum": 0.030718214483463634
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 0.07379942055304528,
+              "standard_deviation": 0.07334298735933933,
+              "minimum": 0.022000368496865368,
+              "maximum": 0.1987722638031687
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.0077525683927546826,
+              "standard_deviation": 9.69739903612216e-19,
+              "minimum": 0.007752568392754683,
+              "maximum": 0.007752568392754683
+            }
+          }
+        },
+        "adaptive_control": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 0.015643540094713394,
+              "standard_deviation": 0.003088729268774262,
+              "minimum": 0.01363803681166189,
+              "maximum": 0.02101825423001878
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 0.0357937496933539,
+              "standard_deviation": 0.018420112503558076,
+              "minimum": 0.026010645591102437,
+              "maximum": 0.06843341568622321
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.0012236446022593954,
+              "standard_deviation": 2.3074524956240822e-07,
+              "minimum": 0.0012234629068280896,
+              "maximum": 0.001224040422897471
+            }
+          }
+        },
+        "adaptive_late": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 0.013657582567495117,
+              "standard_deviation": 0.0006380952847080468,
+              "minimum": 0.013222031557729764,
+              "maximum": 0.014729344158101107
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 0.025429033225525997,
+              "standard_deviation": 0.0010299010776495536,
+              "minimum": 0.024878773417754463,
+              "maximum": 0.027262042752759612
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 8.572172276232737e-06,
+              "standard_deviation": 1.8563059521361056e-07,
+              "minimum": 8.446009209632204e-06,
+              "maximum": 8.900484935662382e-06
+            }
+          }
+        },
+        "frozen_control": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 0.020901498889620413,
+              "standard_deviation": 0.009000143185009605,
+              "minimum": 0.01432612435177378,
+              "maximum": 0.03629155723199669
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 0.07141593359998497,
+              "standard_deviation": 0.06669585249974927,
+              "minimum": 0.028373826445015744,
+              "maximum": 0.1866878614539484
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.001223943431736569,
+              "standard_deviation": 6.171659244645305e-07,
+              "minimum": 0.0012235302667958218,
+              "maximum": 0.001225012829400484
+            }
+          }
+        },
+        "frozen_late": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 0.021352191001694998,
+              "standard_deviation": 0.009322909782652999,
+              "minimum": 0.014271677711209857,
+              "maximum": 0.03731414821741563
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 0.07396171929718907,
+              "standard_deviation": 0.06550097412204849,
+              "minimum": 0.027398662600827135,
+              "maximum": 0.18716439668917148
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 2.4811028425205085e-05,
+              "standard_deviation": 1.5237101138124056e-05,
+              "minimum": 1.1794207621036258e-05,
+              "maximum": 4.9987333510588986e-05
+            }
+          }
+        }
+      }
+    },
+    "causal_clean": {
+      "planned_count": 5,
+      "audited_count": 5,
+      "started_count": 5,
+      "training_complete_count": 5,
+      "adaptive_complete_count": 5,
+      "frozen_complete_count": 0,
+      "near_identified_training_count": 0,
+      "adaptive_late_pass_count": 0,
+      "training_per_criterion_pass_counts": {
+        "field_mean": 0,
+        "field_p95": 0,
+        "field_max": 0,
+        "worst_site_mean": 0,
+        "initial_shadow_ratio": 0
+      },
+      "windows": {
+        "training_training_evaluation": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 0.47669356602542196,
+              "standard_deviation": 0.00988642914249649,
+              "minimum": 0.4601415973695419,
+              "maximum": 0.4868091881111826
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 1.3959955420652732,
+              "standard_deviation": 0.00012109274133614702,
+              "minimum": 1.39583713247413,
+              "maximum": 1.3961777219035194
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.0077525683927546826,
+              "standard_deviation": 9.69739903612216e-19,
+              "minimum": 0.007752568392754683,
+              "maximum": 0.007752568392754683
+            }
+          }
+        },
+        "adaptive_control": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 0.3091203155403264,
+              "standard_deviation": 0.014906134199880391,
+              "minimum": 0.29842661651932034,
+              "maximum": 0.33543073315316085
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 1.3982868140329843,
+              "standard_deviation": 0.007749502089263453,
+              "minimum": 1.3858716632157249,
+              "maximum": 1.4073613787153625
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.001788664319060443,
+              "standard_deviation": 4.498501350921129e-05,
+              "minimum": 0.0017133432250804584,
+              "maximum": 0.0018226745303410678
+            }
+          }
+        },
+        "adaptive_late": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 0.21244382584471894,
+              "standard_deviation": 0.018404789492058805,
+              "minimum": 0.2009896435870583,
+              "maximum": 0.2451935108568604
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 1.3924250991447824,
+              "standard_deviation": 0.015024188223424523,
+              "minimum": 1.3674760095479233,
+              "maximum": 1.4082293611927785
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.0004303316849818432,
+              "standard_deviation": 0.00011567345641713839,
+              "minimum": 0.00030543063012847596,
+              "maximum": 0.0006212920521665884
+            }
+          }
+        }
+      }
+    },
+    "causal_noisy": {
+      "planned_count": 5,
+      "audited_count": 5,
+      "started_count": 5,
+      "training_complete_count": 5,
+      "adaptive_complete_count": 5,
+      "frozen_complete_count": 5,
+      "near_identified_training_count": 0,
+      "adaptive_late_pass_count": 0,
+      "training_per_criterion_pass_counts": {
+        "field_mean": 0,
+        "field_p95": 0,
+        "field_max": 0,
+        "worst_site_mean": 0,
+        "initial_shadow_ratio": 0
+      },
+      "windows": {
+        "training_training_evaluation": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 1.1452383603073508,
+              "standard_deviation": 0.011795618988789641,
+              "minimum": 1.1354405106327554,
+              "maximum": 1.1630614901900487
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 1.4126946556519937,
+              "standard_deviation": 0.00028622233862325036,
+              "minimum": 1.4122771351089136,
+              "maximum": 1.4130742082420715
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.0077525683927546826,
+              "standard_deviation": 9.69739903612216e-19,
+              "minimum": 0.007752568392754683,
+              "maximum": 0.007752568392754683
+            }
+          }
+        },
+        "adaptive_control": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 1.3837538195926242,
+              "standard_deviation": 0.005916478577567089,
+              "minimum": 1.3785676227552413,
+              "maximum": 1.3919781567415557
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 1.4141747041247403,
+              "standard_deviation": 1.3469025015982407e-05,
+              "minimum": 1.4141634736484359,
+              "maximum": 1.4141959140997402
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.008210864832473358,
+              "standard_deviation": 0.0006741400340423799,
+              "minimum": 0.007327508749218177,
+              "maximum": 0.00900807814951091
+            }
+          }
+        },
+        "adaptive_late": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 1.413615630938346,
+              "standard_deviation": 0.00013281461801497004,
+              "minimum": 1.4133899553814444,
+              "maximum": 1.4137110175000338
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 1.4142088835633502,
+              "standard_deviation": 2.503281953552357e-06,
+              "minimum": 1.41420601700168,
+              "maximum": 1.4142128818441417
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.007955991902904677,
+              "standard_deviation": 0.0010456583912092272,
+              "minimum": 0.006714569361199312,
+              "maximum": 0.009060475021946093
+            }
+          }
+        },
+        "frozen_control": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 1.1460944586800785,
+              "standard_deviation": 0.016144225003548954,
+              "minimum": 1.128592705823303,
+              "maximum": 1.1657211450147766
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 1.4125720209569237,
+              "standard_deviation": 0.00016192260409349503,
+              "minimum": 1.412341466079732,
+              "maximum": 1.4127598467988944
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.003523447281020389,
+              "standard_deviation": 0.0004877939887045667,
+              "minimum": 0.0029847760972457967,
+              "maximum": 0.003965741098299101
+            }
+          }
+        },
+        "frozen_late": {
+          "full_window_count": 5,
+          "planned_count": 5,
+          "metrics": {
+            "field_mean": {
+              "count": 5,
+              "mean": 1.1451565232497993,
+              "standard_deviation": 0.016141834548430715,
+              "minimum": 1.1276186219001687,
+              "maximum": 1.1647487444888096
+            },
+            "field_p95": {
+              "count": 5,
+              "mean": 1.4128487810674621,
+              "standard_deviation": 0.0002824577194247318,
+              "minimum": 1.4125316313564236,
+              "maximum": 1.4131641461153297
+            },
+            "task_global_rms": {
+              "count": 5,
+              "mean": 0.002777385508662092,
+              "standard_deviation": 0.00018130302626692227,
+              "minimum": 0.002602931981041989,
+              "maximum": 0.003025989826767739
+            }
+          }
+        }
+      }
+    }
+  },
+  "refinement": {
+    "ideal": {
+      "0p005_to_0p0025": {
+        "coarse_case": "ideal_s732_dt0p005",
+        "fine_case": "ideal_s732_dt0p0025",
+        "common_grid": {
+          "training": {
+            "samples": 1600,
+            "interval": [
+              0.0,
+              79.95
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 0.00017846185125542207,
+            "u_global_rms_difference": 0.00015458373319587613,
+            "q_projector_distance": {
+              "count": 51200,
+              "mean": 0.0014318071553375128,
+              "p50": 0.00028482287266892975,
+              "p95": 0.007323372956124958,
+              "maximum": 0.03210563133517424
+            }
+          },
+          "adaptive": {
+            "samples": 400,
+            "interval": [
+              80.0,
+              99.95
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 3.068817280351608e-05,
+            "u_global_rms_difference": 2.3684036719547998e-05,
+            "q_projector_distance": {
+              "count": 12800,
+              "mean": 0.00024622525448408906,
+              "p50": 0.00015247309081394648,
+              "p95": 0.0007184693212922626,
+              "maximum": 0.003568315536212435
+            }
+          },
+          "frozen": {
+            "samples": 400,
+            "interval": [
+              80.0,
+              99.95
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 3.0699122581798294e-05,
+            "u_global_rms_difference": 2.446510686849127e-05,
+            "q_projector_distance": {
+              "count": 12800,
+              "mean": 0.0004574856339036882,
+              "p50": 0.0002429749515039263,
+              "p95": 0.000934250995363535,
+              "maximum": 0.003568315536212435
+            }
+          }
+        },
+        "window_metrics": {
+          "training_training_evaluation": {
+            "field_mean": {
+              "coarse": 0.009077995615578148,
+              "fine": 0.008936647383541522,
+              "absolute_change": 0.0001413482320366255,
+              "relative_change": 0.01581669567683114,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 0.007752568392754683,
+              "fine": 0.0077042828717343225,
+              "absolute_change": 4.828552102036088e-05,
+              "relative_change": 0.006267360872419687,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "adaptive_control": {
+            "field_mean": {
+              "coarse": 0.014342119033014075,
+              "fine": 0.014305259032748985,
+              "absolute_change": 3.6860000265089704e-05,
+              "relative_change": 0.0025766747865736805,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 0.0012234629068280896,
+              "fine": 0.0012222202078141467,
+              "absolute_change": 1.2426990139429057e-06,
+              "relative_change": 0.0010167554144480918,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "adaptive_late": {
+            "field_mean": {
+              "coarse": 0.013760670309178425,
+              "fine": 0.013739509787848192,
+              "absolute_change": 2.1160521330233426e-05,
+              "relative_change": 0.001540122002674993,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 8.5083704867801e-06,
+              "fine": 8.453702039685385e-06,
+              "absolute_change": 5.466844709471531e-08,
+              "relative_change": 0.006466805529468349,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "frozen_control": {
+            "field_mean": {
+              "coarse": 0.017246417369622822,
+              "fine": 0.017108136628315992,
+              "absolute_change": 0.00013828074130682946,
+              "relative_change": 0.008082747075912316,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 0.0012236338837632145,
+              "fine": 0.001222379156410356,
+              "absolute_change": 1.2547273528585104e-06,
+              "relative_change": 0.0010264633082775628,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "frozen_late": {
+            "field_mean": {
+              "coarse": 0.01843282294961776,
+              "fine": 0.018328786156902678,
+              "absolute_change": 0.00010403679271508287,
+              "relative_change": 0.005676141989135614,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 2.248948631200739e-05,
+              "fine": 2.1924927343048423e-05,
+              "absolute_change": 5.645589689589657e-07,
+              "relative_change": 0.025749639217753955,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          }
+        }
+      },
+      "0p0025_to_0p00125": {
+        "coarse_case": "ideal_s732_dt0p0025",
+        "fine_case": "ideal_s732_dt0p00125",
+        "common_grid": {
+          "training": {
+            "samples": 1600,
+            "interval": [
+              0.0,
+              79.95
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 8.91749481930557e-05,
+            "u_global_rms_difference": 7.729062345591332e-05,
+            "q_projector_distance": {
+              "count": 51200,
+              "mean": 0.0007110690167193034,
+              "p50": 0.00014244426608413485,
+              "p95": 0.0036507459993638937,
+              "maximum": 0.01570923886303299
+            }
+          },
+          "adaptive": {
+            "samples": 400,
+            "interval": [
+              80.0,
+              99.95
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 1.534951281945358e-05,
+            "u_global_rms_difference": 1.1823815330235721e-05,
+            "q_projector_distance": {
+              "count": 12800,
+              "mean": 0.0001222185260781489,
+              "p50": 7.625290649079805e-05,
+              "p95": 0.0003518089642244537,
+              "maximum": 0.0017549665198905284
+            }
+          },
+          "frozen": {
+            "samples": 400,
+            "interval": [
+              80.0,
+              99.95
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 1.5354852678318983e-05,
+            "u_global_rms_difference": 1.219662653845781e-05,
+            "q_projector_distance": {
+              "count": 12800,
+              "mean": 0.0002276217316796846,
+              "p50": 0.0001214845133267835,
+              "p95": 0.00046669758332773244,
+              "maximum": 0.0017549665198905284
+            }
+          }
+        },
+        "window_metrics": {
+          "training_training_evaluation": {
+            "field_mean": {
+              "coarse": 0.008936647383541522,
+              "fine": 0.008866870372383408,
+              "absolute_change": 6.97770111581144e-05,
+              "relative_change": 0.007869406930255866,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 0.0077042828717343225,
+              "fine": 0.007681569964941147,
+              "absolute_change": 2.2712906793175523e-05,
+              "relative_change": 0.002956805301108722,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "adaptive_control": {
+            "field_mean": {
+              "coarse": 0.014305259032748985,
+              "fine": 0.014288691707832974,
+              "absolute_change": 1.656732491601108e-05,
+              "relative_change": 0.0011594710876804048,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 0.0012222202078141467,
+              "fine": 0.0012218706683212273,
+              "absolute_change": 3.495394929194876e-07,
+              "relative_change": 0.000286069141343521,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "adaptive_late": {
+            "field_mean": {
+              "coarse": 0.013739509787848192,
+              "fine": 0.013729908837210253,
+              "absolute_change": 9.600950637938394e-06,
+              "relative_change": 0.0006992727156292748,
+              "absolute_flag": false,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 8.453702039685385e-06,
+              "fine": 8.430269045069149e-06,
+              "absolute_change": 2.3432994616235633e-08,
+              "relative_change": 0.0027796259515515172,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "frozen_control": {
+            "field_mean": {
+              "coarse": 0.017108136628315992,
+              "fine": 0.017043048321797427,
+              "absolute_change": 6.508830651856534e-05,
+              "relative_change": 0.0038190530995162297,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 0.001222379156410356,
+              "fine": 0.001222023874996838,
+              "absolute_change": 3.552814135179827e-07,
+              "relative_change": 0.00029073197405320904,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "frozen_late": {
+            "field_mean": {
+              "coarse": 0.018328786156902678,
+              "fine": 0.018281236046580947,
+              "absolute_change": 4.755011032173129e-05,
+              "relative_change": 0.002601033660993856,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 2.1924927343048423e-05,
+              "fine": 2.1652760992690303e-05,
+              "absolute_change": 2.7216635035812027e-07,
+              "relative_change": 0.012569591030446425,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          }
+        }
+      }
+    },
+    "causal_clean": {
+      "0p005_to_0p0025": {
+        "coarse_case": "causal_clean_s732_dt0p005",
+        "fine_case": "causal_clean_s732_dt0p0025",
+        "common_grid": {
+          "training": {
+            "samples": 1600,
+            "interval": [
+              0.0,
+              79.95
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 0.00017846185125542207,
+            "u_global_rms_difference": 0.00015458373319587613,
+            "q_projector_distance": {
+              "count": 51200,
+              "mean": 0.006337584191319374,
+              "p50": 0.001352323892801079,
+              "p95": 0.02345214805788925,
+              "maximum": 0.11954230870363326
+            }
+          },
+          "adaptive": {
+            "samples": 400,
+            "interval": [
+              80.0,
+              99.95
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 0.00020638740529067828,
+            "u_global_rms_difference": 0.0021502545278767604,
+            "q_projector_distance": {
+              "count": 12800,
+              "mean": 0.025982962744594856,
+              "p50": 0.005606726256991687,
+              "p95": 0.10317521577956483,
+              "maximum": 0.5470483239475831
+            }
+          },
+          "frozen": {
+            "samples": 64,
+            "interval": [
+              80.0,
+              83.15
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 0.008756556544116978,
+            "u_global_rms_difference": 0.030952476592570163,
+            "q_projector_distance": {
+              "count": 2048,
+              "mean": 0.005717201713282563,
+              "p50": 0.0013301513849381435,
+              "p95": 0.022019150214995994,
+              "maximum": 0.023032877480953527
+            }
+          }
+        },
+        "window_metrics": {
+          "training_training_evaluation": {
+            "field_mean": {
+              "coarse": 0.47953247903087787,
+              "fine": 0.4829680524108548,
+              "absolute_change": 0.0034355733799769084,
+              "relative_change": 0.0071134588775124815,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 0.007752568392754683,
+              "fine": 0.0077042828717343225,
+              "absolute_change": 4.828552102036088e-05,
+              "relative_change": 0.006267360872419687,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "adaptive_control": {
+            "field_mean": {
+              "coarse": 0.3046105856429019,
+              "fine": 0.320666970690377,
+              "absolute_change": 0.016056385047475086,
+              "relative_change": 0.050071839369382636,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 0.0018226745303410678,
+              "fine": 0.001912352816947791,
+              "absolute_change": 8.967828660672332e-05,
+              "relative_change": 0.046894216282670195,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "adaptive_late": {
+            "field_mean": {
+              "coarse": 0.20518451338016314,
+              "fine": 0.21230999734525458,
+              "absolute_change": 0.007125483965091439,
+              "relative_change": 0.033561697773016826,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 0.0004083691634196104,
+              "fine": 0.000421766943931245,
+              "absolute_change": 1.3397780511634552e-05,
+              "relative_change": 0.031765838229888904,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          }
+        }
+      },
+      "0p0025_to_0p00125": {
+        "coarse_case": "causal_clean_s732_dt0p0025",
+        "fine_case": "causal_clean_s732_dt0p00125",
+        "common_grid": {
+          "training": {
+            "samples": 1600,
+            "interval": [
+              0.0,
+              79.95
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 8.91749481930557e-05,
+            "u_global_rms_difference": 7.729062345591332e-05,
+            "q_projector_distance": {
+              "count": 51200,
+              "mean": 0.0030370173186296846,
+              "p50": 0.0006576743794187976,
+              "p95": 0.01131024945366169,
+              "maximum": 0.05481501437502769
+            }
+          },
+          "adaptive": {
+            "samples": 400,
+            "interval": [
+              80.0,
+              99.95
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 0.0014496108236345835,
+            "u_global_rms_difference": 0.015371522905345665,
+            "q_projector_distance": {
+              "count": 12800,
+              "mean": 0.0710455496922403,
+              "p50": 0.010357642987472798,
+              "p95": 0.4287015822934081,
+              "maximum": 1.4031748267219672
+            }
+          },
+          "frozen": {
+            "samples": 64,
+            "interval": [
+              80.0,
+              83.15
+            ],
+            "sample_interval": 0.05,
+            "w_global_rms_difference": 0.004180177835114474,
+            "u_global_rms_difference": 0.014509041678921265,
+            "q_projector_distance": {
+              "count": 2048,
+              "mean": 0.002738175434397742,
+              "p50": 0.0006408611613741007,
+              "p95": 0.01051435552666614,
+              "maximum": 0.011011527623092512
+            }
+          }
+        },
+        "window_metrics": {
+          "training_training_evaluation": {
+            "field_mean": {
+              "coarse": 0.4829680524108548,
+              "fine": 0.4846072454847507,
+              "absolute_change": 0.0016391930738959282,
+              "relative_change": 0.0033825187080235458,
+              "absolute_flag": true,
+              "relative_flag": false
+            },
+            "task_rms": {
+              "coarse": 0.0077042828717343225,
+              "fine": 0.007681569964941147,
+              "absolute_change": 2.2712906793175523e-05,
+              "relative_change": 0.002956805301108722,
+              "absolute_flag": false,
+              "relative_flag": false
+            }
+          },
+          "adaptive_control": {
+            "field_mean": {
+              "coarse": 0.320666970690377,
+              "fine": 0.3603671240505164,
+              "absolute_change": 0.039700153360139434,
+              "relative_change": 0.11016585784494107,
+              "absolute_flag": true,
+              "relative_flag": true
+            },
+            "task_rms": {
+              "coarse": 0.001912352816947791,
+              "fine": 0.0018058967025888894,
+              "absolute_change": 0.00010645611435890169,
+              "relative_change": 0.05894917145941338,
+              "absolute_flag": true,
+              "relative_flag": false
+            }
+          },
+          "adaptive_late": {
+            "field_mean": {
+              "coarse": 0.21230999734525458,
+              "fine": 0.2611585682855836,
+              "absolute_change": 0.04884857094032902,
+              "relative_change": 0.1870456376790665,
+              "absolute_flag": true,
+              "relative_flag": true
+            },
+            "task_rms": {
+              "coarse": 0.000421766943931245,
+              "fine": 0.0006845523939924278,
+              "absolute_change": 0.00026278545006118285,
+              "relative_change": 0.3838792360780052,
+              "absolute_flag": true,
+              "relative_flag": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "methodology": "Independent QR sensor weights, raw RNG/contexts/commands/plant transitions, literal exact held-secant R and selected joint DOP853 q/R. All entries remain free; true F is evaluator only. Sparse covariance diagnostics use pre-update R every 0.05 s; other window metrics use all applied records. Unobserved or incomplete full-window criteria are null, not failed or successful. Common-grid refinement uses applied observations every 0.05 s on actual shared coverage."
+}

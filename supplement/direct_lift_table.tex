@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Direct lifted differential learning: time means followed by mean $\pm$ sample standard deviation across all ten seeds per scenario. Physical derivative errors compare row projectors; optimizer lag and memory bias compare coefficient projectors. Every window excludes its right endpoint.}
+\label{tab:direct_lift_results}
+\begin{tabular}{llcccc}
+\toprule
+Scenario & Window (s) & Learned derivative & Frozen derivative & Optimizer lag & Memory bias\\
+\midrule
+Stationary & 40--60 & $(3.030\pm0.710)\times10^{-4}$ & $(9.251\pm0.000)\times10^{-1}$ & $(2.172\pm0.280)\times10^{-4}$ & $(7.997\pm1.924)\times10^{-4}$\\
+Stationary & 60--80 & $(3.340\pm0.572)\times10^{-4}$ & $(9.042\pm0.000)\times10^{-1}$ & $(2.168\pm0.312)\times10^{-4}$ & $(8.390\pm1.264)\times10^{-4}$\\
+Stationary & 100--120 & $(2.940\pm0.320)\times10^{-4}$ & $(8.998\pm0.000)\times10^{-1}$ & $(2.117\pm0.276)\times10^{-4}$ & $(6.957\pm0.930)\times10^{-4}$\\
+\midrule
+Jump & 40--60 & $(3.030\pm0.710)\times10^{-4}$ & $(9.251\pm0.000)\times10^{-1}$ & $(2.172\pm0.280)\times10^{-4}$ & $(7.997\pm1.924)\times10^{-4}$\\
+Jump & 60--80 & $(9.330\pm0.007)\times10^{-2}$ & $(1.040\pm0.000)\times10^{0}$ & $(2.952\pm0.003)\times10^{-2}$ & $(1.271\pm0.002)\times10^{-1}$\\
+Jump & 100--120 & $(5.187\pm0.744)\times10^{-4}$ & $(1.039\pm0.000)\times10^{0}$ & $(1.120\pm0.099)\times10^{-4}$ & $(6.553\pm0.679)\times10^{-4}$\\
+\bottomrule
+\end{tabular}
+\end{table*}

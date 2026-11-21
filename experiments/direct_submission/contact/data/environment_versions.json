@@ -1,0 +1,10 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.39",
+  "source_hashes": {
+    "contact_direct.py": "f6d0c2ccd1e375558504a6632d97763bc8a472ab446f9ae60ee72742c9dd54f9",
+    "direct_field.py": "2ffc796743a86d7681d08d56a312b1fb65a684241d50f99177b7e7532ed33006"
+  }
+}

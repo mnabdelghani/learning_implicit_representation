@@ -1,0 +1,232 @@
+\section{Time derivatives and variations of whole trajectories}
+\label{sec:trajectory_variations}
+This discussion distinguishes two sources of differential observations:
+time evolution along one trajectory and variations across a family of
+admissible trajectories. Independent perturbation trials are not a general
+requirement for online learning. Their role is to supply additional
+directions when temporal observations do not identify the desired partials.
+The calculations below are explanatory examples, not new simulation results
+or evidence that the retained structured-coefficient studies learn an
+unrestricted differential field.
+
+\subsection{A trajectory variation is not an arbitrary coordinate change}
+Let $f:\mathbb R^d\to\mathbb R^m$ be continuously differentiable, with
+$F(z)=D_zf(z)$ of row rank $m<d$ on the region of interest. All explicit
+time or phase dependencies are included among the context coordinates.
+Consider a smooth family of complete admissible trajectories
+$z_\varepsilon(t)$ satisfying $f(z_\varepsilon(t))=0$, with
+$z_0(t)=z(t)$. Differentiation with respect to the trial parameter gives
+\begin{equation}
+ \delta z(t)=\left.\frac{\partial z_\varepsilon(t)}{\partial\varepsilon}
+                    \right|_{\varepsilon=0},
+ \qquad F(z(t))\delta z(t)=0.
+ \label{eq:tv_family}
+\end{equation}
+The parameter changes a whole input history and, where permitted, initial
+conditions; the physical system determines the corresponding state and
+output histories. Context channels need not be independently commandable.
+For example, if $r_\varepsilon=\partial_t x_\varepsilon$, smoothness gives
+$\delta r=\partial_t\delta x$. A fixed clock or fixed initial condition
+likewise constrains the admissible variations. Independent directions here
+mean linearly informative admissible variations, not arbitrary independent
+changes to every component of $z$ or probabilistic independence of trials.
+
+Differentiation with respect to physical time instead gives
+\begin{equation}
+ v(t)=\dot z(t),\qquad F(z(t))v(t)=0.
+ \label{eq:tv_temporal}
+\end{equation}
+Locally, the shifted family $z_\varepsilon(t)=z(t+\varepsilon)$ has
+$\delta z=\dot z$. It need not be an admissible comparison trial under fixed
+initial conditions, endpoints, or clock phase; the temporal chain-rule
+identity in (\ref{eq:tv_temporal}) still holds. If explicit time dependence
+is omitted from $z$, the corresponding $f_t$ term must instead be retained.
+Physical time therefore provides one tangent direction at each observed
+context, whereas admissible trajectory families can provide other directions.
+
+Both observations can enter the direct incompatibility $\xi=Qv$ with all
+entries of $Q$ adaptive. The observation type, context units, parameter
+normalization, and memory weights must be stated; a trial derivative and a
+time derivative should not be pooled with unspecified relative scaling.
+True partials are not learning targets supplied to this update.
+
+\subsection{When temporal history is sufficient}
+One direction at one instant does not determine a general differential.
+Several times can nevertheless identify a shared local row space. To see
+the exact requirement, suppose a full-row-rank matrix $F_0$ is compatible
+with every retained observation $v_i$, and form the uncentered second moment
+\begin{equation}
+ F_0v_i=0,\qquad
+ R=\sum_i\alpha_i v_iv_i^{\mathsf T},\quad \alpha_i>0.
+ \label{eq:tv_covariance}
+\end{equation}
+Here $R$ has no additional ridge or incompatible initial-memory term.
+For any column vector $q$,
+$q^{\mathsf T}Rq=\sum_i\alpha_i(q^{\mathsf T}v_i)^2$.
+Consequently $\ker R$ is the orthogonal complement of the observed span.
+Because that span lies in $\ker F_0$, full tangent excitation gives
+\begin{equation}
+ \operatorname{span}\{v_i\}=\ker F_0
+ \quad\Longleftrightarrow\quad \operatorname{rank}R=d-m.
+ \label{eq:tv_identification}
+\end{equation}
+Under these equivalent conditions,
+$\ker R=\operatorname{range}(F_0^{\mathsf T})$.
+This identifies the row space; a basis remains ambiguous under nonsingular
+row transformations. It is an identifiability statement, not a guarantee
+that every initialization or adaptive update converges to that space.
+
+For a changing differential, different times need not share one exactly
+compatible $F_0$. Online local tracking therefore requires informative
+directions to accumulate on a timescale over which the target row space
+changes sufficiently little relative to the excitation gap and adaptation
+rate. Finite memory, derivative estimation, and sensor noise create distinct
+bias and tracking errors. An empirical spectral gap alone does not establish
+that its bottom eigenspace is the physical row space. An appropriate shared
+lift can represent faster variation, but its own compatibility, excitation,
+and evaluated-field nondegeneracy conditions must hold. An arbitrary
+context-dependent field is not identified merely by observing one tangent
+at each new context.
+
+\subsection{A missing direction that can be supplied either way}
+For illustration only, let a simulator obey
+\begin{equation}
+ f(x,u,y)=y-2x-3u=0,\qquad z=(x,u,y)^{\mathsf T}.
+ \label{eq:tv_linear_example}
+\end{equation}
+Neither this formula nor any of its partial entries is supplied to the
+learner. Along $x(t)=u(t)=t$, the output is $y(t)=5t$, so
+\begin{equation}
+ \dot z=(1,1,5)^{\mathsf T},\qquad
+ F_\star=(-2,-3,1),\quad \widetilde F=(-4,-1,1).
+ \label{eq:tv_ambiguous_rows}
+\end{equation}
+Both rows annihilate every observed time derivative, although they disagree
+on the responses to separate changes of $x$ and $u$. The final entry one is
+only a convenient convention for writing these two candidates; it is not
+fixed in a direct learner. Normalizing either row preserves its zero
+incompatibility and does not resolve the ambiguity.
+
+A smooth perturbation of the entire commanded $x$ trajectory gives
+\begin{equation}
+ \begin{aligned}
+ x_\varepsilon(t)&=t+\varepsilon h(t),&u_\varepsilon(t)&=t,\\
+ y_\varepsilon(t)&=5t+2\varepsilon h(t),&
+ \delta z(t)&=h(t)(1,0,2)^{\mathsf T}.
+ \end{aligned}
+ \label{eq:tv_linear_trial}
+\end{equation}
+Choose $h$ to satisfy any imposed endpoint conditions. Where $h(t)\ne0$,
+$F_\star\delta z=0$ but $\widetilde F\delta z=-2h(t)\ne0$.
+This variation and the temporal direction in
+(\ref{eq:tv_ambiguous_rows}) span the two-dimensional physical tangent
+plane, identifying its normal row up to scale.
+
+Separate trials are unnecessary for this constant-field example if a single
+online input trajectory already excites both directions. Taking $x=t$ and
+$u=t^2$ gives
+\begin{equation}
+ \dot z(t)=(1,2t,2+6t)^{\mathsf T}.
+ \label{eq:tv_online_excitation}
+\end{equation}
+At any two distinct times these vectors are linearly independent. They
+annihilate the same constant $F_\star$, so temporal observations alone
+satisfy the exact span requirement. This construction explains why extra
+trials are an option for missing excitation, not an intrinsic requirement
+of implicit differential learning.
+
+\subsection{A kinematic ambiguity in the periodic dynamic context}
+The periodic plant used in the retained Fourier studies has
+\begin{equation}
+ \begin{aligned}
+ f(z)&=\rho(\phi)r+\kappa(\phi)x-u=0,\\
+ z&=(x,r,u,\phi)^{\mathsf T},\qquad
+ r=\dot x,\quad\dot\phi=\omega\ne0.
+ \end{aligned}
+ \label{eq:tv_periodic_context}
+\end{equation}
+Its physical differential, written here for analysis only, is
+\begin{equation}
+ F(z)=\bigl(\kappa(\phi),\rho(\phi),-1,
+                \rho'(\phi)r+\kappa'(\phi)x\bigr).
+ \label{eq:tv_periodic_differential}
+\end{equation}
+An unrestricted direct rate field also admits the competing row
+\begin{equation}
+ H_{\rm kin}(z)=(\omega,0,0,-r),\qquad
+ H_{\rm kin}(z)\dot z=\omega\dot x-r\dot\phi=0.
+ \label{eq:tv_kinematic_competitor}
+\end{equation}
+This identity holds for every physical-time trajectory with these
+kinematics wherever ordinary time derivatives exist, irrespective of the
+input history. At held-input jumps, an ordinary $\dot u$ observation is
+unavailable; the present differential calculation uses smooth histories.
+The row has zero $r$ and $u$ entries and hence cannot complete the desired
+$\dot r$ or $\dot u$ query.
+It is nonzero and can be normalized, so excluding the zero field does not
+exclude it. It is not itself a Jacobian on an open context region:
+$\partial_r(H_{\rm kin})_\phi=-1$ whereas
+$\partial_\phi(H_{\rm kin})_r=0$. A learning scheme that explicitly enforces
+generic integrability could exclude this particular field; mere
+normalization or the assumption that the physical target is a Jacobian
+does not enforce that restriction on a learned field.
+
+Now perturb a whole input history,
+$u_\varepsilon(t)=u(t)+\varepsilon p(t)$, using the same clock and admissible
+initial conditions. The plant induces $x_\varepsilon$ and
+$r_\varepsilon=\partial_t x_\varepsilon$; these are not independently
+assigned trial coordinates. At $\varepsilon=0$,
+\begin{equation}
+ \delta\phi=0,\qquad \delta r=\partial_t\delta x,\qquad
+ \kappa\delta x+\rho\delta r-\delta u=0.
+ \label{eq:tv_periodic_trial}
+\end{equation}
+Thus $F\delta z=0$, but
+\begin{equation}
+ H_{\rm kin}\delta z=\omega\delta x,
+ \label{eq:tv_periodic_separation}
+\end{equation}
+which is nonzero wherever the input perturbation produces a nonzero state
+variation. Such observations distinguish this competitor without supplying
+the physical partial formulas. Excluding one competitor is not a proof of
+complete identification; the combined admissible directions must still
+meet the required span or lifted excitation condition.
+
+Changing temporal input histories alone cannot eliminate the exact identity
+(\ref{eq:tv_kinematic_competitor}) from an unrestricted context-dependent
+candidate class. This does not rule out local temporal tracking under
+additional shared-field assumptions. The distinction concerns the data
+directions and the allowed field class, not the number of random seeds.
+
+\subsection{Measurement and experimental consequences}
+The exact variation in (\ref{eq:tv_family}) is a derivative with respect to
+$\varepsilon$. A practical trial difference
+\begin{equation}
+ v_\varepsilon(t)=
+       \frac{z_\varepsilon(t)-z_0(t)}{\varepsilon}
+ \label{eq:tv_finite_trial}
+\end{equation}
+approximates it. Under twice differentiable dependence on $\varepsilon$,
+$v_\varepsilon=\delta z+O(\varepsilon)$ and
+$F(z_0)v_\varepsilon=O(\varepsilon)$. The linear example above is exact;
+generic nonlinear trial differences are not exact tangent observations.
+Reducing the perturbation also amplifies measurement-difference noise by
+$1/|\varepsilon|$. Trial alignment, clock/initial-condition constraints,
+perturbation size, sensor errors, and the resulting approximation bias must
+therefore be documented. Finite temporal secants have their own curvature
+and differentiation errors.
+
+Real-time demonstrations can retain temporal observations whenever their
+local or lifted excitation and tracking conditions are supported. If
+additional null directions remain, possible remedies include improved
+online excitation, additional admissible trajectory variations, or an
+explicitly justified restriction on the learned field. None should be
+silently substituted for the reported protocol. For the intended Fourier
+Memory demonstration, partials must vary faster than the supplied inputs,
+and this separation must be checked on the actual signals. Fourier Memory
+represents fast partial variation;
+it does not supply missing informative directions. Direct harmonic weights
+parameterize independently learned partials, rather than a prescribed
+physical residual whose coefficients are fitted and then differentiated.
+Every demonstration must separately evaluate incompatibility, partial-field
+recovery up to gauge, and readout using the same learned field.

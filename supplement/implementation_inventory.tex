@@ -1,0 +1,318 @@
+\section{Implementation inventory: learning, representation, and readout}
+\label{sec:implementation_inventory}
+This inventory covers retained historical protocols; the current direct-field
+main experiments are documented in Section~\ref{sec:direct_main}.
+The simulation evidence has three distinct parts: an estimate changes in
+response to observed incompatibility; that estimate represents evaluated
+partials; and a readout from the estimate supplies a task command.
+Tables~\ref{tab:implementation_main} and
+\ref{tab:implementation_support} identify the implemented mechanisms rather
+than treating every example as a run of one optimizer. The periodic-plant
+experiment in Section~\ref{sec:normalized_fourier_results} integrates the
+coupled normalized law. The retained contact and Burgers protocols implement the separately
+specified constrained coefficient extension. Their results support learning,
+representation, and readout within the stated families, without establishing
+that their updates satisfy the normalized-flow convergence hypotheses.
+As distinguished in Section~\ref{sec:scope}, these are retained
+coefficient-family demonstrations, not the required all-entry direct-field
+experiments.
+
+\subsection{Coefficient-induced partials versus directly learned entries}
+For a prescribed feature family with all supplied terms retained in the
+implicit relation, write
+\begin{equation}
+ f_\theta(z)=Q_\theta\zeta(z),\qquad
+ F_\theta(z)=Q_\theta D_z\zeta(z).
+ \label{eq:inventory_representation}
+\end{equation}
+At a fixed context, a parameter update induces the exact change
+\begin{equation}
+ \Delta_{\rm learn}F(z)
+ =(Q_{\theta^+}-Q_\theta)D_z\zeta(z).
+ \label{eq:inventory_partial_update}
+\end{equation}
+Supplied coefficient entries have zero learning increment. Thus the code
+learns residual coefficients and evaluates their induced partials; it does
+not directly adapt every partial entry with unknown algebraic structure.
+The chain-rule identity does not make these two learning mechanisms
+equivalent. Context motion
+can also change the evaluated partials even when the coefficients are frozen.
+Neither a rapidly varying curve nor coefficient convergence alone establishes
+accurate physical partials. The error diagnostics compare estimates and
+evaluator truth at the same context, using a declared scale convention.
+
+For the seven-coefficient normalized periodic family, this relation gives
+the explicit continuous learning contribution
+\begin{equation}
+ \left.\partial_t F_q(z)\right|_z
+ =-\eta\bigl[qR-(qRq^{\mathsf T})q\bigr]S D_z\zeta(z).
+ \label{eq:inventory_normalized_partials}
+\end{equation}
+Its $F_q$ is (\ref{eq:nf_jacobian}), including both clock-product terms.
+Every candidate is an exact Jacobian, and all seven coefficients, including
+the input coefficient, adapt. Dividing the displayed partials by that
+learned input coefficient is a reporting convention, not a fixed training
+coefficient. The generic six-coefficient direct fields in
+Sections~\ref{sec:unanchored} and~\ref{sec:direct_lift_results} instead have
+$\Delta H(z)=\Delta q\,\Phi(z)$ for their field basis $\Phi$; they need not
+be Jacobians and are not covered by (\ref{eq:inventory_representation}).
+
+\begin{table*}[t]
+\caption{Retained historical simulation mechanisms. Paths in this table are relative to
+\texttt{experiments/}, except the explicitly identified legacy Burgers solver.
+The historical normalized Fourier study uses its own controlled trajectory;
+replay results are identified separately in
+Section~\ref{sec:normalized_fourier_results}.}
+\label{tab:implementation_main}
+\centering
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}p{.14\textwidth}p{.29\textwidth}p{.34\textwidth}>{\raggedright\arraybackslash}p{.17\textwidth}@{}}
+\toprule
+Study & Observations and supplied information & Learned representation and actual update & Simulation and figure code\\
+\midrule
+Normalized Fourier & Complete-feature secants of $(hr_m,hx,-u)$.
+State, input, phase $\phi=4t$, harmonic family, scales, and zero residual
+level are supplied; rate measurement is noisy. &
+Seven unit-row coefficients $q$; $a=qS$.
+Coupled $\dot R=ww^{\mathsf T}-R/8$ and
+$\dot q=-\eta[qR-(qRq^{\mathsf T})q]$ are numerically integrated with
+changing $R$. The full $F_q$ in (\ref{eq:nf_jacobian}) determines the
+learned relation used for command readout and current-rate completion.
+No partial column is fixed numerically, but their algebraic dependence
+remains prescribed by the residual family.
+& \path{normalized_fourier.py};
+\path{plot_normalized_fourier_main.py};
+\path{report_normalized_fourier.py}.\\[3pt]
+Contact & Material integral windows from position and noisy force;
+separate measured velocity residuals $v_m-Bu$.
+The basis, $\rho=4$, unit rate/velocity coefficients, coefficient boxes,
+and zero levels are supplied. Force direction informs the control readout.
+& Six material coefficients $(s,a,r,b)$ and four entries of $B$.
+Each fit uses 48 projected-gradient steps
+(\ref{eq:audit_exact_update}). Material partials are
+(\ref{eq:audit_contact_partials}); the kinematic input block is $-B$.
+These are integral/level fits, not raw-context tangent normalized flow.
+The learned material and actuation estimates enter the contact readout.
+& \path{contact.py};
+\path{common.py};
+\path{make_figures.py}.
+Transfer: \path{contact_excitation.py},
+\path{plot_excitation.py}.\\[3pt]
+Burgers & Spatially averaged complete-feature secants of
+$(w_{t,m},ww_s,-w_{ss},-u)$.
+Exact state and spectral spatial channels, full actuation, unit $w_t$
+coefficient, bounds, and zero level are supplied. &
+Three coefficients $(c_a,\nu,b)$; eight scaled projected-gradient steps
+(\ref{eq:audit_exact_update}).
+$F=(c_aw_s,c_aw,-\nu,-b,1)$.
+Both partials of the nonlinear product are represented.
+The three learned coefficients enter the inverse control readout;
+the discretized family and spatial operators remain prescribed.
+& \path{burgers_online.py};
+\path{make_figures.py}.
+Solver: \path{examples/legacy_suite/simulations/burgers.py}
+(repository relative).\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Updates used by the supporting comparisons}
+For the constrained coefficient studies, let $\theta$ denote scaled free
+coefficients and $\mathcal W$ their box. Their current-candidate objective
+is $J_n(\theta)=\tfrac12\theta^{\mathsf T}H_n\theta+g_n^{\mathsf T}\theta+
+\mathrm{const}$, with supplied terms retained in the full implicit row.
+The exact memory and projected update are given in
+(\ref{eq:audit_exact_update}). The matched EWLS comparison minimizes this
+same box-constrained objective; it adds no ridge penalty. The instantaneous
+comparison instead takes
+\begin{equation}
+ \theta^+=\Pi_{\mathcal W}\!\left[
+ \theta-\frac{a_n(a_n^{\mathsf T}\theta+b_n)}
+ {\max(\|a_n\|^2,10^{-12})}\right],
+ \label{eq:inventory_nlms}
+\end{equation}
+where $(a_n,b_n)$ is the current scaled observed implicit feature channel.
+Retaining a covariance for diagnostics does not make this NLMS update a
+memory-based estimator.
+
+The Acrobot step is
+\begin{equation}
+ \theta^+=(I+\eta hH_n)^{-1}(\theta-\eta h g_n).
+ \label{eq:inventory_proximal}
+\end{equation}
+Its memory uses the actual sample weight $h$:
+$H_n=\beta H_{n-1}+hV_n^{\mathsf T}V_n$ and
+$g_n=\beta g_{n-1}+hV_n^{\mathsf T}k_n$, where $V_n\theta+k_n$
+is the complete-feature secant. It is a proximal step, without a persistent
+ridge penalty or a positivity projection.
+
+In the active-flow prototype the objective instead contains a ridge term:
+\begin{align}
+ \theta_n^\star&\in\arg\min_{\theta\in\mathcal W}
+ \left[J_n(\theta)+\frac{\lambda_n}{2}
+             \|\theta-\theta_0\|^2\right],\\
+ \theta^+&=.75\theta+.25\theta_n^\star,
+ \label{eq:inventory_flow_relaxation}
+\end{align}
+with $\lambda_n=10^{-7}\max(\tr G_n/3,10^{-10})$ and $G_n$ the
+unregularized feature Gram matrix. These distinctions affect the optimized
+criterion and cannot be omitted when relating the experiments to theory.
+
+\begin{table*}[t]
+\caption{Supporting mechanisms and source files. In the code column,
+E denotes \texttt{experiments/}; L denotes
+\texttt{examples/legacy\_suite/simulations/}. The cited sections specify
+configurations, records, and metric conventions. A plotting or diagnostic
+script does not define an additional learning rule.}
+\label{tab:implementation_support}
+\centering
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{tabular}{@{}p{.14\textwidth}p{.29\textwidth}p{.34\textwidth}>{\raggedright\arraybackslash}p{.17\textwidth}@{}}
+\toprule
+Study & Observations and adaptive/supplied quantities & Actual update, representation, and readout status & Source / postprocessor\\
+\midrule
+Original Fourier and estimator comparisons & Same complete features as
+the periodic plant; six physical harmonic coefficients adapt, while the
+input coefficient is supplied. Phase, family, boxes, and zero level are known.
+The $K=0$ ablation learns only two constants. &
+Eight projected-gradient steps, box EWLS minimization, or
+(\ref{eq:inventory_nlms}), as identified in
+Sections~\ref{sec:fourier_protocol} and~\ref{sec:estimator_comparison}.
+$F$ is (\ref{eq:audit_fourier_partials}). Same-stream shadows are
+distinguished from methods controlling their own trajectories. &
+E: \path{fourier_online.py},
+\path{estimator_comparison.py};
+\path{make_figures.py},
+\path{plot_estimator_comparison.py}.\\[3pt]
+Acrobot & Complete-feature secants from known positions, velocities and
+commands, with noisy acceleration. Five mechanical coefficients adapt;
+the actuation column $B=(0,1)^{\mathsf T}$ and mechanical family are supplied.
+& Proximal step (\ref{eq:inventory_proximal}).
+$F=D_z[M_c(q)\alpha+h_c(q,\dot q)-Bu]$ at fixed $c$.
+Identification precedes a separate local LQR episode with the final
+coefficients frozen; invalid final models are rejected for readout.
+See Figure~\ref{fig:acrobot_archived}. &
+L: \path{acrobot.py} generates both records and figures.\\[3pt]
+Active-flow prototype & Noiseless full velocity fields and held command;
+midpoint fields and secant acceleration form complete-feature differences.
+Three coefficients adapt. Spatial operators, geometry, forcing shape,
+and acceleration identity are supplied. &
+Ridge box solve with 25\% relaxation,
+(\ref{eq:inventory_flow_relaxation}).
+$F=[c_aDN-\nu L-DK,\ I,\ -b_gB]$.
+The adaptive branch continues learning during control; the frozen branch
+does not. Differential error probes a specified direction, not a full
+operator norm (Section~\ref{sec:afc_prototype}). &
+L: \path{airfoil.py} generates records, parameter and control plots.
+E: \path{plot_active_flow_fields.py} renders the saved velocity as
+vorticity and instantaneous streamlines.\\[3pt]
+Reconstructed unanchored Fourier & 4096 noiseless phase/rate samples form
+one fixed batch covariance $R$. All six unit-row coefficients adapt;
+the harmonic field family and phase are supplied. &
+Retracted step $q^+=\operatorname{unit}(q-\alpha g)$,
+$g=qR-(qRq^{\mathsf T})q$, with energy/phase-guard backtracking.
+$H_q$ need not be a Jacobian. This is a field-learning diagnostic,
+without a simulated control episode
+(Section~\ref{sec:unanchored}). &
+L: \path{fourier.py} generates the checked reconstruction and its figure.\\[3pt]
+Direct field and exact-Jacobian companion & Exact phase and one noisy
+rate channel; all six field coefficients or all four Jacobian-family
+coefficients adapt. The basis is supplied; no derivative entry is fixed.
+& $R^+=\beta R+(1-\beta)\psi\psi^{\mathsf T}$, then
+$q^+=\operatorname{unit}(qe^{-\eta hR^+})$.
+This is a frozen-memory normalized substep.
+The six-dimensional $H_q$ need not be integrable; the companion has
+$F_q=(q_0+q_2\cos x-q_3\sin x,q_1)$.
+Neither study has a controlled plant (Section~\ref{sec:direct_lift_results}).
+& E: \path{direct_lift_audit.py},
+\path{direct_jacobian_audit.py};
+\path{plot_direct_lift_audit.py},
+\path{audit_direct_jacobian.py}.\\[3pt]
+Additional diagnostics & Existing learned and comparison records;
+no new observations or adaptive states. The contact transfer study
+uses the contact learner before freezing it for transfer. &
+Figure~\ref{fig:unknown_partial_tracking} recalculates error on learned
+entries only. Extended plots retain their underlying learner.
+Freezing coefficients during contact transfer does not freeze the
+context-dependent partials (Section~\ref{sec:excitation}). &
+E: \path{derivative_tracking_audit.py},
+\path{make_figures.py},
+\path{plot_excitation.py}.
+\path{repair_supplement_layout.py} changes layout only.\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Here $\operatorname{unit}(v)=v/\|v\|$ for a nonzero row.
+The frozen-memory exponential step in Table~\ref{tab:implementation_support}
+is distinct from numerical integration with changing $R$ in
+(\ref{eq:nf_coupled}). Its six-dimensional evaluated field is
+\begin{equation}
+ H_q(x)=\bigl(q_0+q_2\cos x+q_4\sin x,
+                q_1+q_3\cos x+q_5\sin x\bigr).
+\end{equation}
+Generic $q_3,q_5$ violate the cross-partial condition for a scalar
+potential in $(x,y)$. The four-coefficient companion is consequently a
+separate exact-Jacobian test, not a relabeling of that field experiment.
+The normalized periodic study also includes a bottom-eigenvector minimizer
+of the same unit-row memory objective and a frozen prior. They are
+same-stream estimators, not independently executed controllers.
+
+The circle and mechanical constructions in
+Section~\ref{sec:constructions} are analytic examples without simulated
+learning. The ellipse discussion is likewise retained only as a mathematical
+construction: its original implementation and raw records are unavailable,
+so it supplies no empirical learning or completion result. The unanchored
+Fourier figure now uses the checked executable reconstruction; it does not
+claim recovery of the earlier historical figure's unknown lineage.
+
+\subsection{What the simulation chain demonstrates}
+The retained historical simulations evaluate pre-update incompatibility, estimated versus
+true evaluated partials, and task performance separately. The normalized
+periodic learner controls its own simulated plant while all seven
+coefficients adapt. The same saved pre-update representation also supports
+the different query
+\begin{equation}
+ \widehat r=\frac{a_u u-(a_\kappa h)x}{a_\rho h},
+ \label{eq:inventory_rate_readout}
+\end{equation}
+using the observed state, input, and phase, without taking the measured
+rate as a readout input or retraining the representation. However,
+substituting the command (\ref{eq:nf_control}) gives
+$\widehat r=r_d$ whenever both readouts are admissible and the command
+guard is inactive. Its error therefore measures how closely the actual
+plant rate achieves that requested rate. It is a readout-consistency
+diagnostic on the same controlled trajectory, not an independent
+prediction experiment. The two formulas show algebraic reuse of one
+learned relation for two choices of computed channel; they do not supply
+two independent empirical validations. The completion denominator is
+checked separately. No future prediction or held-out trajectory result
+is claimed in these historical records. The retained contact and Burgers
+protocols similarly use their current learned
+structured relations in active control, with their distinct observation
+mechanisms and supplied physical terms disclosed. This is numerical evidence
+for coefficient learning and readout within the specified implicit families.
+It does not establish direct learning of all partial entries without the
+known physical algebra, even when the resulting partial estimates are
+accurate. That distinction is separate from whether the numerical optimizer
+implements its stated law correctly.
+
+True coefficients and clean evaluator partials are not derivative targets
+for the adaptive branches. The plant uses truth to generate physical
+responses, and explicitly named oracle comparisons use it by design.
+The causal sequence and information checks for these retained protocols are
+documented in the respective sections. Calibrated zero levels remain
+supplied for the control readouts; learning a differential alone cannot
+recover an additive level. A correct feature family, adequate information,
+and an admissible readout block remain substantive assumptions.
+
+Finally, a shadow estimator's partial accuracy is evidence about its
+representation on the generating controller's data, not about a controller
+that was never run. Offline identification followed by frozen-model control
+is also distinguished from simultaneous adaptation and control. These
+separations delimit what each retained simulation demonstrates. The
+separately identified direct-field learning, representation, and readout
+experiments in Section~\ref{sec:direct_main} supply the current main evidence;
+they do not reinterpret these historical coefficient fits as direct learning.

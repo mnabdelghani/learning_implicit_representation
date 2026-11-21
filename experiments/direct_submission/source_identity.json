@@ -1,0 +1,47 @@
+{
+  "contact": {
+    "contact_direct.py": {
+      "source_sha256": "f6d0c2ccd1e375558504a6632d97763bc8a472ab446f9ae60ee72742c9dd54f9",
+      "packaged_sha256": "f6d0c2ccd1e375558504a6632d97763bc8a472ab446f9ae60ee72742c9dd54f9",
+      "scientific_source_changed": false
+    },
+    "direct_field.py": {
+      "source_sha256": "2ffc796743a86d7681d08d56a312b1fb65a684241d50f99177b7e7532ed33006",
+      "packaged_sha256": "2ffc796743a86d7681d08d56a312b1fb65a684241d50f99177b7e7532ed33006",
+      "scientific_source_changed": false
+    },
+    "reproduce_contact.py": {
+      "source_sha256": "392b4b165d95c8ebf04c9d22bd13f5272b827ed6177fb6fc5596342fb301e35b",
+      "packaged_sha256": "392b4b165d95c8ebf04c9d22bd13f5272b827ed6177fb6fc5596342fb301e35b",
+      "scientific_source_changed": false
+    },
+    "audit_contact.py": {
+      "source_sha256": "a77aacd2c6a37c301ecf3c77a229b54fef2e9cc5370d3f91f4c1ce49b79cff91",
+      "packaged_sha256": "a77aacd2c6a37c301ecf3c77a229b54fef2e9cc5370d3f91f4c1ce49b79cff91",
+      "scientific_source_changed": false
+    },
+    "report_contact.py": {
+      "source_sha256": "d54fba5e54ebd2a67ec46541f9ca539797fbbef5dfb87fb090bd428b6ea51710",
+      "packaged_sha256": "d54fba5e54ebd2a67ec46541f9ca539797fbbef5dfb87fb090bd428b6ea51710",
+      "scientific_source_changed": false
+    }
+  },
+  "fourier": {
+    "run.py": {
+      "source_sha256": "037c43157296e4bc03985e495382d76ade4bd07141ae49444d821d5091d2f410",
+      "packaged_sha256": "037c43157296e4bc03985e495382d76ade4bd07141ae49444d821d5091d2f410",
+      "scientific_source_changed": false
+    },
+    "audit.py": {
+      "source_sha256": "d468ad451dfae1b131e696006e1421bdad5d1cb5659e09984c797f61f288e407",
+      "packaged_sha256": "d468ad451dfae1b131e696006e1421bdad5d1cb5659e09984c797f61f288e407",
+      "scientific_source_changed": false
+    },
+    "summarize_plot.py": {
+      "source_sha256": "c17dddfaf5bdcdf1e85f7459d6298a82223a47c734fae20ab0fe50e320c687da",
+      "packaged_sha256": "c17dddfaf5bdcdf1e85f7459d6298a82223a47c734fae20ab0fe50e320c687da",
+      "scientific_source_changed": false
+    }
+  },
+  "burgers": "See burgers/source_mapping.json for source-extraction and import/CLI provenance; 20 unchanged scientific symbols and 21 unchanged independent-analysis functions."
+}

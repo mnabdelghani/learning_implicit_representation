@@ -1,0 +1,18 @@
+% Audit SHA-256: 195a72fc6b9fd544832f830d537bc885f7ee06d4b61f9f3e68acc61b9e20350b
+\begin{table*}[t]
+\centering
+\caption{Retained normalized periodic-plant protocol: mean $\pm$ sample standard deviation over seeds 10--19, using $60\le t<80$~s. Every numeric column is multiplied by $10^3$. $e_P$ is evaluated differential projector error; $e_F$ uses learned-input gauge alignment. Dashes mark shadows without their own control trajectory.}
+\label{tab:normalized_fourier_results}
+\begin{tabular}{llrrrr}
+\toprule
+Stream & Estimator & $10^3 e_P$ & $10^3 e_F$ & $10^3$ phase RMSE & $10^3$ tracking RMSE \\
+\midrule
+Replay & Normalized flow & $6.256\pm0.167$ & $5.487\pm0.160$ & $0.350\pm0.019$ & --- \\
+Replay & Memory minimum & $6.357\pm0.161$ & $5.590\pm0.156$ & $0.337\pm0.017$ & --- \\
+Replay & Frozen prior & $247.986\pm0.003$ & $218.876\pm0.002$ & $125.018\pm0.010$ & --- \\
+Flow-controlled & Normalized flow & $6.216\pm0.165$ & $5.451\pm0.159$ & $0.351\pm0.019$ & $2.311\pm0.029$ \\
+Flow-controlled & Memory minimum & $6.317\pm0.159$ & $5.552\pm0.154$ & $0.338\pm0.017$ & --- \\
+Flow-controlled & Frozen prior & $248.065\pm0.002$ & $218.926\pm0.001$ & $125.254\pm0.006$ & --- \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,8 @@
+{
+  "source_protocol_sha256": "22e225ae5ad2c275dd199bad2e93ea1f0221e51bba851c1e278fb7b4328f7980",
+  "independent_metric_comparisons": 200,
+  "same_field_completion_max_abs_error": 1.3877787807814457e-17,
+  "all_cases": 5,
+  "raw_chunk_files_checked": 610,
+  "completed_all_ideal_branches": true
+}

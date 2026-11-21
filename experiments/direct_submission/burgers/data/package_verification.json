@@ -1,0 +1,17 @@
+{
+  "training_archived_samples_replayed": 200,
+  "training_max_abs_discrepancy": 0.0,
+  "adaptive_archived_samples_replayed": 200,
+  "adaptive_max_abs_discrepancy": 0.0,
+  "frozen_archived_samples_replayed": 200,
+  "frozen_max_abs_discrepancy": 0.0,
+  "literal_joint_ode_q_error": 1.505506275201185e-10,
+  "literal_joint_ode_R_error": 4.336808689942018e-19,
+  "held_observation_step_refinement_errors": [
+    1.505506275201185e-10,
+    9.290179736609616e-12,
+    5.765665722634594e-13
+  ],
+  "refinement_scope": "Numerical held-observation learner test only; whole closed-loop dt sensitivity remains in historical audit",
+  "passed": true
+}

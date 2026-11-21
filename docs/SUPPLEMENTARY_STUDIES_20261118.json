@@ -1,0 +1,99 @@
+{
+  "identity": "Supplementary numerical studies and derivative diagnostics, separate from original protocol reproduction",
+  "date": "2026-11-18",
+  "timezone": "America/New_York",
+  "availability": "local only; not uploaded, published or available at a download URL",
+  "archive": {
+    "filename": "Implicit_Supplementary_Studies_20261118.zip",
+    "bytes": 177098135,
+    "sha256": "95893a9227b65990e412fc5fc6c0d4dc6ff3b05b45a530960a76ee91bcbed95e",
+    "members": 280,
+    "zip_crc_test": "PASS",
+    "every_member_sha256_verified": true
+  },
+  "studies": [
+    {
+      "identity": "fourier_alternative_estimators_20261118_v1",
+      "estimator_records": 50,
+      "plant_trajectories": 30,
+      "seeds": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "raw_rows": 400050,
+      "audit_checks": 640160
+    },
+    {
+      "identity": "direct_lift_20261118_v1",
+      "runs": 20,
+      "raw_rows": 120020,
+      "seeds": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "scope": "Six-dimensional normalized rate lift; no general integrability claim"
+    },
+    {
+      "identity": "direct_jacobian_20261118_v1",
+      "runs": 20,
+      "raw_rows": 120020,
+      "seeds": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "scope": "Exact Jacobian throughout adaptation in the declared integrable family"
+    },
+    {
+      "identity": "learned_partial_tracking_postprocessing_20261118",
+      "original_main_runs": 100,
+      "new_runs": 0,
+      "input_files_sha256_verified": 163,
+      "required_raw_archive": "Implicit_Learning_Reproduced_20261118.zip",
+      "required_raw_archive_sha256": "24d98e1b30ba103d7cb2c9895a0df7396cbdf36f466f8f648e9efeab669b014a"
+    }
+  ],
+  "coverage": {
+    "new_trace_records": 90,
+    "new_trace_rows": 640090,
+    "postprocessed_original_runs": 100
+  },
+  "audit_status": {
+    "comparison": "passed",
+    "direct_lift": "passed",
+    "direct_jacobian": "passed",
+    "matched_streams": "passed"
+  },
+  "base_commit": "374187a31d69e9c93eded1bbc8440696804364b9",
+  "new_source_snapshots_and_dependencies_included": true,
+  "original_reproduction_archives_unchanged": true,
+  "metadata_members_sanitized": 3,
+  "limitations": [
+    "Derivative postprocessing requires the separately preserved main-record archive.",
+    "Direct-flow CLI replay records Git HEAD and requires a Git checkout containing the archived sources.",
+    "New supplementary studies do not replace or recover historical archives; no physical validation or general stability claim."
+  ]
+}

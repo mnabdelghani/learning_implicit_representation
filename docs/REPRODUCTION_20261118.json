@@ -1,0 +1,86 @@
+{
+  "identity": "New reproduction of unchanged original reconstruction protocols; missing historical archives were not recovered",
+  "run_date": "2026-11-18",
+  "run_date_timezone": "America/New_York",
+  "source_commit": "374187a31d69e9c93eded1bbc8440696804364b9",
+  "original_simulation_sources_match_commit": true,
+  "seeds": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "runs": {
+    "main": 100,
+    "supplementary_transfer": 20,
+    "failed": 0
+  },
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8",
+    "historical_python": "3.13.5",
+    "note": "Python and platform differ from historical runtime; versions and full details retained in each archive."
+  },
+  "audit": {
+    "status": "PASS",
+    "checks": 7851,
+    "historical_summary_runs_compared": 120,
+    "historical_raw_runs_compared": 12,
+    "maximum_summary_absolute_difference": 0.0,
+    "maximum_available_raw_absolute_difference": 0.0,
+    "numerical_tolerance": {
+      "rtol": 1e-09,
+      "atol": 1e-11
+    }
+  },
+  "archives": [
+    {
+      "filename": "Implicit_Learning_Reproduced_20261118.zip",
+      "bytes": 200387425,
+      "sha256": "24d98e1b30ba103d7cb2c9895a0df7396cbdf36f466f8f648e9efeab669b014a",
+      "runs": 100,
+      "studies": [
+        "contact",
+        "fourier",
+        "burgers"
+      ],
+      "members": 419,
+      "availability": "local only; no download URL or release published",
+      "zip_crc_test": "PASS"
+    },
+    {
+      "filename": "Implicit_Excitation_Reproduced_20261118.zip",
+      "bytes": 53819659,
+      "sha256": "2fba0d1dc27880a05682c4ecae64a6b66a804e5c1d6fb46dda1045686bd4a0c5",
+      "runs": 20,
+      "studies": [
+        "contact_excitation"
+      ],
+      "members": 104,
+      "availability": "local only; no download URL or release published",
+      "zip_crc_test": "PASS"
+    }
+  ],
+  "included_evidence": [
+    "All per-run original diagnostic exports",
+    "Source snapshots and source SHA-256 identities",
+    "Configurations, planned seeds and per-run execution status",
+    "Environment and NumPy PCG64 initial states",
+    "Independent trace-to-metric and historical comparisons",
+    "Per-archive member SHA-256 manifest"
+  ],
+  "limitations": [
+    "Regenerated diagnostic records do not recover original ZIP files or their checksums.",
+    "No experimental or physical validation is implied.",
+    "Burgers full fields are snapshots every 0.1 s; the original protocol did not log every noisy field observation."
+  ],
+  "historical_manifest": "DATA_MANIFEST.json (unchanged)"
+}

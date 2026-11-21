@@ -1,0 +1,1183 @@
+{
+  "passed": true,
+  "runs": [
+    {
+      "seed": 9001,
+      "run": "pilot_9001",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 5.40249611811084e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 3.469446951953614e-18
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 0.0
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 0.0
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 1.6786572132332367e-13
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 5.941913627793838e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 1.3955503419538218e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 6.080247416662132e-12
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 2.2504220709151923e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 5.663305380210204e-10
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 1.4210854715202004e-13
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 6.394884621840902e-14
+        },
+        "frozen_prior": {
+          "invalid": 64,
+          "rate_max_reconstruction_error": 1.1102230246251565e-16,
+          "y_max_reconstruction_error": 7.105427357601002e-15
+        }
+      },
+      "truth_finite_difference_max_error": 7.1202759244215486e-09,
+      "final_minimum_covariance_eigenvalue": 2.813255401763114e-06,
+      "passed": true
+    },
+    {
+      "seed": 10,
+      "run": "seed_10",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 7.960683680178007e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 2.220446049250313e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 1.1796119636642288e-15
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 2.1649348980190553e-15
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 1.4477308241112041e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 2.722266856380884e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 1.6415757642107565e-12
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 1.7630341631047486e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 1.0835776720341528e-13
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 7.105427357601002e-14
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 7.105427357601002e-14
+        },
+        "frozen_prior": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 1.1102230246251565e-16,
+          "y_max_reconstruction_error": 9.237055564881302e-14
+        }
+      },
+      "truth_finite_difference_max_error": 5.35156918779478e-09,
+      "final_minimum_covariance_eigenvalue": 2.9209878024772854e-06,
+      "passed": true
+    },
+    {
+      "seed": 11,
+      "run": "seed_11",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 1.1692269263788128e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 2.90656387846866e-13
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 3.561595462997502e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 2.994271497414047e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 1.1404988065066846e-11
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 2.2792878695554464e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 4.419131727217973e-12
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 1.2079226507921703e-13
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 9.947598300641403e-14
+        },
+        "frozen_prior": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 1.5631940186722204e-13
+        }
+      },
+      "truth_finite_difference_max_error": 6.137079067158879e-09,
+      "final_minimum_covariance_eigenvalue": 2.830115088093075e-06,
+      "passed": true
+    },
+    {
+      "seed": 12,
+      "run": "seed_12",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 3.834878784967841e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 3.469446951953614e-18
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 6.938893903907228e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 3.3323344084124074e-13
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 9.114931032172535e-14
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 3.723688024592775e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 1.3649081864741675e-12
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 2.1194157540094238e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 2.2237767183241886e-13
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 1.4921397450962104e-13
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 4.263256414560601e-14
+        },
+        "frozen_prior": {
+          "invalid": 126,
+          "rate_max_reconstruction_error": 2.220446049250313e-16,
+          "y_max_reconstruction_error": 7.105427357601002e-15
+        }
+      },
+      "truth_finite_difference_max_error": 6.191612555994652e-09,
+      "final_minimum_covariance_eigenvalue": 2.8269894858730607e-06,
+      "passed": true
+    },
+    {
+      "seed": 13,
+      "run": "seed_13",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 1.3410913411683253e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 0.0
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 3.3084646133829665e-14
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 7.860379014346108e-14
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 2.2948309919001986e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 3.3703040358545877e-12
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 1.3067324999838092e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 1.957323192414151e-12
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 7.815970093361102e-14
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 7.105427357601002e-14
+        },
+        "frozen_prior": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 1.4210854715202004e-13
+        }
+      },
+      "truth_finite_difference_max_error": 7.859648931685115e-09,
+      "final_minimum_covariance_eigenvalue": 2.93545061400409e-06,
+      "passed": true
+    },
+    {
+      "seed": 14,
+      "run": "seed_14",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 1.0145733537157697e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 1.0946799022804043e-13
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 2.6767477123712524e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 1.8673951274195133e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 4.4653170050423796e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 2.8055335832277706e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 1.6926460233435137e-12
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 8.526512829121202e-14
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 6.394884621840902e-14
+        },
+        "frozen_prior": {
+          "invalid": 60,
+          "rate_max_reconstruction_error": 2.220446049250313e-16,
+          "y_max_reconstruction_error": 7.105427357601002e-15
+        }
+      },
+      "truth_finite_difference_max_error": 7.210082753061897e-09,
+      "final_minimum_covariance_eigenvalue": 2.927798272197511e-06,
+      "passed": true
+    },
+    {
+      "seed": 15,
+      "run": "seed_15",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 2.953292463554226e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 8.604228440844963e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 2.220446049250313e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 1.8540724511240114e-14
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 3.4072744625746054e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 2.7833291227352674e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 6.029751142833106e-10
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 1.1879386363489175e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 1.2524314918493928e-11
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 7.105427357601002e-14
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 7.815970093361102e-14
+        },
+        "frozen_prior": {
+          "invalid": 256,
+          "rate_max_reconstruction_error": 2.220446049250313e-16,
+          "y_max_reconstruction_error": 7.105427357601002e-15
+        }
+      },
+      "truth_finite_difference_max_error": 7.01152713666886e-09,
+      "final_minimum_covariance_eigenvalue": 2.8599067557366836e-06,
+      "passed": true
+    },
+    {
+      "seed": 16,
+      "run": "seed_16",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 4.807328451603924e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 0.0
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 7.28583859910259e-17
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 4.463096558993129e-14
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 3.6848302187308946e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 2.2593038551121936e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 5.724976048782082e-12
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 1.0969003483296547e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 4.106492923483529e-12
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 9.237055564881302e-14
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 1.1368683772161603e-13
+        },
+        "frozen_prior": {
+          "invalid": 133,
+          "rate_max_reconstruction_error": 4.440892098500626e-16,
+          "y_max_reconstruction_error": 7.105427357601002e-15
+        }
+      },
+      "truth_finite_difference_max_error": 5.867725860753126e-09,
+      "final_minimum_covariance_eigenvalue": 2.8359609459505206e-06,
+      "passed": true
+    },
+    {
+      "seed": 17,
+      "run": "seed_17",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 1.949117354061586e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 2.220446049250313e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 7.216449660063518e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 5.340172748447003e-14
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 5.162537064506978e-14
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 1.6009416015094757e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 3.336997345115833e-12
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 1.7352785874891197e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 2.0862200855731317e-12
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 3.552713678800501e-14
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 8.526512829121202e-14
+        },
+        "frozen_prior": {
+          "invalid": 101,
+          "rate_max_reconstruction_error": 4.440892098500626e-16,
+          "y_max_reconstruction_error": 1.4210854715202004e-14
+        }
+      },
+      "truth_finite_difference_max_error": 6.627694393301908e-09,
+      "final_minimum_covariance_eigenvalue": 2.96540938286496e-06,
+      "passed": true
+    },
+    {
+      "seed": 18,
+      "run": "seed_18",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 5.225153155204859e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 0.0
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 2.718381075794696e-13
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 2.298161660974074e-14
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 2.1016521856154213e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 2.4756863226116366e-12
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 2.799982468104645e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 1.4765966227514582e-12
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 7.105427357601002e-14
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 7.105427357601002e-14
+        },
+        "frozen_prior": {
+          "invalid": 159,
+          "rate_max_reconstruction_error": 2.220446049250313e-16,
+          "y_max_reconstruction_error": 0.0
+        }
+      },
+      "truth_finite_difference_max_error": 7.68321073429945e-09,
+      "final_minimum_covariance_eigenvalue": 2.9473466774690665e-06,
+      "passed": true
+    },
+    {
+      "seed": 19,
+      "run": "seed_19",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 1.4033918070612689e-12,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 2.220446049250313e-16
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 0.0
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 2.220446049250313e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 9.992007221626409e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 2.5057733665789783e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 1.7330581414398694e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 1.2367884494324244e-12
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 1.0891287871572786e-13
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 4.648170737198143e-12
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 6.394884621840902e-14
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 5.684341886080802e-14
+        },
+        "frozen_prior": {
+          "invalid": 81,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 2.1316282072803006e-14
+        }
+      },
+      "truth_finite_difference_max_error": 5.649610779201453e-09,
+      "final_minimum_covariance_eigenvalue": 2.7951199112879985e-06,
+      "passed": true
+    },
+    {
+      "seed": 10,
+      "run": "refine_clean_dt02",
+      "hashes_verified": 8,
+      "n_observations": 12001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 4.216687252834293e-09,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 0.0
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 1.2836953722228372e-15
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 1.9984014443252818e-15
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 1.432187701766452e-13
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 2.7755575615628914e-15
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 1.3986589664227722e-12
+        },
+        {
+          "sample": 11999,
+          "representation": "K1",
+          "C_max_error": 2.220446049250313e-15
+        },
+        {
+          "sample": 11999,
+          "representation": "K0",
+          "C_max_error": 2.852162950262027e-13
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 7.105427357601002e-14
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 1.1368683772161603e-13
+        },
+        "frozen_prior": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 1.1102230246251565e-16,
+          "y_max_reconstruction_error": 9.237055564881302e-14
+        }
+      },
+      "truth_finite_difference_max_error": 5.35156918779478e-09,
+      "final_minimum_covariance_eigenvalue": 4.56925805348802e-16,
+      "passed": true
+    },
+    {
+      "seed": 10,
+      "run": "refine_clean_dt01",
+      "hashes_verified": 8,
+      "n_observations": 24001,
+      "all_memory_transition_max_error": 2.220446049250313e-16,
+      "metric_reconstruction_max_error": 4.528202754687857e-09,
+      "selected_coupled_checks": [
+        {
+          "sample": 0,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 0,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 5,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 5,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 50,
+          "representation": "K1",
+          "C_max_error": 5.551115123125783e-17
+        },
+        {
+          "sample": 50,
+          "representation": "K0",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K1",
+          "C_max_error": 1.1102230246251565e-16
+        },
+        {
+          "sample": 500,
+          "representation": "K0",
+          "C_max_error": 2.220446049250313e-16
+        },
+        {
+          "sample": 5000,
+          "representation": "K1",
+          "C_max_error": 1.5009148539638344e-16
+        },
+        {
+          "sample": 5000,
+          "representation": "K0",
+          "C_max_error": 6.071809721674981e-13
+        },
+        {
+          "sample": 23999,
+          "representation": "K1",
+          "C_max_error": 2.220446049250313e-16
+        },
+        {
+          "sample": 23999,
+          "representation": "K0",
+          "C_max_error": 7.605027718682322e-14
+        }
+      ],
+      "forward": {
+        "learned": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 5.551115123125783e-17,
+          "y_max_reconstruction_error": 1.2079226507921703e-13
+        },
+        "K0": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 2.7755575615628914e-17,
+          "y_max_reconstruction_error": 1.2789769243681803e-13
+        },
+        "frozen_prior": {
+          "invalid": 0,
+          "rate_max_reconstruction_error": 1.1102230246251565e-16,
+          "y_max_reconstruction_error": 2.4868995751603507e-13
+        }
+      },
+      "truth_finite_difference_max_error": 7.68915198179343e-09,
+      "final_minimum_covariance_eigenvalue": 4.775641821176386e-16,
+      "passed": true
+    }
+  ],
+  "refinement": {
+    "coarse_rate_rmse": 1.5628178676153695e-15,
+    "fine_rate_rmse": 1.833990930999449e-15,
+    "coarse_y_rmse": 4.373205342978571e-06,
+    "fine_y_rmse": 1.0933733224246521e-06,
+    "final_C_max_difference": 1.1435297153639112e-14
+  },
+  "source_sha256": "d468ad451dfae1b131e696006e1421bdad5d1cb5659e09984c797f61f288e407"
+}

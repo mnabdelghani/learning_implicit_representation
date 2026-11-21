@@ -10,23 +10,50 @@ C_\star=\frac1{\sqrt2}(0,1,\ 1,0,\ 0,0)  \label{eq:fourier_example}
 annihilates $w=\col(v,\cos t\,v,\sin t\,v)$ at every time. Here the lifted
 covariance has exactly one zero eigenvalue and a positive gap. Its evaluated
 row is $C_\star\Psi_1(t)=(\cos t,1)/\sqrt2$, whose Euclidean norm is at
-least $1/\sqrt2$ at all phases. The retained diagnostic reports recovery without selecting a privileged
-derivative block. The original report used 4096 rates over a cycle and
-1600 retracted gradient steps. The reported
-final row-space error is below $10^{-7}$; the phase-grid minimum of the
-evaluated row norm is $.7071$. The exact target has the analytic bound $%
-1/\sqrt2$; the finite-grid guard used during learning is not a continuum
-certificate for arbitrary coefficients. The figure and reported values are
-retained, but the standalone generating script and underlying iteration
-records are absent from the supplied repository. These numerical values
-have therefore not been independently reproduced from the supplied artifacts.
-\begin{figure}[t]
+least $1/\sqrt2$ at all phases. The checked reconstruction uses 4096 rates
+over one cycle and 1600 retracted gradient steps, without fixing a derivative
+entry. With $R$ the fixed batch covariance, each trial has the form
+\begin{equation}
+ C^+=\frac{C-\alpha[C R-(C R C^{\mathsf T})C]}
+ {\|C-\alpha[C R-(C R C^{\mathsf T})C]\|}.
+\end{equation}
+Backtracking accepts a trial only when its energy does not increase beyond
+the stated numerical tolerance and its all-phase norm bound is at least
+$.1$. The initial step is $.5/\lambda_{\max}(R)$. This is a retracted
+discrete update on a frozen batch covariance, not the continuously coupled
+normalized law used in the current main Fourier benchmark.
+
+The reconstructed implementation and iteration records are retained under
+\path{examples/legacy_suite/simulations/fourier.py} and
+\path{examples/legacy_suite/results/fourier/}. An unchanged rerun matched
+its CSV, model arrays, JSON and PNG exactly, with final projector error
+$4.44\times10^{-16}$. This implementation adds a Lipschitz margin to its
+phase-grid check, giving an all-phase lower bound in exact arithmetic;
+a bare finite grid alone would not provide such a bound. The minimum
+computed bound over the recorded iterations is $.63059$, and the final
+bound is $.70277$. No backtracking was needed in this execution.
+Figure~\ref{fig:unanchored_fourier} is copied from this reconstruction's
+retained output. It replaces the historical figure whose exact generating
+lineage could not be established; the historical asset remains archived.
+
+The evaluated field is $H_C(x)=C\Psi_1(x)$. Its target is the normalized
+Jacobian $F(x)/\sqrt2$, but a general iterate need not be a Jacobian:
+the second component of $H_C$ may vary with $x$ while the first is
+independent of $y$. The experiment therefore supports normalized
+rate-field learning, not integrability of every candidate. The
+exact-Jacobian companion in Section~\ref{sec:direct_jacobian_companion} and the retained
+periodic-plant family in Section~\ref{sec:normalized_fourier_results} make that
+additional property explicit.
+\begin{figure*}[t]
 \centering
-\includegraphics[width=.95\columnwidth]{figures/unanchored_fourier}
-\caption{Unanchored Fourier example: the row-Stiefel constrained learner
-minimizes accumulated incompatibility and recovers the one-dimensional row
-space. This retained plot is independent of the main experiments; its standalone
-generating script and iteration records were not supplied.}
+\includegraphics[width=.90\textwidth]{unanchored_fourier_reconstructed.pdf}
+\caption{Checked unanchored Fourier reconstruction with a fixed batch
+covariance. Left: incompatibility and coefficient-row projector error over
+1600 retracted gradient steps. Right: the evaluated first field component
+over a cycle for the initial and final rows, with evaluator-only normalized
+truth. The final target is a Jacobian; generic intermediate rate fields
+need not be. The displayed file is the retained executable reconstruction's
+output, not the unverifiable historical plot.}
 \label{fig:unanchored_fourier}
-\end{figure}
+\end{figure*}
 

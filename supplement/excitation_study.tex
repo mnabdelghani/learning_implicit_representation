@@ -1,8 +1,12 @@
 \section{Supplementary study: task-only interaction versus bounded excitation}
 \label{sec:excitation}
-This is a newly executed supplementary experiment, separate from the 100
-main-protocol runs. It examines whether a small incompatibility and accurate
-regulation necessarily imply that all partial derivatives are learned.
+This supplementary experiment is separate from the original 100 structured
+protocol runs and the retained normalized Fourier experiment. It is a
+historical coefficient-based study, separate from the current direct-field
+main evidence in Section~\ref{sec:direct_main}. It examines whether a small incompatibility and accurate
+regulation necessarily imply accurate evaluated partials within a prescribed
+residual family. The learner itself is the retained coefficient estimator,
+not a direct all-entry partial-field learner.
 The same viscoelastic contact plant and initial parameter prior are used in
 both protocols, without the material or actuation change. All remaining plant, noise,
 memory, bounds, and sampling settings are those in
@@ -29,8 +33,7 @@ zero. It reports the square root of the summed squared scaled differential
 errors divided by the summed squared scaled true differentials, using the
 same $D_z,D_r$ as the contact protocol. These queries are algebraic contexts,
 not additional plant trajectories, and never train either learner.
-Table~\ref{tab:excitation} and Figure~\ref{fig:excitation} report this
-separate study.
+Table~\ref{tab:excitation} and Figure~\ref{fig:excitation} give the results.
 
 \begin{table}[t]
 \centering
@@ -55,10 +58,12 @@ Held-out $e_F$ & $0.19596\pm0.00802$ & $0.04232\pm0.00203$\\
 \includegraphics[width=.32\textwidth]{excitation_energy.pdf}\\
 \includegraphics[width=.32\textwidth]{excitation_control.pdf}\hfill
 \includegraphics[width=.32\textwidth]{excitation_information.pdf}
-\caption{Seed-10 paired excitation. Top row, left to right: force error,
+\caption{Paired excitation. The trajectory panels show preselected seed 10.
+Top row, left to right: force error,
 relative differential error, and pre-update incompatibility. Bottom row:
 applied command and the clean evaluator-only
-information spectrum at the end of training. The vertical line marks
+information spectrum at the end of training, averaged over all ten seeds.
+The vertical line marks
 transfer to a new task with coefficients frozen. Clean information is not
 provided to either learner.}
 \label{fig:excitation}

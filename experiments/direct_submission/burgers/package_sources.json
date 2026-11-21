@@ -1,0 +1,12 @@
+{
+  "audit_runs.py": "2a252d839a2021506a3e7f5f6f899fb73845c44972bbf06a7906c07037e1e50c",
+  "causal_rate.py": "64f6490330a9328b7c4561b5c0fc1cebffbef4c10ed2a5a47ec8e073698d9412",
+  "independent_math.py": "ddd7a772dba9424419a127b5b569216ff2ca22388a67ac40e591a1794c324d09",
+  "plant_burgers.py": "81dc18fb3ff4a6acafdcbf0e53bd381f52c686d766dab400eaa655497ff171b4",
+  "plot_main.py": "b9c09b44425e99ade70de7e025fd3f891c40dfbe0a526d32adfe65387da40963",
+  "paired_burgers.py": "2e9dc6175f2a3656dc9bcec9acf2d679b5b46c7b75a83b3d212d10c4eecb283a",
+  "verify_package.py": "0ec9bbcc4b47352438288a7ae71ea234b298a72565e64f38b2dacdea1655460e",
+  "burgers_direct.py": "13f1e0c5bb6abb38d045b818fde2703f0fa0bc51b1faf4381b3fa0a266c42705",
+  "native_kernel.py": "d116a466c8151bc1ab81fccbb1e75b69de7b780a4be11891912244e785a31e02",
+  "native_kernel.cpp": "9c7a726bf581a55def5d06a74d8ba61f3dad8d16bd7b6e5f9e0dddab8ca093b7"
+}

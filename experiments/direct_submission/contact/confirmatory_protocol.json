@@ -1,0 +1,53 @@
+{
+  "identity": "contact_direct_ideal_20261120_confirmatory_v2",
+  "declared_utc": "2026-11-20T05:05:29.034123+00:00",
+  "exploratory_seeds": [
+    0
+  ],
+  "confirmatory_seeds": [
+    101,
+    102,
+    103,
+    104,
+    105
+  ],
+  "illustration_seed": 101,
+  "config": {
+    "dt": 0.01,
+    "tau": 2.0,
+    "gain": 100.0,
+    "duration": 120.0,
+    "warmup": 40.0,
+    "change_time": 60.0,
+    "phase": 0.0,
+    "ideal_sensing": true,
+    "noise": false
+  },
+  "primary_window": [
+    110.0,
+    120.0
+  ],
+  "criteria": {
+    "complete_all_samples": 12001,
+    "no_readout_failure": true,
+    "no_domain_exit": true,
+    "no_control_saturation": true,
+    "late_x_rmse_lt": 0.01,
+    "late_lambda_rmse_lt": 0.2,
+    "late_mean_projector_error_lt": 0.6,
+    "late_projector_error_ratio_to_initial_frozen_lt": 0.5,
+    "late_incompatibility_ratio_to_initial_frozen_lt": 0.5,
+    "late_query_rms_ratio_to_initial_frozen_lt": 0.5
+  },
+  "refinement": {
+    "seed": 101,
+    "dt": 0.005,
+    "unchanged_remaining_config": true,
+    "compare": "same-time trajectories and all primary metrics; report differences rather than silently replace coarse records"
+  },
+  "scope": "Ideal measured physical time derivatives, rank3 direct local field with all24 entries adaptive; no noise robustness, exact identification, global integrability or universal stability claim",
+  "sources": {
+    "contact_direct.py": "f6d0c2ccd1e375558504a6632d97763bc8a472ab446f9ae60ee72742c9dd54f9",
+    "direct_field.py": "2ffc796743a86d7681d08d56a312b1fb65a684241d50f99177b7e7532ed33006"
+  }
+}

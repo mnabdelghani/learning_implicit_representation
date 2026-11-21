@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Exact-Jacobian companion: mean $\pm$ sample standard deviation across all ten seeds per scenario, after averaging each pre-update diagnostic over its half-open time window. Every candidate is an exact Jacobian and all four coefficients adapt.}
+\label{tab:direct_jacobian_results}
+\begin{tabular}{llcccc}
+\toprule
+Scenario & Window (s) & Learned derivative & Frozen derivative & Optimizer lag & Memory bias\\
+\midrule
+Stationary & 40--60 & $(2.479\pm0.728)\times10^{-4}$ & $(9.075\pm0.000)\times10^{-1}$ & $(4.123\pm0.266)\times10^{-5}$ & $(3.373\pm1.061)\times10^{-4}$\\
+Stationary & 60--80 & $(2.529\pm0.693)\times10^{-4}$ & $(9.022\pm0.000)\times10^{-1}$ & $(4.163\pm0.365)\times10^{-5}$ & $(3.244\pm0.890)\times10^{-4}$\\
+Stationary & 100--120 & $(2.631\pm0.456)\times10^{-4}$ & $(8.870\pm0.000)\times10^{-1}$ & $(4.108\pm0.320)\times10^{-5}$ & $(3.553\pm0.592)\times10^{-4}$\\
+\midrule
+Jump & 40--60 & $(2.479\pm0.728)\times10^{-4}$ & $(9.075\pm0.000)\times10^{-1}$ & $(4.123\pm0.266)\times10^{-5}$ & $(3.373\pm1.061)\times10^{-4}$\\
+Jump & 60--80 & $(8.872\pm0.007)\times10^{-2}$ & $(1.042\pm0.000)\times10^{0}$ & $(3.974\pm0.004)\times10^{-3}$ & $(9.678\pm0.008)\times10^{-2}$\\
+Jump & 100--120 & $(4.825\pm0.712)\times10^{-4}$ & $(1.034\pm0.000)\times10^{0}$ & $(3.476\pm0.253)\times10^{-5}$ & $(5.290\pm0.596)\times10^{-4}$\\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,8 @@
+{
+  "report_plot_source_sha256": "017e251ca7d2efe5361afb77aad54259167fb953ee7ecbaaa40e62b29cee6f56",
+  "display_data_sha256": "6d14af9561356ea84fa77f3f8c0919fed96acc294bccefbdd0f750f1f1f97de4",
+  "truth_frame_max_error": 0.0,
+  "aligned_frame_max_error": 0.0,
+  "projector_preservation_error": 1.7763568394002505e-15,
+  "passed": true
+}

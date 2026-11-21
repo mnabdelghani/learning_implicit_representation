@@ -1,0 +1,66 @@
+{
+  "illustration_seed": 101,
+  "gauge": "T=(FDD^T F^T)^(-1/2)FD; O=UV^T from SVD(TQ^T); Q_display=OQ. O is orthogonal and evaluator-only, never learner/controller.",
+  "orthogonal_alignment_drift": 3.0306103930682915e-15,
+  "minimum_overlap_singular_value_control": 0.940553086241666,
+  "physical_control_min_sigma": 0.1274220291126874,
+  "learned_control_min_sigma": 0.05421607401916854,
+  "canonical_min_sigma": 6.059932566454285e-06,
+  "canonical_limit": "Unit force-rate normalization is unstable; physical magnitudes are not recovered precisely. Full canonical diagnostics retained.",
+  "metrics": {
+    "x_rmse": {
+      "mean": 6.811020888071867e-05,
+      "sd": 3.0580071160578953e-09,
+      "min": 6.810492246810769e-05,
+      "max": 6.81125553703738e-05
+    },
+    "lambda_rmse": {
+      "mean": 0.1216377631299855,
+      "sd": 2.312341745122216e-06,
+      "min": 0.12163628599967242,
+      "max": 0.12164180640660606
+    },
+    "projector_error": {
+      "mean": 0.29816929749781623,
+      "sd": 6.149831063006464e-07,
+      "min": 0.2981688989519895,
+      "max": 0.2981703709527012
+    },
+    "frozen_projector_error": {
+      "mean": 1.9338935206060253,
+      "sd": 0.16980873055083873,
+      "min": 1.7507507916591611,
+      "max": 2.11377825675699
+    },
+    "incompatibility": {
+      "mean": 0.003595877014574654,
+      "sd": 3.10624457265153e-08,
+      "min": 0.003595822739976087,
+      "max": 0.0035958966547691485
+    },
+    "frozen_incompatibility": {
+      "mean": 0.511730234154947,
+      "sd": 0.11636829159277043,
+      "min": 0.4161089281840568,
+      "max": 0.708425123532053
+    },
+    "query_error_rms": {
+      "mean": 0.007172656367055183,
+      "sd": 9.6631826727197e-08,
+      "min": 0.007172595193136709,
+      "max": 0.007172825228737258
+    },
+    "frozen_query_error_rms": {
+      "mean": 0.21481178961915864,
+      "sd": 0.10008957297157711,
+      "min": 0.06363764660001563,
+      "max": 0.3168681614204954
+    },
+    "min_sigma": {
+      "mean": 0.05421619320333698,
+      "sd": 3.186495455697728e-07,
+      "min": 0.054215990733153474,
+      "max": 0.05421675024075284
+    }
+  }
+}

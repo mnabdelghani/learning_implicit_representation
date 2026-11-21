@@ -1,0 +1,70 @@
+{
+  "study": "Retained legacy airfoil seed 10; visualization only",
+  "new_simulation_executed": false,
+  "source_branch": "final_adaptive",
+  "control_time": 6.0,
+  "total_simulation_time": 12.0,
+  "grid_shape_yx": [
+    64,
+    128
+  ],
+  "inputs_sha256": {
+    "examples/legacy_suite/results/airfoil/fields.npz": "339813a1f8af74baff52413e1bbeb98fe8cc4daf33d43b5c31882e51a3f151e5",
+    "examples/legacy_suite/results/airfoil/summary.json": "ed30ed85fe483bd1a115820c0017f9fbe57f88eeb85b28d6a4f328f96e16967a",
+    "examples/legacy_suite/results/airfoil/trace.csv": "129715b3a19d37ee64e6c5fd6f93f2bbbc245322d88b2cbb675bda0b37d8632e",
+    "experiments/plot_active_flow_fields.py": "221e06f73fd4682c43df0a83297f4d1f4b7b965f6db6e57aa91d3547644d2d3a"
+  },
+  "python": "3.12.3",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "matplotlib": "3.10.8",
+  "vorticity": "irfft2(i*(kx*rfft2(v_y)-ky*rfft2(v_x))), exactly the saved solver convention; displayed omega*c/Uinf, c=1 and Uinf=1",
+  "vorticity_range": [
+    -8.284417850992496,
+    8.311529879886354
+  ],
+  "symmetric_color_range": [
+    -8.311529879886354,
+    8.311529879886354
+  ],
+  "vorticity_colormap": [
+    "#5596bf",
+    "#c4dfed",
+    "#fffdf8",
+    "#f6d1ad",
+    "#dd875a"
+  ],
+  "speed_range": [
+    0.04886358774466605,
+    1.1710117601408794
+  ],
+  "speed_color_range": [
+    0,
+    1.1710117601408794
+  ],
+  "plotting": "Native-grid pcolormesh shading nearest; no filtering, resampling, percentile clipping, or smoothing of raster fields; half-cell support clipped to domain axes. Shared scale between full and zoom views.",
+  "full_domain_chords": [
+    0,
+    6.0,
+    0,
+    3.0
+  ],
+  "zoom_chords": [
+    1.15,
+    4.7,
+    1.05,
+    2.05
+  ],
+  "geometry": "Nominal analytic closed-trailing-edge NACA0012 profile from recorded config, white-filled overlay. Saved mask chi=0.5 separately dotted; these differ on the coarse grid.",
+  "streamlines": "Matplotlib streamplot using bilinear interpolation of saved final_adaptive velocity; automatic uniform seeding density=(2,1.25), both directions, arrowsize=.75, minlength=.08, maxlength=5. Same full-domain lines shown in both views. Not pathlines.",
+  "stream_mask": "Grid points inside nominal polygon OR chi>=0.5; 2D interpolation stops at masks; no no-penetration condition imposed on stored field. Geometry overlay hides body interior in both plots.",
+  "masked_stream_points": 37,
+  "readout_outline": "Saved readout_weight at half its grid maximum",
+  "limitations": "Legacy structured-coefficient learner; not direct partial learning. One retained final snapshot; coarse immersed geometry, nonzero immersed speed, no aerodynamic or grid/time/penalty validation. Masking is only a display choice.",
+  "outputs_sha256": {
+    "active_flow_vorticity.pdf": "0f831877f067846366c1553cd6f8861c7dbaa3a12fda32112f2acd0cc911cec7",
+    "active_flow_vorticity.png": "90f790635b0a7c85f6f61b897c6cad373928c3ca9224dc17b9ee5b00672e9b21",
+    "active_flow_streamlines.pdf": "aa661db6abb21a947c10aab0d7f16cbb604370a0fbb4f73a1c5fcd55416b838e",
+    "active_flow_streamlines.png": "6fb0a06ef69417dde828c64f98c33a0587f9a218a228bbb81cc09fb2c960993d"
+  }
+}

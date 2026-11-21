@@ -1,0 +1,152 @@
+{
+  "study_identity": "burgers_direct_field_long_training_multiseed_causal_sensing_20261120_v1",
+  "original_protocol_sha256": "22e225ae5ad2c275dd199bad2e93ea1f0221e51bba851c1e278fb7b4328f7980",
+  "original_source_hashes": {
+    "native_validation.json": "cffc2f57534498d7bb3cfdc9e115c7e045a18a1b91e2b148222035db85709e67",
+    "causal_rate.py": "64f6490330a9328b7c4561b5c0fc1cebffbef4c10ed2a5a47ec8e073698d9412",
+    "continue_pair.py": "98997de8b1dc8846c489b7b179bd3b86947bd73d14400f93909c8cc892374654",
+    "libnative_kernel.so": "b37fb65951e09a9eb8af51feec2423dffc2aefcc5492536124f81b0efbc5f540",
+    "paired_burgers.py": "e728cddc3f00effdddb0fd858a783d716a06d553c6febae77296894685fa579b",
+    "burgers_multiseed.py": "04074bba08bf96e834a8219d99903a3c41f496887cad617963d7a196ff1af23d",
+    "burgers.py": "ff15f0aad7d0afaf0b6a32bf39b4335705c56d45514c43482f0b19b8eaea3f87",
+    "build_manifest.json": "ad1bf4d08e5a832756d95f4ff931808ed2af85bbdb5562399245c5577cf58d46",
+    "native_kernel.py": "d116a466c8151bc1ab81fccbb1e75b69de7b780a4be11891912244e785a31e02",
+    "native_kernel.cpp": "9c7a726bf581a55def5d06a74d8ba61f3dad8d16bd7b6e5f9e0dddab8ca093b7",
+    "causal_rate_tests.log": "0ef3a0d4102a5cafaa29012503ad9e85ec42218a56936c154f04c3dd9c22b1a3"
+  },
+  "packaging_changes": [
+    "Local imports and minimal exact source extraction",
+    "NativeRows class moved from continuation without changing step body",
+    "Portable source hash verification replaces original absolute build validation",
+    "Explicit case/all CLI and output destination",
+    "Portable run manifests record package source and newly built native identities"
+  ],
+  "scientific_equivalence": [
+    {
+      "original_file": "burgers.py",
+      "portable_file": "plant_burgers.py",
+      "symbol": "spatial_grid",
+      "ast_identical": true
+    },
+    {
+      "original_file": "burgers.py",
+      "portable_file": "plant_burgers.py",
+      "symbol": "spectral_derivatives",
+      "ast_identical": true
+    },
+    {
+      "original_file": "burgers.py",
+      "portable_file": "plant_burgers.py",
+      "symbol": "plant_rhs",
+      "ast_identical": true
+    },
+    {
+      "original_file": "burgers.py",
+      "portable_file": "plant_burgers.py",
+      "symbol": "implicit_jacobian",
+      "ast_identical": true
+    },
+    {
+      "original_file": "paired_burgers.py",
+      "portable_file": "paired_burgers.py",
+      "symbol": "unit_rows",
+      "ast_identical": true
+    },
+    {
+      "original_file": "paired_burgers.py",
+      "portable_file": "paired_burgers.py",
+      "symbol": "DirectRows",
+      "ast_identical": true
+    },
+    {
+      "original_file": "paired_burgers.py",
+      "portable_file": "paired_burgers.py",
+      "symbol": "reference",
+      "ast_identical": true
+    },
+    {
+      "original_file": "paired_burgers.py",
+      "portable_file": "paired_burgers.py",
+      "symbol": "exploration_rate",
+      "ast_identical": true
+    },
+    {
+      "original_file": "paired_burgers.py",
+      "portable_file": "paired_burgers.py",
+      "symbol": "command",
+      "ast_identical": true
+    },
+    {
+      "original_file": "paired_burgers.py",
+      "portable_file": "paired_burgers.py",
+      "symbol": "advance",
+      "ast_identical": true
+    },
+    {
+      "original_file": "paired_burgers.py",
+      "portable_file": "paired_burgers.py",
+      "symbol": "distance",
+      "ast_identical": true
+    },
+    {
+      "original_file": "paired_burgers.py",
+      "portable_file": "paired_burgers.py",
+      "symbol": "RecordedStepFailure",
+      "ast_identical": true
+    },
+    {
+      "original_file": "paired_burgers.py",
+      "portable_file": "paired_burgers.py",
+      "symbol": "Recorder",
+      "ast_identical": true
+    },
+    {
+      "original_file": "burgers_multiseed.py",
+      "portable_file": "burgers_direct.py",
+      "symbol": "State",
+      "ast_identical": true
+    },
+    {
+      "original_file": "burgers_multiseed.py",
+      "portable_file": "burgers_direct.py",
+      "symbol": "observe_and_step",
+      "ast_identical": true
+    },
+    {
+      "original_file": "burgers_multiseed.py",
+      "portable_file": "burgers_direct.py",
+      "symbol": "save_checkpoint",
+      "ast_identical": true
+    },
+    {
+      "original_file": "burgers_multiseed.py",
+      "portable_file": "burgers_direct.py",
+      "symbol": "load_checkpoint",
+      "ast_identical": true
+    },
+    {
+      "original_file": "burgers_multiseed.py",
+      "portable_file": "burgers_direct.py",
+      "symbol": "Recorder",
+      "ast_identical": true
+    },
+    {
+      "original_file": "burgers_multiseed.py",
+      "portable_file": "burgers_direct.py",
+      "symbol": "run_phase",
+      "ast_identical": true
+    },
+    {
+      "original_file": "burgers_multiseed.py",
+      "portable_file": "burgers_direct.py",
+      "symbol": "case_config",
+      "ast_identical": true
+    }
+  ],
+  "audit_packaging": {
+    "independent_math_sha256": "ddd7a772dba9424419a127b5b569216ff2ca22388a67ac40e591a1794c324d09",
+    "original_independent_audit_sha256": "c780ce6aeebed624f9c2f323386bac90d00aeb9387ed620bfa3f469dccd8d506",
+    "changes": "Only local math import plus --runs/--output destinations; all analysis functions unchanged",
+    "unchanged_analysis_functions": 21
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "confirm_seed101": {
+    "min_indentation": 0.01403560323951767,
+    "min_force": 3.477237396931467,
+    "max_abs_x": 0.1424511162368441,
+    "max_abs_y": 0.017826134491743143,
+    "min_entry_temporal_range": 0.13598329262266737
+  },
+  "confirm_seed102": {
+    "min_indentation": 0.014035610903637282,
+    "min_force": 3.477239449092667,
+    "max_abs_x": 0.1424511162368441,
+    "max_abs_y": 0.017826134491743143,
+    "min_entry_temporal_range": 0.14875349208200175
+  },
+  "confirm_seed103": {
+    "min_indentation": 0.014035596060410074,
+    "min_force": 3.477235474666385,
+    "max_abs_x": 0.1424511162368441,
+    "max_abs_y": 0.017826134491743143,
+    "min_entry_temporal_range": 0.2035260276433311
+  },
+  "confirm_seed104": {
+    "min_indentation": 0.01403566200618663,
+    "min_force": 3.477253135100594,
+    "max_abs_x": 0.1424511162368441,
+    "max_abs_y": 0.017826134491743143,
+    "min_entry_temporal_range": 0.1396514672062135
+  },
+  "confirm_seed105": {
+    "min_indentation": 0.014035600160292256,
+    "min_force": 3.4772365728996584,
+    "max_abs_x": 0.1424511162368441,
+    "max_abs_y": 0.017826134491743143,
+    "min_entry_temporal_range": 0.20232042620167529
+  },
+  "refine_seed101": {
+    "min_indentation": 0.01411089095572116,
+    "min_force": 3.4971847693540212,
+    "max_abs_x": 0.14245425790546512,
+    "max_abs_y": 0.017826272161990245,
+    "min_entry_temporal_range": 0.13632177140413645
+  },
+  "refinement": {
+    "projector_error": {
+      "coarse": 0.2981690745595055,
+      "fine": 0.2974495837618228,
+      "absolute_change": 0.000719490797682687,
+      "relative_change_using_fine": 0.0024188663792476706
+    },
+    "x_rmse": {
+      "coarse": 6.81111503571205e-05,
+      "fine": 3.51503090677447e-05,
+      "absolute_change": 3.29608412893758e-05,
+      "relative_change_using_fine": 0.9377112794613223
+    },
+    "lambda_rmse": {
+      "coarse": 0.12163689154923289,
+      "fine": 0.10923671901273938,
+      "absolute_change": 0.012400172536493517,
+      "relative_change_using_fine": 0.11351652309373543
+    },
+    "query_error_rms": {
+      "coarse": 0.00717262048466369,
+      "fine": 0.006634612660453647,
+      "absolute_change": 0.0005380078242100423,
+      "relative_change_using_fine": 0.08109106766954133
+    }
+  }
+}

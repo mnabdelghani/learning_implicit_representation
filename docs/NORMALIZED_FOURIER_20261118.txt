@@ -1,0 +1,192 @@
+Normalized learning in the periodic Fourier plant
+Protocol identity: normalized_fourier_coupled_20261118_v1
+
+Purpose and status
+------------------
+This new protocol applies the normalized covariance learning law to the retained
+periodic plant, first as a shadow of saved observations and then in closed loop.
+It preserves the earlier experiments and their records. This document specifies
+the method and reproduction procedure; it does not assert executed results.
+Execution status, failures and measured outcomes belong to the output records.
+
+The earlier Fourier learner adapts six coefficients inside supplied bounds,
+while fixing the input coefficient to one. It takes eight projected-gradient
+steps on a memory objective per observation. This new learner adapts all seven
+homogeneous coefficients, including the input coefficient, on the unit sphere.
+It uses the coupled normalized differential equation below, without coefficient
+boxes, ridge regularization, derivative-entry targets or a fixed learned row
+entry. These are different methods and have different noisy-data objectives.
+
+The executable and machine-readable protocol are
+
+  experiments/normalized_fourier.py
+  experiments/configs/normalized_fourier_20261118.json
+
+Their exact source snapshots and hashes must accompany each executed run.
+
+Integrable family and declared units
+-----------------------------------
+Let z=(x,r,u,phi), where r is the measured plant rate, and define
+
+  h(phi) = (1, cos(phi), sin(phi)),
+  h'(phi) = (0, -sin(phi), cos(phi)),
+  zeta(z) = (h(phi)*r, h(phi)*x, -u),
+  S = diag(1, .3, .3, 1, .4, .4, 1).
+
+The learner stores a seven-dimensional row q with ||q||=1. With a=q*S, its
+scalar residual and exact fixed-parameter context Jacobian are
+
+  f_q(z) = (a_rho dot h)*r + (a_kappa dot h)*x - a_u*u,
+  F_q(z) = ((a_kappa dot h), (a_rho dot h), -a_u,
+            (a_rho dot h')*r + (a_kappa dot h')*x).
+
+Here a_rho comprises entries 0:3, a_kappa entries 3:6, and a_u entry 6.
+Every candidate is integrable: F_q=D_z f_q at fixed q. The complete phase
+partial includes both product terms. Coefficient normalization is imposed in
+the specified S coordinates; changing S changes the estimator's metric.
+
+The physical initial prior is (1,0,0,1,0,0,1). Divide it elementwise by the
+seven diagonal entries of S and normalize to obtain q_0. True coefficients
+are used only by the simulated plant and evaluator, not by learning or control.
+
+Observations and learning
+-------------------------
+The measured learning channel is the complete-feature backward secant
+
+  w_n = S*[zeta_observed(t_n)-zeta_observed(t_n-.05)]/.05.
+
+Sampling is every .01 seconds. State, command and phase are exact observations;
+the plant rate has independent Gaussian noise with standard deviation .001.
+The phase is known as phi=4*t. The original plant, reference, initial state,
+held-input RK4 integration and lack of input saturation are retained.
+
+The secant includes command jumps. It is not an instantaneous measured value
+of F_q(z)*zdot. For an absolutely continuous context it is an average of the
+complete derivative at fixed q. An ordinary smooth-path argument is not
+presumed across held-command jumps. At clean endpoints the true homogeneous
+residual is zero, so its complete-feature difference is exactly annihilated.
+
+During the next sample interval, hold the latest measured w_n constant and
+integrate the coupled equations
+
+  Rdot = w_n*w_n^T - R/8,       R_initial=0,
+  qdot = -eta*[q*R - (q*R*q^T)*q],       eta=1.
+
+The gain was fixed before outcomes. It is not an equivalence claim to the
+earlier eight projected-gradient iterations. This R is the unnormalized
+exponential integral, not the exponential average used in the old code.
+
+For local elapsed time s, the memory has the exact formula
+
+  R(s) = exp(-s/8)*R_n + 8*[1-exp(-s/8)]*w_n*w_n^T.
+
+The implementation integrates ydot=-eta*R(s)*y from y(0)=q_n^T using SciPy
+DOP853, then sets q_{n+1}=y(.01)^T/||y(.01)||. Normalizing the continuous y
+solution satisfies the stated normalized q equation exactly. DOP853 provides
+a numerical approximation with rtol=1e-9 and atol=1e-11. R(s) changes during
+this solve; this is not a frozen-covariance exponential update.
+
+The moving-memory objective q*R*q^T/2 need not decrease at every sample.
+Its derivative contains the nonpositive learning contribution
+-eta*||q*R-(q*R*q^T)*q||^2 and the observation contribution q*Rdot*q^T/2,
+which can have either sign. Fixed-memory descent alone does not imply monotone
+energy for the coupled system.
+
+Causal control and conditioning
+------------------------------
+At each sample: command using the current q and state; sense the current noisy
+rate; score the current q; advance learning using the observed secant held for
+the next interval; advance the plant using its held command. The updated q
+first affects the next command. There is no update before a complete .05-second
+observation window exists, and the final sample is scored without assimilation.
+
+With the original reference x_des and feedback gain 2, the learned control is
+
+  r_des = xdot_des - 2*(x-x_des),
+  u = [(a_rho dot h)*r_des + (a_kappa dot h)*x]/a_u.
+
+This readout is invariant to a common nonzero scaling or sign of q. It uses the
+supplied calibration f=0; derivative observations alone do not identify an
+additive residual constant. Known family, phase, sensing and calibration remain
+substantial assumptions.
+
+The input guard is |a_u|>=.05 for a unit q. If it fails, the controller uses
+the original frozen physical prior for that command and logs the event; the
+normalized learner continues unchanged. Since the input partial is -a_u,
+||F_q(z)||>=|a_u| for every state and phase at each checked coefficient snapshot.
+Thus the guard supplies an analytic rank and input-readout check without a
+phase grid. It is not a proof that the normalized ODE preserves this guard
+between command samples. There is no general closed-loop stability guarantee.
+
+Experimental branches and matched comparisons
+---------------------------------------------
+All seeds 10--19 are specified, with duration 80 seconds and reporting window
+60<=t<80 seconds. No seed is to be removed based on its outcome.
+
+1. Replay: the normalized learner consumes the exact saved observation streams
+   generated by the earlier memory-PG controller. These runs do not give the
+   normalized learner its own plant trajectory or control-performance claim.
+2. Own trajectory: the normalized learner controls its own plant with the same
+   original physical/noise settings and seed set. It produces new observations.
+
+Both branches also run two same-stream shadows: the frozen normalized prior,
+and a numerical bottom-eigenvector estimator using exactly the same R, S and
+unit-sphere objective. These shadows do not generate independent trajectories.
+The bottom-eigenvector comparator is an optimization reference, not an oracle
+physical model. Its data-driven optimum can be biased by noise or incomplete
+excitation.
+
+Eigenvalues within 1e-12*max(1,lambda_max) of the minimum are treated as a
+numerical tie. The previous estimate is projected into that space. If the
+projection vanishes numerically, a deterministic coordinate projection is used;
+the sign is oriented consistently. A near-tie grouping is a numerical convention,
+not a proof of an exact mathematical eigenvalue multiplicity.
+
+Metrics are distinct: coefficient projector error in S coordinates; evaluated
+Jacobian projector error in context scales (.5,1,1,1); physical partial errors
+after dividing by a_u where the guard permits; measured/clean incompatibility;
+memory eigengap; and distance to the empirical bottom eigenspace. Gauge alignment
+makes the reported input partial equal to -1 by convention. The raw learned
+input coefficient and seven-coordinate traces show that it was adaptive.
+Tracking RMSE and control RMS apply only to the normalized learner's own
+trajectory. Low energy or a positive noisy eigengap alone establishes neither
+physical identification nor control accuracy.
+
+Running and inspecting the protocol
+----------------------------------
+Use the tested Python environment and existing repository dependencies. The
+runner expects a Git checkout for provenance bookkeeping. From the public
+repository root, a local workspace invocation is
+
+  ../.venv/bin/python experiments/normalized_fourier.py \
+    --replay-root ../reproduction_20261118/comparisons/full_v1/common_stream \
+    --output ../reproduction_20261118/normalized_fourier_example_v1
+
+Replace the interpreter and paths as needed for another checkout. The output
+directory must not already exist. The replay root must contain
+seed_10/observations.csv through seed_19/observations.csv from the separately
+identified estimator-comparison protocol. Merely having those filenames is not
+provenance: compare their recorded hashes with the original stream manifest.
+
+The output records the protocol, merged plant configuration, environment,
+command, Git identity/status/diff, source snapshots, input hashes, observations,
+method traces, RNG states, q/R update arrays, solver function counts, summaries,
+failures and a file-hash manifest. Inspect summary.json for failures and complete
+seed coverage before treating outputs as successful evidence.
+
+Independent checks should rebuild the memory and all pre-update scores from
+saved observations, compare selected transitions with a directly integrated
+normalized equation, check the complete Jacobian including phase by finite
+differences, and verify evaluator/learner isolation. A full fixed-stream seed-10
+replay with tighter ODE tolerances and a halved maximum internal step checks
+integration accuracy. This does not test a limit of the sensing interval or
+secant window. Check records for actual validation outcomes rather than assuming
+that a configured validation item was executed.
+
+Scope
+-----
+This protocol can supply direct normalized-law evidence for this particular
+integrable Fourier application. It does not retroactively change the earlier
+algorithm, verify matching mechanisms in contact or Burgers, prove every
+excitation/tracking hypothesis, recover absolute residual levels, or establish
+general stability or physical validation.

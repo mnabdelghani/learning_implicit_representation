@@ -1,0 +1,229 @@
+{
+  "protocol": "normalized_fourier_coupled_20261118_v1",
+  "created_utc": "2026-11-19T04:38:46.886809+00:00",
+  "status": "New executed local records; no external publication or permanent download asserted",
+  "archive": {
+    "filename": "Implicit_Normalized_Fourier_20261118.zip",
+    "bytes": 266372793,
+    "sha256": "404a2ae9553a2ee9d8e728084470312da5ab51df3a6cc301c229ffeaea47f0d8",
+    "members": 225,
+    "crc_and_all_member_hashes_verified": true,
+    "included_in_repository": false
+  },
+  "streams": 20,
+  "estimator_traces": 60,
+  "recorded_rows": 480060,
+  "seeds": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "failures": 0,
+  "audit": {
+    "status": "passed",
+    "flow_transitions": 159900,
+    "selected_coupled_transitions": 240,
+    "minimum_continuous_input_lower_bound": 0.349916936149197,
+    "minimum_late_clean_eigengap": 0.3058233009563824
+  },
+  "integration_refinement": {
+    "scenario": "replay",
+    "seed": 10,
+    "samples": 8001,
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.005,
+    "total_nfev": 207894,
+    "maximum_R_difference": 0.0,
+    "guard_disagreements": 0,
+    "scope": "All held samples on the archived PG-controller observation stream. The learned command is a counterfactual readout at those same states; this is not a refined closed-loop plant trajectory.",
+    "coefficient_projector_difference": {
+      "max_abs": 2.2290487915871247e-15,
+      "rms": 9.961476633504653e-16,
+      "final": 9.264397874207323e-16
+    },
+    "derivative_projector_difference": {
+      "max_abs": 2.152030972355141e-15,
+      "rms": 7.76738411851823e-16,
+      "final": 6.948148174590666e-16
+    },
+    "learned_command_difference": {
+      "max_abs": 1.9984014443252818e-15,
+      "rms": 5.046442605247449e-16,
+      "final": 5.551115123125783e-17
+    }
+  },
+  "own_trajectory_metrics": {
+    "derivative_projector_error_mean": {
+      "mean": 0.006216291510709423,
+      "sample_sd": 0.00016542347719452312,
+      "minimum": 0.005861647599241924,
+      "maximum": 0.006407730077009144,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "coefficient_projector_error_mean": {
+      "mean": 0.005687874598326968,
+      "sample_sd": 0.0001508079643426259,
+      "minimum": 0.005387040166265625,
+      "maximum": 0.005861129559657229,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "aligned_F_error_mean": {
+      "mean": 0.0054508142521372035,
+      "sample_sd": 0.0001589119805596624,
+      "minimum": 0.0051137312547796165,
+      "maximum": 0.005643233774933259,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "preupdate_energy_mean": {
+      "mean": 8.563795766836527e-05,
+      "sample_sd": 3.1918353987249115e-06,
+      "minimum": 8.129776012316392e-05,
+      "maximum": 9.126590548008478e-05,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "clean_energy_mean": {
+      "mean": 8.283919019841956e-07,
+      "sample_sd": 4.538302598943207e-08,
+      "minimum": 7.373487394642556e-07,
+      "maximum": 8.866159577495653e-07,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "true_row_energy_mean": {
+      "mean": 8.600991205878269e-05,
+      "sample_sd": 3.230657939580204e-06,
+      "minimum": 8.159754469308347e-05,
+      "maximum": 9.172924872556437e-05,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "coefficient_to_memory_error_mean": {
+      "mean": 0.0007597467654807273,
+      "sample_sd": 2.4873332000639254e-05,
+      "minimum": 0.0007073139147571412,
+      "maximum": 0.0007826619043997243,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "memory_gap_mean": {
+      "mean": 0.39066063685352836,
+      "sample_sd": 6.28909874455376e-05,
+      "minimum": 0.39057735842958013,
+      "maximum": 0.39074284037592527,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "normalized_gradient_norm_mean": {
+      "mean": 0.0004002026601459503,
+      "sample_sd": 1.1997493943088575e-05,
+      "minimum": 0.00037476332494294616,
+      "maximum": 0.00041199015341466025,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "phase_partial_rmse": {
+      "mean": 0.000351191145741447,
+      "sample_sd": 1.9406985281840596e-05,
+      "minimum": 0.00031565040144844773,
+      "maximum": 0.0003719733869528137,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "memory_objective_excess_mean": {
+      "mean": 1.1522267981664913e-07,
+      "sample_sd": 7.124570567539857e-09,
+      "minimum": 1.0086724675097521e-07,
+      "maximum": 1.2316172456986628e-07,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "memory_objective_excess_min": {
+      "mean": 0.0,
+      "sample_sd": 0.0,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "min_abs_input_coefficient": {
+      "mean": 0.379346057856985,
+      "sample_sd": 3.8387294155113086e-05,
+      "minimum": 0.3792710753904821,
+      "maximum": 0.3793821563077556,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "readout_guard_count": {
+      "mean": 0.0,
+      "sample_sd": 0.0,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "max_norm_error": {
+      "mean": 2.331468351712829e-16,
+      "sample_sd": 3.510833468576701e-17,
+      "minimum": 2.220446049250313e-16,
+      "maximum": 3.3306690738754696e-16,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "min_row_norm": {
+      "mean": 0.6766034381015833,
+      "sample_sd": 8.169049529768141e-05,
+      "minimum": 0.6764797777681181,
+      "maximum": 0.6767463847142807,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "tracking_rmse": {
+      "mean": 0.0023111676337060753,
+      "sample_sd": 2.8630297111519942e-05,
+      "minimum": 0.0022528413706291613,
+      "maximum": 0.0023481153131515546,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "control_rms": {
+      "mean": 0.6460370040134868,
+      "sample_sd": 2.2393956506112776e-05,
+      "minimum": 0.6459949596391122,
+      "maximum": 0.6460701049175916,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    },
+    "controller_guard_count": {
+      "mean": 0.0,
+      "sample_sd": 0.0,
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "finite_seed_count": 10,
+      "nonfinite_seed_count": 0
+    }
+  },
+  "evidence_sha256": {
+    "raw_manifest": "88275a3102196d24259a3debaef8aeaf373b8a624c3f2e423bee4e082de0f28c",
+    "independent_audit": "195a72fc6b9fd544832f830d537bc885f7ee06d4b61f9f3e68acc61b9e20350b",
+    "analysis_manifest": "4802e77cc3286fa593bfa355086124fdd6e3365162fd31881a1712c7731f43be"
+  },
+  "limitations": [
+    "Known integrable harmonic family, exact state/input/phase, noisy rate, calibrated zero residual level",
+    "Complete-feature secants include held-input jumps; not instantaneous raw-context rates",
+    "Numerical audit and finite-trajectory diagnostics are not formal verification or general stability",
+    "Eigenvector/frozen estimates are shadows, not independent control trajectories",
+    "Does not change or validate matching normalized mechanisms in contact and Burgers"
+  ]
+}

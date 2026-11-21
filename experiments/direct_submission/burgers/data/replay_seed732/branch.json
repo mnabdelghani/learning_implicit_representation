@@ -1,0 +1,14 @@
+{
+  "index": 16000,
+  "rng_state": {
+    "bit_generator": "PCG64",
+    "state": {
+      "state": 12946537296823856500844868732440549236,
+      "inc": 299632407174357641653475459323816457531
+    },
+    "has_uint32": 0,
+    "uinteger": 0
+  },
+  "history_maxlen": 11,
+  "has_rate_estimator": false
+}

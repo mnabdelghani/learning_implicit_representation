@@ -1,7 +1,7 @@
 \subsection{Active flow control: an immersed-airfoil numerical prototype}
 \label{sec:afc_prototype}
 
-The previously supplied reconstruction tests differential learning and
+The previously supplied reconstruction tests structured coefficient learning and
 output control on a two-dimensional
 incompressible flow with an immersed NACA~0012 profile. Published surface-jet
 airfoil studies motivate this setting \cite{Garcia2025Airfoil,Montala2025Wing}.
@@ -100,9 +100,11 @@ unactuated branch did not identify the input partial, illustrating the
 need for excitation and separate partial-error diagnostics.
 
 These are retained numerical prototype results from one seed, separate
-from the 100 main-protocol runs and the paired excitation study. The thin profile
+from the main studies, the bounded Fourier comparison, and the paired
+excitation study. The thin profile
 is coarsely resolved, and grid, time, penalty, and domain convergence remain
 unchecked. The masked-body speed is approximately $0.19$ despite divergence
 RMS below $10^{-14}$. The computation establishes an executable
-learning/readout demonstration; it does not establish accurate wall
+coefficient-learning/readout demonstration; it does not establish
+direct all-entry partial learning, accurate wall
 enforcement, surface-jet lift/drag improvement, or global flow stability.

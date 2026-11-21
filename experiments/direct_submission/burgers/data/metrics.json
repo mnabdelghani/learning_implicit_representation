@@ -1,0 +1,477 @@
+{
+  "ideal_s732_dt0p005": {
+    "training": {
+      "training_evaluation": {
+        "samples": 800,
+        "field_mean": 0.009077995615578148,
+        "field_p95": 0.037822456168950726,
+        "field_max": 0.11946777344441141,
+        "worst_site_mean": 0.10430147488497794,
+        "task_rms": 0.007752568392754683,
+        "energy": 1.1967155352848771e-09,
+        "physical_energy": 4.4413607100448884e-11,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6919647454062677
+      }
+    },
+    "assessment": {
+      "training_criteria": {
+        "field_mean": true,
+        "field_p95": true,
+        "field_max": true,
+        "worst_site_mean": false,
+        "initial_shadow_ratio": true
+      },
+      "near_identified_training": false,
+      "inherited_training_mean": true,
+      "inherited_training_ratio": true,
+      "adaptive_late_criteria": {
+        "field_mean": true,
+        "field_p95": true,
+        "task_global_rms": true,
+        "guard_fraction": true,
+        "clipping_fraction": true,
+        "completion": true
+      },
+      "adaptive_late_pass": true,
+      "adaptive_completion": true
+    },
+    "adaptive": {
+      "control": {
+        "samples": 4000,
+        "field_mean": 0.014342119033014075,
+        "field_p95": 0.026434903373041763,
+        "field_max": 0.09976902898008706,
+        "worst_site_mean": 0.037058056043020926,
+        "task_rms": 0.0012234629068280899,
+        "energy": 7.700091141009382e-10,
+        "physical_energy": 3.612280460162824e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6933075639622593
+      },
+      "late": {
+        "samples": 800,
+        "field_mean": 0.013760670309178425,
+        "field_p95": 0.024878773417754463,
+        "field_max": 0.026861265777164155,
+        "worst_site_mean": 0.021852820883221012,
+        "task_rms": 8.5083704867801e-06,
+        "energy": 3.7098074551157627e-10,
+        "physical_energy": 1.5610380790744554e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6977989044118684
+      }
+    },
+    "frozen": {
+      "control": {
+        "samples": 4000,
+        "field_mean": 0.017246417369622822,
+        "field_p95": 0.038411283638249964,
+        "field_max": 0.12363243245472091,
+        "worst_site_mean": 0.10051310068248892,
+        "task_rms": 0.0012236338837632145,
+        "energy": 2.7946067261501176e-09,
+        "physical_energy": 3.6129243790611035e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6933075639622593
+      },
+      "late": {
+        "samples": 800,
+        "field_mean": 0.01843282294961776,
+        "field_p95": 0.046711327193766014,
+        "field_max": 0.10759937582808118,
+        "worst_site_mean": 0.10551160592418153,
+        "task_rms": 2.248948631200739e-05,
+        "energy": 2.6218865982847364e-09,
+        "physical_energy": 1.5641646808470698e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6933075639622593
+      }
+    }
+  },
+  "ideal_s733_dt0p005": {
+    "training": {
+      "training_evaluation": {
+        "samples": 800,
+        "field_mean": 0.014786292100577726,
+        "field_p95": 0.07999292021039497,
+        "field_max": 0.1764144224523792,
+        "worst_site_mean": 0.16030032156425597,
+        "task_rms": 0.007752568392754683,
+        "energy": 1.38720462602213e-09,
+        "physical_energy": 4.4413607100448884e-11,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6979029233850922
+      }
+    },
+    "assessment": {
+      "training_criteria": {
+        "field_mean": true,
+        "field_p95": true,
+        "field_max": true,
+        "worst_site_mean": false,
+        "initial_shadow_ratio": true
+      },
+      "near_identified_training": false,
+      "inherited_training_mean": true,
+      "inherited_training_ratio": true,
+      "adaptive_late_criteria": {
+        "field_mean": true,
+        "field_p95": true,
+        "task_global_rms": true,
+        "guard_fraction": true,
+        "clipping_fraction": true,
+        "completion": true
+      },
+      "adaptive_late_pass": true,
+      "adaptive_completion": true
+    },
+    "adaptive": {
+      "control": {
+        "samples": 4000,
+        "field_mean": 0.01545220808722369,
+        "field_p95": 0.03199981063108761,
+        "field_max": 0.14930994607348214,
+        "worst_site_mean": 0.052981695286313135,
+        "task_rms": 0.00122364068128742,
+        "energy": 9.520677673569925e-10,
+        "physical_energy": 3.6132499264154044e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6978707134407613
+      },
+      "late": {
+        "samples": 800,
+        "field_mean": 0.013222031557729764,
+        "field_p95": 0.02496718932845618,
+        "field_max": 0.026987689016170494,
+        "worst_site_mean": 0.02024035831422161,
+        "task_rms": 8.518616058667227e-06,
+        "energy": 3.6313818571708663e-10,
+        "physical_energy": 1.5610200409992265e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6978707134407613
+      }
+    },
+    "frozen": {
+      "control": {
+        "samples": 4000,
+        "field_mean": 0.02125857487475434,
+        "field_p95": 0.07173438802339599,
+        "field_max": 0.1701457109264261,
+        "worst_site_mean": 0.14487837743550247,
+        "task_rms": 0.0012239334040513674,
+        "energy": 4.369662484091185e-09,
+        "physical_energy": 3.6140862024585934e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6981327394971886
+      },
+      "late": {
+        "samples": 800,
+        "field_mean": 0.02123933685164159,
+        "field_p95": 0.07243584865320772,
+        "field_max": 0.14543882117063792,
+        "worst_site_mean": 0.13982824624180532,
+        "task_rms": 2.587582421247147e-05,
+        "energy": 2.919776012234295e-09,
+        "physical_energy": 1.5584007432470463e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6981327394971886
+      }
+    }
+  },
+  "ideal_s734_dt0p005": {
+    "training": {
+      "training_evaluation": {
+        "samples": 800,
+        "field_mean": 0.006120812180054087,
+        "field_p95": 0.022000368496865368,
+        "field_max": 0.03442212708461229,
+        "worst_site_mean": 0.026064323984648738,
+        "task_rms": 0.007752568392754683,
+        "energy": 1.1417452022016076e-09,
+        "physical_energy": 4.4413607100448884e-11,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6982677630634367
+      }
+    },
+    "assessment": {
+      "training_criteria": {
+        "field_mean": true,
+        "field_p95": true,
+        "field_max": true,
+        "worst_site_mean": true,
+        "initial_shadow_ratio": true
+      },
+      "near_identified_training": true,
+      "inherited_training_mean": true,
+      "inherited_training_ratio": true,
+      "adaptive_late_criteria": {
+        "field_mean": true,
+        "field_p95": true,
+        "task_global_rms": true,
+        "guard_fraction": true,
+        "clipping_fraction": true,
+        "completion": true
+      },
+      "adaptive_late_pass": true,
+      "adaptive_completion": true
+    },
+    "adaptive": {
+      "control": {
+        "samples": 4000,
+        "field_mean": 0.01363803681166189,
+        "field_p95": 0.026010645591102437,
+        "field_max": 0.036885255243723485,
+        "worst_site_mean": 0.01909003683742028,
+        "task_rms": 0.00122351523092987,
+        "energy": 6.571456641099971e-10,
+        "physical_energy": 3.612389769172827e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6978133099558927
+      },
+      "late": {
+        "samples": 800,
+        "field_mean": 0.01323146796134892,
+        "field_p95": 0.024896448897164806,
+        "field_max": 0.026932243427895568,
+        "worst_site_mean": 0.020235092283420134,
+        "task_rms": 8.446009209632204e-06,
+        "energy": 3.628036482841256e-10,
+        "physical_energy": 1.561020187742201e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6978133099558927
+      }
+    },
+    "frozen": {
+      "control": {
+        "samples": 4000,
+        "field_mean": 0.01432612435177378,
+        "field_p95": 0.028373826445015744,
+        "field_max": 0.04563904599366697,
+        "worst_site_mean": 0.025416572512432147,
+        "task_rms": 0.0012235302667958218,
+        "energy": 8.620532311536772e-10,
+        "physical_energy": 3.6123179034182043e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6983559151000318
+      },
+      "late": {
+        "samples": 800,
+        "field_mean": 0.014271677711209857,
+        "field_p95": 0.027398662600827135,
+        "field_max": 0.03440807641380447,
+        "worst_site_mean": 0.02795487180691799,
+        "task_rms": 1.1794207621036258e-05,
+        "energy": 5.957514823303628e-10,
+        "physical_energy": 1.5607194100399248e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6983559151000318
+      }
+    }
+  },
+  "ideal_s735_dt0p005": {
+    "training": {
+      "training_evaluation": {
+        "samples": 800,
+        "field_mean": 0.030718214483463634,
+        "field_p95": 0.1987722638031687,
+        "field_max": 0.46251985227307274,
+        "worst_site_mean": 0.40985489824364457,
+        "task_rms": 0.007752568392754683,
+        "energy": 3.662025878085814e-09,
+        "physical_energy": 4.4413607100448884e-11,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6542535605114239
+      }
+    },
+    "assessment": {
+      "training_criteria": {
+        "field_mean": true,
+        "field_p95": false,
+        "field_max": false,
+        "worst_site_mean": false,
+        "initial_shadow_ratio": true
+      },
+      "near_identified_training": false,
+      "inherited_training_mean": true,
+      "inherited_training_ratio": true,
+      "adaptive_late_criteria": {
+        "field_mean": true,
+        "field_p95": true,
+        "task_global_rms": true,
+        "guard_fraction": true,
+        "clipping_fraction": true,
+        "completion": true
+      },
+      "adaptive_late_pass": true,
+      "adaptive_completion": true
+    },
+    "adaptive": {
+      "control": {
+        "samples": 4000,
+        "field_mean": 0.02101825423001878,
+        "field_p95": 0.06843341568622321,
+        "field_max": 0.3626136688701531,
+        "worst_site_mean": 0.12194715392313986,
+        "task_rms": 0.001224040422897471,
+        "energy": 2.2624600823321547e-09,
+        "physical_energy": 3.612395292892439e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6713737495035189
+      },
+      "late": {
+        "samples": 800,
+        "field_mean": 0.014729344158101107,
+        "field_p95": 0.027262042752759612,
+        "field_max": 0.039756907915760815,
+        "worst_site_mean": 0.02961987334553099,
+        "task_rms": 8.900484935662382e-06,
+        "energy": 3.876410283312636e-10,
+        "physical_energy": 1.5611156238457104e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6978015271213621
+      }
+    },
+    "frozen": {
+      "control": {
+        "samples": 4000,
+        "field_mean": 0.03629155723199669,
+        "field_p95": 0.1866878614539484,
+        "field_max": 0.3738411395940344,
+        "worst_site_mean": 0.3595963599753157,
+        "task_rms": 0.0012250128294004838,
+        "energy": 1.3516927493705772e-08,
+        "physical_energy": 3.6127784503500743e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6713737495035189
+      },
+      "late": {
+        "samples": 800,
+        "field_mean": 0.03731414821741563,
+        "field_p95": 0.18716439668917148,
+        "field_max": 0.3728842999851995,
+        "worst_site_mean": 0.3659778906827709,
+        "task_rms": 4.998733351058899e-05,
+        "energy": 1.3296839508471335e-08,
+        "physical_energy": 1.5652877264676705e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6713737495035189
+      }
+    }
+  },
+  "ideal_s736_dt0p005": {
+    "training": {
+      "training_evaluation": {
+        "samples": 800,
+        "field_mean": 0.007807330931109175,
+        "field_p95": 0.030409094085846633,
+        "field_max": 0.04898470909254702,
+        "worst_site_mean": 0.03732502143952267,
+        "task_rms": 0.007752568392754683,
+        "energy": 1.1558074851211408e-09,
+        "physical_energy": 4.4413607100448884e-11,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6976369115583538
+      }
+    },
+    "assessment": {
+      "training_criteria": {
+        "field_mean": true,
+        "field_p95": true,
+        "field_max": true,
+        "worst_site_mean": true,
+        "initial_shadow_ratio": true
+      },
+      "near_identified_training": true,
+      "inherited_training_mean": true,
+      "inherited_training_ratio": true,
+      "adaptive_late_criteria": {
+        "field_mean": true,
+        "field_p95": true,
+        "task_global_rms": true,
+        "guard_fraction": true,
+        "clipping_fraction": true,
+        "completion": true
+      },
+      "adaptive_late_pass": true,
+      "adaptive_completion": true
+    },
+    "adaptive": {
+      "control": {
+        "samples": 4000,
+        "field_mean": 0.013767082311648544,
+        "field_p95": 0.026089973185314513,
+        "field_max": 0.04572941786309282,
+        "worst_site_mean": 0.022581223439496888,
+        "task_rms": 0.001223563769354127,
+        "energy": 6.603484718227615e-10,
+        "physical_energy": 3.612176374653992e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6977468950565214
+      },
+      "late": {
+        "samples": 800,
+        "field_mean": 0.013344398851117364,
+        "field_p95": 0.025140711731494934,
+        "field_max": 0.026938737513294727,
+        "worst_site_mean": 0.02027656776427945,
+        "task_rms": 8.487380690421774e-06,
+        "energy": 3.6503317889332786e-10,
+        "physical_energy": 1.561030951085596e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6977468950565214
+      }
+    },
+    "frozen": {
+      "control": {
+        "samples": 4000,
+        "field_mean": 0.01538482061995445,
+        "field_p95": 0.03187230843931469,
+        "field_max": 0.0558389860879089,
+        "worst_site_mean": 0.03379631168585723,
+        "task_rms": 0.0012236067746719576,
+        "energy": 1.1659943948583483e-09,
+        "physical_energy": 3.6120335112726096e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6979075414046311
+      },
+      "late": {
+        "samples": 800,
+        "field_mean": 0.01550296927859015,
+        "field_p95": 0.03609836134897305,
+        "field_max": 0.04421713165441663,
+        "worst_site_mean": 0.039605189200813865,
+        "task_rms": 1.3908290469921317e-05,
+        "energy": 8.415589564134606e-10,
+        "physical_energy": 1.5611369560960068e-13,
+        "guard_fraction": 0.0,
+        "clip_fraction": 0.0,
+        "minimum_input_partial": 0.6979075414046311
+      }
+    }
+  }
+}

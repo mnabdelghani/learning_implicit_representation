@@ -64,7 +64,7 @@ learner.theta = saved["theta"].copy()
 learner.R.fill(0.0)  # deliberate new information episode, retaining coefficients
 ```
 
-The main paper instead starts with empty memory and imperfect coefficients so that learning during control is visible. It does not imply that this is the preferred deployment workflow.
+The current main paper starts with empty memory and generic direct-field estimates. The contact and Burgers experiments continue adaptation during control after their initial training phases; the Fourier experiment freezes its learned field before the independent prediction episode. These choices do not imply a preferred deployment workflow.
 
 ## 5. Monitor adaptation without overclaiming safety
 

@@ -1,0 +1,203 @@
+{
+  "purpose": "Post-hoc diagnostic of distinction between row-norm feasibility and output-entry query guard. No replay or tuning; original records unchanged.",
+  "method": "Search 512 phases for each saved training C, then local bounded minimization around one minimum per seed. Values furnish feasible-phase upper bounds, not a certified global continuum minimum.",
+  "row_norm_guard_enforced_in_run": false,
+  "row_norm_epsilon_prespecified": null,
+  "readout_output_entry_guard": 0.05,
+  "rows": [
+    {
+      "seed": 10,
+      "training_sample_index": 329,
+      "training_time": 6.58,
+      "sampled_phase_search_min_norm": 0.00047348569102340126,
+      "optimized_phase": -2.086550227475049,
+      "row_norm_at_phase": 0.00043776362969037057,
+      "C": [
+        -0.4891285420864702,
+        0.3420066361727762,
+        -0.6390373198529352,
+        0.4123911716554312,
+        -0.20023661210596333,
+        0.15891776073903902
+      ],
+      "actual_phase_min_row_norm": 0.012356680817529447,
+      "final_all_phase_Hy_lower_bound": 0.6195972679838571
+    },
+    {
+      "seed": 11,
+      "training_sample_index": 253,
+      "training_time": 5.0600000000000005,
+      "sampled_phase_search_min_norm": 0.0004406141179058862,
+      "optimized_phase": -0.6756772279122525,
+      "row_norm_at_phase": 5.3654821146891164e-05,
+      "C": [
+        -0.3793399775006976,
+        0.41759187102164735,
+        0.5548228650853777,
+        -0.6000085000796963,
+        0.0856059394295461,
+        -0.08093961991114657
+      ],
+      "actual_phase_min_row_norm": 0.00937982903899009,
+      "final_all_phase_Hy_lower_bound": 0.6196594272603073
+    },
+    {
+      "seed": 12,
+      "training_sample_index": 669,
+      "training_time": 13.38,
+      "sampled_phase_search_min_norm": 0.0008892292531117718,
+      "optimized_phase": 1.4402698586504707,
+      "row_norm_at_phase": 0.00046977415856590103,
+      "C": [
+        -0.5300724721218495,
+        0.4522878418229223,
+        -0.09788348975244301,
+        -0.07027732906035736,
+        0.5475018022338861,
+        -0.44741544278496526
+      ],
+      "actual_phase_min_row_norm": 0.02934641097779235,
+      "final_all_phase_Hy_lower_bound": 0.6196651569210554
+    },
+    {
+      "seed": 13,
+      "training_sample_index": 55,
+      "training_time": 1.1,
+      "sampled_phase_search_min_norm": 0.6880348504543565,
+      "optimized_phase": -2.249494424677617,
+      "row_norm_at_phase": 0.688032965520216,
+      "C": [
+        0.7440598364736232,
+        -0.5960638514591077,
+        0.22174780963413954,
+        -0.011673713980677493,
+        0.16927785060999953,
+        -0.11454033066041633
+      ],
+      "actual_phase_min_row_norm": 0.6911354724211751,
+      "final_all_phase_Hy_lower_bound": 0.6197506284456046
+    },
+    {
+      "seed": 14,
+      "training_sample_index": 393,
+      "training_time": 7.86,
+      "sampled_phase_search_min_norm": 0.000570667847886313,
+      "optimized_phase": 1.6819059141781956,
+      "row_norm_at_phase": 0.0005350565872098106,
+      "C": [
+        0.5311195704855505,
+        -0.4159416291079837,
+        0.33949068101062874,
+        -0.14481132303946034,
+        -0.49635975421578055,
+        0.40287382099559593
+      ],
+      "actual_phase_min_row_norm": 0.019043988953395045,
+      "final_all_phase_Hy_lower_bound": 0.6195546476735543
+    },
+    {
+      "seed": 15,
+      "training_sample_index": 100,
+      "training_time": 2.0,
+      "sampled_phase_search_min_norm": 0.0405824394326496,
+      "optimized_phase": -0.5079398826142205,
+      "row_norm_at_phase": 0.0405696510785725,
+      "C": [
+        -0.4871753432379506,
+        0.4967299387783217,
+        0.4494574623278783,
+        -0.5367636838039205,
+        -0.12400559004784718,
+        0.10205343603320605
+      ],
+      "actual_phase_min_row_norm": 0.06172152726047208,
+      "final_all_phase_Hy_lower_bound": 0.6195882186767054
+    },
+    {
+      "seed": 16,
+      "training_sample_index": 567,
+      "training_time": 11.34,
+      "sampled_phase_search_min_norm": 0.001076426294736514,
+      "optimized_phase": 1.4177900973470159,
+      "row_norm_at_phase": 0.00014286636811721234,
+      "C": [
+        -0.5280133382868738,
+        0.4511851149494557,
+        -0.10464744297794194,
+        -0.06110093640756983,
+        0.5503866873197972,
+        -0.44724041555815824
+      ],
+      "actual_phase_min_row_norm": 0.00442042700407911,
+      "final_all_phase_Hy_lower_bound": 0.6200557785450563
+    },
+    {
+      "seed": 17,
+      "training_sample_index": 78,
+      "training_time": 1.56,
+      "sampled_phase_search_min_norm": 0.0004400818353942691,
+      "optimized_phase": 3.1297724596432293,
+      "row_norm_at_phase": 0.00014924626818908426,
+      "C": [
+        0.23258673753761563,
+        -0.16038988507938923,
+        0.2241899461055814,
+        -0.15350884429871456,
+        -0.7195877795696612,
+        0.5731891699666722
+      ],
+      "actual_phase_min_row_norm": 0.017249358191986256,
+      "final_all_phase_Hy_lower_bound": 0.6196408361967164
+    },
+    {
+      "seed": 18,
+      "training_sample_index": 571,
+      "training_time": 11.42,
+      "sampled_phase_search_min_norm": 0.0008934925969018356,
+      "optimized_phase": -1.9150136254137917,
+      "row_norm_at_phase": 0.0008557652809530818,
+      "C": [
+        0.5159588471501481,
+        -0.37950751567146096,
+        0.5293097188866372,
+        -0.3099169375353567,
+        0.35877427663998807,
+        -0.29124602201347605
+      ],
+      "actual_phase_min_row_norm": 0.012625822606416457,
+      "final_all_phase_Hy_lower_bound": 0.6196872881406024
+    },
+    {
+      "seed": 19,
+      "training_sample_index": 394,
+      "training_time": 7.88,
+      "sampled_phase_search_min_norm": 0.0008633175984812316,
+      "optimized_phase": 1.2433971756404927,
+      "row_norm_at_phase": 0.0007216900491644417,
+      "C": [
+        -0.5182371065906444,
+        0.47418945698240744,
+        0.12490537341405414,
+        -0.25687409824287677,
+        0.5041803123951463,
+        -0.4132689417033706
+      ],
+      "actual_phase_min_row_norm": 0.04656623309128439,
+      "final_all_phase_Hy_lower_bound": 0.6200148462163233
+    }
+  ],
+  "source_sha256": "037c43157296e4bc03985e495382d76ade4bd07141ae49444d821d5091d2f410",
+  "raw_training_sha256": {
+    "seed_10/training.npz": "9283072ea769ca22e5a6b647c4a2e4da6a19b6a3a984e5e9a936f7d9e1ad7202",
+    "seed_11/training.npz": "c2a80248eda449f7d67665b8d4302b2cfd8b633f805fffe64231e1c6ddcea20a",
+    "seed_12/training.npz": "32202976e504474bd1c966096034876ae9b9f26bf2700ac4ace36291b19a15e6",
+    "seed_13/training.npz": "23050fa328ca28e87267838233e24259dff87b53ae2e439b6e39f100c09018ce",
+    "seed_14/training.npz": "251ba6bb37563fa6dea811623ba6012cc002b1baa2a76012a0fbe2df2c9a5717",
+    "seed_15/training.npz": "62bd1fe7d40e5c1d2180acadb59d909f29e7372f207cbb333355035cda5e283f",
+    "seed_16/training.npz": "2b9bf156539b609f04d279867ea201be48febc79b8056213950435b5c7b7c199",
+    "seed_17/training.npz": "5caaba8b4ff521c6eee357a5a78d5eacf3da76a689130cf3c1dbcd5b23bba4e9",
+    "seed_18/training.npz": "a0c526c61e196c95bb0baa2b1cf4d1374f04e2ea52abf4aee36f82402f9b2a5a",
+    "seed_19/training.npz": "eebf2cb7c180445ae44e916a4d1e52a5a7394035a7f6bdef4f217517e86f16d4"
+  },
+  "interpretation": "No row-norm epsilon was prescribed or enforced. Explicit phase evaluations below .05 in nine seeds do not assert failure of a nonexistent configured guard; they rule out retrospectively treating the output-query threshold .05 as a satisfied all-phase row-norm training constraint. The search is post-hoc and is not a continuum or continuous-time certification."
+}

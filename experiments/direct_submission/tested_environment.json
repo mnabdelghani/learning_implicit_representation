@@ -1,0 +1,8 @@
+{
+  "python": "3.12.3",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "matplotlib": "3.10.8",
+  "installation_performed": false,
+  "scope": "Environment used for original studies and this portable package check; future-version numerical equivalence is not asserted"
+}

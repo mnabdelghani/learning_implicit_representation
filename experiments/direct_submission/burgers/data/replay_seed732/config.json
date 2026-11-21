@@ -1,0 +1,68 @@
+{
+  "grid_points": 32,
+  "domain_length": 6.283185307179586,
+  "duration": 100.0,
+  "training_time": 80.0,
+  "window": 0.05,
+  "rate_fit_window": 0.1,
+  "memory": 4.0,
+  "gain": 10000.0,
+  "plant_coefficients": [
+    1.0,
+    0.08,
+    1.0
+  ],
+  "coordinate_scales": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "probe_amplitude": 0.02,
+  "excitation_frequencies": [
+    3.0,
+    5.0,
+    7.0,
+    11.0
+  ],
+  "kp": 4.0,
+  "kd": 4.0,
+  "input_guard": 0.1,
+  "input_rate_limit": 5.0,
+  "field_stop": 5.0,
+  "phase_wall_limit_seconds": 180.0,
+  "per_phase_subdivision_cap": 10000000,
+  "per_update_subdivision_cap": 10000,
+  "context_order": [
+    "w",
+    "w_s",
+    "w_ss",
+    "u",
+    "w_t"
+  ],
+  "case_id": "ideal_s732_dt0p005",
+  "condition": "ideal",
+  "initial_seed": 732,
+  "sensor_seed": 100732,
+  "dt": 0.005,
+  "position_noise_std": 0.0,
+  "sensing_mode": "ideal",
+  "role": "main_five_seed_study",
+  "protocol": "burgers_direct_field_long_training_multiseed_causal_sensing_20261120_v1",
+  "evaluation_windows": {
+    "training_evaluation": [
+      76.0,
+      80.0
+    ],
+    "control": [
+      80.0,
+      100.0
+    ],
+    "late": [
+      96.0,
+      100.0
+    ]
+  },
+  "right_endpoint_excluded": true
+}

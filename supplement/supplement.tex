@@ -15,54 +15,107 @@
 \title{Supplementary Material for\\``Implicit Representation Estimation, Prediction, and Control''}
 \author{Mohamed Abdelghani}
 \maketitle
+\raggedbottom
 \begin{abstract}
-This companion accompanies the ten-page manuscript and the executable
-repository. It retains full experimental specifications, diagnostic
-conventions, explanatory counterexamples, and additional examples. All formal
-results and their proofs are in the main paper, which is authoritative. The three main
-studies contain newly executed ten-seed results. The contact implementation
-is a disclosed reconstruction; the Fourier experiment changes the earlier
-protocol to simultaneous learning and control; Burgers extends the supplied
-reconstruction with evaluated-partial diagnostics. Archived Acrobot and flow
-results are distinguished from these new runs. The absence of the original
-ellipse implementation is recorded explicitly rather than concealed.
+This companion documents the direct-partial learning studies in the main
+paper and preserves earlier structured studies as separate supporting
+records. The current Fourier, nonlinear contact, and Burgers experiments
+adapt every field entry from observed incompatibility and use that same
+field for readout. Section~\ref{sec:direct_main} gives their observation
+boundaries, coupled updates, complete protocols, all-seed results, numerical
+checks, and limitations. The Fourier benchmark tests independent prediction
+with rapidly varying partials and slow supplied-input modulation. Contact
+and Burgers test rate-level control with ideal rate sensing; approximate
+contact recovery and failed causal/noisy Burgers cases are reported.
+Sections S2--S18 retain coefficient-family protocols, comparisons, provenance,
+and supporting examples. Their successful tasks do not establish direct
+partial learning. Original missing archives and separately reproduced records
+keep distinct identities. The enlarged flow views remain an unvalidated
+legacy prototype. Section S19 distinguishes time derivatives from variations
+of complete trajectories. Every formal result used by the main paper has
+its complete proof there; the calculations here supply protocol details and
+interpretation rather than replace those proofs.
 \end{abstract}
 
 \section{Scope, provenance, and reproducibility}
-The main paper uses contact, Fourier Memory, and Burgers. Each adaptive branch begins
-with imperfect coefficients and no accumulated memory; control is active
-from the first sample. There are 30 contact runs (three methods, ten seeds),
-40 Fourier runs (four methods, ten seeds), and 30 Burgers runs. Every seed
-10--19 is included. Seed 10 was selected for figures before execution, not
-for favorable performance. Gaussian sensor noise is the only source of
-between-seed variation; fixed initial conditions and task commands do not
-constitute robustness testing over operating regimes.
+\label{sec:scope}
+The current main evidence is in Section~\ref{sec:direct_main}: ten new
+Fourier initializations/noise streams (seeds 10--19), five new contact
+initializations (101--105), and the separately audited direct Burgers
+ideal-sensing cohort (732--736). All declared seeds enter the summaries.
+Figures use prospectively selected seeds 10, 101, and 732, respectively.
+New protocols, pilot failures, and numerical refinements retain separate
+identities. The Burgers records are reused without alteration; the main
+figures are newly rendered from those records.
 
-The earlier manuscript's numerical tables are not silently reused. Contact
-source was absent; its specified plant, surface, change, references, noise,
-and memory settings were reconstructed, with previously unspecified choices
-listed below and in the configuration. Fourier retains the supplied periodic
-plant but replaces offline identification by a closed-loop protocol. Burgers
-calls the supplied reconstruction unchanged and adds diagnostic outputs.
-The paired excitation study in Section~\ref{sec:excitation} is separate
-from these 100 runs. Acrobot and active-flow results are retained from the
-previously supplied reconstruction; the ellipse is archival only.
-The repository preserves the prior package separately under
-\texttt{examples/legacy\_suite}.
+\subsection*{The direct-learning mechanism and its evidence}
+All entries adapt from observed incompatibility $\widehat F(z)v$, without
+fitting physical residual coefficients and differentiating them. The local
+field uses the coupled normalized $Q,R$ flow; Fourier gives every partial
+independent harmonic weights in the same flow on lifted rates. Constraint
+count, context, units, memory, gain, and sensing remain supplied choices.
+True partials and physical parameters belong to the simulator/evaluator,
+not the learner or controller. Readouts use the learned field itself.
+Normalization, observed compatibility, physical row-space recovery, and
+successful task completion are separate checks.
 
-This supplement is self-contained and can be built without the main-paper
-source or auxiliary files. The definitive main manuscript remains separate;
-its LaTeX and PDF are intentionally not part of this repository release.
-The repository provides code, protocols, selected recorded results, and this
-supplement. Larger all-seed records are distributed as a separately identified
-release asset; see the repository data manifest for availability and checksums.
-The project repository is
+Throughout, $F=D_zf$ denotes a physical Jacobian; a directly adapted field
+need not itself be a globally integrable Jacobian. Gauge comparisons use
+fixed context units. Inconsistent least squares depends on row weighting.
+Initial levels needed by an integrated readout are measured separately.
+Fourier's current graph benchmark demonstrates partial variation faster
+than the actual supplied-input modulation, with known phase and order.
+It does not inherit the earlier periodic dynamic plant's control claim.
+Contact regulates vertical force rather than the earlier normal-force
+magnitude. Burgers succeeds under ideal rate sensing while tested
+causal/noisy alternatives fail; these are explicit limitations.
+
+\subsection*{Retained structured studies and historical provenance}
+Sections~\ref{sec:contact_protocol}, \ref{sec:fourier_protocol}, and
+\ref{sec:burgers_protocol} document earlier prescribed-family studies.
+Section~\ref{sec:normalized_fourier_results} retains the seven-coefficient
+normalized periodic-plant experiment. Their coefficients induce evaluated
+partials through supplied physical residual algebra; they are historical
+comparisons, not the current direct-partial demonstrations.
+Sections~\ref{sec:learning_rule_audit} and
+\ref{sec:implementation_inventory} preserve their actual algorithms.
+The earlier direct-lift diagnostics in Sections~\ref{sec:unanchored} and
+\ref{sec:direct_lift_results} remain distinct from the new prediction test.
+
+The retained structured records include 30 contact runs, 30 Burgers runs,
+and 40 bounded-Fourier runs, with seeds 10--19 and the earlier seed-10
+illustrations. Twenty paired contact-transfer runs are separate.
+The normalized periodic study has ten controlled trajectories and ten
+replay streams with same-stream shadow estimators. Contact was a disclosed
+reconstruction; these newer experiments do not recover absent original
+code or historical raw-record identities. Acrobot and active flow remain
+structured supporting examples, and the ellipse is analytic only.
+
+Section~\ref{sec:reproduction_audit} records a completed reproduction of
+all 120 original structured/transfer protocols. Their regenerated archives
+have their own checksums; the originally named historical archives remain
+missing. The normalized periodic records have another protocol identity.
+No earlier failure, guard, or unsuccessful sensing study is silently replaced
+by the new main examples.
+
+\subsection*{Reproduction files}
+This supplement builds without private main-paper source or auxiliary files.
+Current direct-study code and compact supporting records are under
+\path{experiments/direct_submission/}; full raw records are identified by
+the accompanying package manifest. The local submission package contains
+source, configurations, seed lists, recorded outcomes, and checksums.
+Legacy code and provenance remain in the repository. The project address is
 \url{https://github.com/mnabdelghani/learning_implicit_representation}.
-No publication acceptance, permanent archive DOI, or open-source license is
-asserted by this release.
+This address does not imply that the current local revision or its raw-data
+archives have been published there. The accompanying versioned package,
+not an assumed remote branch state, identifies this submission's evidence.
+No archive DOI, publication acceptance, or open-source license is asserted.
 
-\section{Common constrained implicit learning}
+\section{Sampled learning for the structured applications}
 \label{sec:numerics}
+This section applies to contact, Burgers, and the retained bounded Fourier
+comparison. The retained normalized periodic-plant experiment uses
+(\ref{eq:nf_coupled}) instead of the coefficient update below.
 Let $\theta\in\mathbb R^p$ be scaled free coefficients. Supplied physical
 terms are retained in a feature channel with fixed coefficient one:
 \begin{equation}
@@ -116,13 +169,15 @@ held while the physical state advances by RK4. The final state is recorded,
 but its unapplied command is excluded from task and effort statistics. The code never
 feeds evaluator-only partials, clean rates, or true coefficients to an
 adaptive update. Oracle branches deliberately use the true coefficients.
+These evaluation windows retain online adaptation and overlapping
+observations; pre-update scores are not independent held-out test errors.
 
 As in the main paper, supplied and computed channels are roles in a current
 query, not permanently measured and unmeasured variables. Observed history
 trains the relation; a readout holds that estimate fixed and computes the
 next command or a predicted rate from available data. The calibrated residual
-families below allow direct commands. A rate readout instead requires
-integration from known initial values. Instantaneous readout bounds do not
+families below allow direct commands. Predicting a future state from a rate
+readout requires integration from known initial values. Instantaneous readout bounds do not
 establish closed-loop stability or supply missing residual levels.
 
 \subsection{Differential, gauge, and activity diagnostics}
@@ -130,7 +185,7 @@ For declared coordinate scales $D_z$ and row scales $D_r$, direct error is
 \begin{equation}
  e_F=\frac{\|D_r(\widehat F-F)D_z\|_F}{\|D_rFD_z\|_F}.
 \end{equation}
-The fixed physical blocks select a common row convention. Contact and Fourier
+The fixed physical blocks select a common row convention. Contact and bounded Fourier
 evaluate both differentials at the same clean simulator context to isolate
 coefficient-induced error; these clean evaluator channels are not supplied to
 the adaptive update. A complementary
@@ -156,7 +211,7 @@ memory eigenvalues include sensor noise; positivity in noisy data is not a
 certificate of physical persistent excitation. True-model energy on the same
 noisy observations is a reference, not an estimator-independent lower bound.
 
-\section{Complete contact protocol}
+\section{Retained structured contact protocol}
 \label{sec:contact_protocol}
 \subsection{Plant, parameters, and observations}
 The velocity-actuated contact plant is
@@ -271,8 +326,13 @@ surface derivatives are not available to the adaptive controller.
 The oracle uses the true coefficients but the same noisy force sensor.
 The frozen controller uses the same initial model and outer gains.
 
-\section{Complete Fourier Memory protocol}
+\section{Retained bounded Fourier Memory comparison}
 \label{sec:fourier_protocol}
+This original six-coefficient protocol is retained as a representation and
+structured-update comparison. It does not generate the revised main Fourier
+figure, whose direct graph protocol is documented in
+Section~\ref{sec:direct_main}. Section~\ref{sec:normalized_fourier_results}
+retains the later normalized periodic-plant comparison.
 The periodic implicit plant is
 \begin{align}
  f&=\rho(\phi)\dot x+\kappa(\phi)x-u=0,\quad \phi=4t,\\
@@ -292,12 +352,14 @@ bounds and scales, setting all harmonic entries to zero.
 
 With $\varphi=\col(1,\cos\phi,\sin\phi)$ and primes denoting
 phase derivatives, define $\zeta=\col(\varphi\dot x,\varphi x,-u)$.
-Causal feature secants are
+Causal complete-feature secants are
 $[\zeta(t)-\zeta(t-.05)]/.05$; the current candidate is used for both
 endpoints. In particular,
 $d(\dot x\cos\phi)/dt=\ddot x\cos\phi-\dot x\dot\phi\sin\phi$.
-The learned object therefore contains the full clock partial, rather than
-omitting this chain-rule term.
+The coefficient-induced Jacobian therefore contains the full clock partial, rather than
+omitting this chain-rule term. The secants are sampled endpoint constraints,
+not exact instantaneous derivatives across command changes. The displayed
+clock partial differentiates with respect to phase $\phi$, not time $t$.
 
 The initial state is $x(0)=.2$. The input computed from the pre-update model
 is held during each $.01$-s RK4 step, while $\phi=4t$ advances at the RK4
@@ -319,18 +381,52 @@ A $K=0$ \emph{shadow} update uses the $K=1$ learner's very same observed
 features but never controls that plant. Its energy comparison isolates
 representation on common data. A distinct $K=0$ \emph{control} branch
 learns on its own trajectory and supplies the task-RMSE comparison. These
-are different comparisons and must not be conflated. Direct differential
+are different comparisons and must not be conflated. Frequency
+identification is not tested: phase and harmonic order are
+supplied, and both learners use the same exponential memory time. Direct differential
 error uses $D_z=\operatorname{diag}(.5,1,1,1)$ and $D_r=1$; coefficient
 error is the Euclidean relative error of the six physical coefficients.
 
-The main plots show the rate and clock partials over the initial 16 s to
+Figure~\ref{fig:fourier_bounded} shows the rate and clock partials over the initial 16 s to
 make the rapid variation readable. Complete trajectories remain in the
 recorded traces. The mean measured energy of the learned model can be
 slightly below the same-stream true-model value because noisy features bias
 an energy minimizer; this is not evidence that the fitted model is more
 physically correct than the true model.
 
-\section{Complete Burgers protocol}
+For $60\le t<80$~s, ten-seed mean incompatibility on the common learned
+stream is $5.9603\times10^{-4}$ for the $K=1$ estimate,
+$8.7874\times10^{-2}$ for its $K=0$ shadow, and
+$5.9712\times10^{-4}$ for the evaluator-only true model. The separate
+$K=1$ and $K=0$ controllers have tracking RMSE
+$0.002299\pm0.000031$ and $0.047928\pm0.000011$, respectively;
+the oracle value is $0.001229$. These values come from the original
+\path{results/aggregate.json}. The omitted-harmonics comparison tests
+representation capacity with known phase, not frequency discovery or an
+advantage over an equally expressive periodic model. Matched-family
+estimator comparisons appear in Section~\ref{sec:estimator_comparison}.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.325\textwidth]{fourier_partial_rate.pdf}\hfill
+\includegraphics[width=.325\textwidth]{fourier_partial_phase.pdf}\hfill
+\includegraphics[width=.325\textwidth]{fourier_F_error.pdf}\\
+\includegraphics[width=.325\textwidth]{fourier_energy.pdf}\hfill
+\includegraphics[width=.325\textwidth]{fourier_task.pdf}\hfill
+\includegraphics[width=.325\textwidth]{fourier_control.pdf}
+\caption{Original bounded Fourier comparison, preselected seed 10. Upper
+row: evaluated rate and phase partials during the first 16 s, then full-run
+differential and coefficient errors. Lower row: incompatibility of the
+learned model, its same-stream $K=0$ shadow, and the true-model reference;
+state tracking; applied command. Only the energy panel uses a causal
+one-second mean. The six adaptive coefficients determine the varying
+partials, including both phase-product terms; the input partial is supplied.
+These unchanged records use the box-projected update, independently of the
+retained normalized periodic-plant experiment.}
+\label{fig:fourier_bounded}
+\end{figure*}
+
+\section{Retained structured Burgers protocol}
 \label{sec:burgers_protocol}
 The supplied reconstruction is reused without changing its plant, learner,
 or controller. On the periodic domain $s\in[0,2\pi)$ its residual is
@@ -371,8 +467,10 @@ from the $[18,24)$-s evaluation interval.
 \section{Extended diagnostic figures}
 \label{sec:diagnostics}
 Figures~\ref{fig:contact_fourier_diagnostics} and~\ref{fig:burgers_diagnostics}
-extend the main-paper figures; Table~\ref{tab:main_results} reports the
-same main-protocol runs. Panels are described in reading order.
+extend the contact, retained bounded-Fourier, and Burgers diagnostics.
+Table~\ref{tab:main_results} reports the original 100 structured-protocol
+runs; the normalized Fourier results are in
+Table~\ref{tab:normalized_fourier_results}. Panels are described in reading order.
 \begin{figure*}[t]
 \centering
 \includegraphics[width=.325\textwidth]{contact_motion.pdf}\hfill
@@ -381,7 +479,7 @@ same main-protocol runs. Panels are described in reading order.
 \includegraphics[width=.325\textwidth]{fourier_full_partial.pdf}\hfill
 \includegraphics[width=.325\textwidth]{fourier_activity.pdf}\hfill
 \includegraphics[width=.325\textwidth]{fourier_information.pdf}
-\caption{Additional contact and Fourier diagnostics, seed 10. Top row,
+\caption{Additional contact and bounded-Fourier diagnostics, seed 10. Top row,
 left to right: contact motion, feature activity, and memory spectrum. Bottom
 row: Fourier rate partial, feature activity, and memory spectrum. Motion remains
 active while compatibility improves; a small residual is not explained solely
@@ -395,7 +493,7 @@ The Fourier rate partial is shown over the complete run.}
 \includegraphics[width=.325\textwidth]{burgers_F_error.pdf}\hfill
 \includegraphics[width=.325\textwidth]{burgers_task.pdf}\hfill
 \includegraphics[width=.325\textwidth]{burgers_control.pdf}
-\caption{Burgers diagnostics, seed 10, complementing the main-paper figure.
+\caption{Retained structured Burgers diagnostics, seed 10.
 Left to right: full
 spatial differential error, actual versus desired field at $s=\pi/2$, and
 applied distributed control effort.}
@@ -403,12 +501,13 @@ applied distributed control effort.}
 \end{figure*}
 \input{results_table}
 
-\section{Interpretation of the main-paper results}
+\section{Interpreting the theory and retained protocols}
 \label{sec:interpretation}
-All formal results and proofs are in the main paper. The references below
+All results used by the main paper retain their complete proofs there. The references below
 use its theorem and proposition numbers; equations numbered with an S
 belong to this supplement. These notes explain the limits of applying the
-results to the protocols, without repeating their proofs.
+results to the protocols. Additional supporting implementation proofs appear
+in Section~\ref{sec:learning_rule_audit}.
 
 \subsection{Feasible descent and stationary exceptions}
 Main-paper Propositions~1--2 (Row-Stiefel projected gradient flow and
@@ -417,8 +516,12 @@ required initialization condition. If the observed rate lies in the current
 row space, the sample update can be stationary with nonzero incompatibility.
 Main-paper Proposition~6 justifies the fixed-memory coefficient step in
 (\ref{eq:PG})--(\ref{eq:discrete_descent}). Changing observations need not
-produce monotonically decreasing measured energy. The experiments use fixed
-physical channels and coefficient boxes, not unrestricted row-Stiefel flows.
+produce monotonically decreasing measured energy. The retained structured contact, Burgers, and bounded Fourier comparisons
+use fixed physical channels and coefficient boxes. The retained normalized
+periodic study integrates the coupled law in seven physical-feature
+coordinates; its complete-feature secants differ from raw-context tangents.
+The current direct studies in Section~\ref{sec:direct_main} instead adapt
+every local entry or independent harmonic field weight.
 
 \subsection{Identification and local tracking}
 Main-paper Propositions~3--4 distinguish a covariance minimizer from the
@@ -444,8 +547,9 @@ the unguarded lifted covariance problem; phase coverage and coefficient
 normalization alone do not ensure coefficient identification or phasewise
 nondegeneracy. The main paper supplies the phase guard and the Fourier
 normal-equation mismatch bound. Section~\ref{sec:unanchored} retains the
-separate anchor-free example, while Section~\ref{sec:fourier_protocol}
-uses complete harmonic--state feature derivatives, including the clock term.
+separate anchor-free reconstruction. Both retained Fourier plant protocols use
+complete harmonic--state feature secants and report the full clock partial;
+their coefficient constraints and optimizers differ.
 
 \subsection{Compatibility without complete identification}
 Nonvanishing activity does not ensure that every partial is identified.
@@ -457,6 +561,10 @@ normalized incompatibility is still zero along this trajectory. This
 algebraic example separates task-relevant compatibility from complete
 identification without relying on vanishing context rates. It does not
 establish a general nonlinear closed-loop theorem.
+
+Section~\ref{sec:trajectory_variations} compares temporal excitation with
+whole-trajectory variations and analyzes the periodic context's kinematic
+ambiguity.
 
 \input{excitation_study}
 
@@ -474,15 +582,16 @@ between direct rate-product relations and Jacobian-derived differentials.
 \section{Additional examples retained with the code}
 \label{sec:additional_examples}
 The Acrobot and flow figures retain their original archival titles. In those
-titles, ``new reconstruction and ``new flow prototype refer to the
+titles, ``new reconstruction'' and ``new flow prototype'' refer to the
 previously supplied studies, not to the main-paper runs.
 \subsection{Acrobot: offline initialization and later control}
 The supplied reconstruction uses the mechanical family
 \begin{equation}
  f_c=M_c(q)\ddot q+h_c(q,\dot q)-(0,u)^{\mathsf T}=0,
 \end{equation}
-with five coefficients and a known actuator location. Differential learning
-uses causal complete-feature differences during an 8-s excitation episode.
+with five coefficients and a known actuator location. Coefficient learning
+uses causal complete-feature differences during an 8-s excitation episode;
+partials are then evaluated from the supplied mechanical family.
 The final model is then queried for forward acceleration and a feasible
 partial inverse respecting the passive-joint equation. A \emph{separately
 initialized} local LQR episode uses the frozen learned coefficients near
@@ -496,32 +605,33 @@ but safety requires an independent analysis of the controller, operating
 envelope, excitation policy, and failures. No aircraft experiment is claimed.
 The implementation, exact configurations, existing seed-10 traces, and
 extensive interpretation notes are under \texttt{examples/legacy\_suite}.
-Those saved results are not part of the 100 new main-paper runs.
+Those saved results are separate from the main and supplementary ten-seed
+protocols.
 \begin{figure*}[t]
 \centering
-\includegraphics[width=.48\textwidth]{../examples/legacy_suite/results/acrobot/seed_10/acrobot_identification.pdf}\hfill
-\includegraphics[width=.48\textwidth]{../examples/legacy_suite/results/acrobot/seed_10/acrobot_control.pdf}
+\includegraphics[width=.90\textwidth]{../examples/legacy_suite/results/acrobot/seed_10/acrobot_identification.pdf}\\[4pt]
+\includegraphics[width=.90\textwidth]{../examples/legacy_suite/results/acrobot/seed_10/acrobot_control.pdf}
 \caption{Previously supplied Acrobot reconstruction: identification and a
 separate local control episode. The source and seed-10 records are retained;
 these are not newly generated ten-seed results in this revision.}
 \label{fig:acrobot_archived}
 \end{figure*}
 
-\subsection{Ellipse completion: archived material only}
-The earlier manuscript used $\chi^{\mathsf T}A\chi=1$ with
-$A=\left[\begin{smallmatrix}1&.25\\.25&2\end{smallmatrix}\right]$ and learned
-$2\chi^{\mathsf T}\widehat A\dot\chi=0$, fixing $A_{11}=1$ using a known
-point. It demonstrated switching the supplied/completed velocity coordinate.
-The supplied ellipse figure and archived write-up are retained. The original
-executable implementation and underlying traces were not supplied, so this
-revision does not claim independent numerical reproduction of that example.
-Its archived values are not used in the revised main paper.
-\begin{figure}[t]
-\centering\includegraphics[width=.99\columnwidth]{ellipse_archived.pdf}
-\caption{Supplied historical ellipse figure; source data and implementation
-were absent. Included for archival context, not as a newly verified result.}
-\label{fig:ellipse_archived}
-\end{figure}
+\subsection{Ellipse completion: analytic illustration}
+Consider $f(x,y)=x^2+2bxy+dy^2-1$ with $b=.25$ and $d=2$.
+Its Jacobian is $F=(2x+2by,\,2bx+2dy)$, so compatible velocities satisfy
+\begin{equation}
+ (2x+2by)\dot x+(2bx+2dy)\dot y=0.
+\end{equation}
+Where the second coefficient is nonzero, a supplied $\dot x$ determines
+$\dot y=-(x+by)\dot x/(bx+dy)$. Where the first is nonzero, the same
+relation can instead compute $\dot x$ from a supplied $\dot y$.
+This is an analytic illustration of query-dependent completion and its
+conditioning requirement. The coefficient of $x^2$ and the residual level
+are specified calibration. The historical numerical example lacks an
+executable update and raw records; its figure remains an archived repository
+asset but is not included or used as empirical evidence here. No numerical
+learning or reproduction claim is made for this construction.
 
 \input{active_flow_insert}
 \begin{figure*}[t]
@@ -534,13 +644,34 @@ limitations in Section~\ref{sec:afc_prototype}.}
 \end{figure*}
 \begin{figure*}[t]
 \centering
-\includegraphics[width=.65\textwidth]{active_flow_parameters.png}\\
-\includegraphics[width=.65\textwidth]{active_flow_vorticity.png}
-\caption{Retained flow-prototype coefficient trajectories and final vorticity
-visualization. This is a body-force/wake-output demonstration, not a validated
-surface-jet or aerodynamic-force benchmark. Top: coefficient trajectories;
-bottom: final vorticity.}
+\includegraphics[width=.98\textwidth]{active_flow_vorticity.pdf}\\[5pt]
+\includegraphics[width=.94\textwidth]{active_flow_parameters.png}
+\caption{Retained seed-10 flow prototype: final online-control vorticity
+at control time $tU_\infty/c=6$, followed by the original coefficient
+trajectories. The full-domain and enlarged wing/wake views use the same saved
+velocity field, its spectral curl, and a shared linear color scale spanning
+the full vorticity range (no percentile clipping or spatial smoothing).
+The white shape is the nominal NACA~0012 profile; the dotted contour is the
+saved immersed mask $\chi=0.5$, and the purple dashed contour marks the
+half-maximum wake readout weight. The coarse mask differs from the nominal
+profile. These are legacy structured-coefficient results, not a demonstration
+of unrestricted direct-partial learning or validated aerodynamic performance.}
 \label{fig:flow_fields}
+\end{figure*}
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.98\textwidth]{active_flow_streamlines.pdf}
+\caption{Instantaneous streamlines of the same saved online-control velocity
+field as Fig.~\ref{fig:flow_fields}, at control time $tU_\infty/c=6$.
+Arrows indicate flow direction; the background shows speed on a shared,
+full-range linear scale. Lines use bilinear interpolation of the recorded
+velocity and are instantaneous streamlines, not particle trajectories.
+For visibility, lines are masked inside the nominal profile or where
+$\chi\geq0.5$; the white geometry overlay hides the body interior. This display
+mask does not establish no penetration: the retained immersed-body speed
+RMS is approximately $0.19$, and boundary, grid, and time convergence remain
+unvalidated. Geometry and readout contours follow Fig.~\ref{fig:flow_fields}.}
+\label{fig:flow_streamlines}
 \end{figure*}
 
 \section{Verification and interpretation limits}
@@ -548,19 +679,36 @@ Finite-difference tests check the contact differential and the Fourier clock
 column. Tests check projected energy descent, current-candidate memory,
 pre-update scoring, gauge invariance, fixed coefficients in frozen branches,
 and numerical consistency. The prior 27-test suite is retained and executed
-separately. Independent postprocessing recomputes the manuscript metrics from
-saved traces. These checks establish computational consistency, not physical
+separately. Independent postprocessing recomputes the retained structured-study metrics
+from saved traces; current direct-study checks are in
+Section~\ref{sec:direct_main}. These checks establish computational consistency, not physical
 validation or a global closed-loop guarantee.
 
-The plots use causal moving averages only for energy: 1 s in contact and
-Fourier, and .25 s in Burgers. Other curves are unsmoothed (some are displayed
+The original structured-study plots use causal moving averages only for
+energy: 1 s in contact and bounded Fourier, and .25 s in Burgers. Other curves are unsmoothed (some are displayed
 at a fixed decimation for legibility). All unaveraged values remain in the
 traces. Logarithmic display floors affect rendering only, never reported
 metrics. The fixed physical families determine gauge and level; they do not
 establish unrestricted differential discovery. The separate retained anchor-free
-example addresses normalization without a privileged derivative block; its
-missing standalone script limits reproducibility as stated in
-Section~\ref{sec:unanchored}.
+example addresses normalization without a privileged derivative block.
+Section~\ref{sec:unanchored} includes its checked reconstructed figure and
+executable records. The historical figure with unresolved lineage is no
+longer included. The direct-learning and normalized-plant experiments below
+are separately identified and fully recorded, with their display aggregation
+specified in the corresponding captions.
+
+\clearpage
+\input{learning_rule_audit}
+\input{direct_lift_results}
+\input{estimator_comparison}
+\input{reproduction_audit}
+\input{normalized_fourier_results}
+\input{implementation_inventory}
+
+\input{trajectory_variations}
+
+\clearpage
+\input{direct_main_protocols}
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}

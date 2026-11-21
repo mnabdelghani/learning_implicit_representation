@@ -1,0 +1,20 @@
+{
+  "identity": "fourier_alternative_estimators_20261118_v1",
+  "status": "Frozen before comparison outcomes; a new experiment, not a historical reproduction",
+  "seeds": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "plant_protocol": "Unchanged experiments/fourier_online.py CONFIG: 80 seconds, dt=0.01, complete-feature secant window=0.05, known phase_rate=4, measured-rate Gaussian noise sd=0.001, unchanged RK4 and reference",
+  "family_and_gauge": "All methods K=1 six free coefficients, supplied coefficient of -u fixed at1; identical initial coefficients, bounds, scales, calibrated zero level, and observed channels",
+  "methods": {
+    "memory_pg": "Original ImplicitLearner: exponential memory8 seconds and8 projected-gradient iterations with reciprocal-trace step per sample",
+    "memory_ewls": "Same exponential covariance objective and constraints, solved with scipy.optimize.lsq_linear(method=bvls,tol=1e-10,max_iter=100) using symmetric eigendecomposition square root of7x7 covariance; negative roundoff eigenvalues clipped at0; no ridge, no truth access",
+    "instant_nlms": "One projected normalized stochastic-gradient step, gain1, normalization max(squared norm of scaled free observed channels,1e-12); memory-free update ablation; same exponential covariance retained only for common diagnostic scoring"
+  },
+  "primary": "All three estimators are causal shadows on original memory_pg controller trajectory; common observations and complete-feature secants; score with current coefficients before current assimilation",
+  "secondary": "memory_ewls and instant_nlms separately control own plant trajectories with otherwise identical configurations and per-seed noise draws; memory_pg primary trajectory is its own control branch",
+  "evaluation_window": "60 <= t <80 seconds (same late window as main paper); retain full traces for transient inspection",
+  "metrics": ["preupdate sampled energy", "scaled complete evaluated differential relative error including clock", "learned-only scaled differential relative error excluding fixed -1", "phase partial RMSE", "scaled row-projector error", "coefficient error", "memory covariance spectrum and condition", "box activity", "postupdate memory objective", "numerical KKT residual and solver failures", "own-trajectory tracking RMSE and control RMS"],
+  "evaluation_boundary": "Clean actual rate, true coefficients, true evaluated partials and oracle energy are evaluator-only; no derivative targets or clean signals enter estimators; references are controller inputs only",
+  "interpretation": "EWLS is an alternative numerical estimator of the same convex objective, not a new model family; instantaneous NLMS changes both memory and optimizer. No superiority, held-out generalization, frequency discovery, unrestricted learning or closed-loop stability claim is presumed",
+  "compute": "One sequential process; all ten seeds and method failures retained; no tuning based on outcomes",
+  "validation_plan": ["BVLS checked against a known box optimum and independent constrained optimizer", "full covariance objective checked against explicit weighted history", "same-stream PG trajectory matches original simulate", "preupdate timing and frozen final update", "unknown-only differential error excludes fixed coefficient"]
+}
