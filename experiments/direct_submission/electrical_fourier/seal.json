@@ -1,0 +1,25 @@
+{
+  "sealed_utc": "2026-11-21T22:32:12.478903+00:00",
+  "protocol_identity": "electrical_fourier_direct_20261121_v1",
+  "confirmation_seeds": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "pilot_audit_sha256": "359aa77d78f1b08c5014566875787a218ccab58364955febbcb1ab1ab595657f",
+  "source_sha256": {
+    "run.py": "2852e9255b09196a7927fbf4df0235dc0ad3d593c2f40e74cf84b6ff3c0f41fc",
+    "protocol.json": "925710c55d02b30d60f63c872c2fa80dfe9563e0257fb8d5083c0c5f5ff17304",
+    "direct_learner.py": "72811227a033a486d219c10dbcdacb01dc8707c299111f81d7ac72405f169c3d",
+    "period_estimator.py": "0a6e1f7ad9a4840b1ad0a98aa76e9cb5bbad80004d77dcb913eecd69e8b56f4b",
+    "electrical_simulator.py": "733cd6840805f80b737f182de387ccd4e4cf879721ecba772fc3024e7c9a59b5"
+  },
+  "change_since_audited_pilot": "Protocol status/identity/scope and two module docstrings only; numerical settings and algorithm unchanged. No confirmation seed executed before this seal."
+}

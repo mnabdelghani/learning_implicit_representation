@@ -1,229 +1,239 @@
-\subsection{Direct Fourier learning on a monotone graph}
+\subsection{Temporal Fourier learning in an electrical winding}
 \label{sec:direct_fourier_protocol}
-This is the new protocol \path{direct_fourier_monotone_20261120_v1},
-which supplies the current main Fourier learning and prediction evidence.
-It is a nonlinear kinematic graph benchmark, not the earlier periodic dynamic
-plant of Section~\ref{sec:normalized_fourier_results}. Its simulator uses
-\begin{equation}
- y=.3+1.2x+.02\sin(20x),\qquad z=(x,y).
- \label{eq:df_graph}
-\end{equation}
-The formula and its physical row $F=(-1.2-.4\cos(20x),1)$ are used only by
-the simulator and evaluator. The learner is given neither the residual
-formula nor any physical coefficient, partial entry, or derivative target.
-Both context units are fixed and dimensionless. It receives exact $x$ and
-$\dot x$, noisy $\dot y_m=\dot y+\varepsilon_n$ with independent
-$\varepsilon_n\sim\mathcal N(0,.0005^2)$, and known coordinate phase
-$\phi=20x$. The phase and harmonic order $K=1$ are supplied representation
-assumptions. Phase is derived from measured $x$, not an independently
-manipulated physical input or an extra coordinate of $z$.
-
-\paragraph{All-entry representation and coupled update.}
-With $h=(1,\cos\phi,\sin\phi)^{\mathsf T}$, the unit row
-$C\in\mathbb R^{1\times6}$ represents
+The simulator models an actuator winding under externally prescribed motion:
 \begin{align}
- \widehat H_C(x)&=C(h\otimes I_2),&
- w&=h\otimes(\dot x,\dot y_m)^{\mathsf T},\label{eq:df_lift}\\
- \dot R&=ww^{\mathsf T}-R/30,&
- \dot C&=-100\{CR-(CRC^{\mathsf T})C\}.
- \label{eq:df_update}
+ u&=L\dot i+Ri+e(t),&z&=(i,q,\Phi,t),\nonumber\\
+ \dot q&=i,&\dot\Phi&=u,\nonumber\\
+ f(z)&=Li+Rq-\Phi+E(t)-c,&E'&=e,\nonumber\\
+ F=D_zf&=(L,R,-1,e(t)).\label{eq:df_graph}
 \end{align}
-Every one of the six harmonic weights is independently adaptive, including
-all three weights of the output entry. No potential is fitted and then
-differentiated. Six independent standard-normal draws are normalized to
-initialize $C$, without rejection or physical information; $R(0)=0$.
-The initial $x_0$ is then drawn uniformly over one phase cycle. Seeds 10--19
-vary these initializations and the sensor noise. The same-stream $K=0$
-comparison learns a direct two-entry row from the identical measured
-velocities, with the same gain, memory, and sample interval; its initial row
-is the normalized first two entries of the $K=1$ initialization. This is an
-ablation of the harmonic representation under matched settings, not a
-comparison with an independently optimized alternative estimator.
+The constant $c$ selects the initial level. Simulator parameters are
+$L=.15$~H, $R=2~\Omega$,
+$e=1.5\sin(\psi+.6)+.45\sin(2\psi-.3)$~V, and
+$\psi=2\pi(3.73)t+\psi_0$, with independently randomized plant phase
+$\psi_0$. These parameters, $f,E,F$, and true frequency/phase are
+simulator/evaluator-only. The learner observes time, current, voltage and
+current rate: $v_{\rm phys}=(\dot i,i,u,1)^{\mathsf T}$.
+Rates are ideal observations. The integrated context makes the true entries
+partial derivatives; no physical residual is fitted and differentiated.
+Only the clock partial varies rapidly. Mechanical dynamics and hardware
+validation are outside this model.
 
-Sampling is $\Delta t=.02$~s. Each observed $w_n$ is scored with the pre-update
-row. Over its subsequent held-sample interval, the covariance is evaluated as
+\paragraph{Observation-only calibration.}
+A 20-s constant-voltage prefix ($u=1$~V) precedes learning. Calibration uses
+only time/current, discards the first 2~s, and searches $.5$--$15$~Hz.
+Candidates are the eight largest Hann-window spectral peaks and their first
+four subharmonics. Four-harmonic least-squares fits with offset/trend refine
+them, preserving the search harmonics' Nyquist margin. A resolved fundamental
+must exceed one percent of fitted periodic amplitude and four residual-noise
+standard errors. The lowest-error resolved candidate supplies $\widehat\nu$;
+a distinct runner-up within ten percent error flags ambiguity. Unresolved
+or ambiguous calibration terminates the case. Only $\widehat\nu$ passes to
+the learner; fitted current amplitudes and phase do not. The internal clock
+is $\theta=2\pi\widehat\nu t$; sine/cosine weights absorb unknown phase.
+This procedure assumes an observable stationary period under the stated
+prefix/search band, rather than unrestricted frequency discovery or drift.
+
+\paragraph{Independent entries and coupled memory.}
+Let $h=(1,\cos\theta,\sin\theta,\cos2\theta,\sin2\theta)^{\mathsf T}$ and
+$D=\operatorname{diag}(20,2,5,1)$ be fixed units. Define
+\begin{align}
+ v&=D^{-1}v_{\rm phys},&w&=h\otimes v,\nonumber\\
+ \bar H&=C(h\otimes I_4),&\widehat F&=\bar H D^{-1}.
+ \label{eq:df_lift}
+\end{align}
+All twenty weights in $C\in\mathbb R^{1\times20}$ adapt independently,
+including five weights for each physically constant partial. No entry is
+fixed to truth. Independent standard-normal draws, normalized without
+rejection, initialize $C$; $R=0$. The executed law is
 \begin{equation}
- R(s)=e^{-s/30}R_n+30(1-e^{-s/30})w_nw_n^{\mathsf T}.
+ \dot R=ww^{\mathsf T}-R/10,\qquad
+ \dot C=-200\{CR-(CRC^{\mathsf T})C\}.
+ \label{eq:df_update}
+\end{equation}
+Each $.005$-s observation is scored before updating. For the held sample,
+\begin{equation}
+ R(s)=e^{-s/10}R_n+10(1-e^{-s/10})w_nw_n^{\mathsf T}.
  \label{eq:df_memory}
 \end{equation}
-DOP853 integrates $\dot a=-100R(s)a$, starting at $a(0)=C_n^{\mathsf T}$,
-with relative and absolute tolerances $10^{-9}$ and $10^{-11}$; the returned
-row is $a^{\mathsf T}/\|a\|$. Thus memory evolves within each integration
-step. This implements the coupled normalized law, not a frozen-memory
-exponential or an instantaneous bottom-eigenvector update. All coefficient
-and covariance states before each observation are saved.
+DOP853 integrates $\dot a=-200R(s)a$ from $C_n^{\mathsf T}$, with relative
+and absolute tolerances $10^{-9},10^{-11}$; then
+$C_{n+1}=a^{\mathsf T}/\|a\|$. Memory evolves at every solver stage.
+This implements the normalized law, not an eigenvector replacement.
+Normalization imposes neither a phase-wide field norm nor integrability.
 
-Training imposes coefficient normalization only; no all-phase row-norm
-constraint is enforced. This is the unguarded normalized flow, not a feasible
-projection onto the main paper's phase-constrained set. A postprocessing check
-of saved states makes the distinction concrete: for seed 11 at $t=5.06$ s,
-the learned field has norm $5.37\times10^{-5}$ at phase $-.675677$.
-Thus a $.05$ all-phase row-norm bound would fail at that training state.
-No prediction task uses these intermediate fields. Readout feasibility is
-checked separately for the final frozen field below; the diagnostic and its
-saved-state identity are retained in \path{row_norm_guard_diagnostic.json}.
-
-
-\paragraph{Actual input and partial timescales.}
-The training input over $0\le t\le240$~s is
+Training continues the clock from $20$ to $140$~s, using
 \begin{equation}
- x=x_0+.15t+.05\sin(.3t),\qquad
- \dot x=.15+.015\cos(.3t).
- \label{eq:df_train_input}
+ \begin{split}
+ u(t)={}&1+2\sin(2\pi .13t)+1.2\sin(2\pi .31t+.3)\\
+       &+.8\sin(2\pi .53t-.5).
+ \end{split}\label{eq:df_train_input}
 \end{equation}
-The actual supplied coordinate is a monotone ramp plus slow modulation;
-its actual rate modulates at $.3$~rad/s. Physical partial variation follows
-$\dot\phi=20\dot x\in[2.7,3.3]$~rad/s, nine to eleven times that modulation.
-This comparison uses the executed input, not merely a desired reference.
-The output rate $\dot y$ is fast and is not called a slow input.
-For seed~10, the empirical derivative-RMS/centered-RMS rate scales are
-$.01447$ for $x$, $.30100$ for $\dot x$, $3.00995$ for the physical slope,
-and $2.91343$ for $\dot y$, in inverse seconds. The statistic for the ramp
-$x$ depends on the observation duration and is not a stationary spectral
-frequency. These diagnostics do not claim that every learner channel is slow.
+The clock partial's $3.73$ and $7.46$~Hz components exceed the actual voltage's
+highest tone, $.53$~Hz. Current and its rate contain fast ripple and are not
+called slow. A $K=0$ learner uses identical observations, units, gain, memory
+and duration; its initial row is the normalized constant block of the
+$K=2$ draw. This is a matched representation ablation, not an optimized
+estimator comparison.
 
-\paragraph{Independent prediction using the same learned field.}
-At 240~s learning stops. A new 30-s episode uses
+\paragraph{Frozen representation, prediction and control.}
+Freeze $C,\widehat\nu$ after training; $\widehat F(t)$ still varies with time.
+Separate 12-s tasks use $s=t-140$ and
 \begin{align}
- x(t)&=x_{\rm final}+.12t+\frac{.03}{.47}(1-\cos(.47t)),\\
- \dot x(t)&=.12+.03\sin(.47t),\qquad 0\le t\le30~\mathrm{s}.
+ u_{\rm pred}(s)&=.7+1.5\sin(2\pi .19s+.2)+.9\cos(2\pi .43s),\nonumber\\
+ i_d(s)&=.3+.4\sin(2\pi .17s)+.2\sin(2\pi .29s).
  \label{eq:df_test_input}
 \end{align}
-Its actual rate modulation is $.47$~rad/s, while the physical partial phase
-rate lies in $[1.8,3.0]$~rad/s. With $C$ frozen, the original learned field
-computes
-\begin{equation}
- \widehat{\dot y}=-\widehat H_x\dot x/\widehat H_y.
+Prediction starts from one measured current, $-.3$~A, and integrates its own
+state without later current/rate assimilation. Control starts at $0$~A and
+observes its own current. Both reuse the same field:
+\begin{align}
+ \widehat{\dot i}&=-\frac{\widehat F_q\widehat i+
+                  \widehat F_\Phi u_{\rm pred}+\widehat F_t}{\widehat F_i},\nonumber\\
+ d_i&=\dot i_d+10(i_d-i),\nonumber\\
+ u_{\rm raw}&=-\frac{\widehat F_i d_i+\widehat F_q i+
+                       \widehat F_t}{\widehat F_\Phi},\quad
+ u=\operatorname{clip}(u_{\rm raw},-12,12).
  \label{eq:df_readout}
-\end{equation}
-The predicted output is integrated by the trapezoidal rule from one measured,
-exact initial $y$. No later $y$ or $\dot y$ is supplied to the readout or
-assimilated into the prediction. Supplied $x$ follows the prescribed actuator
-motion, so it is not a hidden future output. Each seed learns on one
-continuous training trajectory; the subsequent episode tests prediction and
-is not an additional perturbation trial used for identification.
+\end{align}
+Each 5-ms control instant uses current time/current to select voltage, then
+advances the plant under that held command; no future observation is used.
+Plant RK4 substeps are at most $.0005$~s. Prediction uses DOP853 with tolerances
+$10^{-9},10^{-11}$ and maximum step $.005$~s; open-loop simulator trajectories
+use $10^{-10},10^{-12}$. The $K=0$ field runs its own predictor/controller
+trajectories under identical task specifications. Every branch preserves the
+same per-seed plant parameters and continuous clock.
 
-A query with $|\widehat H_y|<.05$ is invalid, with no oracle fallback.
-Writing the output weights as $(C_{01},C_{11},C_{21})$ gives the elementary
-all-phase bound
+\paragraph{Query guards and full-phase diagnostics.}
+A query requires finite $\bar H$, $\|\bar H\|>10^{-12}$, and
+$|\bar H_j|/\|\bar H\|\ge .05$, with $j=i$ for prediction and $j=\Phi$ for
+control. Failure terminates that branch: no zero-rate, zero-voltage or oracle
+fallback is allowed, and full-episode RMSE is undefined. Saturation counts
+are separate. Writing
+$\bar H=a_0+\sum_{k=1}^2(a_{ck}\cos k\theta+a_{sk}\sin k\theta)$ gives
 \begin{equation}
- |\widehat H_y|\ge |C_{01}|-\sqrt{C_{11}^2+C_{21}^2}.
- \label{eq:df_guard}
+ \begin{split}
+ b_j&=|a_{0j}|-\sum_{k=1}^2\sqrt{a_{ck,j}^2+a_{sk,j}^2},\\
+ B&=\|a_0\|+\sum_{k=1}^2\sqrt{\|a_{ck}\|^2+\|a_{sk}\|^2}.
+ \end{split}\label{eq:df_guard}
 \end{equation}
-The minimum final bound across all ten seeds is $.6195546$, and all 15,010
-learned heldout queries pass the guard. This is a final frozen-model bound,
-not a continuous-time guarantee during training: 376 recorded training
-snapshots would fail the query guard, when no prediction task was requested.
-The frozen initial $K=1$ prior has 916 invalid heldout queries in seven runs;
-its full-episode errors are recorded as undefined in those cases, not
-replaced by selected valid-query averages. The $K=0$ heldout queries have
-no guard failures.
+If $b_j>0$, $b_j/B$ bounds the normalized query entry below at every phase;
+a nonpositive bound is inconclusive. Full-phase sampled minima of field norm
+and query margins are also recorded, but a finite grid is not a continuum
+certificate. These final-field checks do not establish a training-wide guard.
 
-\paragraph{Separate learning, recovery, and task evidence.}
-The physical row is evaluator-only. At each observed context, the record
-contains $\tfrac12(\widehat H_C\dot z_m)^2$, the Frobenius difference between
-the estimated and physical row projectors, and the separately scored task
-errors. Row normalization/sign alignment is used only for display and never
-changes the field used for a query. On $[200,240)$~s, the ten-seed mean
-row-projector error is $(6.3912\pm1.3368)10^{-5}$, versus
-$.150378\pm.000704$ for $K=0$. Mean observed pre-update energy is
-$(4.8266\pm.1652)10^{-8}$, versus
-$(3.66434\pm.01684)10^{-4}$ for $K=0$.
-Prediction rate RMSE is $(1.60965\pm.46632)10^{-5}$ and integrated-output
-RMSE is $(9.24323\pm6.70758)10^{-5}$. Corresponding $K=0$ errors are
-$.0354751\pm.0001978$ and $.100628\pm.015898$.
-All $\pm$ values denote sample standard deviations across the ten specified
-seeds. Table~\ref{tab:direct_fourier_all_seeds} preserves every seed.
+\paragraph{Separate learning, representation and task evidence.}
+Report pre-update energy $\tfrac12(Cw)^2$ and row-projector error between
+$\bar H$ and evaluator-only $FD$ in the declared scaled units; display
+alignment never changes the queried field. Record all-entry movement,
+normalization error, memory spectra, frequency error, phase margins and task
+errors independently. A covariance gap alone is not physical identification;
+frequency error can put truth outside the estimated-frequency span.
+
+The confirmation seeds are 10--19, with illustration seed~10 selected before
+confirmation. Score late training on $[120,140)$~s, complete prediction-current
+RMSE, and complete/late ($s\ge2$~s) control RMSE. Report all seeds, using sample standard deviations and explicit abort counts.
+All ten cases complete calibration, prediction and control, with no Fourier
+query failures or voltage saturations. The sealed criteria are late mean
+$e_P<.01$, prediction RMSE $<.005$ A, late control RMSE $<.03$ A,
+completed tasks, and zero query/saturation counts; every confirmation case
+passes. The largest frequency error is $1.59\times10^{-9}$ Hz under these
+noiseless observations. Across seeds, late $e_P=(3.57\pm5.89)\times10^{-4}$,
+late pre-update energy is $(7.40\pm17.21)\times10^{-9}$, and prediction RMSE
+is $(2.15\pm3.54)\times10^{-5}$ A. Full and late control RMSE are
+$.02643\pm.00092$ and $.01720\pm.00006$ A. All twenty weights change in
+every run. Conservative full-phase normalized query bounds are at least
+$.3223$ for prediction and $.5353$ for control, exceeding the $.05$ guard.
+The $K=0$ prediction aborts at its first query in all ten cases; its late
+control RMSE is $.4754\pm.0100$ A and late $e_P$ is $.6065$.
+This ablation supports temporal representation in this protocol, without
+comparing against every tuned alternative tracker.
 
 \begin{table*}[t]
 \centering
-\caption{New direct Fourier benchmark, all prespecified seeds. Projector
-error is the mean on $[200,240)$~s; rate and output RMSE use the independent
-30-s episode. Scaled columns indicate their multipliers in the headings.
-The last column counts invalid queries of the frozen initial $K=1$ prior;
-the trained $K=1$ and $K=0$ predictors have none.}
+\caption{All ten electrical confirmation seeds. Representation error is the
+late mean row-projector error. Prediction is complete-episode current RMSE;
+control is RMSE over task seconds 2--12. Fourier completes every task with
+zero guards/saturations; all $K=0$ predictors abort, so their RMSE is undefined.}
 \label{tab:direct_fourier_all_seeds}
-\begin{tabular}{rrrrrrr}
+\begin{tabular}{rcccc}
 \toprule
-Seed & \shortstack{Projector\\($10^{-5}$)} & \shortstack{Rate RMSE\\($10^{-5}$)} & \shortstack{Output RMSE\\($10^{-5}$)}
-& \shortstack{$K=0$\\rate RMSE} & \shortstack{$K=0$\\output RMSE} & \shortstack{Prior\\invalid}\\
+Seed & Representation error & Prediction ($\mu$A) & Control (mA) & $K=0$ control (A)\\
 \midrule
-10 & 5.9683 & 1.7412 & 12.5246 & 0.035598 & 0.109743 & 0\\
-11 & 4.7770 & 1.4933 & 6.6561 & 0.034956 & 0.062450 & 0\\
-12 & 7.7329 & 1.4550 & 5.0253 & 0.035570 & 0.110815 & 126\\
-13 & 7.0664 & 1.9766 & 18.0278 & 0.035479 & 0.112136 & 0\\
-14 & 5.3648 & 2.0516 & 22.4932 & 0.035639 & 0.102372 & 60\\
-15 & 6.8780 & 1.6651 & 2.7531 & 0.035492 & 0.099707 & 256\\
-16 & 5.4824 & 0.9637 & 3.2382 & 0.035392 & 0.085399 & 133\\
-17 & 7.6658 & 2.0401 & 3.5015 & 0.035477 & 0.112295 & 101\\
-18 & 8.3966 & 2.0018 & 10.8025 & 0.035527 & 0.111805 & 159\\
-19 & 4.5798 & 0.7081 & 7.4099 & 0.035622 & 0.099562 & 81\\
-
+10 & $1.39\times10^{-4}$ & 7.586 & 17.118 & 0.4616 \\
+11 & $1.77\times10^{-3}$ & 101.551 & 17.339 & 0.4804 \\
+12 & $1.55\times10^{-4}$ & 8.446 & 17.211 & 0.4859 \\
+13 & $7.30\times10^{-6}$ & 0.414 & 17.140 & 0.4582 \\
+14 & $1.02\times10^{-4}$ & 6.439 & 17.199 & 0.4753 \\
+15 & $6.24\times10^{-5}$ & 3.313 & 17.223 & 0.4816 \\
+16 & $7.81\times10^{-5}$ & 4.089 & 17.168 & 0.4719 \\
+17 & $5.49\times10^{-5}$ & 2.782 & 17.173 & 0.4688 \\
+18 & $1.21\times10^{-4}$ & 6.914 & 17.182 & 0.4860 \\
+19 & $1.08\times10^{-3}$ & 73.120 & 17.245 & 0.4842 \\
 \bottomrule
 \end{tabular}
 \end{table*}
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=.98\textwidth]{direct_fourier_summary.pdf}
-\caption{Current direct Fourier evidence. Panels (a,c--f) use prospectively
-selected seed~10; (b) shows the median and full range over all ten seeds.
-Panel (a) is a causal 1-s mean of pre-update observed energy. Panel (c)
-uses unit/sign alignment only for evaluating the two independently learned
-entries. Panel (d) centers the actual input rate and physical partial and
-divides each by its amplitude. Panels (e,f) integrate the same learned
-readout on a new input, without later output assimilation.}
+\includegraphics[width=.98\textwidth]{figures/direct_fourier_summary.pdf}
+\caption{Temporal Fourier Memory and its reuse. (a) Pre-update energy,
+causal trailing 1-s mean; (b) median and full range of row-projector errors
+across all ten seeds; (c) all four evaluated entries in the declared scaled
+units, unit/sign aligned for display only, with dotted truth; (d) actual
+training voltage and the fast clock partial; (e) independent current
+prediction; (f) executed current control, including the initial transient.
+Panels other than (b) use preselected seed~10. Stored weights are frozen in
+both tasks, while the internal temporal basis generates the changing field.}
 \label{fig:direct_fourier_new}
 \end{figure*}
 
-The final clean coefficient-covariance gap ranges from $.0054964$ to
-$.0055467$, and $\|R_{\rm clean}C_*^{\mathsf T}\|$ is at most
-$4.13\times10^{-15}$. Noisy covariance spectra and target-memory bias are
-saved separately. A positive noisy eigengap is not treated as proof of
-physical identification or unbiased recovery. All six coefficient entries
-change in every run; the largest unit-norm error is $3.34\times10^{-16}$.
-The generic learned field need not itself be a Jacobian. In this graph
-geometry, wherever $\widehat H_y\ne0$, the gauge-equivalent field
-$\widehat H/\widehat H_y=(\widehat H_x/\widehat H_y,1)$ is the gradient of
-$y+\int (\widehat H_x/\widehat H_y)\,dx$. This post hoc interpretation does
-not supply a potential to training and does not establish general
-high-dimensional integrability.
+\paragraph{Failures, refinements and provenance.}
+Exploratory seed~9001 at gain~20 failed readout guards. Its original
+fallback-generated errors remain archived but are not valid complete-task
+results. A gain~200 exploratory rerun and a separate production pilot (seed~9002)
+informed the sealed protocol; both are excluded from confirmation. The
+production pilot completes both Fourier tasks, with late $e_P=4.00\times10^{-4}$,
+prediction RMSE $2.07\times10^{-5}$ A, and late control RMSE $.01714$ A;
+its $K=0$ predictor aborts. No pilot substitutes for the ten confirmation runs. Separate noisy-prefix cases explore calibration
+only, not noisy derivative sensing or robust closed-loop control.
 
-\paragraph{Prespecification, verification, and provenance.}
-The protocol fixed seeds 10--19, illustration seed~10, durations, observations,
-initialization, baselines, and criteria before any new run. The excluded
-exploratory pilot uses seed~9001. Each confirmatory seed passes the declared
-limits: late mean projector error below $.01$, heldout rate RMSE below
-$.002$, output RMSE below $.02$, and no learned heldout guard failure. These
-are numerical evidence thresholds, not theorem hypotheses or significance
-tests. No heldout result was used for tuning, and no run was omitted.
+Two declared seed-10 refinements also pass. Halving the calibration/learning
+observation interval to $.0025$ s changes late $e_P$ from $1.39448$ to
+$1.39679\times10^{-4}$, prediction RMSE from $7.5857$ to $7.5988\,\mu$A,
+and late control RMSE by less than $.00004$ mA; the controller's 5-ms hold
+is unchanged. Halving only the control-plant substep to $.00025$ s leaves
+learning unchanged. These checks test numerical resolution within the
+protocol, not arbitrary sampling or sensing robustness.
 
-Two predeclared noise-free seed-10 refinements use $\Delta t=.02$ and $.01$~s.
-Their final coefficient rows differ by at most $1.15\times10^{-14}$;
-rate errors are below $1.84\times10^{-15}$ and integrated-output RMSE decreases
-from $4.37321\times10^{-6}$ to $1.09337\times10^{-6}$. Direct projector
-subtraction gives late errors below $10^{-14}$. The original equivalent
-$\sqrt{2(1-\cos^2\theta)}$ summaries suffer cancellation at this scale and
-report about $4\times10^{-9}$; those immutable summaries and the diagnosed
-discrepancy are retained. This arithmetic floor is not interpreted as a
-physical recovery error. The clean check isolates quadrature and update
-accuracy, not a robustness test for noisy derivative estimation.
+Independent audits reconstruct observations, RNG identities, the complete
+held-sample memory recurrence and metrics from raw records. Selected updates
+are checked against tighter integration of the full normalized equations;
+finite differences check $F=D_zf$, and analytic forced-RL propagation checks
+physical task trajectories. All ten confirmation cases pass 172 checks each.
+For seed~10, a separate evaluator-only controller using the true field with
+the same feedback and hold has $.017135$ A late RMSE, versus $.017118$ A for
+the learned controller; their current trajectories differ by only
+$4.15\times10^{-5}$ A RMS. This diagnostic attributes the remaining ripple
+principally to sampled control in this setting; it is not an oracle lower bound.
 
-An independent audit reconstructs every recorded covariance transition,
-observation/RNG stream, heldout rate and integrated trajectory. Selected
-updates are checked against a tighter direct integration of the full
-nonlinear coupled $(C,R)$ equations. All thirteen cases---the ten
-confirmatory seeds, pilot, and two refinements---pass. The evaluator slope
-is separately checked by finite differences of the simulator graph.
-The portable source and commands are under
-\path{experiments/direct_submission/fourier/}: \path{run.py},
-\path{protocol.json}, \path{audit.py}, \path{summarize_plot.py}, and
-\path{REPRODUCE.txt}. Each raw run retains source, configuration, complete
-observed rates and pre-update coefficient/covariance states, predictions,
-evaluator-only channels, RNG states, environment, and SHA-256 manifest.
-The raw evidence archive is identified separately by the accompanying package manifest;
-a local package does not imply that it has already been published.
-The benchmark supports direct field learning and independent prediction
-under known phase/order and the stated sensors. It does not validate the
-old periodic plant's control, unknown-frequency discovery, noisy-rate
-estimation from position-only sensors, or global stability.
+The new source destination is
+\path{experiments/direct_submission/electrical_fourier/}.
+Protocol \path{electrical_fourier_direct_20261121_v1} was sealed before
+confirmation. Records preserve sources, commands, calibration inputs/candidates,
+all observations and pre-update $C$, evaluator-only truth, task states and
+commands, failures, RNG/environment records and SHA-256 manifests. Memory
+starts at zero and is reconstructed exactly from saved rates and
+(\ref{eq:df_memory}); its final value is saved, not every intermediate matrix.
+The new \path{electrical_fourier_raw.tar.gz} and November~21 manifests identify
+these records separately from earlier archives. Exploratory gain-20/200 source
+bindings were recorded retrospectively and their original calibration arrays
+were not retained; the production pilot and confirmation records contain the
+full calibration observations. No exploratory record is relabeled as complete
+confirmation provenance.
+The old spatial graph at \path{experiments/direct_submission/fourier/} and
+earlier periodic studies remain historical with immutable original records;
+none supplies electrical evidence. A local package does not imply public
+release. This study addresses temporal representation and readout under its
+sensors and stationary-period assumption, without claiming general noise
+robustness, integrability of every estimate, or closed-loop stability.

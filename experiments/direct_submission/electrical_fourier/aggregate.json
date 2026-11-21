@@ -1,0 +1,1343 @@
+{
+  "seeds": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "illustration_seed": 10,
+  "statistics": {
+    "late_projector_mean": {
+      "mean": 0.0003574560887356795,
+      "sample_sd": 0.000588708994314813,
+      "min": 7.30109640075453e-06,
+      "max": 0.0017734491586224395
+    },
+    "late_K0_projector_mean": {
+      "mean": 0.6065014354732504,
+      "sample_sd": 2.2428792138537344e-05,
+      "min": 0.6064655165696432,
+      "max": 0.6065429391423666
+    },
+    "late_energy_mean": {
+      "mean": 7.404275997107361e-09,
+      "sample_sd": 1.7207184918471612e-08,
+      "min": 8.993994558990448e-13,
+      "max": 5.3249118304204545e-08
+    },
+    "frequency_hz": {
+      "mean": 3.729999999944345,
+      "sample_sd": 1.0010762168345921e-09,
+      "min": 3.7299999984101175,
+      "max": 3.730000000923485
+    },
+    "prediction_rmse_a": {
+      "mean": 2.1465388400649024e-05,
+      "sample_sd": 3.544228604945267e-05,
+      "min": 4.141337982122899e-07,
+      "max": 0.00010155141234255774
+    },
+    "control_full_rmse_a": {
+      "mean": 0.026431579687410712,
+      "sample_sd": 0.0009190769035343524,
+      "min": 0.025008789362555454,
+      "max": 0.02745108861421227
+    },
+    "control_late_rmse_a": {
+      "mean": 0.017199679869879508,
+      "sample_sd": 6.175062712332366e-05,
+      "min": 0.017117899588855116,
+      "max": 0.017338597926088255
+    },
+    "K0_control_late_rmse_a": {
+      "mean": 0.47539554236080656,
+      "sample_sd": 0.010030311226976393,
+      "min": 0.45823064344601805,
+      "max": 0.4860311917960792
+    },
+    "frequency_error_hz": {
+      "mean": -5.565530258877516e-11,
+      "sample_sd": 1.0010762168345528e-09,
+      "min": -1.5898824479165796e-09,
+      "max": 9.234848441508348e-10
+    }
+  },
+  "rows": [
+    {
+      "seed": 10,
+      "late_projector_mean": 0.00013944830662535485,
+      "late_K0_projector_mean": 0.6065066846881916,
+      "late_energy_mean": 3.2892602038498534e-10,
+      "frequency_hz": 3.72999999991786,
+      "tasks": {
+        "fourier": {
+          "prediction": {
+            "status": "complete",
+            "rmse_a": 7.585734364633661e-06,
+            "guard_failures": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "solver_nfev": 46092,
+            "minimum_completed_sample_guard_ratio": 0.4089699926033103,
+            "failure": null
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.025008789362555454,
+            "late_rmse_a": 0.017117899588855116,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.681691739632691
+          }
+        },
+        "K0": {
+          "prediction": {
+            "status": "aborted",
+            "rmse_a": null,
+            "guard_failures": 1,
+            "completed_samples": 1,
+            "requested_samples": 2401,
+            "solver_nfev": 0,
+            "minimum_completed_sample_guard_ratio": 0.021374285447701227,
+            "failure": {
+              "kind": "guard",
+              "time_s": 140.0,
+              "normalized_computed_entry": 0.021374285447701227,
+              "supplied_rates": [
+                0.0,
+                -0.3,
+                1.8980039961925916,
+                1.0
+              ]
+            }
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.4536233703823259,
+            "late_rmse_a": 0.4616165550478423,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.7948569996576913
+          }
+        }
+      },
+      "prediction_rmse_a": 7.585734364633661e-06,
+      "control_full_rmse_a": 0.025008789362555454,
+      "control_late_rmse_a": 0.017117899588855116,
+      "K0_control_late_rmse_a": 0.4616165550478423,
+      "frequency_error_hz": -8.214007252149713e-11,
+      "criteria_pass": true,
+      "full_cycle": {
+        "fourier": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9744362208217767,
+          "grid_min_normalized_entries": [
+            0.4089699537146124,
+            0.5453545540855822,
+            0.6816916663602994,
+            6.354505368521074e-05
+          ],
+          "conservative_row_norm_lower_bound": 0.7071651237406661,
+          "conservative_row_norm_upper_bound": 1.245522762944709,
+          "conservative_absolute_entry_lower_bounds": [
+            0.4133091927517747,
+            0.5509372981345252,
+            0.6886741096859311,
+            0.0
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.33183592066564443,
+            0.44233418651617396,
+            0.5529197299114337,
+            0.0
+          ],
+          "prediction_conservative_guard_certified": true,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        },
+        "K0": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 1.0,
+          "grid_min_normalized_entries": [
+            0.021374285447701227,
+            0.6063368568983529,
+            0.7948569996576913,
+            0.010055147109783504
+          ],
+          "conservative_row_norm_lower_bound": 1.0,
+          "conservative_row_norm_upper_bound": 1.0,
+          "conservative_absolute_entry_lower_bounds": [
+            0.021374285447701227,
+            0.6063368568983529,
+            0.7948569996576913,
+            0.010055147109783504
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.021374285447701227,
+            0.6063368568983529,
+            0.7948569996576913,
+            0.010055147109783504
+          ],
+          "prediction_conservative_guard_certified": false,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        }
+      }
+    },
+    {
+      "seed": 11,
+      "late_projector_mean": 0.0017734491586224395,
+      "late_K0_projector_mean": 0.6065429391423666,
+      "late_energy_mean": 5.3249118304204545e-08,
+      "frequency_hz": 3.7300000004575367,
+      "tasks": {
+        "fourier": {
+          "prediction": {
+            "status": "complete",
+            "rmse_a": 0.00010155141234255774,
+            "guard_failures": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "solver_nfev": 46068,
+            "minimum_completed_sample_guard_ratio": 0.40936957774057114,
+            "failure": null
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.02560120856296556,
+            "late_rmse_a": 0.017338597926088255,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.6814829870357814
+          }
+        },
+        "K0": {
+          "prediction": {
+            "status": "aborted",
+            "rmse_a": null,
+            "guard_failures": 1,
+            "completed_samples": 1,
+            "requested_samples": 2401,
+            "solver_nfev": 0,
+            "minimum_completed_sample_guard_ratio": 0.020060118930022554,
+            "failure": {
+              "kind": "guard",
+              "time_s": 140.0,
+              "normalized_computed_entry": 0.020060118930022554,
+              "supplied_rates": [
+                0.0,
+                -0.3,
+                1.8980039961925916,
+                1.0
+              ]
+            }
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.4588964157630423,
+            "late_rmse_a": 0.48044755731433786,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.7942801881488362
+          }
+        }
+      },
+      "prediction_rmse_a": 0.00010155141234255774,
+      "control_full_rmse_a": 0.02560120856296556,
+      "control_late_rmse_a": 0.017338597926088255,
+      "K0_control_late_rmse_a": 0.48044755731433786,
+      "frequency_error_hz": 4.5753667521353236e-10,
+      "criteria_pass": true,
+      "full_cycle": {
+        "fourier": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9588162285905812,
+          "grid_min_normalized_entries": [
+            0.40936945843898087,
+            0.5451697641464086,
+            0.6814829186582767,
+            5.779212722395998e-05
+          ],
+          "conservative_row_norm_lower_bound": 0.7035930937513529,
+          "conservative_row_norm_upper_bound": 1.2483263069202102,
+          "conservative_absolute_entry_lower_bounds": [
+            0.4023515032590064,
+            0.5346549326973289,
+            0.6683510402923961,
+            0.0
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.32231276472228004,
+            0.42829741689606377,
+            0.5353977053814627,
+            0.0
+          ],
+          "prediction_conservative_guard_certified": true,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        },
+        "K0": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9999999999999999,
+          "grid_min_normalized_entries": [
+            0.020060118930022554,
+            0.6071356236687531,
+            0.7942801881488362,
+            0.01014439821365473
+          ],
+          "conservative_row_norm_lower_bound": 0.9999999999999999,
+          "conservative_row_norm_upper_bound": 0.9999999999999999,
+          "conservative_absolute_entry_lower_bounds": [
+            0.02006011893002255,
+            0.607135623668753,
+            0.794280188148836,
+            0.010144398213654728
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.020060118930022554,
+            0.6071356236687531,
+            0.7942801881488362,
+            0.01014439821365473
+          ],
+          "prediction_conservative_guard_certified": false,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        }
+      }
+    },
+    {
+      "seed": 12,
+      "late_projector_mean": 0.00015464633213341965,
+      "late_K0_projector_mean": 0.6064844328354365,
+      "late_energy_mean": 4.035595954048285e-10,
+      "frequency_hz": 3.730000000923485,
+      "tasks": {
+        "fourier": {
+          "prediction": {
+            "status": "complete",
+            "rmse_a": 8.445577968206863e-06,
+            "guard_failures": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "solver_nfev": 46008,
+            "minimum_completed_sample_guard_ratio": 0.4089622177326657,
+            "failure": null
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.026615588874133737,
+            "late_rmse_a": 0.017211424808328293,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.6816949497565006
+          }
+        },
+        "K0": {
+          "prediction": {
+            "status": "aborted",
+            "rmse_a": null,
+            "guard_failures": 1,
+            "completed_samples": 1,
+            "requested_samples": 2401,
+            "solver_nfev": 0,
+            "minimum_completed_sample_guard_ratio": 0.02103765008895557,
+            "failure": {
+              "kind": "guard",
+              "time_s": 140.0,
+              "normalized_computed_entry": 0.02103765008895557,
+              "supplied_rates": [
+                0.0,
+                -0.3,
+                1.8980039961925916,
+                1.0
+              ]
+            }
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.4644364047060559,
+            "late_rmse_a": 0.4859313824795257,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.7936443805156289
+          }
+        }
+      },
+      "prediction_rmse_a": 8.445577968206863e-06,
+      "control_full_rmse_a": 0.026615588874133737,
+      "control_late_rmse_a": 0.017211424808328293,
+      "K0_control_late_rmse_a": 0.4859313824795257,
+      "frequency_error_hz": 9.234848441508348e-10,
+      "criteria_pass": true,
+      "full_cycle": {
+        "fourier": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9742551491137127,
+          "grid_min_normalized_entries": [
+            0.4089622170308495,
+            0.5453574732626685,
+            0.6816949502523117,
+            8.918893123699476e-05
+          ],
+          "conservative_row_norm_lower_bound": 0.707128811709288,
+          "conservative_row_norm_upper_bound": 1.2455530698081811,
+          "conservative_absolute_entry_lower_bounds": [
+            0.4132097014386141,
+            0.5507891677942854,
+            0.6884891008575669,
+            0.0
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.33174796919913624,
+            0.4422044962557144,
+            0.5527577407549533,
+            0.0
+          ],
+          "prediction_conservative_guard_certified": true,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        },
+        "K0": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9999999999999999,
+          "grid_min_normalized_entries": [
+            0.02103765008895557,
+            0.6079322090072801,
+            0.7936443805156289,
+            0.010219775253265645
+          ],
+          "conservative_row_norm_lower_bound": 0.9999999999999999,
+          "conservative_row_norm_upper_bound": 0.9999999999999999,
+          "conservative_absolute_entry_lower_bounds": [
+            0.021037650088955567,
+            0.60793220900728,
+            0.7936443805156288,
+            0.010219775253265643
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.02103765008895557,
+            0.6079322090072801,
+            0.7936443805156289,
+            0.010219775253265645
+          ],
+          "prediction_conservative_guard_certified": false,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        }
+      }
+    },
+    {
+      "seed": 13,
+      "late_projector_mean": 7.30109640075453e-06,
+      "late_K0_projector_mean": 0.6064870046333092,
+      "late_energy_mean": 8.993994558990448e-13,
+      "frequency_hz": 3.730000000002564,
+      "tasks": {
+        "fourier": {
+          "prediction": {
+            "status": "complete",
+            "rmse_a": 4.141337982122899e-07,
+            "guard_failures": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "solver_nfev": 46140,
+            "minimum_completed_sample_guard_ratio": 0.4090038354408466,
+            "failure": null
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.025105374787695374,
+            "late_rmse_a": 0.017140481331634778,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.6816746089907697
+          }
+        },
+        "K0": {
+          "prediction": {
+            "status": "aborted",
+            "rmse_a": null,
+            "guard_failures": 1,
+            "completed_samples": 1,
+            "requested_samples": 2401,
+            "solver_nfev": 0,
+            "minimum_completed_sample_guard_ratio": 0.021694926572288928,
+            "failure": {
+              "kind": "guard",
+              "time_s": 140.0,
+              "normalized_computed_entry": 0.021694926572288928,
+              "supplied_rates": [
+                0.0,
+                -0.3,
+                1.8980039961925916,
+                1.0
+              ]
+            }
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.45559811197908284,
+            "late_rmse_a": 0.45823064344601805,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.7949432141882343
+          }
+        }
+      },
+      "prediction_rmse_a": 4.141337982122899e-07,
+      "control_full_rmse_a": 0.025105374787695374,
+      "control_late_rmse_a": 0.017140481331634778,
+      "K0_control_late_rmse_a": 0.45823064344601805,
+      "frequency_error_hz": 2.5641710976742615e-12,
+      "criteria_pass": true,
+      "full_cycle": {
+        "fourier": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.976266495566254,
+          "grid_min_normalized_entries": [
+            0.40900383386863126,
+            0.5453397235319054,
+            0.6816746073591333,
+            2.680102899361233e-05
+          ],
+          "conservative_row_norm_lower_bound": 0.7071042670547533,
+          "conservative_row_norm_upper_bound": 1.2455806777795684,
+          "conservative_absolute_entry_lower_bounds": [
+            0.4141788632834789,
+            0.5522310609496636,
+            0.6902889565910052,
+            0.0
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.3325186964378847,
+            0.44335230210386456,
+            0.55419048232311,
+            0.0
+          ],
+          "prediction_conservative_guard_certified": true,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        },
+        "K0": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9999999999999999,
+          "grid_min_normalized_entries": [
+            0.021694926572288928,
+            0.6062125584414977,
+            0.7949432141882343,
+            0.010047405879921568
+          ],
+          "conservative_row_norm_lower_bound": 0.9999999999999999,
+          "conservative_row_norm_upper_bound": 0.9999999999999999,
+          "conservative_absolute_entry_lower_bounds": [
+            0.021694926572288924,
+            0.6062125584414976,
+            0.7949432141882342,
+            0.010047405879921567
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.021694926572288928,
+            0.6062125584414977,
+            0.7949432141882343,
+            0.010047405879921568
+          ],
+          "prediction_conservative_guard_certified": false,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        }
+      }
+    },
+    {
+      "seed": 14,
+      "late_projector_mean": 0.00010161944848172144,
+      "late_K0_projector_mean": 0.606525131062188,
+      "late_energy_mean": 1.7340778971114654e-10,
+      "frequency_hz": 3.729999998794444,
+      "tasks": {
+        "fourier": {
+          "prediction": {
+            "status": "complete",
+            "rmse_a": 6.439016021454298e-06,
+            "guard_failures": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "solver_nfev": 46068,
+            "minimum_completed_sample_guard_ratio": 0.40903308005001915,
+            "failure": null
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.027222834493752988,
+            "late_rmse_a": 0.017199132964080047,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.681660402715436
+          }
+        },
+        "K0": {
+          "prediction": {
+            "status": "aborted",
+            "rmse_a": null,
+            "guard_failures": 1,
+            "completed_samples": 1,
+            "requested_samples": 2401,
+            "solver_nfev": 0,
+            "minimum_completed_sample_guard_ratio": 0.021881059567956475,
+            "failure": {
+              "kind": "guard",
+              "time_s": 140.0,
+              "normalized_computed_entry": 0.021881059567956475,
+              "supplied_rates": [
+                0.0,
+                -0.3,
+                1.8980039961925916,
+                1.0
+              ]
+            }
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.4722036545892161,
+            "late_rmse_a": 0.4752832231300161,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.7936662143248958
+          }
+        }
+      },
+      "prediction_rmse_a": 6.439016021454298e-06,
+      "control_full_rmse_a": 0.027222834493752988,
+      "control_late_rmse_a": 0.017199132964080047,
+      "K0_control_late_rmse_a": 0.4752832231300161,
+      "frequency_error_hz": -1.2055560993928793e-09,
+      "criteria_pass": true,
+      "full_cycle": {
+        "fourier": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9755407980054998,
+          "grid_min_normalized_entries": [
+            0.4090330347890838,
+            0.5453272771618163,
+            0.681660281762933,
+            6.919017760441731e-06
+          ],
+          "conservative_row_norm_lower_bound": 0.7070670841206429,
+          "conservative_row_norm_upper_bound": 1.2456145433245127,
+          "conservative_absolute_entry_lower_bounds": [
+            0.4135609996884607,
+            0.5513115253711302,
+            0.6891411399067782,
+            0.0
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.332013624844711,
+            0.44260202991825554,
+            0.5532539288337774,
+            0.0
+          ],
+          "prediction_conservative_guard_certified": true,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        },
+        "K0": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 1.0,
+          "grid_min_normalized_entries": [
+            0.021881059567956475,
+            0.6078750081653255,
+            0.7936662143248958,
+            0.01015548715609452
+          ],
+          "conservative_row_norm_lower_bound": 1.0,
+          "conservative_row_norm_upper_bound": 1.0,
+          "conservative_absolute_entry_lower_bounds": [
+            0.021881059567956475,
+            0.6078750081653255,
+            0.7936662143248958,
+            0.01015548715609452
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.021881059567956475,
+            0.6078750081653255,
+            0.7936662143248958,
+            0.01015548715609452
+          ],
+          "prediction_conservative_guard_certified": false,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        }
+      }
+    },
+    {
+      "seed": 15,
+      "late_projector_mean": 6.242937288474201e-05,
+      "late_K0_projector_mean": 0.6065124501412138,
+      "late_energy_mean": 6.533438997773576e-11,
+      "frequency_hz": 3.7300000006701155,
+      "tasks": {
+        "fourier": {
+          "prediction": {
+            "status": "complete",
+            "rmse_a": 3.3129835541153732e-06,
+            "guard_failures": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "solver_nfev": 46008,
+            "minimum_completed_sample_guard_ratio": 0.40898644045105215,
+            "failure": null
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.026964413680551455,
+            "late_rmse_a": 0.017222543545013985,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.681682674552827
+          }
+        },
+        "K0": {
+          "prediction": {
+            "status": "aborted",
+            "rmse_a": null,
+            "guard_failures": 1,
+            "completed_samples": 1,
+            "requested_samples": 2401,
+            "solver_nfev": 0,
+            "minimum_completed_sample_guard_ratio": 0.021827138629273254,
+            "failure": {
+              "kind": "guard",
+              "time_s": 140.0,
+              "normalized_computed_entry": 0.021827138629273254,
+              "supplied_rates": [
+                0.0,
+                -0.3,
+                1.8980039961925916,
+                1.0
+              ]
+            }
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.4664723949592093,
+            "late_rmse_a": 0.48156462014565804,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.79347034839194
+          }
+        }
+      },
+      "prediction_rmse_a": 3.3129835541153732e-06,
+      "control_full_rmse_a": 0.026964413680551455,
+      "control_late_rmse_a": 0.017222543545013985,
+      "K0_control_late_rmse_a": 0.48156462014565804,
+      "frequency_error_hz": 6.701155186306096e-10,
+      "criteria_pass": true,
+      "full_cycle": {
+        "fourier": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9756558288071165,
+          "grid_min_normalized_entries": [
+            0.4089863719974449,
+            0.545346630677865,
+            0.6816826280245734,
+            1.0730380824387557e-05
+          ],
+          "conservative_row_norm_lower_bound": 0.7070679896016799,
+          "conservative_row_norm_upper_bound": 1.2456100877870377,
+          "conservative_absolute_entry_lower_bounds": [
+            0.41381699159044066,
+            0.5516927733324979,
+            0.6896168802341429,
+            0.0
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.3322203277316353,
+            0.4429096863791785,
+            0.5536378414045462,
+            0.0
+          ],
+          "prediction_conservative_guard_certified": true,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        },
+        "K0": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 1.0,
+          "grid_min_normalized_entries": [
+            0.021827138629273254,
+            0.6081318209247276,
+            0.79347034839194,
+            0.010201500909528725
+          ],
+          "conservative_row_norm_lower_bound": 1.0,
+          "conservative_row_norm_upper_bound": 1.0,
+          "conservative_absolute_entry_lower_bounds": [
+            0.021827138629273254,
+            0.6081318209247276,
+            0.79347034839194,
+            0.010201500909528725
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.021827138629273254,
+            0.6081318209247276,
+            0.79347034839194,
+            0.010201500909528725
+          ],
+          "prediction_conservative_guard_certified": false,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        }
+      }
+    },
+    {
+      "seed": 16,
+      "late_projector_mean": 7.805213536517754e-05,
+      "late_K0_projector_mean": 0.6064933409045621,
+      "late_energy_mean": 1.0256035516931485e-10,
+      "frequency_hz": 3.7299999984101175,
+      "tasks": {
+        "fourier": {
+          "prediction": {
+            "status": "complete",
+            "rmse_a": 4.0891821328031725e-06,
+            "guard_failures": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "solver_nfev": 46056,
+            "minimum_completed_sample_guard_ratio": 0.40898520053564025,
+            "failure": null
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.027365056609072617,
+            "late_rmse_a": 0.01716752207932031,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.6816841165807569
+          }
+        },
+        "K0": {
+          "prediction": {
+            "status": "aborted",
+            "rmse_a": null,
+            "guard_failures": 1,
+            "completed_samples": 1,
+            "requested_samples": 2401,
+            "solver_nfev": 0,
+            "minimum_completed_sample_guard_ratio": 0.021790019293981236,
+            "failure": {
+              "kind": "guard",
+              "time_s": 140.0,
+              "normalized_computed_entry": 0.021790019293981236,
+              "supplied_rates": [
+                0.0,
+                -0.3,
+                1.8980039961925916,
+                1.0
+              ]
+            }
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.47590234089188155,
+            "late_rmse_a": 0.4718648117323756,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.7938544762056245
+          }
+        }
+      },
+      "prediction_rmse_a": 4.0891821328031725e-06,
+      "control_full_rmse_a": 0.027365056609072617,
+      "control_late_rmse_a": 0.01716752207932031,
+      "K0_control_late_rmse_a": 0.4718648117323756,
+      "frequency_error_hz": -1.5898824479165796e-09,
+      "criteria_pass": true,
+      "full_cycle": {
+        "fourier": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9752804546671998,
+          "grid_min_normalized_entries": [
+            0.408985097489679,
+            0.5453479192036993,
+            0.6816839533690197,
+            2.9515037635355864e-06
+          ],
+          "conservative_row_norm_lower_bound": 0.7071373831956496,
+          "conservative_row_norm_upper_bound": 1.2455496353480329,
+          "conservative_absolute_entry_lower_bounds": [
+            0.4137154353852807,
+            0.5515414320460879,
+            0.6894283115406138,
+            0.0
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.3321549167084617,
+            0.4428096772650698,
+            0.553513318116763,
+            0.0
+          ],
+          "prediction_conservative_guard_certified": true,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        },
+        "K0": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 1.0,
+          "grid_min_normalized_entries": [
+            0.021790019293981236,
+            0.607632726965473,
+            0.7938544762056245,
+            0.010135817084200395
+          ],
+          "conservative_row_norm_lower_bound": 1.0,
+          "conservative_row_norm_upper_bound": 1.0,
+          "conservative_absolute_entry_lower_bounds": [
+            0.021790019293981236,
+            0.607632726965473,
+            0.7938544762056245,
+            0.010135817084200395
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.021790019293981236,
+            0.607632726965473,
+            0.7938544762056245,
+            0.010135817084200395
+          ],
+          "prediction_conservative_guard_certified": false,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "late_projector_mean": 5.493572490089393e-05,
+      "late_K0_projector_mean": 0.6064655165696432,
+      "late_energy_mean": 5.078409999887381e-11,
+      "frequency_hz": 3.7299999985570267,
+      "tasks": {
+        "fourier": {
+          "prediction": {
+            "status": "complete",
+            "rmse_a": 2.7816567329687915e-06,
+            "guard_failures": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "solver_nfev": 46068,
+            "minimum_completed_sample_guard_ratio": 0.40898993107501846,
+            "failure": null
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.02745108861421227,
+            "late_rmse_a": 0.017172553812915794,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.6816814123736173
+          }
+        },
+        "K0": {
+          "prediction": {
+            "status": "aborted",
+            "rmse_a": null,
+            "guard_failures": 1,
+            "completed_samples": 1,
+            "requested_samples": 2401,
+            "solver_nfev": 0,
+            "minimum_completed_sample_guard_ratio": 0.021700346187330632,
+            "failure": {
+              "kind": "guard",
+              "time_s": 140.0,
+              "normalized_computed_entry": 0.021700346187330632,
+              "supplied_rates": [
+                0.0,
+                -0.3,
+                1.8980039961925916,
+                1.0
+              ]
+            }
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.47929922475126097,
+            "late_rmse_a": 0.46879913643627386,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.7940405093195763
+          }
+        }
+      },
+      "prediction_rmse_a": 2.7816567329687915e-06,
+      "control_full_rmse_a": 0.02745108861421227,
+      "control_late_rmse_a": 0.017172553812915794,
+      "K0_control_late_rmse_a": 0.46879913643627386,
+      "frequency_error_hz": -1.4429732964060804e-09,
+      "criteria_pass": true,
+      "full_cycle": {
+        "fourier": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9755986963212335,
+          "grid_min_normalized_entries": [
+            0.4089899259004655,
+            0.5453456612108928,
+            0.6816814049188332,
+            7.215695689814051e-05
+          ],
+          "conservative_row_norm_lower_bound": 0.7071157676047171,
+          "conservative_row_norm_upper_bound": 1.2455691233449853,
+          "conservative_absolute_entry_lower_bounds": [
+            0.4138671453392601,
+            0.5517672267220762,
+            0.6897101135918013,
+            0.0
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.3322715195667478,
+            0.44298402744626586,
+            0.5537309015332522,
+            0.0
+          ],
+          "prediction_conservative_guard_certified": true,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        },
+        "K0": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9999999999999999,
+          "grid_min_normalized_entries": [
+            0.021700346187330632,
+            0.607393052836284,
+            0.7940405093195763,
+            0.010121457458153658
+          ],
+          "conservative_row_norm_lower_bound": 0.9999999999999999,
+          "conservative_row_norm_upper_bound": 0.9999999999999999,
+          "conservative_absolute_entry_lower_bounds": [
+            0.02170034618733063,
+            0.6073930528362839,
+            0.7940405093195761,
+            0.010121457458153656
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.021700346187330632,
+            0.607393052836284,
+            0.7940405093195763,
+            0.010121457458153658
+          ],
+          "prediction_conservative_guard_certified": false,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        }
+      }
+    },
+    {
+      "seed": 18,
+      "late_projector_mean": 0.00012078593429411968,
+      "late_K0_projector_mean": 0.606508996625853,
+      "late_energy_mean": 2.4731287898133204e-10,
+      "frequency_hz": 3.7300000007978675,
+      "tasks": {
+        "fourier": {
+          "prediction": {
+            "status": "complete",
+            "rmse_a": 6.9137222429997525e-06,
+            "guard_failures": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "solver_nfev": 46104,
+            "minimum_completed_sample_guard_ratio": 0.40897136098269815,
+            "failure": null
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.02612464401459396,
+            "late_rmse_a": 0.017181505941844526,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.6816904843333372
+          }
+        },
+        "K0": {
+          "prediction": {
+            "status": "aborted",
+            "rmse_a": null,
+            "guard_failures": 1,
+            "completed_samples": 1,
+            "requested_samples": 2401,
+            "solver_nfev": 0,
+            "minimum_completed_sample_guard_ratio": 0.02032196472815123,
+            "failure": {
+              "kind": "guard",
+              "time_s": 140.0,
+              "normalized_computed_entry": 0.02032196472815123,
+              "supplied_rates": [
+                0.0,
+                -0.3,
+                1.8980039961925916,
+                1.0
+              ]
+            }
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.46321054389533034,
+            "late_rmse_a": 0.4860311917960792,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.7939149290298785
+          }
+        }
+      },
+      "prediction_rmse_a": 6.9137222429997525e-06,
+      "control_full_rmse_a": 0.02612464401459396,
+      "control_late_rmse_a": 0.017181505941844526,
+      "K0_control_late_rmse_a": 0.4860311917960792,
+      "frequency_error_hz": 7.978675498065968e-10,
+      "criteria_pass": true,
+      "full_cycle": {
+        "fourier": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.974717046895128,
+          "grid_min_normalized_entries": [
+            0.40897134200038204,
+            0.545353557145036,
+            0.6816904286489595,
+            5.1006137659189616e-05
+          ],
+          "conservative_row_norm_lower_bound": 0.70712099000079,
+          "conservative_row_norm_upper_bound": 1.2455616499647089,
+          "conservative_absolute_entry_lower_bounds": [
+            0.4134321700706113,
+            0.5511200789677247,
+            0.688902411284254,
+            0.0
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.3319242930145812,
+            0.4424671223486529,
+            0.5530857595878719,
+            0.0
+          ],
+          "prediction_conservative_guard_certified": true,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        },
+        "K0": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 1.0,
+          "grid_min_normalized_entries": [
+            0.02032196472815123,
+            0.6076035685739617,
+            0.7939149290298785,
+            0.01019836600922045
+          ],
+          "conservative_row_norm_lower_bound": 1.0,
+          "conservative_row_norm_upper_bound": 1.0,
+          "conservative_absolute_entry_lower_bounds": [
+            0.02032196472815123,
+            0.6076035685739617,
+            0.7939149290298785,
+            0.01019836600922045
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.02032196472815123,
+            0.6076035685739617,
+            0.7939149290298785,
+            0.01019836600922045
+          ],
+          "prediction_conservative_guard_certified": false,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        }
+      }
+    },
+    {
+      "seed": 19,
+      "late_projector_mean": 0.0010818933776481723,
+      "late_K0_projector_mean": 0.6064878581297405,
+      "late_energy_mean": 1.9420857137784947e-08,
+      "frequency_hz": 3.73000000091243,
+      "tasks": {
+        "fourier": {
+          "prediction": {
+            "status": "complete",
+            "rmse_a": 7.312046484853829e-05,
+            "guard_failures": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "solver_nfev": 46068,
+            "minimum_completed_sample_guard_ratio": 0.4089895266136352,
+            "failure": null
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.026856797874573703,
+            "late_rmse_a": 0.01724513670071397,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.6816625171528634
+          }
+        },
+        "K0": {
+          "prediction": {
+            "status": "aborted",
+            "rmse_a": null,
+            "guard_failures": 1,
+            "completed_samples": 1,
+            "requested_samples": 2401,
+            "solver_nfev": 0,
+            "minimum_completed_sample_guard_ratio": 0.021506152360444997,
+            "failure": {
+              "kind": "guard",
+              "time_s": 140.0,
+              "normalized_computed_entry": 0.021506152360444997,
+              "supplied_rates": [
+                0.0,
+                -0.3,
+                1.8980039961925916,
+                1.0
+              ]
+            }
+          },
+          "control": {
+            "status": "complete",
+            "full_rmse_a": 0.4650138535596756,
+            "late_rmse_a": 0.4841863020799381,
+            "guard_failures": 0,
+            "saturations": 0,
+            "completed_samples": 2401,
+            "requested_samples": 2401,
+            "failure": null,
+            "minimum_completed_query_guard_ratio": 0.7935208562911265
+          }
+        }
+      },
+      "prediction_rmse_a": 7.312046484853829e-05,
+      "control_full_rmse_a": 0.026856797874573703,
+      "control_late_rmse_a": 0.01724513670071397,
+      "K0_control_late_rmse_a": 0.4841863020799381,
+      "frequency_error_hz": 9.124301314500372e-10,
+      "criteria_pass": true,
+      "full_cycle": {
+        "fourier": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9683092042867928,
+          "grid_min_normalized_entries": [
+            0.4089894805122926,
+            0.5453277340334286,
+            0.6816625164882468,
+            1.2934386184965274e-06
+          ],
+          "conservative_row_norm_lower_bound": 0.7047746747408132,
+          "conservative_row_norm_upper_bound": 1.2474754833570956,
+          "conservative_absolute_entry_lower_bounds": [
+            0.40704932695243323,
+            0.541634017393837,
+            0.6770609125773532,
+            0.0
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.3262984582727174,
+            0.4341840979000561,
+            0.542744864817148,
+            0.0
+          ],
+          "prediction_conservative_guard_certified": true,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        },
+        "K0": {
+          "grid_points": 8192,
+          "grid_min_row_norm": 0.9999999999999999,
+          "grid_min_normalized_entries": [
+            0.021506152360444997,
+            0.6080770872733672,
+            0.7935208562911265,
+            0.010217239097951402
+          ],
+          "conservative_row_norm_lower_bound": 0.9999999999999999,
+          "conservative_row_norm_upper_bound": 0.9999999999999999,
+          "conservative_absolute_entry_lower_bounds": [
+            0.021506152360444994,
+            0.6080770872733671,
+            0.7935208562911263,
+            0.0102172390979514
+          ],
+          "conservative_normalized_entry_lower_bounds": [
+            0.021506152360444997,
+            0.6080770872733672,
+            0.7935208562911265,
+            0.010217239097951402
+          ],
+          "prediction_conservative_guard_certified": false,
+          "control_conservative_guard_certified": true,
+          "scope": "Finite-grid minima are not continuum certificates; amplitude bounds are conservative and do not veto valid actual queries"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+Electrical Fourier differential learning: reproduction and record map
+
+These instructions describe the sealed electrical_fourier_direct_20261121_v1
+protocol. They do not assert that any repository or archive has been published.
+Run commands from the directory containing run.py, protocol.json,
+electrical_simulator.py, period_estimator.py, direct_learner.py, audit.py, and
+summarize_plot.py. Use Python with NumPy, SciPy, and Matplotlib; each run records
+its Python, NumPy, SciPy, platform, command, and start time in environment.json.
+The recorded environment is the reference for numerical reproduction, not a
+promise of bitwise agreement across library versions or machines.
+
+1. Execute the fixed cohort into NEW directories
+
+    export OPENBLAS_NUM_THREADS=1
+    export OMP_NUM_THREADS=1
+    for seed in 10 11 12 13 14 15 16 17 18 19; do
+        python run.py --seed "$seed" --output "records_reproduced/seed_$seed"
+    done
+
+The ten seeds were fixed before confirmation; seed 10 is the illustration.
+Initialization is one generic 20-entry Gaussian draw normalized once, without
+rejection or alignment to the true field. The K=0 comparison normalizes its
+first four entries. Simulator phase uses an independent generator with seed
+seed+100000; sensor randomness uses seed+200000. The full initial draw and
+generator states are retained. Exploratory seeds 9001 and 9002 are excluded
+from the confirmation cohort. A run refuses an existing output directory.
+
+Execute the two declared numerical refinements, also into new directories:
+
+    python run.py --seed 10 --learner-dt 0.0025 --output records_reproduced/refine_seed10_dt0025
+    python run.py --seed 10 --plant-substep 0.00025 --output records_reproduced/refine_seed10_substep00025
+
+The first halves calibration/training observation spacing and the held-data
+learning interval. The control interval remains 0.005 s. The second halves
+only the maximum RK4 plant substep for closed-loop control, from 0.0005 to
+0.00025 s. Each effective protocol and identity records the exact choices.
+These checks are numerical refinements, not extra confirmation seeds.
+
+2. Independently audit records
+
+    for seed in 10 11 12 13 14 15 16 17 18 19; do
+        python audit.py --run "records_reproduced/seed_$seed" --output "audit_reproduced/seed_$seed.json"
+    done
+    python audit.py --run records_reproduced/refine_seed10_dt0025 --output audit_reproduced/refine_seed10_dt0025.json
+    python audit.py --run records_reproduced/refine_seed10_substep00025 --output audit_reproduced/refine_seed10_substep00025.json
+
+An optional evaluator-only true-field controller diagnostic uses an additional
+new output name; it does not change any learner or raw record:
+
+    python audit.py --run records_reproduced/seed_10 --output audit_reproduced/seed_10_oracle.json --oracle-control
+
+That option also writes seed_10_oracle_oracle.npz beside the audit JSON. It
+compares an independently simulated true-field controller with the learned
+controller at the same reference, gain, voltage bound, and command hold.
+The audit checks source/data hashes, metrics, all memory recurrences, selected
+learning transitions against the nonlinear normalized law, task readouts,
+guards, and physical propagation. It does not independently reintegrate every
+learning transition or establish a theorem or hardware result. Audit reports
+and optional oracle arrays are written outside immutable raw-run directories.
+
+3. Aggregate and plot saved records
+
+    python summarize_plot.py --records records_reproduced --output figures_reproduced
+
+The plotting script reads the fixed ten seed directories; it does not select
+successful seeds or regenerate simulations. It writes aggregate.json,
+direct_fourier_summary.pdf, direct_fourier_summary.png, and figure_manifest.json.
+The manifest identifies input hashes and panel transformations. The energy
+panel uses a causal trailing one-second average, with a shortened startup
+window; the cohort field panel uses pointwise median and full range. Entry
+plots normalize/sign-align to evaluator truth for display only. The chosen
+illustration remains seed 10. Refinement cases and audit reports are separate
+from the ten-seed aggregate. An incomplete or failed record must be reported
+explicitly; it must not be removed to make a ten-seed figure appear complete.
+
+4. Physical problem and learner observations
+
+The simulator uses a constant-inductance winding under externally maintained
+periodic motion:
+
+    u = L di/dt + R i + e(t),       L=0.15 H, R=2 ohm.
+
+The simulator-only back EMF has a 3.73 Hz fundamental and second harmonic,
+with amplitudes 1.5 V and 0.45 V. The physical phase varies by seed. These
+parameters, phase, analytic partials, and EMF are not learner inputs.
+
+Let q and U be the time integrals of current and applied voltage, starting at
+the beginning of a trajectory. With E'(t)=e(t), the integrated physical relation
+
+    f = L(i-i_initial) + R q - U + E(t)-E(t_initial) = 0
+
+has context z=(i,q,U,t), rates v=(di/dt,i,u,1), and true Jacobian row
+F=(L,R,-1,e(t)). The clock derivative is explicitly the fourth observed rate,
+equal to 1; Fourier memory does not replace it. The learner receives sampled
+clock time, current, applied voltage, and an ideal current-rate observation.
+It uses v directly, so measured q and U are not required by this implementation.
+Their physical integrals are saved only in evaluator records.
+
+The primary evidence uses ideal current and ideal current-rate sensing, with
+both configured noise standard deviations zero. The rate observation is not
+obtained by differentiating noisy current. No robustness claim about causal
+derivative estimation follows from this experiment.
+
+5. Observation-only frequency calibration and independent partial entries
+
+A 20 s constant-voltage prefix at 1 V precedes learning. estimate_period reads
+only its measured times and currents, discards the first 2 s, and searches the
+fixed 0.5--15 Hz band. Hann-window spectral peaks and subharmonic candidates
+are refined with a four-harmonic least-squares current fit. Nyquist-safe
+subsampling is enforced. A resolved first harmonic and a distinct-candidate
+ambiguity check are required. All candidates and diagnostics are saved.
+An unresolved or ambiguous result aborts the study for that seed.
+
+Only the estimated scalar frequency f_hat passes to the differential learner.
+The fitted current amplitudes, trend, offset, physical phase, and plant
+parameters do not initialize or supervise the learned partials. Unknown phase
+is represented by independent sine/cosine weights. Calibration is fixed before
+learning and is not an online frequency-drift estimator.
+
+With h(t)=[1,cos(2*pi*f_hat*t),sin(2*pi*f_hat*t),cos(4*pi*f_hat*t),
+sin(4*pi*f_hat*t)] and D=diag(20,2,5,1), the learner uses
+
+    w = h(t) tensor (D^{-1} v),
+    H_j(t) = sum_k c_(k,j) h_k(t),
+    estimated physical row = H(t) D^{-1}.
+
+All 5*4=20 weights adapt independently under one row-normalization constraint.
+No entry is fixed to L, R, -1, or a known EMF form; no physical residual is
+fitted and differentiated. The harmonic series represents the entries
+themselves. Its weights retain the learned temporal relation while the basis
+carries phase variation. The supplied applied-voltage frequencies are 0.13,
+0.31, and 0.53 Hz; the current and its rate can contain the faster plant
+response. Thus the slow-command comparison does not say every observed
+channel varies slowly.
+
+6. Memory law and exactly what can be reconstructed
+
+The experiment uses the normalized correlation-memory variant, gain eta=200
+and memory time tau=10 s. With c a unit column vector,
+
+    dR/dt = w w^T - R/tau,
+    dc/dt = -eta [R c - (c^T R c)c].
+
+Each sampled lifted vector w_n is held over a learning interval dt. For local
+time s in [0,dt], the memory is evaluated analytically as
+
+    R_n(s) = exp(-s/tau) R_n + tau*(1-exp(-s/tau))*w_n w_n^T.
+
+direct_learner.memory_step integrates da/ds=-eta R_n(s)a by DOP853 and normalizes
+a at the endpoint. Normalizing this auxiliary linear solution is equivalent
+to the unit-row tangent law; it is not a different coefficient-estimation
+objective. IMPLEMENTATION_MAP.md gives the short derivation. R is evaluated
+at each ODE stage, not held at its beginning or end value. This simulation
+variant does not by itself establish that every theorem for an instantaneous
+v-based law applies to the changing memory.
+
+training.npz stores every observed v_n and time, every pre-update C_pre[n] and
+C0_pre[n], the final C_final/C0_final, and final R_final/R0_final. R0_final is
+the final memory of the K=0 comparison, NOT the initial memory. Both learners
+start from the zero matrix. Full R_n or solver-stage trajectories are not
+stored. Every interval-end R_n can be reconstructed from the saved rates,
+frequency, scales, tau, dt, and zero initialization using the displayed
+recurrence; the final matrices provide a check. C_pre is not needed to
+reconstruct R, but supplies the row needed for incompatibility and learning
+transition checks. The last saved observation is not assimilated. If learning
+aborts, update counts, final states, and retained prefixes identify the last
+completed update for each learner. Solver internal steps are not preserved.
+
+7. Tasks, guards, and evaluation
+
+After 120 s of learning, the final coefficients and estimated frequency are
+frozen. Prediction and control are separate 12 s trajectories starting at the
+same global clock time; neither resumes the training current. Prediction
+starts at -0.3 A, integrates its own learned current-rate readout, and receives
+no later true current. Its prescribed voltage is a smooth independent input.
+Control starts at 0 A and uses its own measured current in a reference-tracking
+readout, with feedback gain 10/s, voltage limit +/-12 V, and a 0.005 s command
+hold. The plant advances only after the command is chosen. Both tasks are
+also attempted with the matched K=0 learner on the same training observations.
+
+Every computed-channel readout requires |H_j|/||H|| >= 0.05 and nonzero finite
+row norm. A failed query ABORTS its task. The completed prefix and failure
+details remain saved, and full-horizon RMSE is null; no zero command or held
+prediction rate is substituted to create an apparent successful trajectory.
+Saturations are retained and counted. Full-cycle grid minima and conservative
+harmonic-amplitude bounds are both reported; an inconclusive conservative
+bound alone does not veto queries that satisfy the actual guard.
+
+Field accuracy is the Frobenius distance between normalized row projectors in
+scaled coordinates, computed using explicit projector differences. Evaluation
+truth is not supplied to learning or readout. Training metrics use relative
+time [100,120) s; control reports the full horizon and [2,12] s inclusive.
+Thresholds in protocol.json are numerical evidence criteria, not theorem
+hypotheses. The target F is an actual Jacobian of the displayed physical
+relation. Arbitrary learned H(t)D^{-1} candidates are not constrained to be
+integrable ambient Jacobians; the comparison and conditioned readouts concern
+the represented differential row space, including its nonzero scalar gauge.
+
+8. Saved source and signal map
+
+    source/                     pre-execution copies of run.py, protocol.json,
+                                simulator, estimator, and direct learner
+    source_manifest.json        SHA-256 hashes of those five copies
+    effective_protocol.json     sealed settings, effective numerical choices,
+                                seed, and identity
+    environment.json            recorded software/platform and command metadata
+    initialization.json         raw Gaussian draw, initial rows, RNG states
+    simulator_only_parameters.json
+                                physical parameters and per-seed phase
+    calibration_observations.npz time, current, voltage, ideal current rate
+    calibration_evaluator.npz    separate physical states/partials/integrals
+    period_estimate.json        all calibration candidates and diagnostics
+    training.npz                rates, pre-update rows, final rows/memories,
+                                pre-update energy and conditioning arrays
+    training_evaluator.npz      physical differential and projector errors,
+                                with simulator states/physical integrals
+    prediction_fourier.npz,
+    prediction_K0.npz            predicted current, supplied voltage, time, guards
+    prediction_evaluator.npz     independent physical reference trajectory
+    control_fourier.npz,
+    control_K0.npz               own-trajectory current, reference/rate,
+                                requested/applied voltage, guards, saturation
+    summary.json                metrics, statuses, failures, criteria, bounds
+    manifest.json               final SHA-256 hashes, excluding the manifest itself
+
+Calibration/learning failures can leave only the artifacts produced before
+failure; summary.json records the status. Auditor and figure outputs remain
+outside these raw records. Hash checks establish file identity, not scientific
+correctness by themselves.
+
+The physical scope is a finite-horizon simulated electrical subsystem with
+externally imposed periodic motion. It does not demonstrate mechanical speed
+or torque control, changing unknown frequency, switching electronics,
+temperature or magnetic saturation, hardware performance, or universal
+superiority over other estimators. The numerical voltage clamp is included;
+the omitted magnetic saturation is a different physical effect. Historical
+spatial-Fourier graph experiments and older coefficient-estimator studies
+retain separate identities and provenance. Their data must not be mixed into
+this electrical cohort or used as evidence for its direct learners.

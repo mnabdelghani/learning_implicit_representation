@@ -19,8 +19,8 @@ free, with $QQ^{\mathsf T}=I$ and initially zero memory:
  \label{eq:direct_common_law}
 \end{equation}
 For Fourier, substitute the lifted measured rate and its independent harmonic
-field weights. This is the main paper's normalized law, not the sampled
-physical-coefficient update in Section~\ref{sec:numerics}. The learner API
+field weights. This is the main paper's memory-based normalized learning law;
+the experiments do not use its instantaneous update alone. The learner API
 has observations, current representation/memory, units, and numerical settings;
 it has no physical residual, true partial, simulator parameter, or oracle
 coefficient initialization. No eigenvector replaces the adaptive update.
@@ -60,7 +60,7 @@ Physical parameters and Jacobians are simulator/evaluator only in every row.}
 \begin{tabular}{p{.12\textwidth}p{.31\textwidth}p{.25\textwidth}p{.225\textwidth}}
 \toprule Study & Observations and supplied choices & Free learned entries & Readout and scope \\
 \midrule
-Fourier & Exact $x,\dot x$, noisy $\dot y$; known phase $20x$, order $K=1$, one constraint, units & Six independent harmonic weights; both evaluated entries free & Frozen learned field predicts a separate 30-s episode; one initial output calibration. \\
+Electrical Fourier & Time, current, voltage and ideal current rate; current-only frequency calibration, $K=2$, one constraint, units & Twenty independent harmonic weights; all four evaluated entries free & Frozen stored weights generate the field for separate 12-s current prediction and control. \\
 Contact & Ideal eight-channel context and its time rates; three constraints and declared units & All 24 entries of a local $3\times8$ row-orthonormal field & Same pre-update field completes acceleration/input rates for force and motion control; approximate subspace recovery. \\
 Burgers & Ideal $w,w_t$, spatial derivatives of observed $w$, known $u$; causal $.05$-s context secants & Five independent entries at each of 32 sites; no supplied $w_t$ or input coefficient & Same pre-update rows return input rates; full sensing/actuation; separate causal/noisy challenges fail. \\
 \bottomrule
@@ -93,7 +93,7 @@ replaced by an inaccurate derivative estimator without changing the outcome.
 
 \subsection{Records, reproduction, and release identity}
 The direct-study package contains independent executable subdirectories for
-\path{fourier/}, \path{contact/}, and \path{burgers/}, their declared
+\path{electrical_fourier/}, \path{contact/}, and \path{burgers/}, their declared
 protocols, and commands to reproduce into new output directories. The final
 package manifest binds source hashes, figure inputs, compact replay data,
 and complete raw-data archives. Original run records are immutable; display

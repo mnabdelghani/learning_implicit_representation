@@ -4,9 +4,27 @@ The repository deliberately omits both the PDF and LaTeX of the definitive 10-pa
 
 ## Current direct-field main studies
 
-The current sources are in `experiments/direct_submission/{fourier,contact,burgers}/`. Focused Supplement S2 gives their complete protocols, failed cases, information boundaries, and numerical refinements. Each study has a separate identity; old `results/` traces and old coefficient-family commands below do not reproduce these main figures.
+The current study directories are `experiments/direct_submission/{electrical_fourier,contact,burgers}/`. The new electrical identity is `electrical_fourier_direct_20261121_v1`; independent validation and publication are pending. Its current source/record bindings belong to `docs/DIRECT_MAIN_20261121.json` and `docs/ELECTRICAL_FOURIER_20261121.json`. Match the focused supplement and figure to those bindings before treating them as the electrical protocol. Contact and Burgers keep their existing record identities. Old `results/` traces and the historical graph commands below do not reproduce the electrical study.
 
-For Fourier, copy `run.py`, `protocol.json`, `audit.py`, and `summarize_plot.py` from `experiments/direct_submission/fourier/` into a new working directory and follow its `REPRODUCE.txt`. It lists all ten confirmation seeds, the excluded pilot, and two clean refinements, followed by the independent audit and plotting commands. Every output directory must be new. The full raw arrays include pre-update coefficient/covariance states and heldout predictions; `aggregate.json` is a summary, not a replacement for them.
+The electrical learner estimates frequency from current observations during a 20-s constant-voltage prefix. True frequency/phase remain simulator-only; phase is represented by learned sine/cosine weights. It adapts all 20 independent weights of a `K=2` temporal field using ideal current-rate sensing, then freezes them for separate 12-s current-prediction and current-control tasks. Only the clock partial is fast relative to the supplied training voltage; current and its rate have fast ripple.
+
+From the repository root, use new output directories:
+
+```bash
+python experiments/direct_submission/electrical_fourier/run.py --seed 10 --output NEW_ELECTRICAL/seed_10
+```
+
+Repeat for every specified seed 10–19, changing both seed and destination. Seed 10 is the illustration seed. Keep the separate pilot `pilot_9002` and the two seed-10 refinements distinct from the main cohort:
+
+```bash
+python experiments/direct_submission/electrical_fourier/run.py --seed 10 --learner-dt 0.0025 --output NEW_ELECTRICAL/refine_seed10_dt0025
+python experiments/direct_submission/electrical_fourier/run.py --seed 10 --plant-substep 0.00025 --output NEW_ELECTRICAL/refine_seed10_substep00025
+mkdir NEW_ELECTRICAL_AUDIT
+python experiments/direct_submission/electrical_fourier/audit.py --run NEW_ELECTRICAL/seed_10 --output NEW_ELECTRICAL_AUDIT/seed_10.json
+python experiments/direct_submission/electrical_fourier/summarize_plot.py --records NEW_ELECTRICAL --output NEW_ELECTRICAL_FIGURES
+```
+
+The auditor takes one case directory with `--run` and writes one JSON file with `--output`. Repeat it for all ten seeds and both refinements, using a distinct output filename each time; audit the separate pilot under its own identity. The plotter instead takes the full records root with `--records`. The refinement flags are for the specified seed-10 numerical checks, not replacements for main-cohort runs. These commands describe the intended interfaces; no successful run or audit is claimed here. Follow the sealed protocol for the complete case list. Retain every aborted query branch; its full-episode RMSE is invalid, rather than a mean over selected valid samples. The `K=0` comparator uses the same training observations but its own task trajectories. Complete electrical records retain calibration observations/candidates, pre-update weights/memory, evaluator-only truth, task traces, commands, failures and source/environment identities. Earlier development pilots and calibration challenges are retained separately under `electrical_fourier/exploratory/` in the electrical raw archive; they are not confirmation cases.
 
 For contact, follow the portable protocol and reproduction instructions in `experiments/direct_submission/contact/`. Keep all five seeds 101–105 and the declared pilots/refinement separate. The main figure uses seed 101. Ideal derivative sensing and continuing excitation are part of the protocol; the old `experiments/contact.py` is a different coefficient learner.
 
@@ -24,6 +42,15 @@ Keep current local source/record hashes with the accompanying package. A locally
 ## Retained historical protocols
 
 The protocols in this section support the technical archive; their historical section and figure references use that document's preserved numbering.
+
+The preceding spatial-graph Fourier protocol remains in `experiments/direct_submission/fourier/` with identity `direct_fourier_monotone_20261120_v1`. It supplies phase `20x`, learns six weights and predicts a separate 30-s graph trajectory; it is not temporal electrical evidence. Copy its unchanged `run.py`, `protocol.json`, `audit.py`, and `summarize_plot.py` into a new working directory and follow its `REPRODUCE.txt`. That file retains all ten graph confirmation seeds, the excluded pilot, two clean refinements, and the original reproduction commands. Its auditors/postprocessors expect records beside their copied sources:
+
+```bash
+python audit.py
+python summarize_plot.py
+```
+
+These two commands run only from that historical graph working copy. The plotter needs a new `figures/` directory. Full graph arrays retain pre-update coefficient/covariance states and heldout predictions; `aggregate.json` is not a substitute for them. The retained graph figure is `historical_direct_graph_fourier_summary.pdf`. `docs/DIRECT_MAIN_20261120.json` and `docs/DIRECT_RAW_DATA_20261120.json` remain immutable bindings for this graph plus the unchanged contact/Burgers records, not for the new electrical data.
 
 The historical runs recorded Python 3.13.5. The November 18 reproduction used Python 3.12.3 and the same NumPy, SciPy, and Matplotlib versions in `requirements-tested.txt`; all historical summaries and available raw arrays agreed numerically. Record the interpreter and package versions for any new execution. Run the main and legacy checks:
 
@@ -90,7 +117,7 @@ The executed local evidence archive, its verified checksum, and audit/refinement
 
 The estimator-comparison, direct-learning and learned-partial studies have a separate local archive described in `docs/SUPPLEMENTARY_STUDIES_20261118.json`; it does not contain the normalized Fourier records. Learned-partial postprocessing also requires the regenerated original-record archive. To reproduce the three presentation-only figure-label repairs, run `python experiments/repair_supplement_layout.py --output runs/layout_repair_20261118`; the script checks that plotted data and axis limits remain unchanged.
 
-Compile the focused supplement using `bash scripts/build_supplement.sh` (equivalently, `bash scripts/build_supplement.sh supplement`); this updates `supplement/supplement.pdf`. Run `bash scripts/build_supplement.sh technical_archive` to build `supplement/technical_archive.tex` into its separate PDF and auxiliary files. The script accepts only those two target names and requires TeX Live including IEEEtran and AMS packages. It runs BibTeX only when the generated auxiliary file declares bibliography data: the archive requires BibTeX, and the focused supplement does not. Both builds use public repository files only. Figures and tables under `supplement/` serve both documents and were generated from the separately audited studies. The historical scripts `experiments/summarize.py`, `experiments/make_figures.py`, and `experiments/plot_excitation.py` contain fixed output paths; inspect them before use because they can replace tracked artifacts.
+Compile the focused supplement using `bash scripts/build_supplement.sh` (equivalently, `bash scripts/build_supplement.sh supplement`); this updates `supplement/supplement.pdf`. Run `bash scripts/build_supplement.sh technical_archive` to build `supplement/technical_archive.tex` into its separate PDF and auxiliary files. The script accepts only those two target names and requires TeX Live including IEEEtran and AMS packages. It runs BibTeX only when the generated auxiliary file declares bibliography data: the archive requires BibTeX, and the focused supplement does not. Both builds use public repository files only. Figures and tables under `supplement/` serve both documents. Historical figures retain their audited identities; the electrical replacement requires its own completed audit and current manifest binding. The historical scripts `experiments/summarize.py`, `experiments/make_figures.py`, and `experiments/plot_excitation.py` contain fixed output paths; inspect them before use because they can replace tracked artifacts.
 
 The complete-record archives named in `docs/DATA_MANIFEST.json` are not included in this repository, and the manifest does not provide download locations. If an archive is available, verify its SHA-256 checksum before extraction. The default source bundle includes selected seed-10 traces and summary JSON files for every original run; these support the original structured-study plots and aggregate tables, but independent auditing of every run from raw records requires the corresponding archive or a documented rerun. The historical periodic-plant Fourier panels require the separate normalized records; current direct main panels use the separately identified direct-study records described above. A rerun creates new records and should first use a separate output directory for comparison with the saved summaries.
 

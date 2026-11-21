@@ -11,20 +11,6 @@
 \renewcommand{\theequation}{S\arabic{equation}}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
-% Preserve the protocol sources verbatim. Their two historical section
-% references resolve explicitly to the separately supplied Technical Archive.
-\makeatletter
-\expandafter\def\csname archiveref@sec:numerics\endcsname{S2 of the Technical Archive}
-\expandafter\def\csname archiveref@sec:normalized_fourier_results\endcsname{S17 of the Technical Archive}
-\AtBeginDocument{%
-  \NewCommandCopy{\FocusedOriginalRef}{\ref}
-  \RenewDocumentCommand{\ref}{s m}{%
-    \ifcsname archiveref@#2\endcsname
-      \csname archiveref@#2\endcsname
-    \else
-      \IfBooleanTF{#1}{\FocusedOriginalRef*{#2}}{\FocusedOriginalRef{#2}}%
-    \fi}}
-\makeatother
 \begin{document}
 \title{Supplementary Material for\\``Implicit Representation Estimation, Prediction, and Control''}
 \author{Mohamed Abdelghani}
@@ -33,20 +19,19 @@
 \begin{abstract}
 This companion gives complete protocols, observation boundaries, all-seed
 results, failure records, and numerical checks for the manuscript's three
-direct-partial learning studies. The same learned field is used for Fourier
-prediction and contact/Burgers control. Ideal sensing assumptions, incomplete
+direct-partial learning studies. The same learned field is used for electrical
+prediction and control, and contact/Burgers control. Ideal sensing assumptions, incomplete
 physical recovery, training query failures, and failed causal/noisy sensing
 conditions remain explicit. A separate discussion explains when temporal
 observations suffice and when variations of complete trajectories can supply
-missing directions. The earlier structured studies and supporting examples
-are preserved in a separately labeled Technical Archive. All formal results
+missing directions. All formal results
 used by the main paper and their complete proofs remain in that paper.
 \end{abstract}
 
 \section{Guide to the current evidence and records}
 \label{sec:scope}
 Section~\ref{sec:direct_main} contains the complete current main protocols:
-Fourier graph learning and independent prediction
+Electrical temporal Fourier learning, independent prediction and current control
 (Section~\ref{sec:direct_fourier_protocol}), local contact learning and control
 (Section~\ref{sec:direct_contact_protocol}), and distributed Burgers learning
 and control (Section~\ref{sec:direct_burgers_protocol}).
@@ -58,18 +43,20 @@ universal requirement.
 Every adaptive field entry in the current studies learns from observed
 incompatibility. No physical residual coefficient is fitted and then
 differentiated to produce those entries. The supplied context, constraint
-count, units, phase/order where applicable, initialization distribution,
+count, units, harmonic order and calibration where applicable, initialization distribution,
 memory, gain, and sensors are documented separately from simulator-only
 physical parameters and evaluator-only true partials. Fixed context units
 and declared display gauges distinguish row-space recovery from physical
 entry magnitudes. Compatibility, representation recovery, readout error,
 and executed task performance are separate diagnostics.
 
-The evidence has three specific scopes. Fourier uses known phase and harmonic
-order; its physical partials vary faster than the actual supplied-input
-modulation. Training enforces coefficient normalization, not a phase-wide
-row-norm constraint. Its final frozen field predicts a separate episode from
-one initial output measurement. Contact learns all $24$ entries of a local
+The evidence has three specific scopes. Electrical Fourier Memory estimates a
+stationary frequency from a current-only calibration prefix and supplies the
+harmonic order. Its clock partial varies faster than the applied voltage;
+current observations contain fast ripple. All twenty weights adapt independently.
+Training enforces coefficient normalization; separate full-phase diagnostics
+check the final field. Frozen stored weights then generate a temporal field for
+independent current prediction and current control. Contact learns all $24$ entries of a local
 $3\times8$ field under ideal rate sensing and controls horizontal position
 and vertical force. Its residual subspace error, failed canonical-amplitude
 recovery, and timestep sensitivity remain reported. Burgers learns five
@@ -80,7 +67,7 @@ results, not claims of general sensor robustness, global integrability,
 exact physical identification, or closed-loop stability.
 
 The portable code is in \path{experiments/direct_submission/}, with separate
-\path{fourier/}, \path{contact/}, and \path{burgers/} directories. Their
+\path{electrical_fourier/}, \path{contact/}, and \path{burgers/} directories. Their
 protocols, configurations, source identities, raw observations, pre-update
 representations, and audit/plotting programs identify the executed evidence.
 Confirmation uses Fourier seeds 10--19, contact seeds 101--105, and Burgers
@@ -88,17 +75,6 @@ seeds 732--736; illustration seeds 10, 101, and 732 were selected in advance.
 Pilots, every failed query/branch, sensor challenges, and refinements retain
 separate identities. Compact replay files and complete raw archives have
 separate checksums; a local package is not itself a published data release.
-
-The separate \texttt{technical\_archive.pdf} preserves the full earlier
-supplement and its original S1--S20 numbering. Archive Sections S1--S18 retain
-structured-coefficient studies, estimator comparisons, historical
-reproductions, and supporting constructions. Those studies do not establish
-the current all-entry learning mechanism. Archive S19 and S20 correspond to
-Sections~\ref{sec:trajectory_variations} and~\ref{sec:direct_main} here.
-The archive retains the disclosed contact reconstruction, missing original
-archives, analytic-only ellipse construction, and unvalidated active-flow
-prototype. No observation, numerical result, or failure was removed by this
-reorganization; only the primary reading path and numbering changed.
 
 \input{direct_main_protocols}
 \clearpage

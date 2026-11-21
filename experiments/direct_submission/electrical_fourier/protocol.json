@@ -1,0 +1,160 @@
+{
+  "identity": "electrical_fourier_direct_20261121_v1",
+  "status": "SEALED",
+  "confirmation_seeds": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "illustration_seed": 10,
+  "pilot_seed": 9002,
+  "scope": "Direct temporal all-entry differential learning with observation-calibrated frequency, independent current prediction and own-trajectory current control; ideal-rate sensors; all prespecified cases retained",
+  "context": [
+    "current_i",
+    "integral_current_q",
+    "integral_voltage_U",
+    "clock_t"
+  ],
+  "observed_rates": [
+    "ideal_current_rate",
+    "current",
+    "applied_voltage",
+    "clock_rate_one"
+  ],
+  "scales": [
+    20.0,
+    2.0,
+    5.0,
+    1.0
+  ],
+  "harmonic_order": 2,
+  "gain": 200.0,
+  "memory_time_s": 10.0,
+  "learner_dt_s": 0.005,
+  "task_dt_s": 0.005,
+  "plant_max_substep_s": 0.0005,
+  "allowed_learner_dt_s": [
+    0.005,
+    0.0025
+  ],
+  "allowed_plant_max_substep_s": [
+    0.0005,
+    0.00025
+  ],
+  "declared_numerical_checks": [
+    {
+      "seed": 10,
+      "learner_dt_s": 0.0025,
+      "plant_max_substep_s": 0.0005,
+      "scope": "Halved observation/learning interval; control interval unchanged"
+    },
+    {
+      "seed": 10,
+      "learner_dt_s": 0.005,
+      "plant_max_substep_s": 0.00025,
+      "scope": "Halved plant RK4 substep; observation and control intervals unchanged"
+    }
+  ],
+  "learner_solver_rtol": 1e-09,
+  "learner_solver_atol": 1e-11,
+  "prediction_solver_rtol": 1e-09,
+  "prediction_solver_atol": 1e-11,
+  "calibration_duration_s": 20.0,
+  "calibration_voltage_v": 1.0,
+  "initial_calibration_current_a": 0.0,
+  "period_estimator": {
+    "search_hz": [
+      0.5,
+      15.0
+    ],
+    "discard_seconds": 2.0,
+    "harmonics": 4,
+    "max_fit_samples": 2400,
+    "spectral_peak_count": 8
+  },
+  "abort_unresolved_or_ambiguous_period": true,
+  "training_duration_s": 120.0,
+  "training_voltage": {
+    "offset_v": 1.0,
+    "amplitudes_v": [
+      2.0,
+      1.2,
+      0.8
+    ],
+    "frequencies_hz": [
+      0.13,
+      0.31,
+      0.53
+    ],
+    "phases_rad": [
+      0.0,
+      0.3,
+      -0.5
+    ]
+  },
+  "training_metric_window_relative_s": [
+    100.0,
+    120.0
+  ],
+  "training_metric_endpoint_convention": "left inclusive, right exclusive",
+  "current_noise_std_a": 0.0,
+  "current_rate_noise_std_a_per_s": 0.0,
+  "initialization": "One generic standard-normal 20-entry row, normalized once without rejection; K0 uses its first four entries normalized",
+  "phase_rng_seed_offset": 100000,
+  "sensor_rng_seed_offset": 200000,
+  "task_duration_s": 12.0,
+  "prediction_initial_current_a": -0.3,
+  "prediction_voltage": {
+    "offset_v": 0.7,
+    "sin_amplitude_v": 1.5,
+    "sin_frequency_hz": 0.19,
+    "sin_phase_rad": 0.2,
+    "cos_amplitude_v": 0.9,
+    "cos_frequency_hz": 0.43
+  },
+  "control_initial_current_a": 0.0,
+  "control_reference": {
+    "offset_a": 0.3,
+    "amplitudes_a": [
+      0.4,
+      0.2
+    ],
+    "frequencies_hz": [
+      0.17,
+      0.29
+    ]
+  },
+  "control_feedback_gain_per_s": 10.0,
+  "control_voltage_limit_v": 12.0,
+  "control_late_window_relative_s": [
+    2.0,
+    12.0
+  ],
+  "control_metric_endpoint_convention": "both endpoints included",
+  "normalized_computed_entry_guard": 0.05,
+  "phase_grid_points": 8192,
+  "guard_policy": "Abort task at any invalid query; retain completed prefix and failure details; full-horizon RMSE is null. No fallback command or held prediction rate",
+  "full_cycle_policy": "Report finite-grid minima and conservative amplitude-sum bounds; conservative failure alone does not abort actual queries",
+  "memory_reconstruction": "R0=0; w_n=kron(h(2*pi*fhat*t_n),observed_rates_n/scales); R_(n+1)=exp(-dt/tau)*R_n+tau*(1-exp(-dt/tau))*outer(w_n,w_n). C_pre[n] precedes assimilation n; final sample is not assimilated",
+  "criteria": {
+    "late_projector_error_mean_max": 0.01,
+    "prediction_rmse_a_max": 0.005,
+    "control_late_rmse_a_max": 0.03,
+    "learned_prediction_guard_failures_max": 0,
+    "learned_control_guard_failures_max": 0,
+    "learned_control_saturations_max": 0
+  },
+  "criteria_scope": "Numerical evidence thresholds; not theorem hypotheses or a significance test",
+  "sealed_utc": "2026-11-21T22:32:12.478903+00:00",
+  "pilot_excluded_from_confirmation": [
+    9001,
+    9002
+  ]
+}
