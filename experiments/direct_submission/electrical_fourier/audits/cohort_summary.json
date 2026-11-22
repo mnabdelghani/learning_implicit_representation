@@ -1,0 +1,165 @@
+{
+  "protocol_identity": "electrical_fourier_direct_20261121_v1",
+  "confirmation_seeds": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "confirmation_count": 10,
+  "refinement_count": 2,
+  "audit_case_count": 12,
+  "integrity_pass_count": 12,
+  "scientific_criteria_pass_confirmation_count": 10,
+  "scientific_criteria_pass_refinement_count": 2,
+  "check_count": 2064,
+  "failed_checks": [],
+  "aggregation": "Means and sample standard deviations (ddof=1) over all ten prespecified confirmation seeds, no exclusions",
+  "metrics": {
+    "fourier": {
+      "late_projector_error_mean": {
+        "mean": 0.0003574560887356796,
+        "sample_sd": 0.000588708994314813,
+        "minimum": 7.301096400753813e-06,
+        "maximum": 0.0017734491586224388
+      },
+      "late_energy_mean": {
+        "mean": 7.404275997107367e-09,
+        "sample_sd": 1.7207184918471626e-08,
+        "minimum": 8.9939945590015e-13,
+        "maximum": 5.324911830420458e-08
+      },
+      "prediction_rmse_a": {
+        "mean": 2.1465388400649024e-05,
+        "sample_sd": 3.544228604945267e-05,
+        "minimum": 4.141337982122899e-07,
+        "maximum": 0.00010155141234255774
+      },
+      "control_full_rmse_a": {
+        "mean": 0.026431579687410712,
+        "sample_sd": 0.0009190769035343524,
+        "minimum": 0.025008789362555454,
+        "maximum": 0.02745108861421227
+      },
+      "control_late_rmse_a": {
+        "mean": 0.017199679869879508,
+        "sample_sd": 6.175062712332366e-05,
+        "minimum": 0.017117899588855116,
+        "maximum": 0.017338597926088255
+      }
+    },
+    "K0": {
+      "late_projector_error_mean": {
+        "mean": 0.6065014354732504,
+        "sample_sd": 2.2428792138527992e-05,
+        "minimum": 0.6064655165696432,
+        "maximum": 0.6065429391423666
+      },
+      "late_energy_mean": {
+        "mean": 0.0038534492813979233,
+        "sample_sd": 6.732297186032139e-06,
+        "minimum": 0.003845723867793706,
+        "maximum": 0.0038644922517589927
+      },
+      "control_full_rmse_a": {
+        "mean": 0.4654656315477081,
+        "sample_sd": 0.008391915749130561,
+        "minimum": 0.4536233703823259,
+        "maximum": 0.47929922475126097
+      },
+      "control_late_rmse_a": {
+        "mean": 0.47539554236080656,
+        "sample_sd": 0.010030311226976393,
+        "minimum": 0.45823064344601805,
+        "maximum": 0.4860311917960792
+      }
+    }
+  },
+  "report_sha256": {
+    "refine_seed10_dt0025": "7df6776a9c524d300dcc3a0f1ba4c7bed56595639a54c62d267fd7270a07bfac",
+    "refine_seed10_substep00025": "7cf56c6911042aa9c56b4aaaec80fc994ac721c91578f4828b481e3fec1a8e41",
+    "seed_10": "11a4a2409b598df73a171759321805b60712590a9c1fd46263ea6ee126451751",
+    "seed_11": "0efe7330017b0e3727861d4f514a72f62884d340bda75fa9919c4f01d098b851",
+    "seed_12": "88fbb6bf597cafe137b352fa8dc42898542de9c20d61ca312d80f052f59b3410",
+    "seed_13": "79f757bc313eecf1b74e3802e95468d8efc288195eb461c865ceaa6cd7b631fe",
+    "seed_14": "411cceb66ffdcfaec363d1f63933d5b237e771af1b14b78bbbc7f0fb7320385f",
+    "seed_15": "3e668b9deca3cb6dd78a382661ea869b10892ce82f40cb292e4c311f35da0361",
+    "seed_16": "bba5d43a323ed62cc5a52bedee84d29ff5f7b6aa0406a9084ddaae432094be77",
+    "seed_17": "490285196cfb3d5e52d57cbfc3353b608ee07c0229ed8b7683197ad04476fe02",
+    "seed_18": "cd06b6f2f6930bd186307ffa24187fc5a2abfbe8ad863b99c52b8d926a180620",
+    "seed_19": "654e765e17c1f0429667ae25d1cfe44479bed4ae4ba7a244fc181f5d49739e1b"
+  },
+  "fullcycle_minimum_over_confirmation": {
+    "row_norm_grid": 0.9588162285905812,
+    "row_norm_bound": 0.7035930937513529,
+    "prediction_guard_grid": 0.4089622170308495,
+    "control_guard_grid": 0.6814829186582767,
+    "prediction_guard_bound": 0.32231276472228004,
+    "control_guard_bound": 0.5353977053814627
+  },
+  "all_twenty_weights": {
+    "all_change_in_every_case": true,
+    "smallest_total_variation_confirmation": 0.17634430770142487,
+    "interpretation": "Nonzero changes corroborate the code audit; all twenty weights are free adaptive coordinates coupled only by the declared normalization, not physical-parameter differentiation."
+  },
+  "maximum_selected_ODE_step_difference": 1.7149300954462897e-11,
+  "confirmation_task_counts": {
+    "fourier_prediction_complete": 10,
+    "fourier_control_complete": 10,
+    "fourier_prediction_guard_failures": 0,
+    "fourier_control_guard_failures": 0,
+    "fourier_control_saturations": 0,
+    "K0_prediction_aborted": 10,
+    "K0_prediction_RMSE_null": 10,
+    "K0_control_complete": 10
+  },
+  "oracle_control_seed10": {
+    "scope": "Evaluator-only true-field completion; independent trajectory, identical reference/gain/voltage bound/hold, exact plant propagation; never a learner input",
+    "full_rmse_a": 0.025018289767909825,
+    "late_rmse_a": 0.01713479720574904,
+    "saturations": 0,
+    "learned_minus_oracle_current_rms_a": 4.1523187469683544e-05,
+    "learned_minus_oracle_current_max_abs_a": 9.511804841155769e-05,
+    "learned_minus_oracle_applied_voltage_rms_v": 0.00017031531809030912
+  },
+  "refinements": {
+    "refine_seed10_dt0025": {
+      "metric_differences_from_seed10": {
+        "late_projector_error_mean": 2.310177625748633e-07,
+        "prediction_rmse_a": 1.3051563206744311e-08,
+        "control_late_rmse_a": -3.539162627200221e-08
+      },
+      "frozen_field_projector_max_difference_on_cycle_grid": 3.0894733744440213e-07,
+      "prediction_current_max_abs_difference_a": 8.39833856902672e-08,
+      "control_current_max_abs_difference_a": 1.8184915429042547e-07,
+      "C_records_bitwise_equal_to_baseline": false
+    },
+    "refine_seed10_substep00025": {
+      "metric_differences_from_seed10": {
+        "late_projector_error_mean": 0.0,
+        "prediction_rmse_a": 0.0,
+        "control_late_rmse_a": -2.4900671802274843e-12
+      },
+      "frozen_field_projector_max_difference_on_cycle_grid": 0.0,
+      "prediction_current_max_abs_difference_a": 0.0,
+      "control_current_max_abs_difference_a": 1.1105172337266822e-11,
+      "C_records_bitwise_equal_to_baseline": true
+    }
+  },
+  "limitations": [
+    "Ideal observed current rates during training; no noisy-rate robustness or sensor implementation established",
+    "Prescribed order K=2 and observation-calibrated fixed frequency; no frequency-drift tracking established",
+    "Ten seeds vary initialization and rotor phase, not all physical plant parameters",
+    "Fast partial variation is relative to applied training voltage; observed current and current-rate contain rotor-frequency ripple",
+    "K0 is a matched no-temporal-basis ablation, not a fully tuned alternative tracker",
+    "Oracle diagnostic is an evaluator-only reference, not a lower-bound claim",
+    "Selected adaptive steps were independently reintegrated; every memory and control-plant transition was checked",
+    "This is a simplified electrical simulation at externally maintained rotation, not hardware or mechanical-dynamics validation"
+  ]
+}

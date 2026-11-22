@@ -22,6 +22,7 @@ the exact saved-record inventory.
 | `run.run` / `execute` | New output directory, seed, declared numerical options | Source snapshots, raw records, final metrics and hashes; orchestration keeps learner and evaluator inputs separate. |
 | `audit.audit` | Saved run; optional evaluator-only oracle diagnostic | Independent hashes, physical/readout/metric checks, full memory reconstruction and selected nonlinear learning-step checks. |
 | `summarize_plot.main` | Saved seed 10--19 directories, new output directory | Cohort aggregate, fixed-seed illustration, figure/source-data hashes; no new simulations. |
+| `plot_figure_focus.main` | The same saved seed 10--19 directories, new output directory | Four main evidence panels and three supplementary diagnostics; all four entries share one fixed evaluator-only scalar/sign across the original final-second window. Original plotter and raw records remain unchanged. |
 
 ## What is learned
 

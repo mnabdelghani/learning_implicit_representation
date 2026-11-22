@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "frozen_source_sha256": "aeb1a5dc39ad6c698030cdfb4c51f54f6d08bc930821fa1319cfbeaf59729622",
+  "preserved_record_inputs_verified_against_original_run_manifest": 27,
+  "output_hash_checks": {
+    "direct_fourier_diagnostics.pdf": true,
+    "direct_fourier_diagnostics.png": true,
+    "direct_fourier_focus.pdf": true,
+    "direct_fourier_focus.png": true,
+    "display_data.npz": true,
+    "plot_figure_focus.py": true
+  },
+  "portable_png_reproduction": {
+    "direct_fourier_focus.png": true,
+    "direct_fourier_diagnostics.png": true
+  },
+  "portable_derived_array_reproduction": {
+    "training_time_s": true,
+    "training_time_relative_s": true,
+    "preupdate_energy": true,
+    "energy_causal_mean": true,
+    "evaluated_scaled_estimate": true,
+    "scaled_true_field": true,
+    "display_time_relative_s": true,
+    "display_scalar": true,
+    "displayed_estimate": true,
+    "displayed_truth": true,
+    "displayed_difference": true,
+    "projector_errors_fourier_all_seeds": true,
+    "projector_errors_constant_all_seeds": true,
+    "applied_training_voltage": true,
+    "physical_clock_partial": true,
+    "prediction_time_s": true,
+    "predicted_current": true,
+    "prediction_truth_time_s": true,
+    "true_prediction_current": true,
+    "control_time_s": true,
+    "controlled_current": true,
+    "reference_current": true,
+    "constant_control_time_s": true,
+    "constant_control_current": true
+  },
+  "checks": {
+    "alignment_constant_finite": true,
+    "all_true_constant_entries_flat": true,
+    "partials_y_range": [
+      -5.011483224286294,
+      4.009193351694803
+    ],
+    "prediction_y_range": [
+      -1.193403400238088,
+      1.8862795463327273
+    ],
+    "control_y_range": [
+      -0.239976495201153,
+      0.8978951124478302
+    ]
+  },
+  "visual_review": "Final main and diagnostics viewed; all canvas checks clear; no clipping, no hidden transients, original figures retained; manuscript-size check belongs to root build",
+  "scientific_simulations": 0,
+  "raw_record_mutations": 0
+}

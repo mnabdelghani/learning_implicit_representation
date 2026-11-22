@@ -1,0 +1,307 @@
+{
+  "identity": "electrical_fourier_direct_20261121_v1",
+  "availability": "Prepared locally; no publication, remote release or permanent archive asserted.",
+  "implementation_path": "experiments/direct_submission/electrical_fourier/",
+  "protocol": {
+    "bytes": 4306,
+    "sha256": "925710c55d02b30d60f63c872c2fa80dfe9563e0257fb8d5083c0c5f5ff17304"
+  },
+  "seal": {
+    "bytes": 994,
+    "sha256": "c1527b8746a57a7d0866cea3dfc424ebf113ec2eab67de096e47cf30857b2eaf"
+  },
+  "confirmation_seeds": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "illustration_seed": 10,
+  "declared_refinements": [
+    {
+      "seed": 10,
+      "learner_dt_s": 0.0025,
+      "plant_max_substep_s": 0.0005,
+      "scope": "Halved observation/learning interval; control interval unchanged"
+    },
+    {
+      "seed": 10,
+      "learner_dt_s": 0.005,
+      "plant_max_substep_s": 0.00025,
+      "scope": "Halved plant RK4 substep; observation and control intervals unchanged"
+    }
+  ],
+  "sealed_case_count": 12,
+  "excluded_pilots": [
+    9001,
+    9002
+  ],
+  "observation_boundary": "Clock, current, applied voltage and ideal current rate. Calibration reads clock/current only; only its scalar frequency reaches learning, not fitted amplitudes or true phase/parameters.",
+  "learning": "Twenty independently adaptive harmonic-major weights for four differential entries, K=2; normalized correlation-memory law, eta=200, tau=10 s. No residual-coefficient differentiation.",
+  "physical_target": "Integrated constant-L RL winding relation with z=(i,q,U,t), v=(idot,i,u,1), true Jacobian F=(L,R,-1,e(t)); explicit clock derivative retained.",
+  "integrability_scope": "True target is a Jacobian; arbitrary candidate fields are not constrained to be integrable ambient Jacobians. Readout and recovery concern conditioned row space.",
+  "saved_memory": "Observed rates/times and every pre-update row, final rows and R_final/R0_final; initial memories zero. Full memory and solver-stage trajectories are not saved; interval-end memories reconstruct by declared recurrence.",
+  "tasks": "Separate frozen-field 12 s current prediction from one initial current and own-trajectory current-reference control; failed guards abort with null full-horizon errors.",
+  "scope": "Ideal sensing, fixed observation-calibrated frequency, externally maintained motion and finite horizon; no hardware, noisy sensing, frequency-drift or mechanical-control claim.",
+  "cohort_statistics": {
+    "late_projector_mean": {
+      "mean": 0.0003574560887356795,
+      "sample_sd": 0.000588708994314813,
+      "min": 7.30109640075453e-06,
+      "max": 0.0017734491586224395
+    },
+    "late_K0_projector_mean": {
+      "mean": 0.6065014354732504,
+      "sample_sd": 2.2428792138537344e-05,
+      "min": 0.6064655165696432,
+      "max": 0.6065429391423666
+    },
+    "late_energy_mean": {
+      "mean": 7.404275997107361e-09,
+      "sample_sd": 1.7207184918471612e-08,
+      "min": 8.993994558990448e-13,
+      "max": 5.3249118304204545e-08
+    },
+    "frequency_hz": {
+      "mean": 3.729999999944345,
+      "sample_sd": 1.0010762168345921e-09,
+      "min": 3.7299999984101175,
+      "max": 3.730000000923485
+    },
+    "prediction_rmse_a": {
+      "mean": 2.1465388400649024e-05,
+      "sample_sd": 3.544228604945267e-05,
+      "min": 4.141337982122899e-07,
+      "max": 0.00010155141234255774
+    },
+    "control_full_rmse_a": {
+      "mean": 0.026431579687410712,
+      "sample_sd": 0.0009190769035343524,
+      "min": 0.025008789362555454,
+      "max": 0.02745108861421227
+    },
+    "control_late_rmse_a": {
+      "mean": 0.017199679869879508,
+      "sample_sd": 6.175062712332366e-05,
+      "min": 0.017117899588855116,
+      "max": 0.017338597926088255
+    },
+    "K0_control_late_rmse_a": {
+      "mean": 0.47539554236080656,
+      "sample_sd": 0.010030311226976393,
+      "min": 0.45823064344601805,
+      "max": 0.4860311917960792
+    },
+    "frequency_error_hz": {
+      "mean": -5.565530258877516e-11,
+      "sample_sd": 1.0010762168345528e-09,
+      "min": -1.5898824479165796e-09,
+      "max": 9.234848441508348e-10
+    }
+  },
+  "case_audits": {
+    "seed_10": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 27719,
+        "sha256": "11a4a2409b598df73a171759321805b60712590a9c1fd46263ea6ee126451751"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "9bed9ec39cd36c362e77a3af2ada22382ac14bfdfd5e27361666fb721b2c608a"
+      }
+    },
+    "seed_11": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26991,
+        "sha256": "0efe7330017b0e3727861d4f514a72f62884d340bda75fa9919c4f01d098b851"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "a9c5acc973337a708bc2e7ebfae7f2535e797dda73a6d398caaef493dc031cd1"
+      }
+    },
+    "seed_12": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26973,
+        "sha256": "88fbb6bf597cafe137b352fa8dc42898542de9c20d61ca312d80f052f59b3410"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "264a0ae26b2773cc2a4d6628c132f660d7d1e913ff893b987bef86c29d54961d"
+      }
+    },
+    "seed_13": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26949,
+        "sha256": "79f757bc313eecf1b74e3802e95468d8efc288195eb461c865ceaa6cd7b631fe"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "3c7724c75b1905b9e742c7e048f1935985da13efbbeff0067012d37c2454f7b6"
+      }
+    },
+    "seed_14": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26915,
+        "sha256": "411cceb66ffdcfaec363d1f63933d5b237e771af1b14b78bbbc7f0fb7320385f"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "7c1b0bfebb69f4295cd56fce35e89281e4597f9caa18f1ecaddb1439ae036afe"
+      }
+    },
+    "seed_15": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26905,
+        "sha256": "3e668b9deca3cb6dd78a382661ea869b10892ce82f40cb292e4c311f35da0361"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "2f7c5d1bdfbff3fb53ae7aa3302d06da19c0d5a98d263f61159d89569c678ebf"
+      }
+    },
+    "seed_16": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26911,
+        "sha256": "bba5d43a323ed62cc5a52bedee84d29ff5f7b6aa0406a9084ddaae432094be77"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "a491aec739ae44d0c7f6d0db6963e2a2d6614f95c056a229f0609b08d4e03d19"
+      }
+    },
+    "seed_17": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26951,
+        "sha256": "490285196cfb3d5e52d57cbfc3353b608ee07c0229ed8b7683197ad04476fe02"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "691998c2ab407012ac3ac02a32f08cadcfc66298264c990f37059b8b2df57987"
+      }
+    },
+    "seed_18": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26901,
+        "sha256": "cd06b6f2f6930bd186307ffa24187fc5a2abfbe8ad863b99c52b8d926a180620"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "765633d0c59e37616a1cdc4e449f0c114a642eb3e2f9c8ceb78d3af67e696748"
+      }
+    },
+    "seed_19": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26929,
+        "sha256": "654e765e17c1f0429667ae25d1cfe44479bed4ae4ba7a244fc181f5d49739e1b"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "0ac1b0898951e4cd283a71d3ab7ea76614cac4f72bc252b4d1de5789b89f979e"
+      }
+    },
+    "refine_seed10_dt0025": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26960,
+        "sha256": "7df6776a9c524d300dcc3a0f1ba4c7bed56595639a54c62d267fd7270a07bfac"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "dcbb20dfdd38560e78b910850df0a99c0538d62a89dabc3a2c63d3ef1bb47c09"
+      }
+    },
+    "refine_seed10_substep00025": {
+      "integrity_pass": true,
+      "criteria_pass": true,
+      "checks": 172,
+      "audit": {
+        "bytes": 26956,
+        "sha256": "7cf56c6911042aa9c56b4aaaec80fc994ac721c91578f4828b481e3fec1a8e41"
+      },
+      "raw_manifest": {
+        "bytes": 1993,
+        "sha256": "cae60914bab80983207f651da7fafe5dc7a9d72949b27c961f0300e4fad79274"
+      }
+    }
+  },
+  "audit_source": {
+    "bytes": 25761,
+    "sha256": "570676496a4615da42d16eae89efba3c82655a39146554c0f5fd5d1cd6d12dc4"
+  },
+  "figure_manifest": {
+    "bytes": 24098,
+    "sha256": "38bb080b2afdcd3bb8748fe0264c859033f8fe53de6f55c7780459fb3c7d5503"
+  },
+  "aggregate": {
+    "bytes": 47266,
+    "sha256": "cf35891636ab021d6d36dcbdbf11601a93d4597f154160084719b32bb258c4ff"
+  },
+  "raw_archive": {
+    "filename": "electrical_fourier_raw.tar.gz",
+    "bytes": 145389307,
+    "sha256": "3e225ff7e5ff6332a58a287c46289815813b2064cbec50d09d62a634e09e33f5",
+    "cases": [
+      "seed_10",
+      "seed_11",
+      "seed_12",
+      "seed_13",
+      "seed_14",
+      "seed_15",
+      "seed_16",
+      "seed_17",
+      "seed_18",
+      "seed_19",
+      "refine_seed10_dt0025",
+      "refine_seed10_substep00025"
+    ],
+    "file_count": 420,
+    "top_level": "electrical_fourier",
+    "case_scope": "Ten confirmation cases plus two refinements; excluded production/exploratory/calibration pilots also retained in separate subtrees."
+  },
+  "raw_index": {
+    "filename": "raw_data_manifest_20261121.json",
+    "bytes": 765535,
+    "sha256": "4d275a7090a4f8c428d2d06afd24ae083181577e8a0ebacc1b2baf08c8b48033"
+  },
+  "exploratory_provenance": "Calibration pilots and both learner pilots retained. run_9001_v1/v2 source associations are explicitly retrospective; old fallback metrics are excluded from confirmation. Original pilot9002 audit report is retained, its exact earlier auditor bytes reconstructed and hash-matched, and a separately named final-source re-audit is included. Recovered source is not represented as an originally retained snapshot.",
+  "historical_spatial_fourier": "Preserved under experiments/direct_submission/fourier/, fourier_raw.tar.gz and immutable DIRECT_MAIN_20261120.json; not relabeled as electrical evidence."
+}

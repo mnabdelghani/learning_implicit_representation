@@ -1,0 +1,23 @@
+Independent audit of electrical_fourier_direct_20261121_v1
+
+All 10 prespecified confirmation seeds and both declared numerical refinements passed implementation-integrity audits and the sealed scientific criteria. There were 2,064 successful audit checks and no failed checks. All results, including K0 prediction failures, were retained.
+
+The learner has no simulator imports. All 20 harmonic weights independently adapt through the normalized compatibility law. The genuine target Jacobian is (L,R,-1,e(t)) in context (i, integral i, integral u, t). The clock frequency is calibrated from observed current and time only. Prediction and control reuse frozen weights on separate plant episodes.
+
+The independent audit reconstructed all reported scientific metrics, initial random draws and phases, source/data hashes, complete memory recurrences, 120 selected projected ODE transitions, every control-plant transition via an exact analytic solution, and complete prediction trajectories via independent integration. It checked guard failures, null metrics on abort, phase-grid diagnostics and conservative continuous-phase guard bounds. This is numerical/code auditing, not a formal verification certificate.
+
+The seed10 evaluator-only oracle controller has late RMSE 17.1347972 mA versus learned 17.1178996 mA; their current trajectories differ by 41.5232 microamperes RMS. This supports attributing the observed 17 mA task error chiefly to sampled/held control. The oracle value is not a lower bound.
+
+The two refinements agree closely in absolute field and task errors; exact values and all 10-seed means/sample deviations are in cohort_summary.json. The plant-substep refinement leaves all learned coefficients bitwise unchanged, as expected.
+
+Limitations:
+- Ideal observed current rates during training; no noisy-rate robustness or sensor implementation established
+- Prescribed order K=2 and observation-calibrated fixed frequency; no frequency-drift tracking established
+- Ten seeds vary initialization and rotor phase, not all physical plant parameters
+- Fast partial variation is relative to applied training voltage; observed current and current-rate contain rotor-frequency ripple
+- K0 is a matched no-temporal-basis ablation, not a fully tuned alternative tracker
+- Oracle diagnostic is an evaluator-only reference, not a lower-bound claim
+- Selected adaptive steps were independently reintegrated; every memory and control-plant transition was checked
+- This is a simplified electrical simulation at externally maintained rotation, not hardware or mechanical-dynamics validation
+
+Only private auditor/analysis files were written; raw records were not altered. No commit, push, upload, or public publication was performed by this audit agent.

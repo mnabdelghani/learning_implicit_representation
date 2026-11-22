@@ -1,0 +1,631 @@
+{
+  "status": "pass",
+  "checks": 155,
+  "failures": [],
+  "checks_detail": [
+    {
+      "check": "portable_replay_same_keys",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_time",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_render_indices",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_energy_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_energy_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_energy_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_physical_energy_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_physical_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_physical_energy_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_physical_energy_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_task_rms_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_task_rms_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_task_rms_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_task_rms_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_field_mean_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_field_mean_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_field_mean_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_training_field_mean_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_training_q_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_training_physical_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_training_w_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_training_target_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_time",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_render_indices",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_energy_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_energy_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_energy_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_physical_energy_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_physical_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_physical_energy_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_physical_energy_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_task_rms_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_task_rms_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_task_rms_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_task_rms_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_field_mean_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_field_mean_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_field_mean_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_adaptive_field_mean_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_adaptive_q_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_adaptive_physical_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_adaptive_w_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_adaptive_target_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_time",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_render_indices",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_energy_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_energy_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_energy_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_physical_energy_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_physical_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_physical_energy_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_physical_energy_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_task_rms_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_task_rms_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_task_rms_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_task_rms_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_field_mean_all_seeds",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_field_mean_mean",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_field_mean_min",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_frozen_field_mean_max",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_frozen_q_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_frozen_physical_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_frozen_w_site0",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_array_site0_frozen_target_site0",
+      "pass": true
+    },
+    {
+      "check": "original_site0_training_q_site0",
+      "pass": true
+    },
+    {
+      "check": "original_site0_training_physical_site0",
+      "pass": true
+    },
+    {
+      "check": "original_site0_training_w_site0",
+      "pass": true
+    },
+    {
+      "check": "original_site0_training_target_site0",
+      "pass": true
+    },
+    {
+      "check": "training_energy_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "training_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "training_energy_min",
+      "pass": true
+    },
+    {
+      "check": "training_energy_max",
+      "pass": true
+    },
+    {
+      "check": "training_physical_energy_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "training_physical_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "training_physical_energy_min",
+      "pass": true
+    },
+    {
+      "check": "training_physical_energy_max",
+      "pass": true
+    },
+    {
+      "check": "training_field_mean_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "training_field_mean_mean",
+      "pass": true
+    },
+    {
+      "check": "training_field_mean_min",
+      "pass": true
+    },
+    {
+      "check": "training_field_mean_max",
+      "pass": true
+    },
+    {
+      "check": "training_task_rms_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "training_task_rms_mean",
+      "pass": true
+    },
+    {
+      "check": "training_task_rms_min",
+      "pass": true
+    },
+    {
+      "check": "training_task_rms_max",
+      "pass": true
+    },
+    {
+      "check": "original_site0_adaptive_q_site0",
+      "pass": true
+    },
+    {
+      "check": "original_site0_adaptive_physical_site0",
+      "pass": true
+    },
+    {
+      "check": "original_site0_adaptive_w_site0",
+      "pass": true
+    },
+    {
+      "check": "original_site0_adaptive_target_site0",
+      "pass": true
+    },
+    {
+      "check": "adaptive_energy_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "adaptive_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "adaptive_energy_min",
+      "pass": true
+    },
+    {
+      "check": "adaptive_energy_max",
+      "pass": true
+    },
+    {
+      "check": "adaptive_physical_energy_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "adaptive_physical_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "adaptive_physical_energy_min",
+      "pass": true
+    },
+    {
+      "check": "adaptive_physical_energy_max",
+      "pass": true
+    },
+    {
+      "check": "adaptive_field_mean_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "adaptive_field_mean_mean",
+      "pass": true
+    },
+    {
+      "check": "adaptive_field_mean_min",
+      "pass": true
+    },
+    {
+      "check": "adaptive_field_mean_max",
+      "pass": true
+    },
+    {
+      "check": "adaptive_task_rms_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "adaptive_task_rms_mean",
+      "pass": true
+    },
+    {
+      "check": "adaptive_task_rms_min",
+      "pass": true
+    },
+    {
+      "check": "adaptive_task_rms_max",
+      "pass": true
+    },
+    {
+      "check": "original_site0_frozen_q_site0",
+      "pass": true
+    },
+    {
+      "check": "original_site0_frozen_physical_site0",
+      "pass": true
+    },
+    {
+      "check": "original_site0_frozen_w_site0",
+      "pass": true
+    },
+    {
+      "check": "original_site0_frozen_target_site0",
+      "pass": true
+    },
+    {
+      "check": "frozen_energy_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "frozen_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "frozen_energy_min",
+      "pass": true
+    },
+    {
+      "check": "frozen_energy_max",
+      "pass": true
+    },
+    {
+      "check": "frozen_physical_energy_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "frozen_physical_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "frozen_physical_energy_min",
+      "pass": true
+    },
+    {
+      "check": "frozen_physical_energy_max",
+      "pass": true
+    },
+    {
+      "check": "frozen_field_mean_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "frozen_field_mean_mean",
+      "pass": true
+    },
+    {
+      "check": "frozen_field_mean_min",
+      "pass": true
+    },
+    {
+      "check": "frozen_field_mean_max",
+      "pass": true
+    },
+    {
+      "check": "frozen_task_rms_all_seed_values",
+      "pass": true
+    },
+    {
+      "check": "frozen_task_rms_mean",
+      "pass": true
+    },
+    {
+      "check": "frozen_task_rms_min",
+      "pass": true
+    },
+    {
+      "check": "frozen_task_rms_max",
+      "pass": true
+    },
+    {
+      "check": "adaptive732_late_original_metric",
+      "pass": true
+    },
+    {
+      "check": "adaptive732_full_original_metric",
+      "pass": true
+    },
+    {
+      "check": "adaptive733_late_original_metric",
+      "pass": true
+    },
+    {
+      "check": "adaptive733_full_original_metric",
+      "pass": true
+    },
+    {
+      "check": "adaptive734_late_original_metric",
+      "pass": true
+    },
+    {
+      "check": "adaptive734_full_original_metric",
+      "pass": true
+    },
+    {
+      "check": "adaptive735_late_original_metric",
+      "pass": true
+    },
+    {
+      "check": "adaptive735_full_original_metric",
+      "pass": true
+    },
+    {
+      "check": "adaptive736_late_original_metric",
+      "pass": true
+    },
+    {
+      "check": "adaptive736_full_original_metric",
+      "pass": true
+    },
+    {
+      "check": "frozen732_late_original_metric",
+      "pass": true
+    },
+    {
+      "check": "frozen732_full_original_metric",
+      "pass": true
+    },
+    {
+      "check": "frozen733_late_original_metric",
+      "pass": true
+    },
+    {
+      "check": "frozen733_full_original_metric",
+      "pass": true
+    },
+    {
+      "check": "frozen734_late_original_metric",
+      "pass": true
+    },
+    {
+      "check": "frozen734_full_original_metric",
+      "pass": true
+    },
+    {
+      "check": "frozen735_late_original_metric",
+      "pass": true
+    },
+    {
+      "check": "frozen735_full_original_metric",
+      "pass": true
+    },
+    {
+      "check": "frozen736_late_original_metric",
+      "pass": true
+    },
+    {
+      "check": "frozen736_full_original_metric",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_pixels_direct_burgers_focus.png",
+      "pass": true
+    },
+    {
+      "check": "portable_replay_pixels_direct_burgers_diagnostics.png",
+      "pass": true
+    },
+    {
+      "check": "energy_limits_training_energy_min",
+      "pass": true
+    },
+    {
+      "check": "energy_limits_training_energy_max",
+      "pass": true
+    },
+    {
+      "check": "energy_limits_training_physical_energy_mean",
+      "pass": true
+    },
+    {
+      "check": "energy_limits_adaptive_energy_min",
+      "pass": true
+    },
+    {
+      "check": "energy_limits_adaptive_energy_max",
+      "pass": true
+    },
+    {
+      "check": "energy_limits_adaptive_physical_energy_mean",
+      "pass": true
+    }
+  ],
+  "input_sha256": "f39d184ffa0bbaf3daff180980c8aba8a8232fad2c06ca5877d783a79bba831c",
+  "source_sha256": "a6a64648d9886e19d44920b7a792192b30058c7e406347e848fa18a4eaed0431",
+  "scope": "Display-only reconstruction; no new simulations or scientific algorithm verification claimed.",
+  "pdf_font_check": "TrueType font subsets embedded; main PDF size 525.6 x273.6 points (7.3x3.8 inches)."
+}

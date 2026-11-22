@@ -1,0 +1,121 @@
+{
+  "analysis_identity": "contact_focused_figure_20261121_v1",
+  "illustration_seed": 101,
+  "scientific_runs": 0,
+  "source_record_mutations": 0,
+  "input_sha256": {
+    "states.npz": "6cb45fbe27821ffdec286b281c731f4446e971b30b8b1b533d7b46b91799008f",
+    "trace.csv": "6e3e1a57abd620b937bbf056a95905decb690e38a9dc8fe6fa43f54add7498c2",
+    "config.json": "4b62dc9d19d3b17308f409065b544b4f7bae2f7cc3d5aad73f2cb50f4a874589",
+    "summary.json": "7ff9bee1764f356a12d87e78c2cc2b3cc34d123d3994addedc13e392156ae21f"
+  },
+  "plotter_sha256": "cbe8e26220d55bdd9132c722664dd2baed95d8958d9ec9b1301b2c3a9815be71",
+  "figure_size_inches": [
+    7.3,
+    3.9
+  ],
+  "gauge": "A=F_evaluator D; T=(A A^T)^(-1/2) A; U S V^T=SVD(T Q^T); O=U V^T; signed display difference=OQ-T. Alignment is evaluator-only; commands use original Q.",
+  "heatmap": {
+    "entries": 24,
+    "saved_samples": 12001,
+    "rows": "row-major 3x8",
+    "channels": [
+      "x",
+      "y",
+      "lambda",
+      "v_x",
+      "v_y",
+      "dot_lambda",
+      "u_1",
+      "u_2"
+    ],
+    "range": [
+      -1.0,
+      1.0
+    ],
+    "maximum_absolute_difference": 0.9307505093371925,
+    "color_mapping": "common linear symmetric RdBu_r; no clipping, entry-wise scaling or time averaging; full saved array passed to rasterized pcolormesh"
+  },
+  "curve_display_stride": 5,
+  "energy_causal_mean_seconds": 0.5,
+  "energy_startup": "shortened trailing window",
+  "task_line_styles": {
+    "actual": "blue solid, 0.85 pt",
+    "reference": "dark dotted, 2.1 pt"
+  },
+  "markers": {
+    "control_start_s": 40.0,
+    "plant_change_s": 60.0
+  },
+  "learning_continues_during_control": true,
+  "removed_from_main_figure": [
+    "same-stream frozen initial curves",
+    "separate projector error panel",
+    "decorative banner and arrows"
+  ],
+  "retained_supplement": "All 24 true/estimated aligned entry traces and original detailed figure remain available.",
+  "late_projector_error_for_caption": 0.29816907455950553,
+  "energy_definition": "0.5*||Q_pre D^-1 v_observed||^2; 0.5-s causal mean, shortened startup window.",
+  "late_window_s": [
+    110.0,
+    120.0
+  ],
+  "late_right_endpoint_included": false,
+  "late_all24_entry_rms": [
+    [
+      0.10669243075536931,
+      0.03586374484532736,
+      0.10762948198278524,
+      0.037698795259418307,
+      0.06303191709735118,
+      0.09634334864239698,
+      0.04975779392382376,
+      0.051678072203006964
+    ],
+    [
+      0.00515092336910116,
+      0.0017660808407387245,
+      0.005178568741947946,
+      0.0016056621884266394,
+      0.002674172088511589,
+      0.004640192603085359,
+      0.0021177026950517583,
+      0.0021930929093903744
+    ],
+    [
+      0.02100045212873702,
+      0.007081191195953946,
+      0.021234830037445123,
+      0.007976641379167912,
+      0.013284846769187886,
+      0.01925153595002297,
+      0.010525426910902575,
+      0.01084592770839365
+    ]
+  ],
+  "checks": {
+    "max_projector_reconstruction_error": 4.440892098500626e-15,
+    "max_alignment_orthogonality_error": 3.0306103930682915e-15,
+    "energy_reconstruction_pass": true,
+    "canonical_material_normalization_used": false,
+    "text_outside_canvas": []
+  },
+  "outputs": {
+    "direct_contact_focus.pdf": {
+      "bytes": 49269,
+      "sha256": "a7db8130a3f7e327679d79597e6e7c38668d228b1e86e88b5b758f75ca65583a"
+    },
+    "direct_contact_focus.png": {
+      "bytes": 202331,
+      "sha256": "92e78f1a8d44535781ab7394492dc468d6aabdd2c9332ae06331da777bd6e53d"
+    },
+    "display_data.npz": {
+      "bytes": 7657143,
+      "sha256": "7c7b1d010d39de1d7572e1829d439bbcd24ce3d939b3298ba2d1fe349a360969"
+    },
+    "plot_figure_focus_source.py": {
+      "bytes": 10030,
+      "sha256": "cbe8e26220d55bdd9132c722664dd2baed95d8958d9ec9b1301b2c3a9815be71"
+    }
+  }
+}

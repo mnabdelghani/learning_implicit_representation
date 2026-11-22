@@ -111,21 +111,17 @@ specified window. Terminal commands at $t=100$ are stored but not applied and
 are excluded from task/readout metrics. Rendering uses every fifth sample;
 metrics use every applied sample without smoothing.
 
-\begin{figure*}[t]
+\begin{figure}[t]
  \centering
- \includegraphics[width=.325\textwidth]{figures/direct_burgers_partials.pdf}\hfill
- \includegraphics[width=.325\textwidth]{figures/direct_burgers_energy.pdf}\hfill
- \includegraphics[width=.325\textwidth]{figures/direct_burgers_tracking.pdf}
- \caption{Direct Burgers evidence. Left: all five learned entries at the
- preselected seed 732/site 0, with the evaluator's unit/sign convention.
- Middle: physical projector error and pre-update secant energy. Right:
- adaptive/frozen own-trajectory task performance and the seed-732/site-0
- state/reference. Cohort lines are arithmetic means and bands span all five
- seeds; dotted energy curves use the physical row on the same secants.
- The vertical split at 80 s separates shared probe training from control.
- Ideal rate sensing is assumed.}
- \label{fig:direct_burgers_protocol}
-\end{figure*}
+ \includegraphics[width=\columnwidth]{figures/direct_burgers_diagnostics.pdf}
+ \caption{Whole-field Burgers representation error, complementing the main
+figure's partial, incompatibility and control plots. Curves are means and bands
+span all five seeds, with error averaged over all 32 spatial sites. At 80 s,
+the shared probing trajectory branches into separately controlled adaptive
+and frozen runs. The adaptive rows continue learning through 100 s;
+the frozen rows retain their values at 80 s.}
+\label{fig:direct_burgers_protocol}
+\end{figure}
 
 \begin{table*}[t]
 \centering
@@ -252,8 +248,8 @@ audit also retains all 19 cases, sensor/filter reconstruction, coupled-ODE
 checks and failed branch records.
 
 From the package directory, \path{verify_package.py} performs the focused
-replay/numerical checks, \path{plot_main.py} regenerates the panels without
-simulation, \path{burgers_direct.py} reproduces one declared case or the complete
+replay/numerical checks, \path{plot_figure_focus.py} regenerates the current
+figures without simulation, \path{burgers_direct.py} reproduces one declared case or the complete
 study in a new directory, and \path{audit_runs.py} independently reconstructs
 raw runs without importing the learner or simulator. The README gives exact
 commands and dependencies. These numerical checks verify implementation and

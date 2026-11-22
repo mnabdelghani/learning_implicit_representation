@@ -24,6 +24,13 @@
       "source_sha256": "d54fba5e54ebd2a67ec46541f9ca539797fbbef5dfb87fb090bd428b6ea51710",
       "packaged_sha256": "d54fba5e54ebd2a67ec46541f9ca539797fbbef5dfb87fb090bd428b6ea51710",
       "scientific_source_changed": false
+    },
+    "plot_contact_main.py": {
+      "source_sha256": "d0db26c3f245f5dc892b56c3f5d85e514369f2d652ecc49dbd7ac745049254ee",
+      "packaged_sha256": "d0db26c3f245f5dc892b56c3f5d85e514369f2d652ecc49dbd7ac745049254ee",
+      "scientific_source_changed": false,
+      "scope": "New analysis-only figure source; original simulation, learner, report and raw records unchanged.",
+      "analysis_identity": "contact_all24_exposition_20261121_v1"
     }
   },
   "fourier": {
@@ -43,5 +50,68 @@
       "scientific_source_changed": false
     }
   },
-  "burgers": "See burgers/source_mapping.json for source-extraction and import/CLI provenance; 20 unchanged scientific symbols and 21 unchanged independent-analysis functions."
+  "burgers": "See burgers/source_mapping.json for source-extraction and import/CLI provenance; 20 unchanged scientific symbols and 21 unchanged independent-analysis functions.",
+  "electrical_fourier": {
+    "run.py": {
+      "source_sha256": "2852e9255b09196a7927fbf4df0235dc0ad3d593c2f40e74cf84b6ff3c0f41fc",
+      "packaged_sha256": "2852e9255b09196a7927fbf4df0235dc0ad3d593c2f40e74cf84b6ff3c0f41fc",
+      "scientific_source_changed": false
+    },
+    "protocol.json": {
+      "source_sha256": "925710c55d02b30d60f63c872c2fa80dfe9563e0257fb8d5083c0c5f5ff17304",
+      "packaged_sha256": "925710c55d02b30d60f63c872c2fa80dfe9563e0257fb8d5083c0c5f5ff17304",
+      "scientific_source_changed": false
+    },
+    "electrical_simulator.py": {
+      "source_sha256": "733cd6840805f80b737f182de387ccd4e4cf879721ecba772fc3024e7c9a59b5",
+      "packaged_sha256": "733cd6840805f80b737f182de387ccd4e4cf879721ecba772fc3024e7c9a59b5",
+      "scientific_source_changed": false
+    },
+    "period_estimator.py": {
+      "source_sha256": "0a6e1f7ad9a4840b1ad0a98aa76e9cb5bbad80004d77dcb913eecd69e8b56f4b",
+      "packaged_sha256": "0a6e1f7ad9a4840b1ad0a98aa76e9cb5bbad80004d77dcb913eecd69e8b56f4b",
+      "scientific_source_changed": false
+    },
+    "direct_learner.py": {
+      "source_sha256": "72811227a033a486d219c10dbcdacb01dc8707c299111f81d7ac72405f169c3d",
+      "packaged_sha256": "72811227a033a486d219c10dbcdacb01dc8707c299111f81d7ac72405f169c3d",
+      "scientific_source_changed": false
+    },
+    "audit.py": {
+      "source_sha256": "570676496a4615da42d16eae89efba3c82655a39146554c0f5fd5d1cd6d12dc4",
+      "packaged_sha256": "570676496a4615da42d16eae89efba3c82655a39146554c0f5fd5d1cd6d12dc4",
+      "scientific_source_changed": false
+    },
+    "summarize_plot.py": {
+      "source_sha256": "459869e68e558f0dc6003202f81b61d6c444914e9fdc33fdde023d14f2ca3279",
+      "packaged_sha256": "459869e68e558f0dc6003202f81b61d6c444914e9fdc33fdde023d14f2ca3279",
+      "scientific_source_changed": false
+    }
+  },
+  "figure_focus_20261121": {
+    "electrical_fourier": {
+      "path": "experiments/direct_submission/electrical_fourier/plot_figure_focus.py",
+      "source_sha256": "aeb1a5dc39ad6c698030cdfb4c51f54f6d08bc930821fa1319cfbeaf59729622",
+      "packaged_sha256": "aeb1a5dc39ad6c698030cdfb4c51f54f6d08bc930821fa1319cfbeaf59729622",
+      "scientific_source_changed": false,
+      "scope": "New analysis-only plotting source; original simulation, learner, protocol, plotter and raw records unchanged.",
+      "analysis_identity": "electrical_four_panel_presentation_20261121_v1"
+    },
+    "contact": {
+      "path": "experiments/direct_submission/contact/plot_figure_focus.py",
+      "source_sha256": "cbe8e26220d55bdd9132c722664dd2baed95d8958d9ec9b1301b2c3a9815be71",
+      "packaged_sha256": "cbe8e26220d55bdd9132c722664dd2baed95d8958d9ec9b1301b2c3a9815be71",
+      "scientific_source_changed": false,
+      "scope": "New analysis-only plotting source; original simulation, learner, protocol, plotter and raw records unchanged.",
+      "analysis_identity": "contact_focused_figure_20261121_v1"
+    },
+    "burgers": {
+      "path": "experiments/direct_submission/burgers/plot_figure_focus.py",
+      "source_sha256": "a6a64648d9886e19d44920b7a792192b30058c7e406347e848fa18a4eaed0431",
+      "packaged_sha256": "a6a64648d9886e19d44920b7a792192b30058c7e406347e848fa18a4eaed0431",
+      "scientific_source_changed": false,
+      "scope": "New analysis-only plotting source; original simulation, learner, protocol, plotter and raw records unchanged.",
+      "analysis_identity": "burgers_figure_focus_20261121_v1"
+    }
+  }
 }

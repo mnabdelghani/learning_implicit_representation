@@ -1,0 +1,90 @@
+{
+  "identity": "contact_focused_figure_20261121_v1",
+  "scope": "Focused four-panel presentation of unchanged prespecified contact seed101. No simulations or original record mutations.",
+  "command_example": "python plot_figure_focus.py --case PATH_TO_CONTACT/confirm_seed101 --output NEW_DIRECTORY",
+  "raw_archive": {
+    "filename": "contact_raw.tar.gz",
+    "sha256": "4f1764f54ea465d19c9482843c3727bcaebdd35cc32b35fe4f809d61a383e219",
+    "bytes": 101839481,
+    "cases": [
+      "confirm_seed101",
+      "confirm_seed102",
+      "confirm_seed103",
+      "confirm_seed104",
+      "confirm_seed105",
+      "pilot_ideal_seed0",
+      "pilot_local_change_seed0",
+      "pilot_local_seed0",
+      "refine_seed101"
+    ],
+    "file_count": 87,
+    "top_level": "contact"
+  },
+  "input_archive_members": {
+    "contact/confirm_seed101/states.npz": {
+      "sha256": "6cb45fbe27821ffdec286b281c731f4446e971b30b8b1b533d7b46b91799008f",
+      "bytes": 7927536
+    },
+    "contact/confirm_seed101/trace.csv": {
+      "sha256": "6e3e1a57abd620b937bbf056a95905decb690e38a9dc8fe6fa43f54add7498c2",
+      "bytes": 7069710
+    },
+    "contact/confirm_seed101/config.json": {
+      "sha256": "4b62dc9d19d3b17308f409065b544b4f7bae2f7cc3d5aad73f2cb50f4a874589",
+      "bytes": 869
+    },
+    "contact/confirm_seed101/summary.json": {
+      "sha256": "7ff9bee1764f356a12d87e78c2cc2b3cc34d123d3994addedc13e392156ae21f",
+      "bytes": 2214
+    }
+  },
+  "files": {
+    "direct_contact_focus.pdf": {
+      "bytes": 49269,
+      "sha256": "a7db8130a3f7e327679d79597e6e7c38668d228b1e86e88b5b758f75ca65583a"
+    },
+    "direct_contact_focus.png": {
+      "bytes": 202331,
+      "sha256": "92e78f1a8d44535781ab7394492dc468d6aabdd2c9332ae06331da777bd6e53d"
+    },
+    "display_data.npz": {
+      "bytes": 7657143,
+      "sha256": "7c7b1d010d39de1d7572e1829d439bbcd24ce3d939b3298ba2d1fe349a360969"
+    },
+    "figure_manifest.json": {
+      "bytes": 3771,
+      "sha256": "3144b5f94ef10b7c79cac114eb6f51aec4cffc6f2a4f91fb550afbe38147e59d"
+    },
+    "plot_figure_focus.py": {
+      "bytes": 10030,
+      "sha256": "cbe8e26220d55bdd9132c722664dd2baed95d8958d9ec9b1301b2c3a9815be71"
+    },
+    "plot_figure_focus_source.py": {
+      "bytes": 10030,
+      "sha256": "cbe8e26220d55bdd9132c722664dd2baed95d8958d9ec9b1301b2c3a9815be71"
+    }
+  },
+  "prior_figure": {
+    "path": "included_figures/direct_contact_summary.pdf",
+    "bytes": 70373,
+    "sha256": "ce368d8decf62badc49ae82da61f8372cfd11639bba71b3f1ca79a2f02bbed2d",
+    "unchanged": true
+  },
+  "prior_analysis_directory": "analysis_20261121/ (unchanged)",
+  "prior_plotter": "plot_contact_main.py (unchanged)",
+  "original_raw_archive_unchanged": true,
+  "scientific_runs": 0,
+  "visible_panels": [
+    "All 24 aligned partial-entry errors",
+    "Pre-update incompatibility energy",
+    "Vertical force",
+    "Horizontal position"
+  ],
+  "preserved_elsewhere": [
+    "Prior projector-error and frozen-initial presentation",
+    "Supplementary all-24 true/estimated traces",
+    "Canonical-gauge limitation"
+  ],
+  "learning_continues_during_control": true,
+  "late_projector_error_for_caption": 0.29816907455950553
+}

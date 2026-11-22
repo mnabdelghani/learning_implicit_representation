@@ -1,0 +1,135 @@
+{
+  "identity": "electrical_four_panel_presentation_20261121_v1",
+  "illustration_seed": 10,
+  "scientific_runs": 0,
+  "record_mutations": 0,
+  "command_example": "python plot_figure_focus.py --records PATH_TO_RECORDS --output NEW_DIRECTORY",
+  "environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.8"
+  },
+  "input_sha256": {
+    "seed_10/training.npz": "57a1ea1e7313f46b9e12ea5eea599c5e03747cbc4d5819982a578eb6e59327fb",
+    "seed_10/effective_protocol.json": "146b491a7cba7819e32dd8cfe636f7249cd920658ee83868aef706087a5b53d7",
+    "seed_10/training_evaluator.npz": "53fba271ed5585fd315222fa2c3bc652a56e4cad51c033aa7f70212e6e6b7d63",
+    "seed_10/period_estimate.json": "f3efe78c16f234b43a1a4a39d85efd88e1b52c2b9ef2b15496b1c424494a63b8",
+    "seed_10/summary.json": "f376588db79d3bf91bb375ea8e2884a17fee31f4213422861199cad0c856f4c5",
+    "seed_10/prediction_fourier.npz": "14a5bc9d626c1fd01210bcae17580f7b2b942e2e1024a489906ba75b35cf7941",
+    "seed_10/prediction_evaluator.npz": "f30e04fabd68328b2cbf7bbc7d43a9286800b1ba96bf381f3a51327741044e7b",
+    "seed_10/control_fourier.npz": "ad0fcad20709688cf93397304476e787bb57badfc58442c211fb213dc51994b5",
+    "seed_10/control_K0.npz": "2911c4401b02a9b770beee8015b0b99c71ddaa875786fffa7fa4631c85416517",
+    "seed_11/effective_protocol.json": "70eb4d010670a4bfaca9f48ed96bf9323e4b15ffd70105acf7a430a4c3cc1a92",
+    "seed_11/training_evaluator.npz": "a15e360bd0d43dbc575d970a66a1f1bf14f99f48673e9a4bc8add3a3527a61d0",
+    "seed_12/effective_protocol.json": "8d0300d9ccb107037dec27930ba5233adc3495e6ceff9d968a2289b8b8c360e1",
+    "seed_12/training_evaluator.npz": "b9160b44ec603f5427490d1376defdd42c33497b72190b8f29fd3d5be95747c4",
+    "seed_13/effective_protocol.json": "5840a0339acb9260dec25766837f6d49a08da907630424ad19985a761214d2af",
+    "seed_13/training_evaluator.npz": "d513dc49c8810823e1e1bb0cbac07a6fe137f575720de52cc80b664147024946",
+    "seed_14/effective_protocol.json": "a025c983f6fe803586a3479309b9adf1cb9dea16bbed48cddece49c7fe3ab831",
+    "seed_14/training_evaluator.npz": "49a9d0cb5a7c576ecb5350a4df6d8be503f20627cd1828c6c5cae0f8be37a079",
+    "seed_15/effective_protocol.json": "bdfe10954f04ad989d4aacf0db9c879803530b4c1cbcb5cea7a2860dddf658fd",
+    "seed_15/training_evaluator.npz": "0c9b9bff0f7b7a688716661babdb46da279f5bf9b6f66a8690254d77e34432db",
+    "seed_16/effective_protocol.json": "3e2dd3e705966dbb7dafc597942bf9cac5b3732449e9c6b7f58a0d242e32cbe4",
+    "seed_16/training_evaluator.npz": "24f9844ae8a80a239952f02f8496a98e5ce86f08e787fe3516c20cc193572c98",
+    "seed_17/effective_protocol.json": "3c168643f1e87ef75d0a0b7163477fb1db9edcde277b7bc9d4bdcafe27b25696",
+    "seed_17/training_evaluator.npz": "a0fd1c122424e6dfdc286877916d4e1c0702554c172abcc35a97f020ce522709",
+    "seed_18/effective_protocol.json": "183834932face349dffe8399e7db2defd538f002f6131811fb95a4e775a6dbf3",
+    "seed_18/training_evaluator.npz": "1c3b6714bbc31ab7806721b370788397bf1abdefa53cfb5c4b524fd528c0e0c7",
+    "seed_19/effective_protocol.json": "97e5450b59bb469daf443025085b79a1319fbd91c19a0efb556d8e1dd5e840a8",
+    "seed_19/training_evaluator.npz": "a747736691562d81b0d922dc4b03226fcee3f33b8417bd5e87b5dd4d9fdcf146"
+  },
+  "source_sha256": "aeb1a5dc39ad6c698030cdfb4c51f54f6d08bc930821fa1319cfbeaf59729622",
+  "alignment": {
+    "method": "One least-squares scalar/sign across all four entries and all saved times in the original final1s display window; evaluator-only",
+    "formula": "Hhat=C_pre evaluated at observed calibrated frequency; A=F_evaluator D; alpha=sum(Hhat*A)/sum(Hhat**2); display alpha*Hhat versus A",
+    "context_scales": [
+      20.0,
+      2.0,
+      5.0,
+      1.0
+    ],
+    "window_relative_s": [
+      119.0,
+      120.0
+    ],
+    "endpoints_included": true,
+    "samples": 201,
+    "scalar": -7.2416131835327935,
+    "numerator": -1422.1516198307243,
+    "denominator": 196.38602391310454,
+    "no_pointwise_normalization": true,
+    "no_entry_forced_to_truth": true,
+    "raw_entry_rms_before_alignment": [
+      3.414270293328798,
+      4.552364657966217,
+      5.69045576767817,
+      1.2659108240618755
+    ],
+    "scaled_entry_rms_after_alignment": [
+      0.00398326768629972,
+      0.005729621847164144,
+      0.007157594249156664,
+      0.0013185861448757772
+    ]
+  },
+  "preprocessing": {
+    "energy": "Actual saved pre-update energy, reconstructed from evaluated C_pre and observed rates",
+    "energy_causal_mean_seconds": 1.0,
+    "energy_causal_mean_samples": 200,
+    "energy_startup": "Shortened trailing window",
+    "energy_log_display_floor": 1e-16,
+    "curve_decimation": 1,
+    "task_transients": "Full saved12s including initial transient",
+    "projector_band": "Pointwise min\u2013max over all ten declared seeds; unsmoothed median line"
+  },
+  "panels": {
+    "main_a": "Seed10 incompatibility energy; no constant-only comparison",
+    "main_b": "All four estimated/true scaled partial entries in single fixed scalar/sign display convention",
+    "main_c": "Independent current prediction versus evaluator current; no future output assimilation",
+    "main_d": "Learned-field current control versus task reference; weights remain frozen",
+    "supplement_a": "All ten seeds Fourier versus constant-only projector error",
+    "supplement_b": "Applied voltage and true clock partial; both in volts",
+    "supplement_c": "Fourier and constant-only own-trajectory control versus shared reference"
+  },
+  "checks": {
+    "max_energy_reconstruction_error": 0.0,
+    "main_text_outside_canvas": [],
+    "diagnostics_text_outside_canvas": []
+  },
+  "figures": {
+    "main_inches": [
+      7.3,
+      3.8
+    ],
+    "diagnostics_inches": [
+      7.3,
+      2.5
+    ]
+  },
+  "outputs": {
+    "direct_fourier_diagnostics.pdf": {
+      "bytes": 863361,
+      "sha256": "809427bab3644b40100f84e567260cfc04dc15c9f4d58164d2e117629d982521"
+    },
+    "direct_fourier_diagnostics.png": {
+      "bytes": 213343,
+      "sha256": "73a062b626ceaf568d11f5bc0230afb60e297b1fd5d8f4b1c6c13ffc599e97bf"
+    },
+    "direct_fourier_focus.pdf": {
+      "bytes": 60001,
+      "sha256": "dbc1099f3004158a1e9d50f583b74367a7692c7948cc9953d286ddcf2eb5d18c"
+    },
+    "direct_fourier_focus.png": {
+      "bytes": 227949,
+      "sha256": "beea4a4fb8bedd6add33e451a712d355f71c29e9bc34e4d66893667c2327ff82"
+    },
+    "display_data.npz": {
+      "bytes": 5393041,
+      "sha256": "d217e36a999017dc2ecdd16211ae28b0c4aeb0599d5ecc00b3fe66147c0e99f1"
+    },
+    "plot_figure_focus.py": {
+      "bytes": 15206,
+      "sha256": "aeb1a5dc39ad6c698030cdfb4c51f54f6d08bc930821fa1319cfbeaf59729622"
+    }
+  }
+}

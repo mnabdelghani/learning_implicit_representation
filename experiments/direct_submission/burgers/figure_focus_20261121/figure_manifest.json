@@ -1,0 +1,211 @@
+{
+  "display_identity": "burgers_figure_focus_20261121_v1",
+  "scientific_protocol": "burgers_direct_field_long_training_multiseed_causal_sensing_20261120_v1",
+  "input_file": "ideal_plot_data.npz",
+  "input_sha256": "f39d184ffa0bbaf3daff180980c8aba8a8232fad2c06ca5877d783a79bba831c",
+  "source_sha256": "a6a64648d9886e19d44920b7a792192b30058c7e406347e848fa18a4eaed0431",
+  "representative_seed": 732,
+  "representative_site": 0,
+  "cohort_seeds": [
+    732,
+    733,
+    734,
+    735,
+    736
+  ],
+  "figure_size_inches": [
+    7.3,
+    3.8
+  ],
+  "main_axis_y_limits": [
+    [
+      5.497408313733821e-17,
+      0.1
+    ],
+    [
+      -1.02,
+      1.2
+    ],
+    [
+      2.2094713918026326e-06,
+      0.010898807893025065
+    ],
+    [
+      0.18899929891341033,
+      0.21101483263728724
+    ]
+  ],
+  "diagnostic_figure_size_inches": [
+    3.5,
+    2.2
+  ],
+  "panels": {
+    "a": "Arithmetic mean learned-row secant energy and full min/max band across all five seeds, training then adaptive branch; dotted physical-row reference is now the matched five-seed arithmetic mean, rather than only seed732. No frozen-energy curve.",
+    "b": "All five archived site0 entries for preselected seed732, training then adaptive; input arrays retain their original evaluator-only unit normalization and sign alignment. No new alignment.",
+    "c": "Arithmetic mean of instantaneous spatial task RMS across all five seeds, with full min/max bands; adaptive and frozen own-trajectory branches over the full80\u2013100s control window.",
+    "d": "Actual adaptive-branch field versus desired field at preselected seed732/site0, full80\u2013100s control window."
+  },
+  "render_stride": 5,
+  "sample_interval_seconds": 0.005,
+  "last_sample_included": true,
+  "terminal_observation_note": "The saved t100 observation is displayed, as in the original figure; terminal unapplied commands are excluded from reported window metrics.",
+  "smoothing": false,
+  "log_floor": null,
+  "startup_missing_energy": "The first10 training samples (t<.05s) have no complete causal secant and remain NaN gaps; no values are fabricated or filled.",
+  "display_changes_only": true,
+  "supplement_diagnostic": "The separate single-axis figure shows whole-field row-projector error, five-seed mean and full range, training and adaptive/frozen control; no metric or time window changed.",
+  "retained_elsewhere": "Original detailed panels remain archived unchanged; the manuscript retains quantitative row-space metrics.",
+  "environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.8"
+  },
+  "diagnostics": {
+    "seeds": [
+      732,
+      733,
+      734,
+      735,
+      736
+    ],
+    "finite_energy_start": {
+      "732_training": 0.05,
+      "733_training": 0.05,
+      "734_training": 0.05,
+      "735_training": 0.05,
+      "736_training": 0.05,
+      "732_adaptive": 80.0,
+      "733_adaptive": 80.0,
+      "734_adaptive": 80.0,
+      "735_adaptive": 80.0,
+      "736_adaptive": 80.0,
+      "732_frozen": 80.0,
+      "733_frozen": 80.0,
+      "734_frozen": 80.0,
+      "735_frozen": 80.0,
+      "736_frozen": 80.0
+    },
+    "unapplied_terminal_samples": {
+      "732_training": 0,
+      "733_training": 0,
+      "734_training": 0,
+      "735_training": 0,
+      "736_training": 0,
+      "732_adaptive": 1,
+      "733_adaptive": 1,
+      "734_adaptive": 1,
+      "735_adaptive": 1,
+      "736_adaptive": 1,
+      "732_frozen": 1,
+      "733_frozen": 1,
+      "734_frozen": 1,
+      "735_frozen": 1,
+      "736_frozen": 1
+    },
+    "guard_samples": {
+      "732_training": 0,
+      "733_training": 0,
+      "734_training": 0,
+      "735_training": 0,
+      "736_training": 0,
+      "732_adaptive": 0,
+      "733_adaptive": 0,
+      "734_adaptive": 0,
+      "735_adaptive": 0,
+      "736_adaptive": 0,
+      "732_frozen": 0,
+      "733_frozen": 0,
+      "734_frozen": 0,
+      "735_frozen": 0,
+      "736_frozen": 0
+    },
+    "clip_samples": {
+      "732_training": 0,
+      "733_training": 0,
+      "734_training": 0,
+      "735_training": 0,
+      "736_training": 0,
+      "732_adaptive": 0,
+      "733_adaptive": 0,
+      "734_adaptive": 0,
+      "735_adaptive": 0,
+      "736_adaptive": 0,
+      "732_frozen": 0,
+      "733_frozen": 0,
+      "734_frozen": 0,
+      "735_frozen": 0,
+      "736_frozen": 0
+    },
+    "training_energy_nan_samples": {
+      "732": 10,
+      "733": 10,
+      "734": 10,
+      "735": 10,
+      "736": 10
+    }
+  },
+  "task_window_metrics": {
+    "adaptive": [
+      {
+        "seed": 732,
+        "late_task_rms": 8.5083704867801e-06,
+        "full_control_task_rms": 0.0012234629068280899
+      },
+      {
+        "seed": 733,
+        "late_task_rms": 8.518616058667227e-06,
+        "full_control_task_rms": 0.00122364068128742
+      },
+      {
+        "seed": 734,
+        "late_task_rms": 8.446009209632204e-06,
+        "full_control_task_rms": 0.00122351523092987
+      },
+      {
+        "seed": 735,
+        "late_task_rms": 8.900484935662382e-06,
+        "full_control_task_rms": 0.001224040422897471
+      },
+      {
+        "seed": 736,
+        "late_task_rms": 8.487380690421774e-06,
+        "full_control_task_rms": 0.001223563769354127
+      }
+    ],
+    "frozen": [
+      {
+        "seed": 732,
+        "late_task_rms": 2.248948631200739e-05,
+        "full_control_task_rms": 0.0012236338837632145
+      },
+      {
+        "seed": 733,
+        "late_task_rms": 2.587582421247147e-05,
+        "full_control_task_rms": 0.0012239334040513674
+      },
+      {
+        "seed": 734,
+        "late_task_rms": 1.1794207621036258e-05,
+        "full_control_task_rms": 0.0012235302667958218
+      },
+      {
+        "seed": 735,
+        "late_task_rms": 4.998733351058899e-05,
+        "full_control_task_rms": 0.0012250128294004838
+      },
+      {
+        "seed": 736,
+        "late_task_rms": 1.3908290469921317e-05,
+        "full_control_task_rms": 0.0012236067746719576
+      }
+    ]
+  },
+  "artifacts": {
+    "direct_burgers_focus.pdf": "c142fea81a8d99d8563dfdf3c5c9271af2588db3d2f997efa560ec6ae5875e4f",
+    "direct_burgers_focus.png": "fbebb4baa20f56111ac62d0dc27ad020d76a98d11ed011fc2d54a21274c3a518",
+    "direct_burgers_diagnostics.pdf": "d98061cd52124416287152076c75727e3bf9154a79107f439db15098861ce6f9",
+    "direct_burgers_diagnostics.png": "ba6e58085a4fe7089d37b420eaca9e166b85cca6b7159f49679cee9408409afc",
+    "display_data.npz": "5cd3d6e7eaa61b18dc4c001e02d6edc8781ec6650f81e5743f6c1db5a8992050",
+    "plot_figure_focus_source.py": "a6a64648d9886e19d44920b7a792192b30058c7e406347e848fa18a4eaed0431"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "illustration_seed": 101,
+  "scientific_runs": 0,
+  "source_record_mutations": 0,
+  "input_sha256": {
+    "states.npz": "6cb45fbe27821ffdec286b281c731f4446e971b30b8b1b533d7b46b91799008f",
+    "trace.csv": "6e3e1a57abd620b937bbf056a95905decb690e38a9dc8fe6fa43f54add7498c2",
+    "config.json": "4b62dc9d19d3b17308f409065b544b4f7bae2f7cc3d5aad73f2cb50f4a874589",
+    "summary.json": "7ff9bee1764f356a12d87e78c2cc2b3cc34d123d3994addedc13e392156ae21f"
+  },
+  "plotter_sha256": "d0db26c3f245f5dc892b56c3f5d85e514369f2d652ecc49dbd7ac745049254ee",
+  "figure_size_inches": [
+    7.3,
+    4.25
+  ],
+  "gauge": "A=F_evaluator D; T=(A A^T)^(-1/2) A; U S V^T=SVD(T Q^T); O=U V^T; signed display difference=OQ-T. Alignment is evaluator-only; commands use original Q.",
+  "heatmap": {
+    "entries": 24,
+    "saved_samples": 12001,
+    "rows": "row-major 3x8",
+    "channels": [
+      "x",
+      "y",
+      "lambda",
+      "v_x",
+      "v_y",
+      "dot_lambda",
+      "u_1",
+      "u_2"
+    ],
+    "range": [
+      -1.0,
+      1.0
+    ],
+    "maximum_absolute_difference": 0.9307505093371925,
+    "color_mapping": "common linear symmetric RdBu_r; no clipping, entry-wise scaling or time averaging; full saved array passed to rasterized pcolormesh"
+  },
+  "curve_display_stride": 5,
+  "energy_causal_mean_seconds": 0.5,
+  "energy_startup": "shortened trailing window",
+  "markers": {
+    "control_start_s": 40.0,
+    "plant_change_s": 60.0
+  },
+  "late_window_s": [
+    110.0,
+    120.0
+  ],
+  "late_right_endpoint_included": false,
+  "late_all24_entry_rms": [
+    [
+      0.10669243075536931,
+      0.03586374484532736,
+      0.10762948198278524,
+      0.037698795259418307,
+      0.06303191709735118,
+      0.09634334864239698,
+      0.04975779392382376,
+      0.051678072203006964
+    ],
+    [
+      0.00515092336910116,
+      0.0017660808407387245,
+      0.005178568741947946,
+      0.0016056621884266394,
+      0.002674172088511589,
+      0.004640192603085359,
+      0.0021177026950517583,
+      0.0021930929093903744
+    ],
+    [
+      0.02100045212873702,
+      0.007081191195953946,
+      0.021234830037445123,
+      0.007976641379167912,
+      0.013284846769187886,
+      0.01925153595002297,
+      0.010525426910902575,
+      0.01084592770839365
+    ]
+  ],
+  "checks": {
+    "max_projector_reconstruction_error": 4.440892098500626e-15,
+    "max_alignment_orthogonality_error": 3.0306103930682915e-15,
+    "energy_reconstruction_pass": true,
+    "canonical_material_normalization_used": false,
+    "text_outside_canvas": []
+  },
+  "outputs": {
+    "direct_contact_summary.pdf": {
+      "bytes": 70373,
+      "sha256": "ce368d8decf62badc49ae82da61f8372cfd11639bba71b3f1ca79a2f02bbed2d"
+    },
+    "direct_contact_summary.png": {
+      "bytes": 277459,
+      "sha256": "d1cffede848dbffa0cfb9a4d6cc012713dc4407510a80c9a7f01abef482af32f"
+    },
+    "display_data.npz": {
+      "bytes": 7744219,
+      "sha256": "b7a02dba1494aee8767d0f61eb79e79895dcfdfc3b82c1b8fb19ec8532d7fbfa"
+    },
+    "plot_contact_source.py": {
+      "bytes": 10958,
+      "sha256": "d0db26c3f245f5dc892b56c3f5d85e514369f2d652ecc49dbd7ac745049254ee"
+    }
+  }
+}

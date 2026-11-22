@@ -1,0 +1,78 @@
+{
+  "identity": "contact_all24_exposition_20261121_v1",
+  "scope": "Analysis-only presentation revision of the existing prespecified contact seed101; no simulation or original record changes.",
+  "experiment_identity": "contact_direct_ideal_temporal_20261120_v2_local_excited",
+  "illustration_seed": 101,
+  "scientific_runs_executed": 0,
+  "original_record_mutations": 0,
+  "source": {
+    "path": "plot_contact_main.py",
+    "bytes": 10958,
+    "sha256": "d0db26c3f245f5dc892b56c3f5d85e514369f2d652ecc49dbd7ac745049254ee"
+  },
+  "original_raw_archive": {
+    "filename": "contact_raw.tar.gz",
+    "sha256": "4f1764f54ea465d19c9482843c3727bcaebdd35cc32b35fe4f809d61a383e219",
+    "bytes": 101839481,
+    "cases": [
+      "confirm_seed101",
+      "confirm_seed102",
+      "confirm_seed103",
+      "confirm_seed104",
+      "confirm_seed105",
+      "pilot_ideal_seed0",
+      "pilot_local_change_seed0",
+      "pilot_local_seed0",
+      "refine_seed101"
+    ],
+    "file_count": 87,
+    "top_level": "contact"
+  },
+  "input_archive_members": {
+    "contact/confirm_seed101/states.npz": {
+      "sha256": "6cb45fbe27821ffdec286b281c731f4446e971b30b8b1b533d7b46b91799008f",
+      "bytes": 7927536
+    },
+    "contact/confirm_seed101/trace.csv": {
+      "sha256": "6e3e1a57abd620b937bbf056a95905decb690e38a9dc8fe6fa43f54add7498c2",
+      "bytes": 7069710
+    },
+    "contact/confirm_seed101/config.json": {
+      "sha256": "4b62dc9d19d3b17308f409065b544b4f7bae2f7cc3d5aad73f2cb50f4a874589",
+      "bytes": 869
+    },
+    "contact/confirm_seed101/summary.json": {
+      "sha256": "7ff9bee1764f356a12d87e78c2cc2b3cc34d123d3994addedc13e392156ae21f",
+      "bytes": 2214
+    }
+  },
+  "figure_analysis_manifest": {
+    "bytes": 3128,
+    "sha256": "c3a775f83dda00cc4137678199dc0dec06f836d8e9de3c7d9676152f68c778b9"
+  },
+  "derived_display_data": {
+    "path": "analysis_20261121/display_data.npz",
+    "bytes": 7744219,
+    "sha256": "b7a02dba1494aee8767d0f61eb79e79895dcfdfc3b82c1b8fb19ec8532d7fbfa"
+  },
+  "included_pdf": {
+    "path": "included_figures/direct_contact_summary.pdf",
+    "bytes": 70373,
+    "sha256": "ce368d8decf62badc49ae82da61f8372cfd11639bba71b3f1ca79a2f02bbed2d"
+  },
+  "included_png": {
+    "path": "included_figures/direct_contact_summary.png",
+    "bytes": 277459,
+    "sha256": "d1cffede848dbffa0cfb9a4d6cc012713dc4407510a80c9a7f01abef482af32f"
+  },
+  "prior_presentation": {
+    "path": "included_figures/historical_direct_contact_summary_20261120.pdf",
+    "bytes": 140585,
+    "sha256": "7420fdd64acae07484c9298584516a09dff01349db1fed558e639ba228a09d87",
+    "original_manifest": "data/figure_manifest.json",
+    "original_manifest_unchanged": true
+  },
+  "comparison": "All 24 signed entries of OQ-T in the original evaluator-only orthogonal display gauge, with a common unclipped linear color scale. This does not establish recovery of canonical material magnitudes.",
+  "learning_continues_after_control_start": true,
+  "raw_archive_rewritten": false
+}

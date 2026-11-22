@@ -1,0 +1,323 @@
+{
+  "identity": "figure_focus_20261121",
+  "scope": "Presentation-only revision of the three current main figures and distinct supplementary diagnostics. No experimental source, protocol, raw record, or numerical outcome changes.",
+  "availability": "Prepared locally; no publication or remote release asserted.",
+  "scientific_runs": 0,
+  "studies": {
+    "electrical_fourier": {
+      "identity": "electrical_four_panel_presentation_20261121_v1",
+      "source": {
+        "path": "experiments/direct_submission/electrical_fourier/plot_figure_focus.py",
+        "bytes": 15206,
+        "sha256": "aeb1a5dc39ad6c698030cdfb4c51f54f6d08bc930821fa1319cfbeaf59729622"
+      },
+      "figure_manifest": {
+        "path": "experiments/direct_submission/electrical_fourier/figure_focus_20261121/figure_manifest.json",
+        "bytes": 6647,
+        "sha256": "c70bdb06ea3903fe224144464c2d202793cb92b0fcd8f8f774b7ca9c0363823e"
+      },
+      "derived_arrays": {
+        "path": "experiments/direct_submission/electrical_fourier/figure_focus_20261121/display_data.npz",
+        "bytes": 5393041,
+        "sha256": "d217e36a999017dc2ecdd16211ae28b0c4aeb0599d5ecc00b3fe66147c0e99f1"
+      },
+      "figures": {
+        "focus": {
+          "path": "supplement/figures/direct_fourier_focus.pdf",
+          "bytes": 60001,
+          "sha256": "dbc1099f3004158a1e9d50f583b74367a7692c7948cc9953d286ddcf2eb5d18c"
+        },
+        "diagnostics": {
+          "path": "supplement/figures/direct_fourier_diagnostics.pdf",
+          "bytes": 863361,
+          "sha256": "809427bab3644b40100f84e567260cfc04dc15c9f4d58164d2e117629d982521"
+        }
+      },
+      "input_binding": {
+        "electrical_fourier/records/seed_10/training.npz": {
+          "bytes": 5557841,
+          "sha256": "57a1ea1e7313f46b9e12ea5eea599c5e03747cbc4d5819982a578eb6e59327fb"
+        },
+        "electrical_fourier/records/seed_10/effective_protocol.json": {
+          "bytes": 4426,
+          "sha256": "146b491a7cba7819e32dd8cfe636f7249cd920658ee83868aef706087a5b53d7"
+        },
+        "electrical_fourier/records/seed_10/training_evaluator.npz": {
+          "bytes": 2568872,
+          "sha256": "53fba271ed5585fd315222fa2c3bc652a56e4cad51c033aa7f70212e6e6b7d63"
+        },
+        "electrical_fourier/records/seed_10/period_estimate.json": {
+          "bytes": 13819,
+          "sha256": "f3efe78c16f234b43a1a4a39d85efd88e1b52c2b9ef2b15496b1c424494a63b8"
+        },
+        "electrical_fourier/records/seed_10/summary.json": {
+          "bytes": 5956,
+          "sha256": "f376588db79d3bf91bb375ea8e2884a17fee31f4213422861199cad0c856f4c5"
+        },
+        "electrical_fourier/records/seed_10/prediction_fourier.npz": {
+          "bytes": 65663,
+          "sha256": "14a5bc9d626c1fd01210bcae17580f7b2b942e2e1024a489906ba75b35cf7941"
+        },
+        "electrical_fourier/records/seed_10/prediction_evaluator.npz": {
+          "bytes": 227187,
+          "sha256": "f30e04fabd68328b2cbf7bbc7d43a9286800b1ba96bf381f3a51327741044e7b"
+        },
+        "electrical_fourier/records/seed_10/control_fourier.npz": {
+          "bytes": 127001,
+          "sha256": "ad0fcad20709688cf93397304476e787bb57badfc58442c211fb213dc51994b5"
+        },
+        "electrical_fourier/records/seed_10/control_K0.npz": {
+          "bytes": 109570,
+          "sha256": "2911c4401b02a9b770beee8015b0b99c71ddaa875786fffa7fa4631c85416517"
+        },
+        "electrical_fourier/records/seed_11/effective_protocol.json": {
+          "bytes": 4426,
+          "sha256": "70eb4d010670a4bfaca9f48ed96bf9323e4b15ffd70105acf7a430a4c3cc1a92"
+        },
+        "electrical_fourier/records/seed_11/training_evaluator.npz": {
+          "bytes": 2570792,
+          "sha256": "a15e360bd0d43dbc575d970a66a1f1bf14f99f48673e9a4bc8add3a3527a61d0"
+        },
+        "electrical_fourier/records/seed_12/effective_protocol.json": {
+          "bytes": 4426,
+          "sha256": "8d0300d9ccb107037dec27930ba5233adc3495e6ceff9d968a2289b8b8c360e1"
+        },
+        "electrical_fourier/records/seed_12/training_evaluator.npz": {
+          "bytes": 2569771,
+          "sha256": "b9160b44ec603f5427490d1376defdd42c33497b72190b8f29fd3d5be95747c4"
+        },
+        "electrical_fourier/records/seed_13/effective_protocol.json": {
+          "bytes": 4426,
+          "sha256": "5840a0339acb9260dec25766837f6d49a08da907630424ad19985a761214d2af"
+        },
+        "electrical_fourier/records/seed_13/training_evaluator.npz": {
+          "bytes": 2568686,
+          "sha256": "d513dc49c8810823e1e1bb0cbac07a6fe137f575720de52cc80b664147024946"
+        },
+        "electrical_fourier/records/seed_14/effective_protocol.json": {
+          "bytes": 4426,
+          "sha256": "a025c983f6fe803586a3479309b9adf1cb9dea16bbed48cddece49c7fe3ab831"
+        },
+        "electrical_fourier/records/seed_14/training_evaluator.npz": {
+          "bytes": 2570759,
+          "sha256": "49a9d0cb5a7c576ecb5350a4df6d8be503f20627cd1828c6c5cae0f8be37a079"
+        },
+        "electrical_fourier/records/seed_15/effective_protocol.json": {
+          "bytes": 4426,
+          "sha256": "bdfe10954f04ad989d4aacf0db9c879803530b4c1cbcb5cea7a2860dddf658fd"
+        },
+        "electrical_fourier/records/seed_15/training_evaluator.npz": {
+          "bytes": 2566302,
+          "sha256": "0c9b9bff0f7b7a688716661babdb46da279f5bf9b6f66a8690254d77e34432db"
+        },
+        "electrical_fourier/records/seed_16/effective_protocol.json": {
+          "bytes": 4426,
+          "sha256": "3e2dd3e705966dbb7dafc597942bf9cac5b3732449e9c6b7f58a0d242e32cbe4"
+        },
+        "electrical_fourier/records/seed_16/training_evaluator.npz": {
+          "bytes": 2571122,
+          "sha256": "24f9844ae8a80a239952f02f8496a98e5ce86f08e787fe3516c20cc193572c98"
+        },
+        "electrical_fourier/records/seed_17/effective_protocol.json": {
+          "bytes": 4426,
+          "sha256": "3c168643f1e87ef75d0a0b7163477fb1db9edcde277b7bc9d4bdcafe27b25696"
+        },
+        "electrical_fourier/records/seed_17/training_evaluator.npz": {
+          "bytes": 2571541,
+          "sha256": "a0fd1c122424e6dfdc286877916d4e1c0702554c172abcc35a97f020ce522709"
+        },
+        "electrical_fourier/records/seed_18/effective_protocol.json": {
+          "bytes": 4426,
+          "sha256": "183834932face349dffe8399e7db2defd538f002f6131811fb95a4e775a6dbf3"
+        },
+        "electrical_fourier/records/seed_18/training_evaluator.npz": {
+          "bytes": 2570813,
+          "sha256": "1c3b6714bbc31ab7806721b370788397bf1abdefa53cfb5c4b524fd528c0e0c7"
+        },
+        "electrical_fourier/records/seed_19/effective_protocol.json": {
+          "bytes": 4426,
+          "sha256": "97e5450b59bb469daf443025085b79a1319fbd91c19a0efb556d8e1dd5e840a8"
+        },
+        "electrical_fourier/records/seed_19/training_evaluator.npz": {
+          "bytes": 2566977,
+          "sha256": "a747736691562d81b0d922dc4b03226fcee3f33b8417bd5e87b5dd4d9fdcf146"
+        }
+      }
+    },
+    "contact": {
+      "identity": "contact_focused_figure_20261121_v1",
+      "source": {
+        "path": "experiments/direct_submission/contact/plot_figure_focus.py",
+        "bytes": 10030,
+        "sha256": "cbe8e26220d55bdd9132c722664dd2baed95d8958d9ec9b1301b2c3a9815be71"
+      },
+      "figure_manifest": {
+        "path": "experiments/direct_submission/contact/figure_focus_20261121/figure_manifest.json",
+        "bytes": 3771,
+        "sha256": "3144b5f94ef10b7c79cac114eb6f51aec4cffc6f2a4f91fb550afbe38147e59d"
+      },
+      "derived_arrays": {
+        "path": "experiments/direct_submission/contact/figure_focus_20261121/display_data.npz",
+        "bytes": 7657143,
+        "sha256": "7c7b1d010d39de1d7572e1829d439bbcd24ce3d939b3298ba2d1fe349a360969"
+      },
+      "figures": {
+        "focus": {
+          "path": "supplement/figures/direct_contact_focus.pdf",
+          "bytes": 49269,
+          "sha256": "a7db8130a3f7e327679d79597e6e7c38668d228b1e86e88b5b758f75ca65583a"
+        }
+      },
+      "input_binding": {
+        "contact/confirm_seed101/states.npz": {
+          "sha256": "6cb45fbe27821ffdec286b281c731f4446e971b30b8b1b533d7b46b91799008f",
+          "bytes": 7927536
+        },
+        "contact/confirm_seed101/trace.csv": {
+          "sha256": "6e3e1a57abd620b937bbf056a95905decb690e38a9dc8fe6fa43f54add7498c2",
+          "bytes": 7069710
+        },
+        "contact/confirm_seed101/config.json": {
+          "sha256": "4b62dc9d19d3b17308f409065b544b4f7bae2f7cc3d5aad73f2cb50f4a874589",
+          "bytes": 869
+        },
+        "contact/confirm_seed101/summary.json": {
+          "sha256": "7ff9bee1764f356a12d87e78c2cc2b3cc34d123d3994addedc13e392156ae21f",
+          "bytes": 2214
+        }
+      }
+    },
+    "burgers": {
+      "identity": "burgers_figure_focus_20261121_v1",
+      "source": {
+        "path": "experiments/direct_submission/burgers/plot_figure_focus.py",
+        "bytes": 13766,
+        "sha256": "a6a64648d9886e19d44920b7a792192b30058c7e406347e848fa18a4eaed0431"
+      },
+      "figure_manifest": {
+        "path": "experiments/direct_submission/burgers/figure_focus_20261121/figure_manifest.json",
+        "bytes": 6604,
+        "sha256": "4c5f6f42a5674afc4f24eececbb48405a76c768f1a47e964cb8ed3adf7bf6bdc"
+      },
+      "derived_arrays": {
+        "path": "experiments/direct_submission/burgers/figure_focus_20261121/display_data.npz",
+        "bytes": 7503668,
+        "sha256": "5cd3d6e7eaa61b18dc4c001e02d6edc8781ec6650f81e5743f6c1db5a8992050"
+      },
+      "figures": {
+        "focus": {
+          "path": "supplement/figures/direct_burgers_focus.pdf",
+          "bytes": 156328,
+          "sha256": "c142fea81a8d99d8563dfdf3c5c9271af2588db3d2f997efa560ec6ae5875e4f"
+        },
+        "diagnostics": {
+          "path": "supplement/figures/direct_burgers_diagnostics.pdf",
+          "bytes": 105581,
+          "sha256": "d98061cd52124416287152076c75727e3bf9154a79107f439db15098861ce6f9"
+        }
+      },
+      "input_binding": {
+        "derived_input": "experiments/direct_submission/burgers/data/ideal_plot_data.npz",
+        "sha256": "f39d184ffa0bbaf3daff180980c8aba8a8232fad2c06ca5877d783a79bba831c",
+        "raw_source_hash_index": "experiments/direct_submission/burgers/data/raw_source_hashes.json"
+      }
+    }
+  },
+  "original_source_bindings_checked": 78,
+  "previous_figure_assets_checked": 19,
+  "figure_outputs_hash_verified": 16,
+  "display_changes": {
+    "electrical_fourier": "One fixed evaluator-only scalar/sign across all four entries and the original final second; energy/prediction/control retained; three diagnostics separated.",
+    "contact": "All 24 signed aligned-entry errors, energy, force and position; projector metric retained in text/prior diagnostics; original gauge and full interval unchanged.",
+    "burgers": "Four main evidence panels and separate whole-field projector diagnostic; full control transient and all five seeds retained; physical-row energy reference uses the matched five-seed mean."
+  },
+  "previous_plotters_and_figure_bindings": "Retained unchanged under their original filenames and identities; the new focus assets do not overwrite old figures.",
+  "raw_archives": {
+    "fourier_raw.tar.gz": {
+      "sha256": "9f207f702eda25fda45e064dd1ffb520f088d1594a1be949e7fb22eadf42b059",
+      "bytes": 48980637,
+      "cases": [
+        "pilot_9001",
+        "refine_clean_dt01",
+        "refine_clean_dt02",
+        "seed_10",
+        "seed_11",
+        "seed_12",
+        "seed_13",
+        "seed_14",
+        "seed_15",
+        "seed_16",
+        "seed_17",
+        "seed_18",
+        "seed_19"
+      ],
+      "file_count": 129,
+      "top_level": "fourier"
+    },
+    "contact_raw.tar.gz": {
+      "sha256": "4f1764f54ea465d19c9482843c3727bcaebdd35cc32b35fe4f809d61a383e219",
+      "bytes": 101839481,
+      "cases": [
+        "confirm_seed101",
+        "confirm_seed102",
+        "confirm_seed103",
+        "confirm_seed104",
+        "confirm_seed105",
+        "pilot_ideal_seed0",
+        "pilot_local_change_seed0",
+        "pilot_local_seed0",
+        "refine_seed101"
+      ],
+      "file_count": 87,
+      "top_level": "contact"
+    },
+    "burgers_raw.tar": {
+      "sha256": "6013313ce8b70c893ac765e831cbe1f3c90b07c93f5ff12b0ad10d4a12d9f3b6",
+      "bytes": 6635110400,
+      "cases": [
+        "causal_clean_s732_dt0p00125",
+        "causal_clean_s732_dt0p0025",
+        "causal_clean_s732_dt0p005",
+        "causal_clean_s733_dt0p005",
+        "causal_clean_s734_dt0p005",
+        "causal_clean_s735_dt0p005",
+        "causal_clean_s736_dt0p005",
+        "causal_noisy_s732_dt0p005",
+        "causal_noisy_s733_dt0p005",
+        "causal_noisy_s734_dt0p005",
+        "causal_noisy_s735_dt0p005",
+        "causal_noisy_s736_dt0p005",
+        "ideal_s732_dt0p00125",
+        "ideal_s732_dt0p0025",
+        "ideal_s732_dt0p005",
+        "ideal_s733_dt0p005",
+        "ideal_s734_dt0p005",
+        "ideal_s735_dt0p005",
+        "ideal_s736_dt0p005"
+      ],
+      "file_count": 3637,
+      "top_level": "burgers"
+    },
+    "electrical_fourier_raw.tar.gz": {
+      "bytes": 145389307,
+      "sha256": "3e225ff7e5ff6332a58a287c46289815813b2064cbec50d09d62a634e09e33f5",
+      "cases": [
+        "seed_10",
+        "seed_11",
+        "seed_12",
+        "seed_13",
+        "seed_14",
+        "seed_15",
+        "seed_16",
+        "seed_17",
+        "seed_18",
+        "seed_19",
+        "refine_seed10_dt0025",
+        "refine_seed10_substep00025"
+      ],
+      "file_count": 420,
+      "top_level": "electrical_fourier",
+      "case_scope": "Ten confirmation cases plus two refinements; excluded production/exploratory/calibration pilots also retained in separate subtrees."
+    }
+  }
+}

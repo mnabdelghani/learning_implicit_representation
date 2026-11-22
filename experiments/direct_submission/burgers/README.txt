@@ -10,9 +10,20 @@ No network access or installation is performed by these scripts.
 Run from this directory:
 
   OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python verify_package.py
-  python plot_main.py --output newly_generated_figures
+  python plot_figure_focus.py --data data/ideal_plot_data.npz --output newly_generated_figures
   OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python burgers_direct.py --case ideal_s732_dt0p005 --output reproduced_runs/ideal_s732_dt0p005
   python audit_runs.py --runs reproduced_runs --output newly_generated_audit
+
+The focused plotter creates direct_burgers_focus.pdf/.png and a separate
+direct_burgers_diagnostics.pdf/.png, plus exact derived arrays and hashes.
+Its four main panels show secant energy, all five entries at the prespecified
+site, whole-field task error, and actual/reference field at that site. The
+supplementary diagnostic shows whole-field row-projector error. All five seeds
+and the entire control transient remain included. The physical-row energy
+reference uses the matched five-seed mean. Source and display details are in
+figure_focus_20261121/; no raw record or simulation changed. The original
+plot_main.py, detailed figures, and original package_sources.json remain
+unchanged; reproduce them with python plot_main.py --output NEW_OLD_LAYOUT.
 
 To reproduce the complete 19-case study, use --all instead of --case and a new
 output directory. The study originally took approximately 23 minutes and saved

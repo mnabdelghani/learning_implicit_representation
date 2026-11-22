@@ -1,0 +1,20 @@
+{
+  "scope": "Excluded production pilot; neither audit is a confirmation case",
+  "original_report": {
+    "bytes": 25557,
+    "sha256": "359aa77d78f1b08c5014566875787a218ccab58364955febbcb1ab1ab595657f"
+  },
+  "original_auditor_source_sha256": "33e2586e0c4614d7f6bf0520bfdda46f31b2363b978907f8c39ce95cf308ddd2",
+  "original_auditor_source_snapshot_retained": false,
+  "exact_original_auditor_source_recovered": true,
+  "recovered_source": {
+    "bytes": 24737,
+    "sha256": "33e2586e0c4614d7f6bf0520bfdda46f31b2363b978907f8c39ce95cf308ddd2"
+  },
+  "limitation": "The original 169-check report is preserved. Its exact auditor bytes were reconstructed by reversing three later additions and match the source hash in that report. This is hash-matched recovery, not an originally retained source snapshot; the report is not relabeled as a final-source audit.",
+  "separate_final_source_report": {
+    "bytes": 26824,
+    "sha256": "c853b2654cda4b0576dcee8581d62626639c4bf2a98fbe64d33d452586411281"
+  },
+  "final_auditor_source_sha256": "570676496a4615da42d16eae89efba3c82655a39146554c0f5fd5d1cd6d12dc4"
+}

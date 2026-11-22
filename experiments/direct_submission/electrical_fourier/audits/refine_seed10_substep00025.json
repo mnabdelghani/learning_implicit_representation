@@ -1,0 +1,1054 @@
+{
+  "run": "/home/mo/work/implicit_learning/notes/electrical_fourier_20261121/production/records/refine_seed10_substep00025",
+  "audit_source_sha256": "570676496a4615da42d16eae89efba3c82655a39146554c0f5fd5d1cd6d12dc4",
+  "integrity_pass": true,
+  "run_status": "complete",
+  "study_criteria_pass": true,
+  "checks": [
+    {
+      "name": "record_hash:calibration_evaluator.npz",
+      "passed": true
+    },
+    {
+      "name": "record_hash:calibration_observations.npz",
+      "passed": true
+    },
+    {
+      "name": "record_hash:control_K0.npz",
+      "passed": true
+    },
+    {
+      "name": "record_hash:control_fourier.npz",
+      "passed": true
+    },
+    {
+      "name": "record_hash:effective_protocol.json",
+      "passed": true
+    },
+    {
+      "name": "record_hash:environment.json",
+      "passed": true
+    },
+    {
+      "name": "record_hash:initialization.json",
+      "passed": true
+    },
+    {
+      "name": "record_hash:period_estimate.json",
+      "passed": true
+    },
+    {
+      "name": "record_hash:prediction_K0.npz",
+      "passed": true
+    },
+    {
+      "name": "record_hash:prediction_evaluator.npz",
+      "passed": true
+    },
+    {
+      "name": "record_hash:prediction_fourier.npz",
+      "passed": true
+    },
+    {
+      "name": "record_hash:simulator_only_parameters.json",
+      "passed": true
+    },
+    {
+      "name": "record_hash:source/direct_learner.py",
+      "passed": true
+    },
+    {
+      "name": "record_hash:source/electrical_simulator.py",
+      "passed": true
+    },
+    {
+      "name": "record_hash:source/period_estimator.py",
+      "passed": true
+    },
+    {
+      "name": "record_hash:source/protocol.json",
+      "passed": true
+    },
+    {
+      "name": "record_hash:source/run.py",
+      "passed": true
+    },
+    {
+      "name": "record_hash:source_manifest.json",
+      "passed": true
+    },
+    {
+      "name": "record_hash:summary.json",
+      "passed": true
+    },
+    {
+      "name": "record_hash:training.npz",
+      "passed": true
+    },
+    {
+      "name": "record_hash:training_evaluator.npz",
+      "passed": true
+    },
+    {
+      "name": "source_hash:run.py",
+      "passed": true
+    },
+    {
+      "name": "source_hash:protocol.json",
+      "passed": true
+    },
+    {
+      "name": "source_hash:electrical_simulator.py",
+      "passed": true
+    },
+    {
+      "name": "source_hash:period_estimator.py",
+      "passed": true
+    },
+    {
+      "name": "source_hash:direct_learner.py",
+      "passed": true
+    },
+    {
+      "name": "scientific_source_set",
+      "passed": true
+    },
+    {
+      "name": "sealed_identity_binding",
+      "passed": true
+    },
+    {
+      "name": "sealed_source_bindings",
+      "passed": true
+    },
+    {
+      "name": "effective_protocol_changes_declared",
+      "passed": true
+    },
+    {
+      "name": "declared_numerical_refinement",
+      "passed": true
+    },
+    {
+      "name": "confirmation_seal",
+      "passed": true
+    },
+    {
+      "name": "phase_rng_reconstruction",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "initial_draw_reconstruction",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "initial_C_reconstruction",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "initial_C0_reconstruction",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "calibration_voltage",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "calibration_precedes_training",
+      "passed": true
+    },
+    {
+      "name": "calibration_resolved",
+      "passed": true
+    },
+    {
+      "name": "frequency_fit_nyquist",
+      "passed": true
+    },
+    {
+      "name": "calibration_selected_frequency",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "calibration_candidates_preserved",
+      "passed": true
+    },
+    {
+      "name": "training_clock",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "training_clock_rate",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "training_exogenous_voltage",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "physical_partials_from_saved_parameters",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "ideal_observation_boundary",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "physical_compatibility",
+      "passed": true,
+      "maximum_absolute_error": 6.661338147750939e-16,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "calibration_ideal_observation",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "fourier:projector_error_array",
+      "passed": true,
+      "maximum_absolute_error": 4.440892098500626e-16,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:preupdate_energy_array",
+      "passed": true,
+      "maximum_absolute_error": 5.551115123125783e-17,
+      "absolute_tolerance": 1e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "training_current_guard_array",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "training_voltage_guard_array",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:unit_coefficient_rows",
+      "passed": true,
+      "maximum_absolute_error": 3.3306690738754696e-16,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "fourier:initial_coefficients",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "fourier:final_coefficients",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "fourier:late_projector_metric",
+      "passed": true,
+      "maximum_absolute_error": 5.692061405548898e-19,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:late_energy_metric",
+      "passed": true,
+      "maximum_absolute_error": 7.754818242684634e-24,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:final_projector_metric",
+      "passed": true,
+      "maximum_absolute_error": 3.7621815385247004e-17,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:projected_ODE_solver:0",
+      "passed": true
+    },
+    {
+      "name": "fourier:projected_ODE_step:0",
+      "passed": true,
+      "maximum_absolute_error": 2.220446049250313e-16
+    },
+    {
+      "name": "fourier:projected_ODE_solver:5999",
+      "passed": true
+    },
+    {
+      "name": "fourier:projected_ODE_step:5999",
+      "passed": true,
+      "maximum_absolute_error": 5.312417172831374e-14
+    },
+    {
+      "name": "fourier:projected_ODE_solver:11999",
+      "passed": true
+    },
+    {
+      "name": "fourier:projected_ODE_step:11999",
+      "passed": true,
+      "maximum_absolute_error": 6.735931257217942e-15
+    },
+    {
+      "name": "fourier:projected_ODE_solver:17999",
+      "passed": true
+    },
+    {
+      "name": "fourier:projected_ODE_step:17999",
+      "passed": true,
+      "maximum_absolute_error": 5.569438139840788e-14
+    },
+    {
+      "name": "fourier:projected_ODE_solver:23999",
+      "passed": true
+    },
+    {
+      "name": "fourier:projected_ODE_step:23999",
+      "passed": true,
+      "maximum_absolute_error": 3.774758283725532e-15
+    },
+    {
+      "name": "fourier:full_memory_recurrence",
+      "passed": true,
+      "maximum_absolute_error": 2.2293278334473143e-13,
+      "absolute_tolerance": 2e-10,
+      "relative_tolerance": 2e-10
+    },
+    {
+      "name": "K0:projector_error_array",
+      "passed": true,
+      "maximum_absolute_error": 4.440892098500626e-16,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:preupdate_energy_array",
+      "passed": true,
+      "maximum_absolute_error": 8.326672684688674e-17,
+      "absolute_tolerance": 1e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:unit_coefficient_rows",
+      "passed": true,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "K0:initial_coefficients",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "K0:final_coefficients",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "K0:late_projector_metric",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:late_energy_metric",
+      "passed": true,
+      "maximum_absolute_error": 4.336808689942018e-19,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:final_projector_metric",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 2e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:projected_ODE_solver:0",
+      "passed": true
+    },
+    {
+      "name": "K0:projected_ODE_step:0",
+      "passed": true,
+      "maximum_absolute_error": 2.220446049250313e-16
+    },
+    {
+      "name": "K0:projected_ODE_solver:5999",
+      "passed": true
+    },
+    {
+      "name": "K0:projected_ODE_step:5999",
+      "passed": true,
+      "maximum_absolute_error": 3.611191207175679e-13
+    },
+    {
+      "name": "K0:projected_ODE_solver:11999",
+      "passed": true
+    },
+    {
+      "name": "K0:projected_ODE_step:11999",
+      "passed": true,
+      "maximum_absolute_error": 3.4320116193420347e-13
+    },
+    {
+      "name": "K0:projected_ODE_solver:17999",
+      "passed": true
+    },
+    {
+      "name": "K0:projected_ODE_step:17999",
+      "passed": true,
+      "maximum_absolute_error": 2.204590676679885e-13
+    },
+    {
+      "name": "K0:projected_ODE_solver:23999",
+      "passed": true
+    },
+    {
+      "name": "K0:projected_ODE_step:23999",
+      "passed": true,
+      "maximum_absolute_error": 1.4790425828525855e-13
+    },
+    {
+      "name": "K0:full_memory_recurrence",
+      "passed": true,
+      "maximum_absolute_error": 1.0658141036401503e-13,
+      "absolute_tolerance": 2e-10,
+      "relative_tolerance": 2e-10
+    },
+    {
+      "name": "all_coefficient_total_variations",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "all_twenty_weights_change",
+      "passed": true
+    },
+    {
+      "name": "max_coefficient_norm_error",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-14,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "memory_eigenvalues",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "prediction_truth_independent_exact_solution",
+      "passed": true,
+      "maximum_absolute_error": 8.347771363048651e-10,
+      "absolute_tolerance": 2e-08,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:fullcycle_grid_norm",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:fullcycle_grid_guard",
+      "passed": true,
+      "maximum_absolute_error": 1.0100698489418081e-16,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:fullcycle_conservative_norm_lower",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:fullcycle_conservative_norm_upper",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:fullcycle_conservative_entry_lower",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:fullcycle_conservative_normalized_lower",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:fullcycle_certificate_flags",
+      "passed": true
+    },
+    {
+      "name": "fourier:prediction:sample_count",
+      "passed": true
+    },
+    {
+      "name": "fourier:prediction:requested_samples",
+      "passed": true
+    },
+    {
+      "name": "fourier:prediction:clock_start",
+      "passed": true
+    },
+    {
+      "name": "fourier:prediction:time_step",
+      "passed": true,
+      "maximum_absolute_error": 2.3874131838130808e-14,
+      "absolute_tolerance": 1e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:prediction_guard_ratios",
+      "passed": true,
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:prediction_initial",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "fourier:prediction_min_guard_metric",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:prediction_RMSE",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:prediction_guard_pass",
+      "passed": true
+    },
+    {
+      "name": "fourier:prediction_independent_solver",
+      "passed": true
+    },
+    {
+      "name": "fourier:prediction_independent_propagation",
+      "passed": true,
+      "maximum_absolute_error": 4.4331582849110873e-10,
+      "absolute_tolerance": 2e-07,
+      "relative_tolerance": 2e-07
+    },
+    {
+      "name": "fourier:prediction:guard_failure_count",
+      "passed": true
+    },
+    {
+      "name": "fourier:control:sample_count",
+      "passed": true
+    },
+    {
+      "name": "fourier:control:requested_samples",
+      "passed": true
+    },
+    {
+      "name": "fourier:control:clock_start",
+      "passed": true
+    },
+    {
+      "name": "fourier:control:time_step",
+      "passed": true,
+      "maximum_absolute_error": 2.3874131838130808e-14,
+      "absolute_tolerance": 1e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:control_command_count",
+      "passed": true
+    },
+    {
+      "name": "fourier:control_initial",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "fourier:control_reference",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:control_reference_rate",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:control_requested_readout",
+      "passed": true,
+      "maximum_absolute_error": 8.881784197001252e-16,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:control_clipping",
+      "passed": true,
+      "maximum_absolute_error": 8.881784197001252e-16,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:control_guard_ratios",
+      "passed": true,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:control_completed_guards",
+      "passed": true
+    },
+    {
+      "name": "fourier:control_min_guard_metric",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:control_saturation_flags",
+      "passed": true
+    },
+    {
+      "name": "fourier:every_control_plant_transition_exact",
+      "passed": true,
+      "maximum_absolute_error": 1.149080830487037e-13,
+      "absolute_tolerance": 2e-08,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:control_full_RMSE",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:control_late_RMSE",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "fourier:control_complete_samples",
+      "passed": true
+    },
+    {
+      "name": "fourier:control:guard_failure_count",
+      "passed": true
+    },
+    {
+      "name": "K0:fullcycle_grid_norm",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:fullcycle_grid_guard",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:fullcycle_conservative_norm_lower",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:fullcycle_conservative_norm_upper",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:fullcycle_conservative_entry_lower",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:fullcycle_conservative_normalized_lower",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:fullcycle_certificate_flags",
+      "passed": true
+    },
+    {
+      "name": "K0:prediction:sample_count",
+      "passed": true
+    },
+    {
+      "name": "K0:prediction:requested_samples",
+      "passed": true
+    },
+    {
+      "name": "K0:prediction:clock_start",
+      "passed": true
+    },
+    {
+      "name": "K0:prediction:time_step",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:prediction_guard_ratios",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:prediction_initial",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "K0:prediction_min_guard_metric",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:prediction_abort_null",
+      "passed": true
+    },
+    {
+      "name": "K0:prediction:guard_failure_count",
+      "passed": true
+    },
+    {
+      "name": "K0:prediction:failed_query_ratio",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:prediction:failed_query_guard",
+      "passed": true
+    },
+    {
+      "name": "K0:control:sample_count",
+      "passed": true
+    },
+    {
+      "name": "K0:control:requested_samples",
+      "passed": true
+    },
+    {
+      "name": "K0:control:clock_start",
+      "passed": true
+    },
+    {
+      "name": "K0:control:time_step",
+      "passed": true,
+      "maximum_absolute_error": 2.3874131838130808e-14,
+      "absolute_tolerance": 1e-12,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:control_command_count",
+      "passed": true
+    },
+    {
+      "name": "K0:control_initial",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    },
+    {
+      "name": "K0:control_reference",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:control_reference_rate",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:control_requested_readout",
+      "passed": true,
+      "maximum_absolute_error": 6.661338147750939e-16,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:control_clipping",
+      "passed": true,
+      "maximum_absolute_error": 6.661338147750939e-16,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:control_guard_ratios",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:control_completed_guards",
+      "passed": true
+    },
+    {
+      "name": "K0:control_min_guard_metric",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:control_saturation_flags",
+      "passed": true
+    },
+    {
+      "name": "K0:every_control_plant_transition_exact",
+      "passed": true,
+      "maximum_absolute_error": 1.458277942845143e-13,
+      "absolute_tolerance": 2e-08,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:control_full_RMSE",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:control_late_RMSE",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-08
+    },
+    {
+      "name": "K0:control_complete_samples",
+      "passed": true
+    },
+    {
+      "name": "K0:control:guard_failure_count",
+      "passed": true
+    },
+    {
+      "name": "criteria_checks_reconstructed",
+      "passed": true
+    },
+    {
+      "name": "criteria_pass_reconstructed",
+      "passed": true
+    },
+    {
+      "name": "evaluator_frequency_error",
+      "passed": true,
+      "maximum_absolute_error": 0.0,
+      "absolute_tolerance": 0,
+      "relative_tolerance": 0
+    }
+  ],
+  "metrics": {
+    "fourier": {
+      "late_projector_error_mean": 0.00013944830662535542,
+      "late_energy_mean": 3.289260203849931e-10,
+      "selected_step_checks": [
+        {
+          "index": 0,
+          "maximum_absolute_error": 2.220446049250313e-16
+        },
+        {
+          "index": 5999,
+          "maximum_absolute_error": 5.312417172831374e-14
+        },
+        {
+          "index": 11999,
+          "maximum_absolute_error": 6.735931257217942e-15
+        },
+        {
+          "index": 17999,
+          "maximum_absolute_error": 5.569438139840788e-14
+        },
+        {
+          "index": 23999,
+          "maximum_absolute_error": 3.774758283725532e-15
+        }
+      ],
+      "full_cycle": {
+        "grid_min_row_norm": 0.9744362208217767,
+        "grid_min_normalized_entries": [
+          0.4089699537146124,
+          0.5453545540855822,
+          0.6816916663602994,
+          6.354505368510973e-05
+        ],
+        "conservative_row_norm_lower_bound": 0.7071651237406661,
+        "conservative_normalized_entry_lower_bounds": [
+          0.33183592066564443,
+          0.44233418651617396,
+          0.5529197299114337,
+          0.0
+        ]
+      },
+      "prediction_rmse_a": 7.585734364633661e-06,
+      "control_full_rmse_a": 0.025008789360776013,
+      "control_late_rmse_a": 0.01711789958636505
+    },
+    "K0": {
+      "late_projector_error_mean": 0.6065066846881916,
+      "late_energy_mean": 0.003850605022496553,
+      "selected_step_checks": [
+        {
+          "index": 0,
+          "maximum_absolute_error": 2.220446049250313e-16
+        },
+        {
+          "index": 5999,
+          "maximum_absolute_error": 3.611191207175679e-13
+        },
+        {
+          "index": 11999,
+          "maximum_absolute_error": 3.4320116193420347e-13
+        },
+        {
+          "index": 17999,
+          "maximum_absolute_error": 2.204590676679885e-13
+        },
+        {
+          "index": 23999,
+          "maximum_absolute_error": 1.4790425828525855e-13
+        }
+      ],
+      "full_cycle": {
+        "grid_min_row_norm": 1.0,
+        "grid_min_normalized_entries": [
+          0.021374285447701227,
+          0.6063368568983529,
+          0.7948569996576913,
+          0.010055147109783504
+        ],
+        "conservative_row_norm_lower_bound": 1.0,
+        "conservative_normalized_entry_lower_bounds": [
+          0.021374285447701227,
+          0.6063368568983529,
+          0.7948569996576913,
+          0.010055147109783504
+        ]
+      },
+      "control_full_rmse_a": 0.45362337038550904,
+      "control_late_rmse_a": 0.46161655505111326
+    },
+    "all_twenty_weights": {
+      "count": 20,
+      "minimum_total_variation": 0.43761960969675684,
+      "maximum_total_variation": 1.051512746018029,
+      "unchanged_indices": []
+    }
+  },
+  "scope": "Hashes and independent numerical reconstruction; selected adaptive steps, not every ODE transition; no theorem or hardware validation"
+}

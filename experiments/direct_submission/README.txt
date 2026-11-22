@@ -2,16 +2,23 @@ Direct representation-learning reproducibility package
 
 This directory contains the current electrical Fourier, nonlinear Contact and
 Burgers protocols, plus the retained historical spatial Fourier graph. The new
-electrical identity electrical_fourier_direct_20261121_v1 awaits independent
-validation; no completed electrical outcome or public data release is asserted
-here. Contact/Burgers retain their existing record identities. No manuscript
+electrical identity electrical_fourier_direct_20261121_v1 passed independent
+numerical audits and declared criteria for all ten confirmation runs and both
+refinements: 2,064 checks, no failures. This self-contained ideal-rate simulation
+is not hardware validation, and no public data release is asserted here.
+Contact/Burgers retain their existing record identities. No manuscript
 source or manuscript PDF is included. Current bindings belong to repository
 files docs/DIRECT_MAIN_20261121.json and docs/ELECTRICAL_FOURIER_20261121.json.
 The historical residual-coefficient experiments remain separate protocols.
+The figure_focus_20261121 presentation revision simplifies all three main
+figures without rerunning experiments. Each study supplies a new
+plot_figure_focus.py and a separately bound figure_focus_20261121/ directory;
+docs/FIGURE_FOCUS_20261121.json identifies the current assets. Previous
+plotters, figures, experimental sources and raw archives remain unchanged.
 
 Layout
-  electrical_fourier/: new temporal winding runner, independent audit, plotter
-            and protocol; validation/status are recorded in the current manifest.
+  electrical_fourier/: temporal winding runner, independent audit, plotter,
+            sealed protocol and audited cohort/refinement evidence.
   fourier/: retained historical spatial-graph runner, independent raw audit,
             plotter, protocol, aggregate summaries and original figure.
   contact/: exact executed runner and direct matrix learner, cohort driver,
@@ -21,8 +28,8 @@ Layout
             chunks/checkpoints, protocol, metrics and figures.
   source_identity.json: source identity checks for the matched package version;
             Burgers also has a scientific-symbol and packaging-change map.
-  manifest.json: member hashes/byte counts for that package version. The new
-            electrical files require the rebuilt package's own binding.
+  manifest.json: member hashes/byte counts binding the electrical files and
+            retained source/data to that package version.
   verify_bundle.py: hash verification and optional focused numerical checks.
 
 Requirements and environment
@@ -32,14 +39,15 @@ Use a prepared environment,
 not an unrecorded dependency upgrade. No script installs dependencies or uses
 network services. Burgers' optional replay/full execution compiles its unchanged
 C++ kernel with /usr/bin/g++, -O3 -std=c++17 -shared -fPIC -ffp-contract=off;
-no prebuilt architecture-specific binary is distributed. Contact's combined
-figure also requires pdflatex with the standalone class and pdftoppm. Individual
+no prebuilt architecture-specific binary is distributed. Contact's original
+combined report requires pdflatex with the standalone class and pdftoppm; the
+new focused plotter uses NumPy and Matplotlib only. Individual
 numerical checks need Python/NumPy/SciPy and the Burgers compiler only.
 
 Package integrity and portability check, from a fresh writable copy with its matching manifest:
   python direct_submission/verify_bundle.py
   OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python direct_submission/verify_bundle.py --smoke
-The existing smoke check does not validate the new electrical experiment. It
+The smoke check does not replace the electrical experiment's separate audit. It
 checks normalized coupled ODEs and same-field readouts, then exactly replays
 600 archived Burgers samples. Electrical validation needs its separate audit.
 Burgers builds a local binary/cache in that copy. Rechecking original hashes is
@@ -68,7 +76,8 @@ refinements and independent postprocessing use:
 The auditor takes one case with --run and writes one JSON file with --output.
 Repeat for all ten seeds and both refinements with distinct filenames; audit
 the separate pilot under its own identity. Plotting still takes the records
-root with --records. These commands do not claim completed cohort validation.
+root with --records. All twelve recorded cases passed their independent audits;
+new executions retain their own output/environment identities.
 Use the sealed protocol for the full case list; pilot_9002 is separate from the
 main cohort. The new electrical archive has top-level electrical_fourier/ with
 seed_10...seed_19, pilot_9002, refine_seed10_dt0025 and
@@ -146,7 +155,9 @@ Scientific boundaries retained in this package
 Every field entry in these direct studies is adapted from observed
 incompatibility; no physical residual coefficient family is fitted and
 differentiated. The electrical protocol estimates period from prefix current
-observations and supplies order K=2; its validation is pending. The historical
+observations and supplies order K=2. All ten learned prediction/control tasks
+complete without guard failure, while all ten K=0 predictions abort with
+undefined full-episode errors. This is an ideal-rate simulation. The historical
 graph supplies phase 20x and order K=1 and evaluates a separate prediction
 trajectory. These two evidence identities must not be interchanged.
 Contact and Burgers assume ideal rate sensing in their successful main cases.

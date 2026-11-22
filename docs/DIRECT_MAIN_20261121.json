@@ -1,0 +1,241 @@
+{
+  "revision": "direct_main_20261121_figure_focus",
+  "availability": "Prepared locally; no publication, remote release or permanent archive asserted.",
+  "implementation_path": "experiments/direct_submission/",
+  "code_archive": {
+    "filename": "direct_reproducibility_code.zip",
+    "bytes": 57007469,
+    "sha256": "ffa0056777a48f6e35b77d5abc322b4c59f6219bd2f071f7b89c462e56bab177"
+  },
+  "raw_archives": {
+    "fourier_raw.tar.gz": {
+      "sha256": "9f207f702eda25fda45e064dd1ffb520f088d1594a1be949e7fb22eadf42b059",
+      "bytes": 48980637,
+      "cases": [
+        "pilot_9001",
+        "refine_clean_dt01",
+        "refine_clean_dt02",
+        "seed_10",
+        "seed_11",
+        "seed_12",
+        "seed_13",
+        "seed_14",
+        "seed_15",
+        "seed_16",
+        "seed_17",
+        "seed_18",
+        "seed_19"
+      ],
+      "file_count": 129,
+      "top_level": "fourier"
+    },
+    "contact_raw.tar.gz": {
+      "sha256": "4f1764f54ea465d19c9482843c3727bcaebdd35cc32b35fe4f809d61a383e219",
+      "bytes": 101839481,
+      "cases": [
+        "confirm_seed101",
+        "confirm_seed102",
+        "confirm_seed103",
+        "confirm_seed104",
+        "confirm_seed105",
+        "pilot_ideal_seed0",
+        "pilot_local_change_seed0",
+        "pilot_local_seed0",
+        "refine_seed101"
+      ],
+      "file_count": 87,
+      "top_level": "contact"
+    },
+    "burgers_raw.tar": {
+      "sha256": "6013313ce8b70c893ac765e831cbe1f3c90b07c93f5ff12b0ad10d4a12d9f3b6",
+      "bytes": 6635110400,
+      "cases": [
+        "causal_clean_s732_dt0p00125",
+        "causal_clean_s732_dt0p0025",
+        "causal_clean_s732_dt0p005",
+        "causal_clean_s733_dt0p005",
+        "causal_clean_s734_dt0p005",
+        "causal_clean_s735_dt0p005",
+        "causal_clean_s736_dt0p005",
+        "causal_noisy_s732_dt0p005",
+        "causal_noisy_s733_dt0p005",
+        "causal_noisy_s734_dt0p005",
+        "causal_noisy_s735_dt0p005",
+        "causal_noisy_s736_dt0p005",
+        "ideal_s732_dt0p00125",
+        "ideal_s732_dt0p0025",
+        "ideal_s732_dt0p005",
+        "ideal_s733_dt0p005",
+        "ideal_s734_dt0p005",
+        "ideal_s735_dt0p005",
+        "ideal_s736_dt0p005"
+      ],
+      "file_count": 3637,
+      "top_level": "burgers"
+    },
+    "electrical_fourier_raw.tar.gz": {
+      "bytes": 145389307,
+      "sha256": "3e225ff7e5ff6332a58a287c46289815813b2064cbec50d09d62a634e09e33f5",
+      "cases": [
+        "seed_10",
+        "seed_11",
+        "seed_12",
+        "seed_13",
+        "seed_14",
+        "seed_15",
+        "seed_16",
+        "seed_17",
+        "seed_18",
+        "seed_19",
+        "refine_seed10_dt0025",
+        "refine_seed10_substep00025"
+      ],
+      "file_count": 420,
+      "top_level": "electrical_fourier",
+      "case_scope": "Ten confirmation cases plus two refinements; excluded production/exploratory/calibration pilots also retained in separate subtrees."
+    }
+  },
+  "raw_member_index": {
+    "filename": "raw_data_manifest_20261121.json",
+    "bytes": 765535,
+    "sha256": "4d275a7090a4f8c428d2d06afd24ae083181577e8a0ebacc1b2baf08c8b48033",
+    "member_count": 4273
+  },
+  "studies": {
+    "electrical_fourier": {
+      "protocol": "electrical_fourier_direct_20261121_v1",
+      "confirmation_seeds": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "sealed_cases": 12,
+      "free_weights": 20,
+      "observed_channels": [
+        "clock",
+        "current",
+        "applied_voltage",
+        "ideal_current_rate"
+      ],
+      "metadata": "docs/ELECTRICAL_FOURIER_20261121.json",
+      "readout": "Separate frozen-field 12 s current prediction from one initial current and own-trajectory current-reference control; failed guards abort with null full-horizon errors.",
+      "scope": "Ideal sensing, fixed observation-calibrated frequency, externally maintained motion and finite horizon; no hardware, noisy sensing, frequency-drift or mechanical-control claim.",
+      "main_figure_analysis": {
+        "identity": "electrical_four_panel_presentation_20261121_v1",
+        "metadata": "docs/FIGURE_FOCUS_20261121.json",
+        "figure_manifest": {
+          "path": "experiments/direct_submission/electrical_fourier/figure_focus_20261121/figure_manifest.json",
+          "bytes": 6647,
+          "sha256": "c70bdb06ea3903fe224144464c2d202793cb92b0fcd8f8f774b7ca9c0363823e"
+        },
+        "figures": {
+          "focus": {
+            "path": "supplement/figures/direct_fourier_focus.pdf",
+            "bytes": 60001,
+            "sha256": "dbc1099f3004158a1e9d50f583b74367a7692c7948cc9953d286ddcf2eb5d18c"
+          },
+          "diagnostics": {
+            "path": "supplement/figures/direct_fourier_diagnostics.pdf",
+            "bytes": 863361,
+            "sha256": "809427bab3644b40100f84e567260cfc04dc15c9f4d58164d2e117629d982521"
+          }
+        },
+        "simulation_and_records_changed": false
+      }
+    },
+    "contact": {
+      "confirmation_seeds": [
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "all_cases": 9,
+      "free_entries": 24,
+      "readout": "Same pre-update 3x8 field controls force/motion through a parameter change",
+      "scope": "Ideal context-rate sensing, maintained contact, approximate rowspace recovery, no precise canonical physical magnitudes. Timestep sensitivity retained.",
+      "main_figure_analysis": {
+        "identity": "contact_focused_figure_20261121_v1",
+        "metadata": "docs/FIGURE_FOCUS_20261121.json",
+        "figure_manifest": {
+          "path": "experiments/direct_submission/contact/figure_focus_20261121/figure_manifest.json",
+          "bytes": 3771,
+          "sha256": "3144b5f94ef10b7c79cac114eb6f51aec4cffc6f2a4f91fb550afbe38147e59d"
+        },
+        "figures": {
+          "focus": {
+            "path": "supplement/figures/direct_contact_focus.pdf",
+            "bytes": 49269,
+            "sha256": "a7db8130a3f7e327679d79597e6e7c38668d228b1e86e88b5b758f75ca65583a"
+          }
+        },
+        "simulation_and_records_changed": false
+      },
+      "prior_figure_analyses": [
+        {
+          "identity": "contact_all24_exposition_20261121_v1",
+          "metadata": "experiments/direct_submission/contact/analysis_20261121/analysis_manifest.json",
+          "manifest": {
+            "bytes": 2976,
+            "sha256": "e23aca1273cbcdcd42019f082c1f64bfefc3e670cc700fb00b474c8397d1df2b"
+          },
+          "change": "All 24 gauge-aligned signed entry errors, pre-update energy, row-space error and force/motion readout; existing seed101 only.",
+          "simulation_and_records_changed": false
+        }
+      ]
+    },
+    "burgers": {
+      "ideal_seeds": [
+        732,
+        733,
+        734,
+        735,
+        736
+      ],
+      "all_cases": 19,
+      "new_scientific_runs_in_final_pass": 0,
+      "free_entries": "Five per site, 32 sites",
+      "readout": "Same pre-update rows, own-trajectory adaptive/frozen control",
+      "scope": "Ideal w and wt sensing, causal 0.05-s context secants. Five late adaptive successes; only two strict training qualifications. All causal/noisy failures and refinements retained.",
+      "main_figure_analysis": {
+        "identity": "burgers_figure_focus_20261121_v1",
+        "metadata": "docs/FIGURE_FOCUS_20261121.json",
+        "figure_manifest": {
+          "path": "experiments/direct_submission/burgers/figure_focus_20261121/figure_manifest.json",
+          "bytes": 6604,
+          "sha256": "4c5f6f42a5674afc4f24eececbb48405a76c768f1a47e964cb8ed3adf7bf6bdc"
+        },
+        "figures": {
+          "focus": {
+            "path": "supplement/figures/direct_burgers_focus.pdf",
+            "bytes": 156328,
+            "sha256": "c142fea81a8d99d8563dfdf3c5c9271af2588db3d2f997efa560ec6ae5875e4f"
+          },
+          "diagnostics": {
+            "path": "supplement/figures/direct_burgers_diagnostics.pdf",
+            "bytes": 105581,
+            "sha256": "d98061cd52124416287152076c75727e3bf9154a79107f439db15098861ce6f9"
+          }
+        },
+        "simulation_and_records_changed": false
+      }
+    }
+  },
+  "current_verification": {
+    "electrical_cases_independently_audited": 12,
+    "electrical_audit_checks": 2064,
+    "scientific_runs_executed_by_packaging": 0,
+    "contact_and_burgers": "Prior unchanged executed records retained; no new cohort run by packaging",
+    "contact_figure_analysis": "All saved input hashes match the unchanged raw index; public plotter exactly reproduces reviewed PNG and all derived arrays; no simulation rerun.",
+    "figure_focus": "All new display inputs and source/output hashes verified; original sources/figures/raw archives retained. Portable plotters reproduce approved PNGs and derived arrays; no simulation rerun."
+  },
+  "historical_records": "Spatial Fourier graph remains in DIRECT_MAIN_20261120.json/fourier_raw.tar.gz. Earlier structured/reproduction archives remain separate and unchanged. Missing historical originals are not recovered."
+}

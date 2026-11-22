@@ -4,7 +4,8 @@ These instructions describe the sealed electrical_fourier_direct_20261121_v1
 protocol. They do not assert that any repository or archive has been published.
 Run commands from the directory containing run.py, protocol.json,
 electrical_simulator.py, period_estimator.py, direct_learner.py, audit.py, and
-summarize_plot.py. Use Python with NumPy, SciPy, and Matplotlib; each run records
+summarize_plot.py. The focused presentation also uses plot_figure_focus.py.
+Use Python with NumPy, SciPy, and Matplotlib; each run records
 its Python, NumPy, SciPy, platform, command, and start time in environment.json.
 The recorded environment is the reference for numerical reproduction, not a
 promise of bitwise agreement across library versions or machines.
@@ -61,9 +62,22 @@ and optional oracle arrays are written outside immutable raw-run directories.
 3. Aggregate and plot saved records
 
     python summarize_plot.py --records records_reproduced --output figures_reproduced
+    python plot_figure_focus.py --records records_reproduced --output figures_focused
 
-The plotting script reads the fixed ten seed directories; it does not select
-successful seeds or regenerate simulations. It writes aggregate.json,
+The second command produces the current four-panel direct_fourier_focus.pdf/
+.png and separate direct_fourier_diagnostics.pdf/.png. Main panels show energy,
+all four partials, independent prediction, and control. Supplementary panels
+show all-ten-seed row-space error, slow voltage versus fast clock partial, and
+constant-only control. The all-entry comparison uses one evaluator-only scalar/
+sign fitted jointly over all four entries and all 201 original final-second
+samples, with fixed context scales. It neither rescales each time point nor
+forces an entry to truth. This transformation never enters learning/readout.
+Energy and all task intervals are unchanged; no simulation is rerun. New
+source, derived arrays and input/output hashes are in figure_focus_20261121/.
+The original summarize_plot.py and original figure_manifest.json remain intact.
+
+Both plotting scripts read the fixed ten seed directories; neither selects
+successful seeds or regenerates simulations. summarize_plot.py writes aggregate.json,
 direct_fourier_summary.pdf, direct_fourier_summary.png, and figure_manifest.json.
 The manifest identifies input hashes and panel transformations. The energy
 panel uses a causal trailing one-second average, with a shortened startup

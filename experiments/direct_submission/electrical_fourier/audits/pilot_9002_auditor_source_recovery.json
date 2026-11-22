@@ -1,0 +1,7 @@
+{
+  "scope": "Exact earlier audit source reconstructed by reversing the three later additions; not an original preserved snapshot. Its SHA256 exactly matches the source hash recorded in the original169-check pilot report.",
+  "original_report": "pilot_9002_audit.json",
+  "recovered_source": "audit_pilot_9002_original.py",
+  "source_sha256": "33e2586e0c4614d7f6bf0520bfdda46f31b2363b978907f8c39ce95cf308ddd2",
+  "reconstruction": "Removed sealed-protocol binding check, all-twenty-weight variation metrics/check, and full-cycle metric copies from the final auditor. No scientific run or original report was modified."
+}
