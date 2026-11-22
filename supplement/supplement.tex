@@ -8,6 +8,7 @@
 \graphicspath{{figures/}}
 \renewcommand{\thesection}{S\arabic{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsectiondis}{\thesubsection.}
 \renewcommand{\theequation}{S\arabic{equation}}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
@@ -19,8 +20,9 @@
 \begin{abstract}
 This companion gives complete protocols, observation boundaries, all-seed
 results, failure records, and numerical checks for the manuscript's three
-direct-partial learning studies. The same learned field is used for electrical
-prediction and control, and contact/Burgers control. Ideal sensing assumptions, incomplete
+direct-partial learning studies. Each study reuses its learned field for its
+task: electrical prediction and current control, contact regulation, or Burgers
+control. Ideal sensing assumptions, incomplete
 physical recovery, training query failures, and failed causal/noisy sensing
 conditions remain explicit. A separate discussion explains when temporal
 observations suffice and when variations of complete trajectories can supply
@@ -31,7 +33,7 @@ used by the main paper and their complete proofs remain in that paper.
 \section{Guide to the current evidence and records}
 \label{sec:scope}
 Section~\ref{sec:direct_main} contains the complete current main protocols:
-Electrical temporal Fourier learning, independent prediction and current control
+electrical temporal Fourier learning, independent prediction and current control
 (Section~\ref{sec:direct_fourier_protocol}), local contact learning and control
 (Section~\ref{sec:direct_contact_protocol}), and distributed Burgers learning
 and control (Section~\ref{sec:direct_burgers_protocol}).

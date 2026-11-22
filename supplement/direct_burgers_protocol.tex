@@ -29,7 +29,7 @@ pattern, physical eigenspace, or true-$F$ initialization is supplied.
 
 In the ideal condition, $w$ and $w_t$ are measured exactly; spatial channels
 are spectral derivatives of the measured field. This is an explicit ideal
-sensor assumption, not a noisy position-only result. The learner does not
+sensor assumption, not a noisy field-only result. The learner does not
 receive an exact $w_{tt}$ sensor: its observation is the causal context secant
 \begin{equation}
  v_k=\frac{z(t_k)-z(t_k-.05)}{.05},\qquad t_{k+1}-t_k=.005\,\mathrm{s}.
@@ -97,9 +97,9 @@ sample and no stopped branch; its smallest controlled $|q_u|$ is $.67137$.
 \subsubsection{Separate recovery, compatibility, and task scores}
 Only the evaluator forms the physical row
 $F=(w_s,w,-.08,-1,1)$ at each branch's actual clean context. Let
-$p=F/\|F\|$. The physical recovery metric is
+$p=F/\|F\|$. The row-projector error, denoted $e_P$ as in the main paper, is
 \begin{equation}
- e_F=\|q^Tq-p^Tp\|_F=\sqrt{2(1-(qp^T)^2)}.
+ e_P=\|q^Tq-p^Tp\|_F=\sqrt{2(1-(qp^T)^2)}.
  \label{eq:direct_burgers_score}
 \end{equation}
 It is invariant to row sign and scale and ranges from zero to $\sqrt2$.
@@ -132,7 +132,7 @@ The final row gives the across-seed mean $\pm$ sample standard deviation.}
 \renewcommand{\arraystretch}{1.15}
 \begin{tabular}{c c c c c c}
 \hline
-Seed & Training qualified & Adaptive $e_F$ & Frozen $e_F$ &
+Seed & Training qualified & Adaptive $e_P$ & Frozen $e_P$ &
 Adaptive task RMS ($10^{-6}$) & Frozen task RMS ($10^{-6}$)\\
 \hline
 732 & No & .013761 & .018433 & 8.5084 & 22.4895\\
@@ -147,12 +147,12 @@ $8.5722\pm.1856$ & $24.8110\pm15.2371$\\
 \end{tabular}
 \end{table*}
 
-The prospective training qualification requires mean $e_F\leq.05$, pooled
+The prospective training qualification requires mean $e_P\leq.05$, pooled
 95th percentile $\leq.1$, maximum $\leq.25$, worst-site mean $\leq.1$, and
 mean error at most one quarter of the initial-row same-stream error. Only
 seeds 734 and 736 pass every condition. All five pass the inherited weaker
 mean/reduction check and all five pass the declared adaptive late conditions:
-mean $e_F\leq.1$, 95th percentile $\leq.25$, task RMS $\leq10^{-3}$,
+mean $e_P\leq.1$, 95th percentile $\leq.25$, task RMS $\leq10^{-3}$,
 guard and clipping fractions each strictly below $.01$, and completion to
 100 s. These are offline labels, never training stops or feedback gates.
 The five-seed result therefore demonstrates continued direct learning and
@@ -178,9 +178,9 @@ need not define an integrable global Jacobian field.
 The complete study retains 19 cases: five ideal, five causal-clean and five
 causal-noisy main cases, plus two ideal and two causal-clean refinements.
 In causal cases a quadratic endpoint least-squares fit to the preceding $.10$
-s of measured positions estimates $w_t$; the same estimate supplies both the
+s of measured field values estimates $w_t$; the same estimate supplies both the
 context and controller. No future samples or true-rate fill are used. Noisy
-cases add independent position noise with standard deviation $10^{-5}$ per
+cases add independent field-observation noise with standard deviation $10^{-5}$ per
 site/sample. The causal secant first becomes valid at $.15$ s. Noise and row
 initializations vary together across the five paired seeds; this is not a
 crossed factorial noise study.

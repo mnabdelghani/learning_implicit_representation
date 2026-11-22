@@ -5,9 +5,8 @@ time evolution along one trajectory and variations across a family of
 admissible trajectories. Independent perturbation trials are not a general
 requirement for online learning. Their role is to supply additional
 directions when temporal observations do not identify the desired partials.
-The calculations below are explanatory examples, not new simulation results
-or evidence that the retained structured-coefficient studies learn an
-unrestricted differential field.
+The calculations below explain these observation choices; they are not
+additional simulation results.
 
 \subsection{A trajectory variation is not an arbitrary coordinate change}
 Let $f:\mathbb R^d\to\mathbb R^m$ be continuously differentiable, with
@@ -79,7 +78,7 @@ that every initialization or adaptive update converges to that space.
 For a changing differential, different times need not share one exactly
 compatible $F_0$. Online local tracking therefore requires informative
 directions to accumulate on a timescale over which the target row space
-changes sufficiently little relative to the excitation gap and adaptation
+changes sufficiently little relative to the excitation strength and adaptation
 rate. Finite memory, derivative estimation, and sensor noise create distinct
 bias and tracking errors. An empirical spectral gap alone does not establish
 that its bottom eigenspace is the physical row space. An appropriate shared
@@ -136,7 +135,7 @@ trials are an option for missing excitation, not an intrinsic requirement
 of implicit differential learning.
 
 \subsection{A kinematic ambiguity in the periodic dynamic context}
-The periodic plant used in the retained Fourier studies has
+As an illustrative dynamic relation, consider
 \begin{equation}
  \begin{aligned}
  f(z)&=\rho(\phi)r+\kappa(\phi)x-u=0,\\
@@ -221,11 +220,12 @@ local or lifted excitation and tracking conditions are supported. If
 additional null directions remain, possible remedies include improved
 online excitation, additional admissible trajectory variations, or an
 explicitly justified restriction on the learned field. None should be
-silently substituted for the reported protocol. For the intended Fourier
-Memory demonstration, partials must vary faster than the supplied inputs,
-and this separation must be checked on the actual signals. Fourier Memory
-represents fast partial variation;
-it does not supply missing informative directions. Direct harmonic weights
+silently substituted for the reported protocol. In the electrical example
+(Section~\ref{sec:direct_fourier_protocol}), the clock partial varies faster
+than the applied voltage; the current observations contain fast ripple.
+Fourier Memory provides a generative representation of the partials using
+stored weights and internally generated harmonics. It does not supply
+missing informative directions. Direct harmonic weights
 parameterize independently learned partials, rather than a prescribed
 physical residual whose coefficients are fitted and then differentiated.
 Every demonstration must separately evaluate incompatibility, partial-field

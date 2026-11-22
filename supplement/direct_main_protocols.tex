@@ -41,11 +41,13 @@ Independent joint-ODE comparisons test the actual numerical transitions.
 Neither a frozen-memory exponential nor a batch eigensolver is mislabeled
 as the evolving-memory law.
 
-For a query, supply $v_S$ and compute
+For a query, supply the rates $v_S$ in the fixed context units and compute
 \begin{equation}
  \widehat v_C=-Q_C^\dagger Q_Sv_S.
  \label{eq:direct_common_readout}
 \end{equation}
+For Fourier queries, $Q$ is replaced by the evaluated scaled field
+$\bar H=C(h\otimes I_4)$, not the harmonic coefficient row $C$.
 Units are restored before applying physical commands. When a command derivative
 is returned, the command is integrated from its currently known value.
 The main experiments do not reconstruct the physical simulator residual
@@ -62,7 +64,7 @@ Physical parameters and Jacobians are simulator/evaluator only in every row.}
 \midrule
 Electrical Fourier & Time, current, voltage and ideal current rate; current-only frequency calibration, $K=2$, one constraint, units & Twenty independent harmonic weights; all four evaluated entries free & Frozen stored weights generate the field for separate 12-s current prediction and control. \\
 Contact & Ideal eight-channel context and its time rates; three constraints and declared units & All 24 entries of a local $3\times8$ row-orthonormal field & Same pre-update field completes acceleration/input rates for force and motion control; approximate subspace recovery. \\
-Burgers & Ideal $w,w_t$, spatial derivatives of observed $w$, known $u$; causal $.05$-s context secants & Five independent entries at each of 32 sites; no supplied $w_t$ or input coefficient & Same pre-update rows return input rates; full sensing/actuation; separate causal/noisy challenges fail. \\
+Burgers & Ideal $w,w_t$, spatial derivatives of observed $w$, known $u$; causal $.05$-s context secants & Five independent entries at each of 32 sites; neither the $w_t$ nor input partial is fixed & Same pre-update rows return input rates; full sensing/actuation; separate causal/noisy challenges fail. \\
 \bottomrule
 \end{tabular}
 \label{tab:direct_information}
@@ -70,7 +72,8 @@ Burgers & Ideal $w,w_t$, spatial derivatives of observed $w$, known $u$; causal 
 
 \subsection{Distinct interpretation of the diagnostics}
 Pre-update energy measures compatibility with the actual measured/estimated
-rate. Physical recovery uses $\|P_Q-P_{FD}\|_F$ in fixed units; a display gauge
+rate. Agreement with the true differential row space uses
+$\|P_Q-P_{FD}\|_F$ in fixed units; a display gauge
 is an evaluator operation and never changes the learner or command.
 Readout error compares a learned completion with the physical completion of
 the same supplied query, while task error compares the executed trajectory

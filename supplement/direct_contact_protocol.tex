@@ -64,8 +64,8 @@ branch and linearly varying command.
 For seed $s$, a QR factorization of a generic $8\times3$ Gaussian matrix with
 RNG seed $s+10000$ gives $Q_0$; $R_0=0$. The learned physical field is
 $\widehat F=QD^{-1}$, with incompatibility $Qv=\widehat F\dot z$.
-No zero, unit, sign, sparsity, or coefficient-tie condition is imposed on $Q$,
-even where the true matrix has zeros or ones. The executed law is
+No entry is fixed to zero, one, or a prescribed sign, and no sparsity or
+coefficient ties are imposed. The rows are normalized by the executed law:
 \begin{align}
  \dot R&=vv^{\mathsf T}-.5R,\qquad QQ^{\mathsf T}=I_3,\nonumber\\
  \dot Q&=-100\{QR-(QRQ^{\mathsf T})Q\}.
